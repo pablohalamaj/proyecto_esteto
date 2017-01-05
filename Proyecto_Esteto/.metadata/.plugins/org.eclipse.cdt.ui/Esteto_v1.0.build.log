@@ -1,0 +1,24 @@
+11:11:45 **** Incremental Build of configuration Debug for project Esteto_v1.0 ****
+make all 
+Building file: ../src/Examples/SSP/SPI-writes-to-7-seg-display.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"D:\Proyecto_Esteto\FreeRTOS-Products\FreeRTOS-Plus-IO\Device\LPC17xx\SupportedBoards" -I"D:\Proyecto_Esteto\FreeRTOS-Products\FreeRTOS-Plus-IO\Include" -I"D:\Proyecto_Esteto\FreeRTOS-Products\FreeRTOS-Plus-CLI" -I"D:\Proyecto_Esteto\FreeRTOS-Products\FreeRTOS\portable\GCC\ARM_CM3" -I"D:\Proyecto_Esteto\FreeRTOS-Products\FreeRTOS\include" -I"D:\Proyecto_Esteto\CMSISv2p00_LPC17xx\inc" -I"D:\Proyecto_Esteto\Esteto_v1.0\src\Examples\Include" -I"D:\Proyecto_Esteto\Esteto_v1.0\src" -I"D:\Proyecto_Esteto\Esteto_v1.0\src\display" -I"D:\Proyecto_Esteto\Esteto_v1.0\src\drivers" -I"D:\Proyecto_Esteto\Esteto_v1.0\src\filtros" -I"D:\Proyecto_Esteto\Esteto_v1.0\src\freeRTOS" -I"D:\Proyecto_Esteto\Esteto_v1.0\src\adc-dac" -I"D:\Proyecto_Esteto\lpc17xx.cmsis.driver.library\Include" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -Wextra -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/Examples/SSP/SPI-writes-to-7-seg-display.d" -MT"src/Examples/SSP/SPI-writes-to-7-seg-display.d" -o "src/Examples/SSP/SPI-writes-to-7-seg-display.o" "../src/Examples/SSP/SPI-writes-to-7-seg-display.c"
+../src/Examples/SSP/SPI-writes-to-7-seg-display.c: In function 'prvSPIWriteTask':
+../src/Examples/SSP/SPI-writes-to-7-seg-display.c:106:14: warning: variable 'xLastExecutionTime' set but not used [-Wunused-but-set-variable]
+../src/Examples/SSP/SPI-writes-to-7-seg-display.c:105:20: warning: unused variable 'xTaskPeriod_ms' [-Wunused-variable]
+Finished building: ../src/Examples/SSP/SPI-writes-to-7-seg-display.c
+ 
+Building target: Esteto_v1.0.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"D:\Proyecto_Esteto\lpc17xx.cmsis.driver.library\Debug" -L"D:\Proyecto_Esteto\CMSISv2p00_LPC17xx\Debug" -Xlinker -Map=Esteto_v1.0.map -Xlinker --gc-sections -mcpu=cortex-m3 -mthumb -T "Esteto_v1_0_Debug.ld" -o "Esteto_v1.0.axf"  ./src/filtros/asm_fir_q31.o ./src/filtros/bandpass.o ./src/filtros/fir_q31.o ./src/filtros/lowpass.o  ./src/display/Funciones.o ./src/display/Menu.o ./src/display/Subfunciones.o ./src/display/Touch.o ./src/display/WG12864A.o ./src/display/printf-stdarg.o  ./src/adc-dac/adc.o ./src/adc-dac/dac.o  ./src/FreeRTOS-Products/FreeRTOS/portable/MemMang/heap_2.o  ./src/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3/port.o  ./src/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/FreeRTOS_lpc17xx_DriverInterface.o ./src/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/FreeRTOS_lpc17xx_i2c.o ./src/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/FreeRTOS_lpc17xx_ssp.o ./src/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/FreeRTOS_lpc17xx_uart.o  ./src/FreeRTOS-Products/FreeRTOS-Plus-IO/Common/FreeRTOS_DriverInterface.o ./src/FreeRTOS-Products/FreeRTOS-Plus-IO/Common/FreeRTOS_IOUtils.o ./src/FreeRTOS-Products/FreeRTOS-Plus-IO/Common/IOUtils_CharQueueTxAndRx.o ./src/FreeRTOS-Products/FreeRTOS-Plus-IO/Common/IOUtils_CircularBufferRx.o ./src/FreeRTOS-Products/FreeRTOS-Plus-IO/Common/IOUtils_ZeroCopyTx.o  ./src/FreeRTOS-Products/FreeRTOS-Plus-CLI/FreeRTOS_CLI.o  ./src/FreeRTOS-Products/FreeRTOS/croutine.o ./src/FreeRTOS-Products/FreeRTOS/list.o ./src/FreeRTOS-Products/FreeRTOS/queue.o ./src/FreeRTOS-Products/FreeRTOS/tasks.o ./src/FreeRTOS-Products/FreeRTOS/timers.o  ./src/Examples/UART/CLI-commands.o ./src/Examples/UART/UART-interrupt-driven-command-console.o ./src/Examples/UART/UART-operation-modes-test.o  ./src/Examples/SSP/SPI-writes-to-7-seg-display.o  ./src/Examples/I2C/I2C-coordinator.o ./src/Examples/I2C/I2C-to-OLED.o ./src/Examples/I2C/I2C-to-and-from-EEPROM.o ./src/Examples/I2C/font5x7.o ./src/Examples/I2C/oled.o  ./src/Examples/GPIO/GPIO-output-and-software-timers.o  ./src/cr_startup_lpc176x.o ./src/main.o   -llpc17xx.cmsis.driver.library -lCMSISv2p00_LPC17xx
+Finished building target: Esteto_v1.0.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size Esteto_v1.0.axf; # arm-none-eabi-objcopy -O binary Esteto_v1.0.axf Esteto_v1.0.bin ; checksum -p LPC1769 -d Esteto_v1.0.bin;
+   text	   data	    bss	    dec	    hex	filename
+  51136	     68	  21000	  72204	  11a0c	Esteto_v1.0.axf
+ 
+
+11:11:53 Build Finished (took 8s.656ms)
+

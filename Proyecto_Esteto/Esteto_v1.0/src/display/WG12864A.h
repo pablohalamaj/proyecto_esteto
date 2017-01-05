@@ -1,0 +1,106 @@
+/*
+===============================================================================
+ Name        : WG12864A.h
+ Author      : ss
+ Version     : v1.0
+ date		 : 03/08/2016
+ Description : Declaraciones del display
+===============================================================================
+*/
+
+#ifndef WG12864A_H_
+#define WG12864A_H_
+// *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+
+/* FreeRTOS includes. */
+#include "FreeRTOS.h"
+#include "task.h"
+#include "queue.h"
+#include "semphr.h"
+
+/* FreeRTOS+IO includes. */
+#include "FreeRTOS_IO.h"
+
+/* Library includes. */
+#include "lpc17xx_gpio.h"
+
+//	FONTS y GRAFICOS.
+extern const char Arial8x6[];
+extern const char Hexa8x6[];
+extern const char RightArrow16x16[];
+extern const char LeftArrow16x16[];
+extern const char UpArrow16x16[];
+extern const char DownArrow16x16[];
+extern const char BACK16x16[];
+extern const char Cross16x16[];
+extern const char OK16x16[];
+extern const char a16x16[];
+extern const char b16x16[];
+extern const char c16x16[];
+extern const char d16x16[];
+extern const char e16x16[];
+extern const char f16x16[];
+extern const char g16x16[];
+extern const char h16x16[];
+extern const char i16x16[];
+extern const char j16x16[];
+extern const char k16x16[];
+extern const char l16x16[];
+
+//	MASCARAS DE DEFINICIONES DE SALIDAS de CONTROL.
+#define E			0x0001		// Mascara de Enable.
+#define RS			0x0002		// Mascara de RS.
+#define CS1			0x0004		// Mascara de CS1.
+#define CS2			0x0008		// Mascara de CS2.
+#define BACKLIGHT	0x0080		// Mascara de encendido de BACKLIGHT.
+#define CTRL_MASK	0x00FF		// Mascara de bits de control.
+
+//	COLORES.
+#define NEGRO			0
+#define BLANCO		  255
+
+// INSTRUCCIONES.
+#define DER				1
+#define IZQ				0
+#define DISPLAY_ON  0x003F		// Encendido de display.
+#define DISPLAY_OFF 0x003E		// Apagado de display.
+#define X_ADDRESS 	0x00B8		// Ubicacion en el registro X = 0.
+#define Y_ADDRESS 	0x0040		// Ubicacion en el rigistro Y = 0.
+#define START_LINE 	0x00C0		// Obicacion de comienzo de pagina en linea = 0.
+
+// MASCARA DE SALIDA DE DATOS EN PUERTO DB0-DB7.
+#define DATA_MASK	0xFF00		// Mascara de salida de datos.
+
+// *-*-*-*-*-*-*-*-*-*-*-*-*- FUNCIONES -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+
+// Inicializacion de WG12864A.
+void WG12864A_Init(void);
+
+// Escritura de Dato en Bus.
+void GLCD_Data_Out(unsigned int data);
+
+// Seteo en bajo de señal.
+void GLCD_Output_Low(unsigned int signal);
+
+// Seteo en alto de señal.
+void GLCD_Output_High(unsigned int signal);
+
+// Envia byte por bus de datos hacia display
+void GLCD_enviaBYTE(unsigned int lado, unsigned int valor);
+
+// Limpia la pantalla con un color.
+void WG12864A_Limpiar(unsigned int color);
+
+// Posiciona en columna renglon	(entre 1<X<8 y 1<Y<128).
+void WG12864A_posXY(unsigned int X, unsigned int Y);
+
+// Impresion de un caracter.
+void WG12864A_putchar(const char c, const char *letra, const char color);
+
+// Impresion de una cadena de caracteres.
+void WG12864A_printf(const char *texto, const char *letra, const char color);
+
+// Impresion de un simbolo de 16x16.
+void WG12864A_print_symbol(const char *symbol, const char color);
+
+#endif /* WG12864A_H_ */

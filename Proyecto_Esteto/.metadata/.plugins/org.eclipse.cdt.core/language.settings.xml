@@ -1,0 +1,3454 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<plugin>
+	<extension point="org.eclipse.cdt.core.LanguageSettingsProvider">
+		<provider class="org.eclipse.cdt.managedbuilder.language.settings.providers.GCCBuildCommandParser" id="com.crt.advproject.GCCBuildCommandParser" keep-relative-paths="false" name="MCU GCC Build Output Parser" parameter="(arm-none-eabi-gcc)|(arm-none-eabi-[gc]\+\+)|(gcc)|([gc]\+\+)|(clang)" prefer-non-shared="false">
+			<language id="org.eclipse.cdt.core.gcc">
+				<resource project-relative-path="src/FreeRTOS-Products/FreeRTOS-Plus-IO/Common/FreeRTOS_DriverInterface.c">
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/drivers">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/freeRTOS">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="Source/Examples/I2C/oled.c">
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="src/Examples/I2C/font5x7.c">
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/drivers">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/freeRTOS">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="Source/Examples/SSP/SPI-writes-to-7-seg-display.c">
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="Source/filtros/lowpass.c">
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="src/FreeRTOS-Products/FreeRTOS-Plus-IO/Common/IOUtils_CharQueueTxAndRx.c">
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/drivers">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/freeRTOS">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/FreeRTOS_lpc17xx_ssp.c">
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Common/IOUtils_ZeroCopyTx.c">
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="src/FreeRTOS-Products/FreeRTOS/queue.c">
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/drivers">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/freeRTOS">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="Source/FreeRTOS-Products/FreeRTOS/timers.c">
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="Source/FreeRTOS-Products/FreeRTOS/list.c">
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Common/IOUtils_CircularBufferRx.c">
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/FreeRTOS_lpc17xx_i2c.c">
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="src/Examples/I2C/oled.c">
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/drivers">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/freeRTOS">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="src/adc-dac/adc.c">
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/drivers">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/freeRTOS">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="src/display/Menu.c">
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/drivers">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/freeRTOS">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="src/display/printf-stdarg.c">
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/drivers">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/freeRTOS">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="src/Examples/I2C/I2C-to-OLED.c">
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/drivers">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/freeRTOS">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Common/FreeRTOS_IOUtils.c">
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="src/display/Funciones.c">
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/drivers">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/freeRTOS">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="src/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3/port.c">
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/drivers">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/freeRTOS">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="src/display/Subfunciones.c">
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/drivers">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/freeRTOS">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="src/FreeRTOS-Products/FreeRTOS/list.c">
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/drivers">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/freeRTOS">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="Source/FreeRTOS-Products/FreeRTOS/queue.c">
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="Source/FreeRTOS-Products/FreeRTOS-Plus-CLI/FreeRTOS_CLI.c">
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="Source/FreeRTOS-Products/FreeRTOS/croutine.c">
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="Source/main.c">
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="src/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/FreeRTOS_lpc17xx_DriverInterface.c">
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/drivers">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/freeRTOS">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="Source/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3/port.c">
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="src/FreeRTOS-Products/FreeRTOS-Plus-IO/Common/IOUtils_ZeroCopyTx.c">
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/drivers">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/freeRTOS">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/FreeRTOS_lpc17xx_DriverInterface.c">
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="src/filtros/bandpass.c">
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/drivers">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/freeRTOS">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="src/Examples/UART/UART-interrupt-driven-command-console.c">
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/drivers">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/freeRTOS">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="src/FreeRTOS-Products/FreeRTOS/timers.c">
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/drivers">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/freeRTOS">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="src/FreeRTOS-Products/FreeRTOS/portable/MemMang/heap_2.c">
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/drivers">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/freeRTOS">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="src/adc-dac/dac.c">
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/drivers">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/freeRTOS">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="Source/Examples/I2C/I2C-to-and-from-EEPROM.c">
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="src/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/FreeRTOS_lpc17xx_uart.c">
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/drivers">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/freeRTOS">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="Source/Examples/GPIO/GPIO-output-and-software-timers.c">
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="src/cr_startup_lpc175x_6x.c">
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="CORE_M3" value=""/>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__LPC17XX__" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="src/FreeRTOS-Products/FreeRTOS/croutine.c">
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/drivers">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/freeRTOS">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="Source/cr_startup_lpc176x.c">
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="src/FreeRTOS-Products/FreeRTOS-Plus-IO/Common/IOUtils_CircularBufferRx.c">
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/drivers">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/freeRTOS">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="Source/Examples/I2C/font5x7.c">
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="Source/adc-dac/dac.c">
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/FreeRTOS_lpc17xx_uart.c">
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="Source/printf-stdarg.c">
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="Source/Examples/I2C/I2C-coordinator.c">
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="src/filtros/lowpass.c">
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/drivers">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/freeRTOS">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="src/Examples/UART/CLI-commands.c">
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/drivers">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/freeRTOS">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="src/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/FreeRTOS_lpc17xx_ssp.c">
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/drivers">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/freeRTOS">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="src/display/Touch.c">
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/drivers">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/freeRTOS">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="src/Examples/GPIO/GPIO-output-and-software-timers.c">
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/drivers">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/freeRTOS">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="src/FreeRTOS-Products/FreeRTOS/tasks.c">
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/drivers">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/freeRTOS">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="Source/Examples/I2C/I2C-to-OLED.c">
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="src/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/FreeRTOS_lpc17xx_i2c.c">
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/drivers">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/freeRTOS">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="src/display/WG12864A.c">
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/drivers">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/freeRTOS">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="src/FreeRTOS-Products/FreeRTOS-Plus-IO/Common/FreeRTOS_IOUtils.c">
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/drivers">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/freeRTOS">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="src/cr_startup_lpc176x.c">
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/drivers">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/freeRTOS">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Common/FreeRTOS_DriverInterface.c">
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="src/FreeRTOS-Products/FreeRTOS-Plus-CLI/FreeRTOS_CLI.c">
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/drivers">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/freeRTOS">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="src/Examples/I2C/I2C-coordinator.c">
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/drivers">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/freeRTOS">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="Source/FreeRTOS-Products/FreeRTOS/portable/MemMang/heap_2.c">
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="src/crp.c">
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="CORE_M3" value=""/>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__LPC17XX__" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="src/Examples/I2C/I2C-to-and-from-EEPROM.c">
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/drivers">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/freeRTOS">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="src/main.c">
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/drivers">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/freeRTOS">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="src/Examples/UART/UART-operation-modes-test.c">
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/drivers">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/freeRTOS">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="Source/filtros/fir_q31.c">
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="Source/adc-dac/adc.c">
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="src/filtros/fir_q31.c">
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/drivers">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/freeRTOS">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="Source/Examples/UART/UART-interrupt-driven-command-console.c">
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="Source/Examples/UART/CLI-commands.c">
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Common/IOUtils_CharQueueTxAndRx.c">
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="Source/Examples/UART/UART-operation-modes-test.c">
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="Source/FreeRTOS-Products/FreeRTOS/tasks.c">
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="Source/filtros/bandpass.c">
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="src/Examples/SSP/SPI-writes-to-7-seg-display.c">
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/drivers">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/freeRTOS">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Esteto_v1.0/src/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+				<resource project-relative-path="Source/display/printf-stdarg.c">
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/SupportedBoards">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS-Plus-CLI">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv2p00_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/Examples/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/adc-dac">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/display">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS-Plus-Demo-1/Source/filtros">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/lpc17xx.cmsis.driver.library/Include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv2p00_LPC17xx"/>
+				</resource>
+			</language>
+		</provider>
+	</extension>
+</plugin>

@@ -1,0 +1,21 @@
+16:44:10 **** Incremental Build of configuration Debug for project FreeRTOS-Plus-Demo-1 ****
+make all 
+Building file: ../Source/adc-dac/adc.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"D:\Proyecto_Esteto\FreeRTOS-Products\FreeRTOS-Plus-IO\Device\LPC17xx\SupportedBoards" -I"D:\Proyecto_Esteto\FreeRTOS-Products\FreeRTOS-Plus-IO\Include" -I"D:\Proyecto_Esteto\FreeRTOS-Products\FreeRTOS-Plus-CLI" -I"D:\Proyecto_Esteto\FreeRTOS-Products\FreeRTOS\portable\GCC\ARM_CM3" -I"D:\Proyecto_Esteto\FreeRTOS-Products\FreeRTOS\include" -I"D:\Proyecto_Esteto\CMSISv2p00_LPC17xx\inc" -I"D:\Proyecto_Esteto\FreeRTOS-Plus-Demo-1\Source\Examples\Include" -I"D:\Proyecto_Esteto\FreeRTOS-Plus-Demo-1\Source" -I"D:\Proyecto_Esteto\FreeRTOS-Plus-Demo-1\Source\adc-dac" -I"D:\Proyecto_Esteto\FreeRTOS-Plus-Demo-1\Source\display" -I"D:\Proyecto_Esteto\FreeRTOS-Plus-Demo-1\Source\filtros" -I"D:\Proyecto_Esteto\lpc17xx.cmsis.driver.library\Include" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -Wextra -mcpu=cortex-m3 -mthumb -MMD -MP -MF"Source/adc-dac/adc.d" -MT"Source/adc-dac/adc.d" -o "Source/adc-dac/adc.o" "../Source/adc-dac/adc.c"
+Finished building: ../Source/adc-dac/adc.c
+ 
+Building target: FreeRTOS-Plus-Demo-1.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"D:\Proyecto_Esteto\lpc17xx.cmsis.driver.library\Debug" -L"D:\Proyecto_Esteto\CMSISv2p00_LPC17xx\Debug" -Xlinker -Map=FreeRTOS-Plus-Demo-1.map -Xlinker --gc-sections -mcpu=cortex-m3 -mthumb -T "FreeRTOS-Plus-Demo-1_Debug.ld" -o "FreeRTOS-Plus-Demo-1.axf"  ./Source/filtros/asm_fir_q31.o ./Source/filtros/bandpass.o ./Source/filtros/fir_q31.o ./Source/filtros/lowpass.o  ./Source/display/printf-stdarg.o  ./Source/adc-dac/adc.o ./Source/adc-dac/dac.o  ./Source/FreeRTOS-Products/FreeRTOS/portable/MemMang/heap_2.o  ./Source/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3/port.o  ./Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/FreeRTOS_lpc17xx_DriverInterface.o ./Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/FreeRTOS_lpc17xx_i2c.o ./Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/FreeRTOS_lpc17xx_ssp.o ./Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Device/LPC17xx/FreeRTOS_lpc17xx_uart.o  ./Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Common/FreeRTOS_DriverInterface.o ./Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Common/FreeRTOS_IOUtils.o ./Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Common/IOUtils_CharQueueTxAndRx.o ./Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Common/IOUtils_CircularBufferRx.o ./Source/FreeRTOS-Products/FreeRTOS-Plus-IO/Common/IOUtils_ZeroCopyTx.o  ./Source/FreeRTOS-Products/FreeRTOS-Plus-CLI/FreeRTOS_CLI.o  ./Source/FreeRTOS-Products/FreeRTOS/croutine.o ./Source/FreeRTOS-Products/FreeRTOS/list.o ./Source/FreeRTOS-Products/FreeRTOS/queue.o ./Source/FreeRTOS-Products/FreeRTOS/tasks.o ./Source/FreeRTOS-Products/FreeRTOS/timers.o  ./Source/Examples/UART/CLI-commands.o ./Source/Examples/UART/UART-interrupt-driven-command-console.o ./Source/Examples/UART/UART-operation-modes-test.o  ./Source/Examples/SSP/SPI-writes-to-7-seg-display.o  ./Source/Examples/I2C/I2C-coordinator.o ./Source/Examples/I2C/I2C-to-OLED.o ./Source/Examples/I2C/I2C-to-and-from-EEPROM.o ./Source/Examples/I2C/font5x7.o ./Source/Examples/I2C/oled.o  ./Source/Examples/GPIO/GPIO-output-and-software-timers.o  ./Source/cr_startup_lpc176x.o ./Source/main.o   -llpc17xx.cmsis.driver.library -lCMSISv2p00_LPC17xx
+Finished building target: FreeRTOS-Plus-Demo-1.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size FreeRTOS-Plus-Demo-1.axf; # arm-none-eabi-objcopy -O binary FreeRTOS-Plus-Demo-1.axf FreeRTOS-Plus-Demo-1.bin ; checksum -p LPC1769 -d FreeRTOS-Plus-Demo-1.bin;
+   text	   data	    bss	    dec	    hex	filename
+  44756	     60	  18456	  63272	   f728	FreeRTOS-Plus-Demo-1.axf
+ 
+
+16:44:17 Build Finished (took 6s.515ms)
+
