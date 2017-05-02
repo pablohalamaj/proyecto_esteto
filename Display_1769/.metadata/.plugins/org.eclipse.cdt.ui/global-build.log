@@ -1,0 +1,37 @@
+12:10:24 **** Incremental Build of configuration Debug for project CMSISv2p00_LPC17xx ****
+make -r all 
+make: Nothing to be done for `all'.
+12:10:25 **** Incremental Build of configuration Debug for project Display_v1.0 ****
+make -r all 
+Building file: ../src/main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_CMSIS=CMSISv2p00_LPC17xx -D__LPC17XX__ -I"F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/main.d" -MT"src/main.o" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:54:2: warning: implicit declaration of function 'ini_spi1769' [-Wimplicit-function-declaration]
+  ini_spi1769(SPI_1);
+  ^
+../src/main.c:55:2: warning: implicit declaration of function 'WG12864A_Init' [-Wimplicit-function-declaration]
+  WG12864A_Init();   // Inicializacion del DISPLAY.
+  ^
+../src/main.c:56:2: warning: implicit declaration of function 'Menu_Logo' [-Wimplicit-function-declaration]
+  Menu_Logo();    // Presento el Logo de la Empresa.
+  ^
+../src/main.c:43:20: warning: variable 'SSP_InitSt' set but not used [-Wunused-but-set-variable]
+     SSP_CFG_Type  *SSP_InitSt;
+                    ^
+../src/main.c:42:9: warning: unused variable 'MASK' [-Wunused-variable]
+         MASK[]={0x1,0x2,0x4,0x8};
+         ^
+Finished building: ../src/main.c
+ 
+Building target: Display_v1.0.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug" -Xlinker -Map="Display_v1.0.map" -Xlinker --gc-sections -mcpu=cortex-m3 -mthumb -T "Display_v1_0_Debug.ld" -o "Display_v1.0.axf"  ./src/Funciones.o ./src/Menu.o ./src/Subfunciones.o ./src/Touch.o ./src/WG12864A.o ./src/cr_startup_lpc175x_6x.o ./src/crp.o ./src/main.o   -lCMSISv2p00_LPC17xx
+Finished building target: Display_v1.0.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "Display_v1.0.axf"; # arm-none-eabi-objcopy -O binary "Display_v1.0.axf" "Display_v1.0.bin" ; checksum -p LPC1769 -d "Display_v1.0.bin";
+   text	   data	    bss	    dec	    hex	filename
+   3348	      8	     20	   3376	    d30	Display_v1.0.axf
+ 

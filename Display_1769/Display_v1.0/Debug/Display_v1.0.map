@@ -1,0 +1,1040 @@
+Archive member included to satisfy reference by file (symbol)
+
+F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+                              ./src/Funciones.o (CLKPWR_ConfigPPWR)
+F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+                              ./src/Touch.o (GPIO_SetDir)
+F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_ssp.o)
+                              ./src/WG12864A.o (SSP_SendData)
+F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+                              ./src/cr_startup_lpc175x_6x.o (SystemInit)
+F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
+                              F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_ssp.o) (check_failed)
+c:/nxp/lpcxpresso_8.1.4_606/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.2.1/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(__weak__main.o)
+                              ./src/cr_startup_lpc175x_6x.o (__main)
+
+Allocating common symbols
+Common symbol       size              file
+
+t                   0x1               ./src/Funciones.o
+eee                 0x4               ./src/Subfunciones.o
+estf                0x4               ./src/Subfunciones.o
+dets                0x4               ./src/Subfunciones.o
+ee                  0x4               ./src/Subfunciones.o
+proxh               0x10              ./src/Subfunciones.o
+cla                 0x10              ./src/Funciones.o
+ds                  0x4               ./src/Subfunciones.o
+esta                0x4               ./src/Subfunciones.o
+seg                 0x4               ./src/Subfunciones.o
+sleep               0x4               ./src/Touch.o
+ledcoo              0x1               ./src/Subfunciones.o
+eeee                0x4               ./src/Subfunciones.o
+aaa                 0x4               ./src/Subfunciones.o
+toca1               0x1               ./src/Funciones.o
+toca                0x1               ./src/Funciones.o
+anio                0x4               ./src/Subfunciones.o
+aa                  0x4               ./src/Subfunciones.o
+ef                  0x4               ./src/Subfunciones.o
+modo_func           0x1               ./src/Funciones.o
+prs                 0x1               ./src/Funciones.o
+adc_valY            0x4               ./src/Funciones.o
+mi                  0x4               ./src/Subfunciones.o
+pl                  0x4               ./src/Subfunciones.o
+flagsleep           0x4               ./src/Touch.o
+pressok             0x1               ./src/Funciones.o
+d                   0x4               ./src/Subfunciones.o
+dir_comu            0x1               ./src/Funciones.o
+velc                0x1               ./src/Funciones.o
+aaaa                0x4               ./src/Subfunciones.o
+h                   0x4               ./src/Subfunciones.o
+proxf               0x20              ./src/Subfunciones.o
+salida              0x4               ./src/WG12864A.o
+menuactual          0x1               ./src/Funciones.o
+adc_valX            0x4               ./src/Funciones.o
+tcla                0x10              ./src/Funciones.o
+e                   0x4               ./src/Subfunciones.o
+m                   0x4               ./src/Subfunciones.o
+var_aux             0x4               ./src/Menu.o
+
+Discarded input sections
+
+ .group         0x00000000        0x8 ./src/Funciones.o
+ .group         0x00000000        0x8 ./src/Funciones.o
+ .group         0x00000000        0x8 ./src/Funciones.o
+ .group         0x00000000        0x8 ./src/Funciones.o
+ .group         0x00000000        0x8 ./src/Funciones.o
+ .group         0x00000000        0x8 ./src/Funciones.o
+ .group         0x00000000        0x8 ./src/Funciones.o
+ .group         0x00000000        0x8 ./src/Funciones.o
+ .group         0x00000000        0x8 ./src/Funciones.o
+ .group         0x00000000        0x8 ./src/Funciones.o
+ .group         0x00000000        0x8 ./src/Funciones.o
+ .group         0x00000000        0x8 ./src/Funciones.o
+ .group         0x00000000        0x8 ./src/Funciones.o
+ .group         0x00000000        0x8 ./src/Funciones.o
+ .text          0x00000000        0x0 ./src/Funciones.o
+ .data          0x00000000        0x0 ./src/Funciones.o
+ .bss           0x00000000        0x0 ./src/Funciones.o
+ .bss.norecarga
+                0x00000000        0x4 ./src/Funciones.o
+ .bss.muefunc   0x00000000        0x4 ./src/Funciones.o
+ .bss.flagesp   0x00000000        0x1 ./src/Funciones.o
+ .bss.salir     0x00000000        0x1 ./src/Funciones.o
+ .bss.mod       0x00000000        0x1 ./src/Funciones.o
+ .bss.cont_tra  0x00000000        0x4 ./src/Funciones.o
+ .bss.tit       0x00000000        0x4 ./src/Funciones.o
+ .data.num      0x00000000        0x4 ./src/Funciones.o
+ .data.flag_sleepsubmenu
+                0x00000000        0x4 ./src/Funciones.o
+ .bss.varmod    0x00000000        0x4 ./src/Funciones.o
+ .bss.backmod   0x00000000        0x4 ./src/Funciones.o
+ .bss.s         0x00000000        0x4 ./src/Funciones.o
+ .text.Func_Sleep
+                0x00000000      0x238 ./src/Funciones.o
+ .rodata        0x00000000      0x4a3 ./src/Funciones.o
+ .text.Func_MuestraTeclado
+                0x00000000      0x9e0 ./src/Funciones.o
+ .text.func_consultaestados
+                0x00000000      0x318 ./src/Funciones.o
+ .text.func_consultaptros
+                0x00000000      0x23c ./src/Funciones.o
+ .text.func_conserr
+                0x00000000      0x37c ./src/Funciones.o
+ .text.func_borrarerr
+                0x00000000      0x174 ./src/Funciones.o
+ .text.Func_Atributos
+                0x00000000      0x37c ./src/Funciones.o
+ .text.Func_Semaforos
+                0x00000000      0x170 ./src/Funciones.o
+ .text.Func_Direccion
+                0x00000000      0x26c ./src/Funciones.o
+ .text.func_muestrafyh
+                0x00000000       0xfc ./src/Funciones.o
+ .text.func_modfyh
+                0x00000000     0x1140 ./src/Funciones.o
+ COMMON         0x00000000       0x34 ./src/Funciones.o
+ .group         0x00000000        0x8 ./src/Menu.o
+ .group         0x00000000        0x8 ./src/Menu.o
+ .group         0x00000000        0x8 ./src/Menu.o
+ .group         0x00000000        0x8 ./src/Menu.o
+ .group         0x00000000        0x8 ./src/Menu.o
+ .group         0x00000000        0x8 ./src/Menu.o
+ .group         0x00000000        0x8 ./src/Menu.o
+ .group         0x00000000        0x8 ./src/Menu.o
+ .group         0x00000000        0x8 ./src/Menu.o
+ .group         0x00000000        0x8 ./src/Menu.o
+ .group         0x00000000        0x8 ./src/Menu.o
+ .group         0x00000000        0x8 ./src/Menu.o
+ .group         0x00000000        0x8 ./src/Menu.o
+ .group         0x00000000        0x8 ./src/Menu.o
+ .text          0x00000000        0x0 ./src/Menu.o
+ .data          0x00000000        0x0 ./src/Menu.o
+ .bss           0x00000000        0x0 ./src/Menu.o
+ .bss.menu      0x00000000        0x4 ./src/Menu.o
+ .data.menu1    0x00000000        0x4 ./src/Menu.o
+ .data.menu2    0x00000000        0x4 ./src/Menu.o
+ .data.menu3    0x00000000        0x4 ./src/Menu.o
+ .data.menu32   0x00000000        0x4 ./src/Menu.o
+ .data.menu4    0x00000000        0x4 ./src/Menu.o
+ .data.menu41   0x00000000        0x4 ./src/Menu.o
+ .data.menu41_1
+                0x00000000        0x4 ./src/Menu.o
+ .data.menu41_2
+                0x00000000        0x4 ./src/Menu.o
+ .data.menu41_3
+                0x00000000        0x4 ./src/Menu.o
+ .data.menu41_4
+                0x00000000        0x4 ./src/Menu.o
+ .data.clave    0x00000000       0x10 ./src/Menu.o
+ .data.cur      0x00000000        0x4 ./src/Menu.o
+ .bss.indice    0x00000000        0x4 ./src/Menu.o
+ .bss.sleepmenu
+                0x00000000        0x4 ./src/Menu.o
+ .data.flagirq  0x00000000        0x4 ./src/Menu.o
+ .rodata        0x00000000      0x402 ./src/Menu.o
+ .text.Menu_Inicial
+                0x00000000     0x1c38 ./src/Menu.o
+ .debug_macro   0x00000000      0x892 ./src/Menu.o
+ .debug_macro   0x00000000       0x1c ./src/Menu.o
+ .debug_macro   0x00000000       0x22 ./src/Menu.o
+ .debug_macro   0x00000000       0x10 ./src/Menu.o
+ .debug_macro   0x00000000      0x12d ./src/Menu.o
+ .debug_macro   0x00000000      0x5b2 ./src/Menu.o
+ .debug_macro   0x00000000      0x7b7 ./src/Menu.o
+ .debug_macro   0x00000000      0x2dc ./src/Menu.o
+ .debug_macro   0x00000000       0x63 ./src/Menu.o
+ .debug_macro   0x00000000       0xeb ./src/Menu.o
+ .debug_macro   0x00000000       0x6a ./src/Menu.o
+ .debug_macro   0x00000000      0x13c ./src/Menu.o
+ COMMON         0x00000000        0x4 ./src/Menu.o
+ .group         0x00000000        0x8 ./src/Subfunciones.o
+ .group         0x00000000        0x8 ./src/Subfunciones.o
+ .group         0x00000000        0x8 ./src/Subfunciones.o
+ .group         0x00000000        0x8 ./src/Subfunciones.o
+ .group         0x00000000        0x8 ./src/Subfunciones.o
+ .group         0x00000000        0x8 ./src/Subfunciones.o
+ .group         0x00000000        0x8 ./src/Subfunciones.o
+ .group         0x00000000        0x8 ./src/Subfunciones.o
+ .group         0x00000000        0x8 ./src/Subfunciones.o
+ .group         0x00000000        0x8 ./src/Subfunciones.o
+ .group         0x00000000        0x8 ./src/Subfunciones.o
+ .group         0x00000000        0x8 ./src/Subfunciones.o
+ .group         0x00000000        0x8 ./src/Subfunciones.o
+ .text          0x00000000        0x0 ./src/Subfunciones.o
+ .data          0x00000000        0x0 ./src/Subfunciones.o
+ .bss           0x00000000        0x0 ./src/Subfunciones.o
+ .data.colu     0x00000000        0x1 ./src/Subfunciones.o
+ .bss.aux       0x00000000        0x2 ./src/Subfunciones.o
+ .bss.aux3      0x00000000        0x2 ./src/Subfunciones.o
+ .bss.err_mod   0x00000000        0x2 ./src/Subfunciones.o
+ .bss.err_mod2  0x00000000        0x2 ./src/Subfunciones.o
+ .text.muestra_fecha_y_hora
+                0x00000000      0x2a0 ./src/Subfunciones.o
+ .rodata        0x00000000      0x21f ./src/Subfunciones.o
+ .text.muestra_dsemana
+                0x00000000      0x124 ./src/Subfunciones.o
+ .text.muestra_comunic
+                0x00000000       0x64 ./src/Subfunciones.o
+ .text.muestra_det
+                0x00000000      0x274 ./src/Subfunciones.o
+ .text.muestra_dem
+                0x00000000       0x34 ./src/Subfunciones.o
+ .text.muestra_tens
+                0x00000000       0x58 ./src/Subfunciones.o
+ .text.muestra_estados
+                0x00000000      0x20c ./src/Subfunciones.o
+ .text.muestra_modpot
+                0x00000000      0x1f8 ./src/Subfunciones.o
+ .text.Muestra_causa
+                0x00000000      0x410 ./src/Subfunciones.o
+ .text.muestra_fyh_err
+                0x00000000      0x324 ./src/Subfunciones.o
+ .text.prox_fecha
+                0x00000000      0x20c ./src/Subfunciones.o
+ .text.prox_hora
+                0x00000000      0x19c ./src/Subfunciones.o
+ .bss.buffer.5314
+                0x00000000       0x2c ./src/Subfunciones.o
+ .bss.buffe.5315
+                0x00000000       0x2c ./src/Subfunciones.o
+ .bss.buffer.5323
+                0x00000000       0x2c ./src/Subfunciones.o
+ .bss.buffer.5387
+                0x00000000       0x64 ./src/Subfunciones.o
+ .bss.buffer.5430
+                0x00000000        0xa ./src/Subfunciones.o
+ .bss.buff.5431
+                0x00000000        0xa ./src/Subfunciones.o
+ .bss.buffer.5462
+                0x00000000       0x2c ./src/Subfunciones.o
+ .bss.buffer.5468
+                0x00000000       0x2c ./src/Subfunciones.o
+ .bss.buffer.5473
+                0x00000000       0x2c ./src/Subfunciones.o
+ .debug_info    0x00000000      0x6ad ./src/Subfunciones.o
+ .debug_abbrev  0x00000000      0x14b ./src/Subfunciones.o
+ .debug_aranges
+                0x00000000       0x78 ./src/Subfunciones.o
+ .debug_ranges  0x00000000       0x68 ./src/Subfunciones.o
+ .debug_macro   0x00000000       0xa9 ./src/Subfunciones.o
+ .debug_macro   0x00000000      0x892 ./src/Subfunciones.o
+ .debug_macro   0x00000000       0x10 ./src/Subfunciones.o
+ .debug_macro   0x00000000      0x12d ./src/Subfunciones.o
+ .debug_macro   0x00000000       0xa0 ./src/Subfunciones.o
+ .debug_macro   0x00000000       0x1c ./src/Subfunciones.o
+ .debug_macro   0x00000000       0x22 ./src/Subfunciones.o
+ .debug_macro   0x00000000      0x5b2 ./src/Subfunciones.o
+ .debug_macro   0x00000000      0x7b7 ./src/Subfunciones.o
+ .debug_macro   0x00000000      0x2dc ./src/Subfunciones.o
+ .debug_macro   0x00000000       0x5d ./src/Subfunciones.o
+ .debug_macro   0x00000000       0x40 ./src/Subfunciones.o
+ .debug_macro   0x00000000       0x6a ./src/Subfunciones.o
+ .debug_macro   0x00000000      0x13c ./src/Subfunciones.o
+ .debug_line    0x00000000      0x48b ./src/Subfunciones.o
+ .debug_str     0x00000000     0x8781 ./src/Subfunciones.o
+ .comment       0x00000000       0x6f ./src/Subfunciones.o
+ .debug_frame   0x00000000      0x1d0 ./src/Subfunciones.o
+ .ARM.attributes
+                0x00000000       0x33 ./src/Subfunciones.o
+ COMMON         0x00000000       0x80 ./src/Subfunciones.o
+ .group         0x00000000        0x8 ./src/Touch.o
+ .group         0x00000000        0x8 ./src/Touch.o
+ .group         0x00000000        0x8 ./src/Touch.o
+ .group         0x00000000        0x8 ./src/Touch.o
+ .group         0x00000000        0x8 ./src/Touch.o
+ .group         0x00000000        0x8 ./src/Touch.o
+ .group         0x00000000        0x8 ./src/Touch.o
+ .group         0x00000000        0x8 ./src/Touch.o
+ .group         0x00000000        0x8 ./src/Touch.o
+ .group         0x00000000        0x8 ./src/Touch.o
+ .group         0x00000000        0x8 ./src/Touch.o
+ .group         0x00000000        0x8 ./src/Touch.o
+ .group         0x00000000        0x8 ./src/Touch.o
+ .text          0x00000000        0x0 ./src/Touch.o
+ .data          0x00000000        0x0 ./src/Touch.o
+ .bss           0x00000000        0x0 ./src/Touch.o
+ .bss.a         0x00000000        0x4 ./src/Touch.o
+ .text.TOUCH_Init
+                0x00000000        0xc ./src/Touch.o
+ .text.PIOINT1_IRQHandler
+                0x00000000       0x90 ./src/Touch.o
+ .text.TOUCH_Standby
+                0x00000000       0x38 ./src/Touch.o
+ .text.TOUCH_GetX
+                0x00000000       0x94 ./src/Touch.o
+ .text.TOUCH_GetY
+                0x00000000       0x94 ./src/Touch.o
+ .debug_info    0x00000000      0x2c3 ./src/Touch.o
+ .debug_abbrev  0x00000000      0x11b ./src/Touch.o
+ .debug_aranges
+                0x00000000       0x40 ./src/Touch.o
+ .debug_ranges  0x00000000       0x48 ./src/Touch.o
+ .debug_macro   0x00000000       0xa9 ./src/Touch.o
+ .debug_macro   0x00000000      0x892 ./src/Touch.o
+ .debug_macro   0x00000000       0x1c ./src/Touch.o
+ .debug_macro   0x00000000       0x22 ./src/Touch.o
+ .debug_macro   0x00000000       0x10 ./src/Touch.o
+ .debug_macro   0x00000000      0x12d ./src/Touch.o
+ .debug_macro   0x00000000      0x5b2 ./src/Touch.o
+ .debug_macro   0x00000000      0x7b7 ./src/Touch.o
+ .debug_macro   0x00000000      0x2dc ./src/Touch.o
+ .debug_macro   0x00000000       0x63 ./src/Touch.o
+ .debug_macro   0x00000000       0x40 ./src/Touch.o
+ .debug_macro   0x00000000       0xeb ./src/Touch.o
+ .debug_macro   0x00000000       0x6a ./src/Touch.o
+ .debug_macro   0x00000000      0x13c ./src/Touch.o
+ .debug_line    0x00000000      0x267 ./src/Touch.o
+ .debug_str     0x00000000     0x8c1b ./src/Touch.o
+ .comment       0x00000000       0x6f ./src/Touch.o
+ .debug_frame   0x00000000       0xb0 ./src/Touch.o
+ .ARM.attributes
+                0x00000000       0x33 ./src/Touch.o
+ COMMON         0x00000000        0x8 ./src/Touch.o
+ .group         0x00000000        0x8 ./src/WG12864A.o
+ .group         0x00000000        0x8 ./src/WG12864A.o
+ .group         0x00000000        0x8 ./src/WG12864A.o
+ .group         0x00000000        0x8 ./src/WG12864A.o
+ .group         0x00000000        0x8 ./src/WG12864A.o
+ .group         0x00000000        0x8 ./src/WG12864A.o
+ .group         0x00000000        0x8 ./src/WG12864A.o
+ .group         0x00000000        0x8 ./src/WG12864A.o
+ .group         0x00000000        0x8 ./src/WG12864A.o
+ .group         0x00000000        0x8 ./src/WG12864A.o
+ .group         0x00000000        0x8 ./src/WG12864A.o
+ .group         0x00000000        0x8 ./src/WG12864A.o
+ .text          0x00000000        0x0 ./src/WG12864A.o
+ .data          0x00000000        0x0 ./src/WG12864A.o
+ .bss           0x00000000        0x0 ./src/WG12864A.o
+ .rodata.Arial8x6
+                0x00000000      0x234 ./src/WG12864A.o
+ .rodata.Hexa8x6
+                0x00000000       0x60 ./src/WG12864A.o
+ .rodata.RightArrow16x16
+                0x00000000       0x20 ./src/WG12864A.o
+ .rodata.LeftArrow16x16
+                0x00000000       0x20 ./src/WG12864A.o
+ .rodata.UpArrow16x16
+                0x00000000       0x20 ./src/WG12864A.o
+ .rodata.DownArrow16x16
+                0x00000000       0x20 ./src/WG12864A.o
+ .rodata.BACK16x16
+                0x00000000       0x20 ./src/WG12864A.o
+ .rodata.Cross16x16
+                0x00000000       0x20 ./src/WG12864A.o
+ .rodata.OK16x16
+                0x00000000       0x20 ./src/WG12864A.o
+ .text.WG12864A_putchar
+                0x00000000      0x104 ./src/WG12864A.o
+ .text.WG12864A_printf
+                0x00000000       0x34 ./src/WG12864A.o
+ .debug_macro   0x00000000      0x892 ./src/WG12864A.o
+ .debug_macro   0x00000000       0x6a ./src/WG12864A.o
+ .debug_macro   0x00000000      0x13c ./src/WG12864A.o
+ .debug_macro   0x00000000       0x1c ./src/WG12864A.o
+ .debug_macro   0x00000000       0x22 ./src/WG12864A.o
+ .debug_macro   0x00000000       0x10 ./src/WG12864A.o
+ .debug_macro   0x00000000      0x12d ./src/WG12864A.o
+ .debug_macro   0x00000000      0x5b2 ./src/WG12864A.o
+ .debug_macro   0x00000000      0x7b7 ./src/WG12864A.o
+ .debug_macro   0x00000000      0x2dc ./src/WG12864A.o
+ .debug_macro   0x00000000       0x63 ./src/WG12864A.o
+ .debug_macro   0x00000000      0x29d ./src/WG12864A.o
+ .group         0x00000000        0x8 ./src/cr_startup_lpc175x_6x.o
+ .group         0x00000000        0x8 ./src/cr_startup_lpc175x_6x.o
+ .group         0x00000000        0x8 ./src/cr_startup_lpc175x_6x.o
+ .group         0x00000000        0x8 ./src/cr_startup_lpc175x_6x.o
+ .text          0x00000000        0x0 ./src/cr_startup_lpc175x_6x.o
+ .data          0x00000000        0x0 ./src/cr_startup_lpc175x_6x.o
+ .bss           0x00000000        0x0 ./src/cr_startup_lpc175x_6x.o
+ .debug_macro   0x00000000       0x10 ./src/cr_startup_lpc175x_6x.o
+ .debug_macro   0x00000000      0x12d ./src/cr_startup_lpc175x_6x.o
+ .debug_macro   0x00000000      0x5b2 ./src/cr_startup_lpc175x_6x.o
+ .group         0x00000000        0x8 ./src/crp.o
+ .group         0x00000000        0x8 ./src/crp.o
+ .text          0x00000000        0x0 ./src/crp.o
+ .data          0x00000000        0x0 ./src/crp.o
+ .bss           0x00000000        0x0 ./src/crp.o
+ .debug_macro   0x00000000      0x892 ./src/crp.o
+ .group         0x00000000        0x8 ./src/main.o
+ .group         0x00000000        0x8 ./src/main.o
+ .group         0x00000000        0x8 ./src/main.o
+ .group         0x00000000        0x8 ./src/main.o
+ .group         0x00000000        0x8 ./src/main.o
+ .group         0x00000000        0x8 ./src/main.o
+ .group         0x00000000        0x8 ./src/main.o
+ .group         0x00000000        0x8 ./src/main.o
+ .group         0x00000000        0x8 ./src/main.o
+ .group         0x00000000        0x8 ./src/main.o
+ .group         0x00000000        0x8 ./src/main.o
+ .group         0x00000000        0x8 ./src/main.o
+ .text          0x00000000        0x0 ./src/main.o
+ .data          0x00000000        0x0 ./src/main.o
+ .bss           0x00000000        0x0 ./src/main.o
+ .bss.SSP_InitStruct
+                0x00000000        0x4 ./src/main.o
+ .debug_macro   0x00000000      0x892 ./src/main.o
+ .debug_macro   0x00000000       0x1c ./src/main.o
+ .debug_macro   0x00000000       0x22 ./src/main.o
+ .debug_macro   0x00000000       0x10 ./src/main.o
+ .debug_macro   0x00000000      0x12d ./src/main.o
+ .debug_macro   0x00000000      0x5b2 ./src/main.o
+ .debug_macro   0x00000000      0x7b7 ./src/main.o
+ .debug_macro   0x00000000      0x2dc ./src/main.o
+ .debug_macro   0x00000000       0x63 ./src/main.o
+ .debug_macro   0x00000000      0x29d ./src/main.o
+ .debug_macro   0x00000000       0x46 ./src/main.o
+ .debug_macro   0x00000000      0x13c ./src/main.o
+ .text          0x00000000        0x0 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+ .data          0x00000000        0x0 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+ .bss           0x00000000        0x0 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+ .text.CLKPWR_SetPCLKDiv
+                0x00000000       0x54 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+ .text.CLKPWR_GetPCLKSEL
+                0x00000000       0x20 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+ .text.CLKPWR_GetPCLK
+                0x00000000       0x20 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+ .text.CLKPWR_Sleep
+                0x00000000       0x10 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+ .text.CLKPWR_DeepSleep
+                0x00000000       0x1c F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+ .text.CLKPWR_PowerDown
+                0x00000000       0x1c F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+ .text.CLKPWR_DeepPowerDown
+                0x00000000       0x1c F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+ .text          0x00000000        0x0 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+ .data          0x00000000        0x0 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+ .bss           0x00000000        0x0 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+ .text.GPIO_ReadValue
+                0x00000000       0x18 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+ .text.GPIO_IntCmd
+                0x00000000       0x30 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+ .text.GPIO_GetIntStatus
+                0x00000000       0x38 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+ .text.GPIO_ClearInt
+                0x00000000       0x18 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+ .text.FIO_SetDir
+                0x00000000        0x4 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+ .text.FIO_SetValue
+                0x00000000        0x4 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+ .text.FIO_ClearValue
+                0x00000000        0x4 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+ .text.FIO_ReadValue
+                0x00000000        0x4 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+ .text.FIO_IntCmd
+                0x00000000        0x4 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+ .text.FIO_GetIntStatus
+                0x00000000        0x4 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+ .text.FIO_ClearInt
+                0x00000000        0x4 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+ .text.FIO_SetMask
+                0x00000000       0x24 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+ .text.FIO_HalfWordSetDir
+                0x00000000       0x40 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+ .text.FIO_HalfWordSetMask
+                0x00000000       0x40 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+ .text.FIO_HalfWordSetValue
+                0x00000000       0x1c F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+ .text.FIO_HalfWordClearValue
+                0x00000000       0x1c F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+ .text.FIO_HalfWordReadValue
+                0x00000000       0x20 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+ .text.FIO_ByteSetDir
+                0x00000000       0x30 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+ .text.FIO_ByteSetMask
+                0x00000000       0x34 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+ .text.FIO_ByteSetValue
+                0x00000000       0x1c F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+ .text.FIO_ByteClearValue
+                0x00000000       0x1c F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+ .text.FIO_ByteReadValue
+                0x00000000       0x24 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+ .rodata.CSWTCH.8
+                0x00000000       0x14 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+ .rodata.CSWTCH.10
+                0x00000000       0x14 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+ .text          0x00000000        0x0 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_ssp.o)
+ .data          0x00000000        0x0 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_ssp.o)
+ .bss           0x00000000        0x0 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_ssp.o)
+ .text.SSP_Init
+                0x00000000       0xb0 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_ssp.o)
+ .text.SSP_DeInit
+                0x00000000       0x30 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_ssp.o)
+ .text.SSP_GetDataSize
+                0x00000000       0x2c F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_ssp.o)
+ .text.SSP_ConfigStructInit
+                0x00000000       0x18 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_ssp.o)
+ .text.SSP_Cmd  0x00000000       0x48 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_ssp.o)
+ .text.SSP_LoopBackCmd
+                0x00000000       0x48 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_ssp.o)
+ .text.SSP_SlaveOutputCmd
+                0x00000000       0x4c F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_ssp.o)
+ .text.SSP_ReceiveData
+                0x00000000       0x2c F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_ssp.o)
+ .text.SSP_ReadWrite
+                0x00000000      0x1c2 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_ssp.o)
+ .text.SSP_GetStatus
+                0x00000000       0x50 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_ssp.o)
+ .text.SSP_IntConfig
+                0x00000000       0x3c F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_ssp.o)
+ .text.SSP_GetRawIntStatus
+                0x00000000       0x4c F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_ssp.o)
+ .text.SSP_GetRawIntStatusReg
+                0x00000000       0x28 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_ssp.o)
+ .text.SSP_GetIntStatus
+                0x00000000       0x4c F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_ssp.o)
+ .text.SSP_ClearIntPending
+                0x00000000       0x3c F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_ssp.o)
+ .text.SSP_DMACmd
+                0x00000000       0x60 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_ssp.o)
+ .text          0x00000000        0x0 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .data          0x00000000        0x0 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .bss           0x00000000        0x0 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .text.SystemCoreClockUpdate
+                0x00000000       0xc0 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .data.SystemCoreClock
+                0x00000000        0x4 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .text          0x00000000        0x0 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
+ .data          0x00000000        0x0 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
+ .bss           0x00000000        0x0 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
+ .text          0x00000000        0x0 c:/nxp/lpcxpresso_8.1.4_606/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.2.1/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(__weak__main.o)
+ .data          0x00000000        0x0 c:/nxp/lpcxpresso_8.1.4_606/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.2.1/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(__weak__main.o)
+ .bss           0x00000000        0x0 c:/nxp/lpcxpresso_8.1.4_606/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.2.1/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(__weak__main.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+MFlash512        0x00000000         0x00080000         xr
+RamLoc32         0x10000000         0x00008000         xrw
+RamAHB32         0x2007c000         0x00008000         xrw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD ./src/Funciones.o
+LOAD ./src/Menu.o
+LOAD ./src/Subfunciones.o
+LOAD ./src/Touch.o
+LOAD ./src/WG12864A.o
+LOAD ./src/cr_startup_lpc175x_6x.o
+LOAD ./src/crp.o
+LOAD ./src/main.o
+LOAD F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a
+START GROUP
+LOAD c:/nxp/lpcxpresso_8.1.4_606/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.2.1/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a
+LOAD c:/nxp/lpcxpresso_8.1.4_606/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.2.1/armv7-m\libcr_eabihelpers.a
+END GROUP
+                0x00000000                __base_MFlash512 = 0x0
+                0x00000000                __base_Flash = 0x0
+                0x00080000                __top_MFlash512 = 0x80000
+                0x00080000                __top_Flash = 0x80000
+                0x10000000                __base_RamLoc32 = 0x10000000
+                0x10000000                __base_RAM = 0x10000000
+                0x10008000                __top_RamLoc32 = 0x10008000
+                0x10008000                __top_RAM = 0x10008000
+                0x2007c000                __base_RamAHB32 = 0x2007c000
+                0x2007c000                __base_RAM2 = 0x2007c000
+                0x20084000                __top_RamAHB32 = 0x20084000
+                0x20084000                __top_RAM2 = 0x20084000
+
+.text           0x00000000      0xd14
+ FILL mask 0xff
+                0x00000000                __vectors_start__ = ABSOLUTE (.)
+ *(.isr_vector)
+ .isr_vector    0x00000000       0xcc ./src/cr_startup_lpc175x_6x.o
+                0x00000000                g_pfnVectors
+                0x000000cc                . = ALIGN (0x4)
+                0x000000cc                __section_table_start = .
+                0x000000cc                __data_section_table = .
+                0x000000cc        0x4 LONG 0xd14 LOADADDR (.data)
+                0x000000d0        0x4 LONG 0x10000000 ADDR (.data)
+                0x000000d4        0x4 LONG 0x8 SIZEOF (.data)
+                0x000000d8        0x4 LONG 0xd14 LOADADDR (.data_RAM2)
+                0x000000dc        0x4 LONG 0x2007c000 ADDR (.data_RAM2)
+                0x000000e0        0x4 LONG 0x0 SIZEOF (.data_RAM2)
+                0x000000e4                __data_section_table_end = .
+                0x000000e4                __bss_section_table = .
+                0x000000e4        0x4 LONG 0x10000008 ADDR (.bss)
+                0x000000e8        0x4 LONG 0x14 SIZEOF (.bss)
+                0x000000ec        0x4 LONG 0x2007c000 ADDR (.bss_RAM2)
+                0x000000f0        0x4 LONG 0x0 SIZEOF (.bss_RAM2)
+                0x000000f4                __bss_section_table_end = .
+                0x000000f4                __section_table_end = .
+ *(.after_vectors*)
+ .after_vectors
+                0x000000f4       0x84 ./src/cr_startup_lpc175x_6x.o
+                0x000000f4                NMI_Handler
+                0x000000f6                HardFault_Handler
+                0x000000f8                MemManage_Handler
+                0x000000fa                BusFault_Handler
+                0x000000fc                UsageFault_Handler
+                0x000000fe                SVC_Handler
+                0x00000100                DebugMon_Handler
+                0x00000102                PendSV_Handler
+                0x00000104                SysTick_Handler
+                0x00000106                PWM1_IRQHandler
+                0x00000106                I2C1_IRQHandler
+                0x00000106                EINT2_IRQHandler
+                0x00000106                UART1_IRQHandler
+                0x00000106                EINT3_IRQHandler
+                0x00000106                CANActivity_IRQHandler
+                0x00000106                TIMER3_IRQHandler
+                0x00000106                UART0_IRQHandler
+                0x00000106                MCPWM_IRQHandler
+                0x00000106                I2C0_IRQHandler
+                0x00000106                IntDefaultHandler
+                0x00000106                RIT_IRQHandler
+                0x00000106                CAN_IRQHandler
+                0x00000106                PLL1_IRQHandler
+                0x00000106                SSP0_IRQHandler
+                0x00000106                I2S_IRQHandler
+                0x00000106                I2C2_IRQHandler
+                0x00000106                RTC_IRQHandler
+                0x00000106                TIMER0_IRQHandler
+                0x00000106                SPI_IRQHandler
+                0x00000106                UART3_IRQHandler
+                0x00000106                EINT1_IRQHandler
+                0x00000106                TIMER1_IRQHandler
+                0x00000106                UART2_IRQHandler
+                0x00000106                ADC_IRQHandler
+                0x00000106                SSP1_IRQHandler
+                0x00000106                USB_IRQHandler
+                0x00000106                BOD_IRQHandler
+                0x00000106                USBActivity_IRQHandler
+                0x00000106                WDT_IRQHandler
+                0x00000106                PLL0_IRQHandler
+                0x00000106                QEI_IRQHandler
+                0x00000106                EINT0_IRQHandler
+                0x00000106                TIMER2_IRQHandler
+                0x00000106                DMA_IRQHandler
+                0x00000106                ENET_IRQHandler
+                0x00000108                data_init
+                0x0000011e                bss_init
+                0x00000132                ResetISR
+                0x000002fc                . = 0x2fc
+ *fill*         0x00000178      0x184 ff
+                0x000002fc                PROVIDE (__CRP_WORD_START__, .)
+ *(.crp)
+ .crp           0x000002fc        0x4 ./src/crp.o
+                0x000002fc                CRP_WORD
+                0x00000300                PROVIDE (__CRP_WORD_END__, .)
+                0x00000001                ASSERT (! ((__CRP_WORD_START__ == __CRP_WORD_END__)), Linker CRP Enabled, but no CRP_WORD provided within application)
+ *(.text*)
+ .text.ini_spi1769
+                0x00000300       0x34 ./src/Funciones.o
+                0x00000300                ini_spi1769
+ .text.Menu_Logo
+                0x00000334      0x11c ./src/Menu.o
+                0x00000334                Menu_Logo
+ .text.GLCD_Data_Out
+                0x00000450       0x40 ./src/WG12864A.o
+                0x00000450                GLCD_Data_Out
+ .text.GLCD_Output_Low
+                0x00000490       0x30 ./src/WG12864A.o
+                0x00000490                GLCD_Output_Low
+ .text.GLCD_Output_High
+                0x000004c0       0x2c ./src/WG12864A.o
+                0x000004c0                GLCD_Output_High
+ .text.GLCD_enviaBYTE
+                0x000004ec       0x4c ./src/WG12864A.o
+                0x000004ec                GLCD_enviaBYTE
+ .text.WG12864A_Init
+                0x00000538       0x70 ./src/WG12864A.o
+                0x00000538                WG12864A_Init
+ .text.WG12864A_Limpiar
+                0x000005a8       0x7c ./src/WG12864A.o
+                0x000005a8                WG12864A_Limpiar
+ .text.WG12864A_posXY
+                0x00000624       0xa4 ./src/WG12864A.o
+                0x00000624                WG12864A_posXY
+ .text.WG12864A_print_symbol
+                0x000006c8      0x130 ./src/WG12864A.o
+                0x000006c8                WG12864A_print_symbol
+ .text.main     0x000007f8      0x178 ./src/main.o
+                0x000007f8                main
+ .text.set_value
+                0x00000970       0x50 ./src/main.o
+                0x00000970                set_value
+ .text.CLKPWR_ConfigPPWR
+                0x000009c0       0x34 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+                0x000009c0                CLKPWR_ConfigPPWR
+ .text.GPIO_SetDir
+                0x000009f4       0x24 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+                0x000009f4                GPIO_SetDir
+ .text.GPIO_SetValue
+                0x00000a18       0x14 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+                0x00000a18                GPIO_SetValue
+ .text.GPIO_ClearValue
+                0x00000a2c       0x14 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+                0x00000a2c                GPIO_ClearValue
+ .text.SSP_SendData
+                0x00000a40       0x2c F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_ssp.o)
+                0x00000a40                SSP_SendData
+ .text.SystemInit
+                0x00000a6c       0xec F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+                0x00000a6c                SystemInit
+ .text.check_failed
+                0x00000b58        0x2 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
+                0x00000b58                check_failed
+ .text.__weak_main
+                0x00000b5a        0x4 c:/nxp/lpcxpresso_8.1.4_606/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.2.1/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(__weak__main.o)
+                0x00000b5a                __weak_main
+                0x00000b5a                __main
+ *(.rodata .rodata.* .constdata .constdata.*)
+ *fill*         0x00000b5e        0x2 ff
+ .rodata.a16x16
+                0x00000b60       0x20 ./src/WG12864A.o
+                0x00000b60                a16x16
+ .rodata.b16x16
+                0x00000b80       0x20 ./src/WG12864A.o
+                0x00000b80                b16x16
+ .rodata.c16x16
+                0x00000ba0       0x20 ./src/WG12864A.o
+                0x00000ba0                c16x16
+ .rodata.d16x16
+                0x00000bc0       0x20 ./src/WG12864A.o
+                0x00000bc0                d16x16
+ .rodata.e16x16
+                0x00000be0       0x20 ./src/WG12864A.o
+                0x00000be0                e16x16
+ .rodata.f16x16
+                0x00000c00       0x20 ./src/WG12864A.o
+                0x00000c00                f16x16
+ .rodata.g16x16
+                0x00000c20       0x20 ./src/WG12864A.o
+                0x00000c20                g16x16
+ .rodata.h16x16
+                0x00000c40       0x20 ./src/WG12864A.o
+                0x00000c40                h16x16
+ .rodata.i16x16
+                0x00000c60       0x20 ./src/WG12864A.o
+                0x00000c60                i16x16
+ .rodata.j16x16
+                0x00000c80       0x20 ./src/WG12864A.o
+                0x00000c80                j16x16
+ .rodata.k16x16
+                0x00000ca0       0x20 ./src/WG12864A.o
+                0x00000ca0                k16x16
+ .rodata.l16x16
+                0x00000cc0       0x20 ./src/WG12864A.o
+                0x00000cc0                l16x16
+ .rodata        0x00000ce0        0x8 ./src/main.o
+ .rodata.CSWTCH.6
+                0x00000ce8       0x14 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+ .rodata.str1.1
+                0x00000cfc       0x15 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_ssp.o)
+                0x00000d14                . = ALIGN (0x4)
+ *fill*         0x00000d11        0x3 ff
+
+.glue_7         0x00000d14        0x0
+ .glue_7        0x00000d14        0x0 linker stubs
+
+.glue_7t        0x00000d14        0x0
+ .glue_7t       0x00000d14        0x0 linker stubs
+
+.vfp11_veneer   0x00000d14        0x0
+ .vfp11_veneer  0x00000d14        0x0 linker stubs
+
+.v4_bx          0x00000d14        0x0
+ .v4_bx         0x00000d14        0x0 linker stubs
+
+.iplt           0x00000d14        0x0
+ .iplt          0x00000d14        0x0 ./src/Funciones.o
+
+.rel.dyn        0x00000d14        0x0
+ .rel.iplt      0x00000d14        0x0 ./src/Funciones.o
+
+.ARM.extab
+ *(.ARM.extab* .gnu.linkonce.armextab.*)
+                0x00000d14                __exidx_start = .
+
+.ARM.exidx
+ *(.ARM.exidx* .gnu.linkonce.armexidx.*)
+                0x00000d14                __exidx_end = .
+                0x00000d14                _etext = .
+
+.data_RAM2      0x2007c000        0x0 load address 0x00000d14
+ FILL mask 0xff
+                [!provide]                PROVIDE (__start_data_RAM2, .)
+ *(.ramfunc.$RAM2)
+ *(.ramfunc.$RamAHB32)
+ *(.data.$RAM2*)
+ *(.data.$RamAHB32*)
+                0x2007c000                . = ALIGN (0x4)
+                [!provide]                PROVIDE (__end_data_RAM2, .)
+
+.uninit_RESERVED
+                0x10000000        0x0
+ *(.bss.$RESERVED*)
+                0x10000000                . = ALIGN (0x4)
+                0x10000000                _end_uninit_RESERVED = .
+
+.data           0x10000000        0x8 load address 0x00000d14
+ FILL mask 0xff
+                0x10000000                _data = .
+ *(vtable)
+ *(.ramfunc*)
+ *(.data*)
+ .data.posX     0x10000000        0x4 ./src/WG12864A.o
+                0x10000000                posX
+ .data.posY     0x10000004        0x4 ./src/WG12864A.o
+                0x10000004                posY
+                0x10000008                . = ALIGN (0x4)
+                0x10000008                _edata = .
+
+.igot.plt       0x10000008        0x0 load address 0x00000d1c
+ .igot.plt      0x10000008        0x0 ./src/Funciones.o
+
+.bss_RAM2       0x2007c000        0x0
+                [!provide]                PROVIDE (__start_bss_RAM2, .)
+ *(.bss.$RAM2*)
+ *(.bss.$RamAHB32*)
+                0x2007c000                . = ALIGN ((. != 0x0)?0x4:0x1)
+                [!provide]                PROVIDE (__end_bss_RAM2, .)
+
+.bss            0x10000008       0x14
+                0x10000008                _bss = .
+ *(.bss*)
+ .bss.i.5094    0x10000008        0x4 ./src/main.o
+ .bss.j.5095    0x1000000c        0x4 ./src/main.o
+ .bss.t.5096    0x10000010        0x4 ./src/main.o
+ .bss.a.5097    0x10000014        0x4 ./src/main.o
+ *(COMMON)
+ COMMON         0x10000018        0x4 ./src/WG12864A.o
+                0x10000018                salida
+                0x1000001c                . = ALIGN (0x4)
+                0x1000001c                _ebss = .
+                [!provide]                PROVIDE (end, .)
+
+.noinit_RAM2    0x2007c000        0x0
+ *(.noinit.$RAM2*)
+ *(.noinit.$RamAHB32*)
+                0x2007c000                . = ALIGN (0x4)
+
+.noinit         0x1000001c        0x0
+                0x1000001c                _noinit = .
+ *(.noinit*)
+                0x1000001c                . = ALIGN (0x4)
+                0x1000001c                _end_noinit = .
+                [!provide]                PROVIDE (_pvHeapStart, DEFINED (__user_heap_base)?__user_heap_base:.)
+                0x10008000                PROVIDE (_vStackTop, DEFINED (__user_stack_top)?__user_stack_top:(__top_RamLoc32 - 0x0))
+                [!provide]                PROVIDE (__valid_user_code_checksum, (0x0 - ((((((_vStackTop + (ResetISR + 0x1)) + (NMI_Handler + 0x1)) + (HardFault_Handler + 0x1)) + (DEFINED (MemManage_Handler)?MemManage_Handler:0x0 + 0x1)) + (DEFINED (BusFault_Handler)?BusFault_Handler:0x0 + 0x1)) + (DEFINED (UsageFault_Handler)?UsageFault_Handler:0x0 + 0x1))))
+OUTPUT(Display_v1.0.axf elf32-littlearm)
+
+.debug_info     0x00000000     0x3aa6
+ .debug_info    0x00000000      0x879 ./src/Funciones.o
+ .debug_info    0x00000879      0x555 ./src/Menu.o
+ .debug_info    0x00000dce      0x4fb ./src/WG12864A.o
+ .debug_info    0x000012c9      0x2c8 ./src/cr_startup_lpc175x_6x.o
+ .debug_info    0x00001591       0x3f ./src/crp.o
+ .debug_info    0x000015d0      0x254 ./src/main.o
+ .debug_info    0x00001824      0x6bd F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+ .debug_info    0x00001ee1      0xe25 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+ .debug_info    0x00002d06      0x7d6 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_ssp.o)
+ .debug_info    0x000034dc      0x500 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .debug_info    0x000039dc       0xca F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
+
+.debug_abbrev   0x00000000      0xd73
+ .debug_abbrev  0x00000000      0x1a4 ./src/Funciones.o
+ .debug_abbrev  0x000001a4      0x105 ./src/Menu.o
+ .debug_abbrev  0x000002a9       0xf1 ./src/WG12864A.o
+ .debug_abbrev  0x0000039a      0x13d ./src/cr_startup_lpc175x_6x.o
+ .debug_abbrev  0x000004d7       0x36 ./src/crp.o
+ .debug_abbrev  0x0000050d      0x14b ./src/main.o
+ .debug_abbrev  0x00000658      0x183 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+ .debug_abbrev  0x000007db      0x23d F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+ .debug_abbrev  0x00000a18      0x201 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_ssp.o)
+ .debug_abbrev  0x00000c19       0xf0 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .debug_abbrev  0x00000d09       0x6a F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
+
+.debug_aranges  0x00000000      0x3e8
+ .debug_aranges
+                0x00000000       0x78 ./src/Funciones.o
+ .debug_aranges
+                0x00000078       0x28 ./src/Menu.o
+ .debug_aranges
+                0x000000a0       0x68 ./src/WG12864A.o
+ .debug_aranges
+                0x00000108       0x80 ./src/cr_startup_lpc175x_6x.o
+ .debug_aranges
+                0x00000188       0x18 ./src/crp.o
+ .debug_aranges
+                0x000001a0       0x28 ./src/main.o
+ .debug_aranges
+                0x000001c8       0x58 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+ .debug_aranges
+                0x00000220       0xe0 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+ .debug_aranges
+                0x00000300       0xa0 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_ssp.o)
+ .debug_aranges
+                0x000003a0       0x28 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .debug_aranges
+                0x000003c8       0x20 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
+
+.debug_ranges   0x00000000      0x3c0
+ .debug_ranges  0x00000000       0x68 ./src/Funciones.o
+ .debug_ranges  0x00000068       0x30 ./src/Menu.o
+ .debug_ranges  0x00000098       0x58 ./src/WG12864A.o
+ .debug_ranges  0x000000f0       0x70 ./src/cr_startup_lpc175x_6x.o
+ .debug_ranges  0x00000160       0x18 ./src/main.o
+ .debug_ranges  0x00000178       0x48 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+ .debug_ranges  0x000001c0      0x118 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+ .debug_ranges  0x000002d8       0xc0 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_ssp.o)
+ .debug_ranges  0x00000398       0x18 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .debug_ranges  0x000003b0       0x10 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
+
+.debug_macro    0x00000000     0x2f50
+ .debug_macro   0x00000000       0xd0 ./src/Funciones.o
+ .debug_macro   0x000000d0      0x892 ./src/Funciones.o
+ .debug_macro   0x00000962       0x1c ./src/Funciones.o
+ .debug_macro   0x0000097e       0x22 ./src/Funciones.o
+ .debug_macro   0x000009a0       0x10 ./src/Funciones.o
+ .debug_macro   0x000009b0      0x12d ./src/Funciones.o
+ .debug_macro   0x00000add      0x5b2 ./src/Funciones.o
+ .debug_macro   0x0000108f      0x7b7 ./src/Funciones.o
+ .debug_macro   0x00001846      0x2dc ./src/Funciones.o
+ .debug_macro   0x00001b22       0x63 ./src/Funciones.o
+ .debug_macro   0x00001b85       0x40 ./src/Funciones.o
+ .debug_macro   0x00001bc5       0xeb ./src/Funciones.o
+ .debug_macro   0x00001cb0       0x6a ./src/Funciones.o
+ .debug_macro   0x00001d1a      0x13c ./src/Funciones.o
+ .debug_macro   0x00001e56      0x2f1 ./src/Funciones.o
+ .debug_macro   0x00002147       0xbc ./src/Menu.o
+ .debug_macro   0x00002203      0x29d ./src/Menu.o
+ .debug_macro   0x000024a0       0x46 ./src/Menu.o
+ .debug_macro   0x000024e6       0x8c ./src/WG12864A.o
+ .debug_macro   0x00002572       0x52 ./src/cr_startup_lpc175x_6x.o
+ .debug_macro   0x000025c4      0x898 ./src/cr_startup_lpc175x_6x.o
+ .debug_macro   0x00002e5c       0x1a ./src/crp.o
+ .debug_macro   0x00002e76       0x34 ./src/crp.o
+ .debug_macro   0x00002eaa       0xa6 ./src/main.o
+
+.debug_line     0x00000000     0x3509
+ .debug_line    0x00000000      0xc02 ./src/Funciones.o
+ .debug_line    0x00000c02      0x9b5 ./src/Menu.o
+ .debug_line    0x000015b7      0x32e ./src/WG12864A.o
+ .debug_line    0x000018e5      0x198 ./src/cr_startup_lpc175x_6x.o
+ .debug_line    0x00001a7d       0x78 ./src/crp.o
+ .debug_line    0x00001af5      0x20b ./src/main.o
+ .debug_line    0x00001d00      0x45d F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+ .debug_line    0x0000215d      0x5a5 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+ .debug_line    0x00002702      0x703 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_ssp.o)
+ .debug_line    0x00002e05      0x3bd F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .debug_line    0x000031c2      0x347 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
+
+.debug_str      0x00000000     0xbf4b
+ .debug_str     0x00000000     0x9f8a ./src/Funciones.o
+                               0xa01b (size before relaxing)
+ .debug_str     0x00009f8a     0x1090 ./src/Menu.o
+                               0x9c4e (size before relaxing)
+ .debug_str     0x0000b01a      0x101 ./src/WG12864A.o
+                               0x933d (size before relaxing)
+ .debug_str     0x0000b11b      0x2a4 ./src/cr_startup_lpc175x_6x.o
+                               0x3e26 (size before relaxing)
+ .debug_str     0x0000b3bf       0xe9 ./src/crp.o
+                               0x25b6 (size before relaxing)
+ .debug_str     0x0000b4a8       0xa2 ./src/main.o
+                               0x93cc (size before relaxing)
+ .debug_str     0x0000b54a      0x303 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+                                0x3ae (size before relaxing)
+ .debug_str     0x0000b84d      0x42d F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+                                0x573 (size before relaxing)
+ .debug_str     0x0000bc7a      0x271 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_ssp.o)
+                                0x41d (size before relaxing)
+ .debug_str     0x0000beeb       0x2e F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+                                0x2ef (size before relaxing)
+ .debug_str     0x0000bf19       0x32 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
+                                0x13d (size before relaxing)
+
+.comment        0x00000000       0xde
+ .comment       0x00000000       0x6e ./src/Funciones.o
+                                 0x6f (size before relaxing)
+ .comment       0x0000006e       0x6f ./src/Menu.o
+ .comment       0x0000006e       0x6f ./src/WG12864A.o
+ .comment       0x0000006e       0x6f ./src/cr_startup_lpc175x_6x.o
+ .comment       0x0000006e       0x6f ./src/crp.o
+ .comment       0x0000006e       0x6f ./src/main.o
+ .comment       0x0000006e       0x70 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+                                 0x71 (size before relaxing)
+ .comment       0x000000de       0x71 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+ .comment       0x000000de       0x71 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_ssp.o)
+ .comment       0x000000de       0x71 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .comment       0x000000de       0x71 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
+ .comment       0x000000de       0x6f c:/nxp/lpcxpresso_8.1.4_606/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.2.1/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(__weak__main.o)
+
+.ARM.attributes
+                0x00000000       0x33
+ .ARM.attributes
+                0x00000000       0x33 ./src/Funciones.o
+ .ARM.attributes
+                0x00000033       0x33 ./src/Menu.o
+ .ARM.attributes
+                0x00000066       0x33 ./src/WG12864A.o
+ .ARM.attributes
+                0x00000099       0x33 ./src/cr_startup_lpc175x_6x.o
+ .ARM.attributes
+                0x000000cc       0x33 ./src/crp.o
+ .ARM.attributes
+                0x000000ff       0x33 ./src/main.o
+ .ARM.attributes
+                0x00000132       0x33 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+ .ARM.attributes
+                0x00000165       0x33 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+ .ARM.attributes
+                0x00000198       0x33 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_ssp.o)
+ .ARM.attributes
+                0x000001cb       0x33 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .ARM.attributes
+                0x000001fe       0x33 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
+ .ARM.attributes
+                0x00000231       0x33 c:/nxp/lpcxpresso_8.1.4_606/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.2.1/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(__weak__main.o)
+
+.debug_frame    0x00000000      0x944
+ .debug_frame   0x00000000      0x1a8 ./src/Funciones.o
+ .debug_frame   0x000001a8       0x50 ./src/Menu.o
+ .debug_frame   0x000001f8      0x170 ./src/WG12864A.o
+ .debug_frame   0x00000368       0xfc ./src/cr_startup_lpc175x_6x.o
+ .debug_frame   0x00000464       0x54 ./src/main.o
+ .debug_frame   0x000004b8       0xa0 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+ .debug_frame   0x00000558      0x1c0 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+ .debug_frame   0x00000718      0x1d4 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_ssp.o)
+ .debug_frame   0x000008ec       0x38 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .debug_frame   0x00000924       0x20 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
+
+.debug_loc      0x00000000      0xf5e
+ .debug_loc     0x00000000      0x1a5 ./src/cr_startup_lpc175x_6x.o
+ .debug_loc     0x000001a5      0x191 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+ .debug_loc     0x00000336      0x4a1 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+ .debug_loc     0x000007d7      0x767 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_ssp.o)
+ .debug_loc     0x00000f3e       0x20 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+
+.debug_macinfo  0x00000000    0x28b92
+ .debug_macinfo
+                0x00000000     0x967c F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+ .debug_macinfo
+                0x0000967c     0x873a F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+ .debug_macinfo
+                0x00011db6     0xa943 F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_ssp.o)
+ .debug_macinfo
+                0x0001c6f9     0x847f F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .debug_macinfo
+                0x00024b78     0x401a F:\Proyectos LPC1769\Display_1769\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
