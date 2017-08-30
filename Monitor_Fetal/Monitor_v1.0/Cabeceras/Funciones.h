@@ -1,9 +1,15 @@
-/********************************************************
- Name          	: Menu.c
- Created on		: 08/11/2013
- Author        	: potero
- Copyright     	:
- **********************************************************/
+/***************************************************************************
+ *  Proyecto Final-UTN.BA
+ *  Proyecto: Monitor Fetal
+ *  Versión: v1.0
+ *  Fecha: 30-08-2017
+ *  Autor: Sebastian Sisevich
+****************************************************************************/
+/***************************************************************************
+ *	Comentarios:
+ *
+ *
+****************************************************************************/
 
 #ifndef FUNCIONES_H_
 #define FUNCIONES_H_
@@ -19,7 +25,7 @@ void TIMER32_1_IRQHandler(void);
 // Funcion Sleep del Display.
 void Func_Sleep (int, int);
 // Funcion Teclado Numerico.
-uint32_t Func_MuestraTeclado (int);
+unsigned int Func_MuestraTeclado (int);
 
 //--------------------------------------------------------------------------
 /****************************  Submenues 1  ********************************/

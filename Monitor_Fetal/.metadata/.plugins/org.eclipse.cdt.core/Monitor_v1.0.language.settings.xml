@@ -154,6 +154,21 @@
 						<entry kind="macro" name="__REDLIB__" value=""/>
 						<entry kind="macro" name="__USE_CMSIS" value="CMSISv1p30_LPC11xx"/>
 					</resource>
+					<resource project-relative-path="Fuentes/Teclado.c">
+						<entry kind="includePath" name="/CMSISv1p30_LPC11xx/inc">
+							<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/Cabeceras">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/Drivers">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="macro" name="DEBUG" value=""/>
+						<entry kind="macro" name="__CODE_RED" value=""/>
+						<entry kind="macro" name="__REDLIB__" value=""/>
+						<entry kind="macro" name="__USE_CMSIS" value="CMSISv1p30_LPC11xx"/>
+					</resource>
 					<resource project-relative-path="Fuentes/cr_startup_lpc11.c">
 						<entry kind="includePath" name="/CMSISv1p30_LPC11xx/inc">
 							<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>

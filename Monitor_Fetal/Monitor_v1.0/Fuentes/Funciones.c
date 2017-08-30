@@ -1,9 +1,15 @@
-/********************************************************
- Name          	: Menu.c
- Created on		: 08/11/2013
- Author        	: Sebastian Sisevich/potero
- Copyright     	:
- **********************************************************/
+/***************************************************************************
+ *  Proyecto Final-UTN.BA
+ *  Proyecto: Monitor Fetal
+ *  Versión: v1.0
+ *  Fecha: 30-08-2017
+ *  Autor: Sebastian Sisevich
+****************************************************************************/
+/***************************************************************************
+ *	Comentarios:
+ *
+ *
+****************************************************************************/
 
 #include "Menu.h"
 #include "Touch.h"
@@ -14,7 +20,7 @@
 #include "Definiciones.h"
 
 // *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-
+extern void func_teclado(void);
 //--------------------------------------------------------------------------
 //***********************  Variables Externas  *****************************
 
@@ -52,6 +58,7 @@ unsigned int 		cont_tra=0,tcla[4],
 					flag_sleepsubmenu = 1,// Bandera que me indica si se durmio en un SubMenu y evita el codigo del boton Back.
 					varmod=0,backmod=0,s=0,tcl;
 static char  	buffer_pulso[44] ;
+
 // *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 void TIMER32_1_IRQHandler(void)
 {
@@ -862,11 +869,11 @@ void Func_Atributos (void)
 		WG12864A_posXY(1, 4);
 		WG12864A_printf("Afiliado:", Arial8x6, NEGRO);
 		WG12864A_posXY(1, 6);
-		WG12864A_printf("Q W E R T Y U I O P", Arial8x6, NEGRO);
+		WG12864A_printf("Q W E R T Y U I O P ", Arial8x6, NEGRO);
 		WG12864A_posXY(1, 7);
 		WG12864A_printf(" A S D F G H J K L", Arial8x6, NEGRO);
 		WG12864A_posXY(1, 8);
-		WG12864A_printf("  Z X C V B N M", Arial8x6, NEGRO);
+		WG12864A_printf("  Z X C V B N M ", Arial8x6, NEGRO);
 		func_teclado();
 		// Funcion que maneja el Sleep de la pantalla y la IRQ del TOUCH.
 		Func_Sleep (flagirq, sleepmenu);
@@ -1828,63 +1835,3 @@ void func_punto (void)
 	}
 }
 // *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-void func_teclado(void)
-{
-// Se presionó Q?
-	if( (0x10 < adc_valX) && (adc_valX < 0x35) &&
-		(0x5A < adc_valY) && (adc_valY < 0x7A) )
-	{
-		WG12864A_posXY(1, 6);
-		WG12864A_printf("Q ", Arial8x6, BLANCO);
-		delay32Ms(0, TIMMER_FONDO_BLANCO);
-		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
-		WG12864A_posXY(cur, 2);
-		WG12864A_printf("Q", Arial8x6, NEGRO);
-		cur += 6;								// Corro el cursor 1 lugar.
-		norecarga=0;
-		tcl = 1;									// Guardo el numero seleccionado para que la funcion lo devuelva.
-	}
-// Se presionó W?
-	if( (0x35 < adc_valX) && (adc_valX < 0x45) &&
-		(0x5A < adc_valY) && (adc_valY < 0x7A) )
-	{
-		WG12864A_posXY(7, 6);
-		WG12864A_printf(" W ", Arial8x6, BLANCO);
-		delay32Ms(0, TIMMER_FONDO_BLANCO);
-		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
-		WG12864A_posXY(cur, 2);
-		WG12864A_printf("W", Arial8x6, NEGRO);
-		cur += 6;								// Corro el cursor 1 lugar.
-		norecarga=0;
-		tcl = 1;									// Guardo el numero seleccionado para que la funcion lo devuelva.
-	}
-	// Se presionó E?
-	if( (0x45 < adc_valX) && (adc_valX < 0x55) &&
-		(0x5A < adc_valY) && (adc_valY < 0x7A) )
-	{
-		WG12864A_posXY(19, 6);
-		WG12864A_printf(" E ", Arial8x6, BLANCO);
-		delay32Ms(0, TIMMER_FONDO_BLANCO);
-		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
-		WG12864A_posXY(cur, 2);
-		WG12864A_printf("E", Arial8x6, NEGRO);
-		cur += 6;								// Corro el cursor 1 lugar.
-		norecarga=0;
-		tcl = 1;									// Guardo el numero seleccionado para que la funcion lo devuelva.
-	}
-	// Se presionó R?
-	if( (0x55 < adc_valX) && (adc_valX < 0x65) &&
-		(0x5A < adc_valY) && (adc_valY < 0x7A) )
-	{
-		WG12864A_posXY(31, 6);
-		WG12864A_printf(" R ", Arial8x6, BLANCO);
-		delay32Ms(0, TIMMER_FONDO_BLANCO);
-		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
-		WG12864A_posXY(cur, 2);
-		WG12864A_printf("R", Arial8x6, NEGRO);
-		cur += 6;								// Corro el cursor 1 lugar.
-		norecarga=0;
-		tcl = 1;									// Guardo el numero seleccionado para que la funcion lo devuelva.
-	}
-
-}

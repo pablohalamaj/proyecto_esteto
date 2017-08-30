@@ -9,6 +9,7 @@ C_SRCS += \
 ../Fuentes/Main.c \
 ../Fuentes/Menu.c \
 ../Fuentes/Subfunciones.c \
+../Fuentes/Teclado.c \
 ../Fuentes/Touch.c \
 ../Fuentes/WG12864A.c \
 ../Fuentes/cr_startup_lpc11.c 
@@ -19,6 +20,7 @@ OBJS += \
 ./Fuentes/Main.o \
 ./Fuentes/Menu.o \
 ./Fuentes/Subfunciones.o \
+./Fuentes/Teclado.o \
 ./Fuentes/Touch.o \
 ./Fuentes/WG12864A.o \
 ./Fuentes/cr_startup_lpc11.o 
@@ -29,6 +31,7 @@ C_DEPS += \
 ./Fuentes/Main.d \
 ./Fuentes/Menu.d \
 ./Fuentes/Subfunciones.d \
+./Fuentes/Teclado.d \
 ./Fuentes/Touch.d \
 ./Fuentes/WG12864A.d \
 ./Fuentes/cr_startup_lpc11.d 

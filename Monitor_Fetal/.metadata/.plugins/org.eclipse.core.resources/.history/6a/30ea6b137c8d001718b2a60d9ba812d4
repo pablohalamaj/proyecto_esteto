@@ -1,0 +1,81 @@
+/********************************************************
+ Name          	: Menu.c
+ Created on		: 08/11/2013
+ Author        	: potero
+ Copyright     	:
+ **********************************************************/
+
+#ifndef FUNCIONES_H_
+#define FUNCIONES_H_
+// *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+
+// Include Files
+
+
+// *-*-*-*-*-*-*-*-*-*-*-*-*- FUNCIONES -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+
+// Interrupcion del timmer para el ahorro de energia del display.
+void TIMER32_1_IRQHandler(void);
+// Funcion Sleep del Display.
+void Func_Sleep (int, int);
+// Funcion Teclado Numerico.
+uint32_t Func_MuestraTeclado (int);
+
+//--------------------------------------------------------------------------
+/****************************  Submenues 1  ********************************/
+//--------------------------------------------------------------------------
+
+// Funcion consulta de estados ---- 1.1
+void func_consultaestados(void);
+// Funcion consulta parametros ---- 1.2
+void func_consultaptros(void);
+// Funcion consulta errores ------- 1.3
+void func_conserr(void);
+// Funcion borrar errores --------- 1.4
+void func_borrarerr(void);
+//--------------------------------------------------------------------------
+/****************************  Submenues 2  ********************************/
+//--------------------------------------------------------------------------
+
+// Funcion Parametrizar Atributos - 2.1
+void Func_Atributos (void);
+// Funcion Parametrizar Semaforos - 2.2
+void Func_Semaforos (void);
+// Funcion Parametrizar Direccion - 2.3
+void Func_Direccion (void);
+
+//--------------------------------------------------------------------------
+/****************************  Submenues 3  ********************************/
+//--------------------------------------------------------------------------
+// Funcion muestra fecha y hora --- 2.3
+void func_muestrafyh(void);
+// Funcion modifica fecha y hora -- 2.3
+void func_modfyh(void);
+//--------------------------------------------------------------------------
+/****************************  Submenues 4  ********************************/
+//--------------------------------------------------------------------------
+//--------------------------------------------------------------------------
+//***********************  Variables Propias  ******************************
+
+int					norecarga=0,muefunc=0;
+char				menuactual,toca,toca1,modo_func,actualiza_fw=0,
+					t,pressok,prs,velc,dir_comu,
+					flagesp=0,salir=0,mod=0;
+char pos_x=25,pos_y,PUNTO,BORRA,num_pulso,hab_corazon;
+unsigned long int v=0,ha=0;
+unsigned int 		cont_tra=0,tcla[4],
+					adc_valX, adc_valY,	// Variables GLOBALES con los valores de posicion en X e Y.
+					menu, menu1, menu2,	// Variables GLOBALES para posicionamiento en todo el Menú.
+					menu3,	menu32, menu4,
+					menu41, menu41_1,menu41_2,
+					menu41_3, menu41_4,
+					tit = 0,			// Variables para hacer titilante el cursor al ingresar datos del teclado numerico.
+					num = -1,			// Variable para capturar el numero del teclado en pantalla.
+					cla[4],				// Variable para capturar el numero del teclado en pantalla.
+					sleepmenu,			// Variable que me indica con que menu vuelvo del Sleep en la funcion Sleep.
+					flag_sleepsubmenu = 1,// Bandera que me indica si se durmio en un SubMenu y evita el codigo del boton Back.
+					varmod=0,backmod=0,s=0,tcl;
+static char  	buffer_pulso[44] ;
+
+
+#endif /* FUNCIONES_H_ */

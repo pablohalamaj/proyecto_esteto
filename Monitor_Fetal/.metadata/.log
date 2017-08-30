@@ -78,3 +78,67 @@ Command-line arguments:  -os win32 -ws win32 -arch x86 -data F:\Proyectos LPC111
 
 !ENTRY com.crt.log 1 0 2017-08-29 16:07:39.199
 !MESSAGE Drivers loaded in 2201 milliseconds
+!SESSION 2017-08-30 08:07:47.967 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_65
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=es_ES
+Command-line arguments:  -os win32 -ws win32 -arch x86 -data F:\Proyectos LPC1115\Monitor_Fetal
+
+!ENTRY com.crt.debugcommon 4 -1 2017-08-30 08:09:48.369
+!MESSAGE Error received while booting LPC-Link (HID):
+
+
+!ENTRY com.crt.log 1 0 2017-08-30 08:10:05.652
+!MESSAGE Drivers loaded in 2336 milliseconds
+
+!ENTRY Program Flash 4 -1 2017-08-30 08:10:12.186
+!MESSAGE 02: Failed on connect: Ee(36). Could not connect to core.
+
+!ENTRY com.crt.utils 4 -1 2017-08-30 08:38:49.878
+!MESSAGE Program Flash: Cancelled
+
+!ENTRY com.crt.debugcommon 2 0 2017-08-30 08:39:17.267
+!MESSAGE All SWD targets are currently connected to other debug sessions.
+
+
+Press 'Cancel' to terminate this launch.
+!SESSION 2017-08-30 08:39:36.906 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_65
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=es_ES
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY com.crt.log 1 0 2017-08-30 08:39:53.466
+!MESSAGE Drivers loaded in 5100 milliseconds
+
+!ENTRY org.eclipse.ui 4 4 2017-08-30 09:01:19.561
+!MESSAGE Plugin org.eclipse.cdt.ui, extension org.eclipse.ui.decorators, id org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator: Duplicate id found: org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator
+
+!ENTRY org.eclipse.ui 4 4 2017-08-30 09:01:19.562
+!MESSAGE Plugin org.eclipse.cdt.ui, extension org.eclipse.ui.decorators, id org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator: Unknown extension tag found: decorator
+!SESSION 2017-08-30 09:17:07.074 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_65
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=es_ES
+Command-line arguments:  -os win32 -ws win32 -arch x86 -data F:\Proyectos LPC1115\Monitor_Fetal
+
+!ENTRY org.eclipse.ui 4 4 2017-08-30 09:17:51.115
+!MESSAGE Plugin org.eclipse.cdt.ui, extension org.eclipse.ui.decorators, id org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator: Duplicate id found: org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator
+
+!ENTRY org.eclipse.ui 4 4 2017-08-30 09:17:51.115
+!MESSAGE Plugin org.eclipse.cdt.ui, extension org.eclipse.ui.decorators, id org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator: Unknown extension tag found: decorator
+!SESSION 2017-08-30 09:20:54.153 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_65
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=es_ES
+Command-line arguments:  -os win32 -ws win32 -arch x86 -data F:\Proyectos LPC1115\Monitor_Fetal
+
+!ENTRY org.eclipse.ui 4 4 2017-08-30 09:26:47.654
+!MESSAGE Plugin org.eclipse.cdt.ui, extension org.eclipse.ui.decorators, id org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator: Duplicate id found: org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator
+
+!ENTRY org.eclipse.ui 4 4 2017-08-30 09:26:47.657
+!MESSAGE Plugin org.eclipse.cdt.ui, extension org.eclipse.ui.decorators, id org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator: Unknown extension tag found: decorator

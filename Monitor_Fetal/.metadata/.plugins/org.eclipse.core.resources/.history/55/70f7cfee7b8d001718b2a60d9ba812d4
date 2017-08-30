@@ -1,0 +1,377 @@
+/*
+ * Teclado.c
+ *
+ *  Created on: 30 de ago. de 2017
+ *      Author: Sebastian
+ */
+#include "Funciones.h"
+#include "WG12864A.h"
+#include "Definiciones.h"
+void func_teclado(void);
+void func_teclado(void)
+{
+// Se presionó Q?
+	if( (0x10 < adc_valX) && (adc_valX < 0x35) &&
+		(0x5A < adc_valY) && (adc_valY < 0x7A) )
+	{
+		WG12864A_posXY(1, 6);
+		WG12864A_printf("Q ", Arial8x6, BLANCO);
+		delay32Ms(0, TIMMER_FONDO_BLANCO);
+		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
+		WG12864A_posXY(cur, 2);
+		WG12864A_printf("Q", Arial8x6, NEGRO);
+		cur += 6;								// Corro el cursor 1 lugar.
+		norecarga=0;
+		tcl = 1;									// Guardo el numero seleccionado para que la funcion lo devuelva.
+	}
+// Se presionó W?
+	if( (0x35 < adc_valX) && (adc_valX < 0x45) &&
+		(0x5A < adc_valY) && (adc_valY < 0x7A) )
+	{
+		WG12864A_posXY(7, 6);
+		WG12864A_printf(" W ", Arial8x6, BLANCO);
+		delay32Ms(0, TIMMER_FONDO_BLANCO);
+		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
+		WG12864A_posXY(cur, 2);
+		WG12864A_printf("W", Arial8x6, NEGRO);
+		cur += 6;								// Corro el cursor 1 lugar.
+		norecarga=0;
+		tcl = 1;									// Guardo el numero seleccionado para que la funcion lo devuelva.
+	}
+	// Se presionó E?
+	if( (0x45 < adc_valX) && (adc_valX < 0x55) &&
+		(0x5A < adc_valY) && (adc_valY < 0x7A) )
+	{
+		WG12864A_posXY(19, 6);
+		WG12864A_printf(" E ", Arial8x6, BLANCO);
+		delay32Ms(0, TIMMER_FONDO_BLANCO);
+		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
+		WG12864A_posXY(cur, 2);
+		WG12864A_printf("E", Arial8x6, NEGRO);
+		cur += 6;								// Corro el cursor 1 lugar.
+		norecarga=0;
+		tcl = 1;									// Guardo el numero seleccionado para que la funcion lo devuelva.
+	}
+	// Se presionó R?
+	if( (0x55 < adc_valX) && (adc_valX < 0x65) &&
+		(0x5A < adc_valY) && (adc_valY < 0x7A) )
+	{
+		WG12864A_posXY(31, 6);
+		WG12864A_printf(" R ", Arial8x6, BLANCO);
+		delay32Ms(0, TIMMER_FONDO_BLANCO);
+		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
+		WG12864A_posXY(cur, 2);
+		WG12864A_printf("R", Arial8x6, NEGRO);
+		cur += 6;								// Corro el cursor 1 lugar.
+		norecarga=0;
+		tcl = 1;									// Guardo el numero seleccionado para que la funcion lo devuelva.
+	}
+	// Se presionó T?
+	if( (0x65 < adc_valX) && (adc_valX < 0x75) &&
+		(0x5A < adc_valY) && (adc_valY < 0x7A) )
+	{
+		WG12864A_posXY(43, 6);
+		WG12864A_printf(" T ", Arial8x6, BLANCO);
+		delay32Ms(0, TIMMER_FONDO_BLANCO);
+		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
+		WG12864A_posXY(cur, 2);
+		WG12864A_printf("T", Arial8x6, NEGRO);
+		cur += 6;								// Corro el cursor 1 lugar.
+		norecarga=0;
+		tcl = 1;									// Guardo el numero seleccionado para que la funcion lo devuelva.
+	}
+	// Se presionó Y?
+	if( (0x75 < adc_valX) && (adc_valX < 0x85) &&
+		(0x5A < adc_valY) && (adc_valY < 0x7A) )
+	{
+		WG12864A_posXY(55, 6);
+		WG12864A_printf(" Y ", Arial8x6, BLANCO);
+		delay32Ms(0, TIMMER_FONDO_BLANCO);
+		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
+		WG12864A_posXY(cur, 2);
+		WG12864A_printf("Y", Arial8x6, NEGRO);
+		cur += 6;								// Corro el cursor 1 lugar.
+		norecarga=0;
+		tcl = 1;									// Guardo el numero seleccionado para que la funcion lo devuelva.
+	}
+	// Se presionó U?
+	if( (0x85 < adc_valX) && (adc_valX < 0x95) &&
+		(0x5A < adc_valY) && (adc_valY < 0x7A) )
+	{
+		WG12864A_posXY(67, 6);
+		WG12864A_printf(" U ", Arial8x6, BLANCO);
+		delay32Ms(0, TIMMER_FONDO_BLANCO);
+		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
+		WG12864A_posXY(cur, 2);
+		WG12864A_printf("U", Arial8x6, NEGRO);
+		cur += 6;								// Corro el cursor 1 lugar.
+		norecarga=0;
+		tcl = 1;									// Guardo el numero seleccionado para que la funcion lo devuelva.
+	}
+	// Se presionó I?
+	if( (0x95 < adc_valX) && (adc_valX < 0xA5) &&
+		(0x5A < adc_valY) && (adc_valY < 0x7A) )
+	{
+		WG12864A_posXY(79, 6);
+		WG12864A_printf(" I ", Arial8x6, BLANCO);
+		delay32Ms(0, TIMMER_FONDO_BLANCO);
+		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
+		WG12864A_posXY(cur, 2);
+		WG12864A_printf("I", Arial8x6, NEGRO);
+		cur += 6;								// Corro el cursor 1 lugar.
+		norecarga=0;
+		tcl = 1;									// Guardo el numero seleccionado para que la funcion lo devuelva.
+	}
+	// Se presionó O?
+	if( (0xA5 < adc_valX) && (adc_valX < 0xB5) &&
+		(0x5A < adc_valY) && (adc_valY < 0x7A) )
+	{
+		WG12864A_posXY(91, 6);
+		WG12864A_printf(" O ", Arial8x6, BLANCO);
+		delay32Ms(0, TIMMER_FONDO_BLANCO);
+		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
+		WG12864A_posXY(cur, 2);
+		WG12864A_printf("O", Arial8x6, NEGRO);
+		cur += 6;								// Corro el cursor 1 lugar.
+		norecarga=0;
+		tcl = 1;									// Guardo el numero seleccionado para que la funcion lo devuelva.
+	}
+	// Se presionó P?
+	if( (0xB5 < adc_valX) && (adc_valX < 0xC5) &&
+		(0x5A < adc_valY) && (adc_valY < 0x7A) )
+	{
+		WG12864A_posXY(103, 6);
+		WG12864A_printf(" P ", Arial8x6, BLANCO);
+		delay32Ms(0, TIMMER_FONDO_BLANCO);
+		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
+		WG12864A_posXY(cur, 2);
+		WG12864A_printf("P", Arial8x6, NEGRO);
+		cur += 6;								// Corro el cursor 1 lugar.
+		norecarga=0;
+		tcl = 1;									// Guardo el numero seleccionado para que la funcion lo devuelva.
+	}
+	// Se presionó A?
+	if( (0x25 < adc_valX) && (adc_valX < 0x35) &&
+		(0x55 < adc_valY) && (adc_valY < 0x60) )
+	{
+		WG12864A_posXY(1, 7);
+		WG12864A_printf(" A ", Arial8x6, BLANCO);
+		delay32Ms(0, TIMMER_FONDO_BLANCO);
+		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
+		WG12864A_posXY(cur, 2);
+		WG12864A_printf("A", Arial8x6, NEGRO);
+		cur += 6;								// Corro el cursor 1 lugar.
+		norecarga=0;
+		tcl = 1;									// Guardo el numero seleccionado para que la funcion lo devuelva.
+	}
+	// Se presionó S?
+	if( (0x35 < adc_valX) && (adc_valX < 0x45) &&
+		(0x55 < adc_valY) && (adc_valY < 0x60) )
+	{
+		WG12864A_posXY(13, 7);
+		WG12864A_printf(" S ", Arial8x6, BLANCO);
+		delay32Ms(0, TIMMER_FONDO_BLANCO);
+		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
+		WG12864A_posXY(cur, 2);
+		WG12864A_printf("S", Arial8x6, NEGRO);
+		cur += 6;								// Corro el cursor 1 lugar.
+		norecarga=0;
+		tcl = 1;									// Guardo el numero seleccionado para que la funcion lo devuelva.
+	}
+	// Se presionó D?
+	if( (0x45 < adc_valX) && (adc_valX < 0x55) &&
+		(0x55 < adc_valY) && (adc_valY < 0x60) )
+	{
+		WG12864A_posXY(25, 7);
+		WG12864A_printf(" D ", Arial8x6, BLANCO);
+		delay32Ms(0, TIMMER_FONDO_BLANCO);
+		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
+		WG12864A_posXY(cur, 2);
+		WG12864A_printf("D", Arial8x6, NEGRO);
+		cur += 6;								// Corro el cursor 1 lugar.
+		norecarga=0;
+		tcl = 1;									// Guardo el numero seleccionado para que la funcion lo devuelva.
+	}
+	// Se presionó F?
+	if( (0x55 < adc_valX) && (adc_valX < 0x65) &&
+		(0x55 < adc_valY) && (adc_valY < 0x60) )
+	{
+		WG12864A_posXY(37, 7);
+		WG12864A_printf(" F ", Arial8x6, BLANCO);
+		delay32Ms(0, TIMMER_FONDO_BLANCO);
+		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
+		WG12864A_posXY(cur, 2);
+		WG12864A_printf("F", Arial8x6, NEGRO);
+		cur += 6;								// Corro el cursor 1 lugar.
+		norecarga=0;
+		tcl = 1;									// Guardo el numero seleccionado para que la funcion lo devuelva.
+	}
+	// Se presionó G?
+	if( (0x65 < adc_valX) && (adc_valX < 0x75) &&
+		(0x55 < adc_valY) && (adc_valY < 0x60) )
+	{
+		WG12864A_posXY(49, 7);
+		WG12864A_printf(" G ", Arial8x6, BLANCO);
+		delay32Ms(0, TIMMER_FONDO_BLANCO);
+		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
+		WG12864A_posXY(cur, 2);
+		WG12864A_printf("G", Arial8x6, NEGRO);
+		cur += 6;								// Corro el cursor 1 lugar.
+		norecarga=0;
+		tcl = 1;									// Guardo el numero seleccionado para que la funcion lo devuelva.
+	}
+	// Se presionó H?
+	if( (0x75 < adc_valX) && (adc_valX < 0x90) &&
+		(0x55 < adc_valY) && (adc_valY < 0x60) )
+	{
+		WG12864A_posXY(61, 7);
+		WG12864A_printf(" H ", Arial8x6, BLANCO);
+		delay32Ms(0, TIMMER_FONDO_BLANCO);
+		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
+		WG12864A_posXY(cur, 2);
+		WG12864A_printf("H", Arial8x6, NEGRO);
+		cur += 6;								// Corro el cursor 1 lugar.
+		norecarga=0;
+		tcl = 1;									// Guardo el numero seleccionado para que la funcion lo devuelva.
+	}
+	// Se presionó J?
+	if( (0x90 < adc_valX) && (adc_valX < 0xA0) &&
+		(0x55 < adc_valY) && (adc_valY < 0x60) )
+	{
+		WG12864A_posXY(73, 7);
+		WG12864A_printf(" J ", Arial8x6, BLANCO);
+		delay32Ms(0, TIMMER_FONDO_BLANCO);
+		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
+		WG12864A_posXY(cur, 2);
+		WG12864A_printf("J", Arial8x6, NEGRO);
+		cur += 6;								// Corro el cursor 1 lugar.
+		norecarga=0;
+		tcl = 1;									// Guardo el numero seleccionado para que la funcion lo devuelva.
+	}
+	// Se presionó K?
+	if( (0xA0 < adc_valX) && (adc_valX < 0xB0) &&
+		(0x55 < adc_valY) && (adc_valY < 0x60) )
+	{
+		WG12864A_posXY(85, 7);
+		WG12864A_printf(" K ", Arial8x6, BLANCO);
+		delay32Ms(0, TIMMER_FONDO_BLANCO);
+		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
+		WG12864A_posXY(cur, 2);
+		WG12864A_printf("K", Arial8x6, NEGRO);
+		cur += 6;								// Corro el cursor 1 lugar.
+		norecarga=0;
+		tcl = 1;									// Guardo el numero seleccionado para que la funcion lo devuelva.
+	}
+	// Se presionó L?
+	if( (0xB0 < adc_valX) && (adc_valX < 0xCA) &&
+		(0x55 < adc_valY) && (adc_valY < 0x60) )
+	{
+		WG12864A_posXY(97, 7);
+		WG12864A_printf(" L", Arial8x6, BLANCO);
+		delay32Ms(0, TIMMER_FONDO_BLANCO);
+		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
+		WG12864A_posXY(cur, 2);
+		WG12864A_printf("L", Arial8x6, NEGRO);
+		cur += 6;								// Corro el cursor 1 lugar.
+		norecarga=0;
+		tcl = 1;									// Guardo el numero seleccionado para que la funcion lo devuelva.
+	}
+	// Se presionó Z?
+	if( (0x35 < adc_valX) && (adc_valX < 0x45) &&
+		(0x10 < adc_valY) && (adc_valY < 0x50) )
+	{
+		WG12864A_posXY(7, 8);
+		WG12864A_printf(" Z ", Arial8x6, BLANCO);
+		delay32Ms(0, TIMMER_FONDO_BLANCO);
+		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
+		WG12864A_posXY(cur, 2);
+		WG12864A_printf("Z", Arial8x6, NEGRO);
+		cur += 6;								// Corro el cursor 1 lugar.
+		norecarga=0;
+		tcl = 1;									// Guardo el numero seleccionado para que la funcion lo devuelva.
+	}
+	// Se presionó X?
+	if( (0x45 < adc_valX) && (adc_valX < 0x55) &&
+		(0x10 < adc_valY) && (adc_valY < 0x50) )
+	{
+		WG12864A_posXY(19, 8);
+		WG12864A_printf(" X ", Arial8x6, BLANCO);
+		delay32Ms(0, TIMMER_FONDO_BLANCO);
+		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
+		WG12864A_posXY(cur, 2);
+		WG12864A_printf("X", Arial8x6, NEGRO);
+		cur += 6;								// Corro el cursor 1 lugar.
+		norecarga=0;
+		tcl = 1;									// Guardo el numero seleccionado para que la funcion lo devuelva.
+	}
+	// Se presionó C?
+	if( (0x55 < adc_valX) && (adc_valX < 0x65) &&
+		(0x10 < adc_valY) && (adc_valY < 0x50) )
+	{
+		WG12864A_posXY(31, 8);
+		WG12864A_printf(" C ", Arial8x6, BLANCO);
+		delay32Ms(0, TIMMER_FONDO_BLANCO);
+		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
+		WG12864A_posXY(cur, 2);
+		WG12864A_printf("C", Arial8x6, NEGRO);
+		cur += 6;								// Corro el cursor 1 lugar.
+		norecarga=0;
+		tcl = 1;									// Guardo el numero seleccionado para que la funcion lo devuelva.
+	}
+	// Se presionó V?
+	if( (0x65 < adc_valX) && (adc_valX < 0x75) &&
+		(0x10 < adc_valY) && (adc_valY < 0x50) )
+	{
+		WG12864A_posXY(43, 8);
+		WG12864A_printf(" V ", Arial8x6, BLANCO);
+		delay32Ms(0, TIMMER_FONDO_BLANCO);
+		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
+		WG12864A_posXY(cur, 2);
+		WG12864A_printf("V", Arial8x6, NEGRO);
+		cur += 6;								// Corro el cursor 1 lugar.
+		norecarga=0;
+		tcl = 1;									// Guardo el numero seleccionado para que la funcion lo devuelva.
+	}
+	// Se presionó B?
+	if( (0x75 < adc_valX) && (adc_valX < 0x85) &&
+		(0x10 < adc_valY) && (adc_valY < 0x50) )
+	{
+		WG12864A_posXY(55, 8);
+		WG12864A_printf(" B ", Arial8x6, BLANCO);
+		delay32Ms(0, TIMMER_FONDO_BLANCO);
+		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
+		WG12864A_posXY(cur, 2);
+		WG12864A_printf("B", Arial8x6, NEGRO);
+		cur += 6;								// Corro el cursor 1 lugar.
+		norecarga=0;
+		tcl = 1;									// Guardo el numero seleccionado para que la funcion lo devuelva.
+	}
+	// Se presionó N?
+	if( (0x85 < adc_valX) && (adc_valX < 0x95) &&
+		(0x10 < adc_valY) && (adc_valY < 0x50) )
+	{
+		WG12864A_posXY(67, 8);
+		WG12864A_printf(" N ", Arial8x6, BLANCO);
+		delay32Ms(0, TIMMER_FONDO_BLANCO);
+		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
+		WG12864A_posXY(cur, 2);
+		WG12864A_printf("N", Arial8x6, NEGRO);
+		cur += 6;								// Corro el cursor 1 lugar.
+		norecarga=0;
+		tcl = 1;									// Guardo el numero seleccionado para que la funcion lo devuelva.
+	}
+	// Se presionó M?
+	if( (0x95 < adc_valX) && (adc_valX < 0xA5) &&
+		(0x10 < adc_valY) && (adc_valY < 0x50) )
+	{
+		WG12864A_posXY(79, 8);
+		WG12864A_printf(" M ", Arial8x6, BLANCO);
+		delay32Ms(0, TIMMER_FONDO_BLANCO);
+		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
+		WG12864A_posXY(cur, 2);
+		WG12864A_printf("M", Arial8x6, NEGRO);
+		cur += 6;								// Corro el cursor 1 lugar.
+		norecarga=0;
+		tcl = 1;									// Guardo el numero seleccionado para que la funcion lo devuelva.
+	}
+}
