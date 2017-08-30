@@ -1,13 +1,46 @@
-09:36:39 **** Incremental Build of configuration Debug for project Monitor_v1.0 ****
+16:31:53 **** Incremental Build of configuration Debug for project Monitor_v1.0 ****
 make -r all 
-Building file: ../Fuentes/Teclado.c
+Building file: ../Fuentes/Menu.c
 Invoking: MCU C Compiler
-arm-none-eabi-gcc -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv1p30_LPC11xx -D__REDLIB__ -I"F:\Proyectos LPC1115\Monitor_Fetal\CMSISv1p30_LPC11xx\inc" -I"F:\Proyectos LPC1115\Monitor_Fetal\Monitor_v1.0\Cabeceras" -I"F:\Proyectos LPC1115\Monitor_Fetal\Monitor_v1.0\Drivers" -Os -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"Fuentes/Teclado.d" -MT"Fuentes/Teclado.o" -MT"Fuentes/Teclado.d" -o "Fuentes/Teclado.o" "../Fuentes/Teclado.c"
-../Fuentes/Teclado.c: In function 'func_teclado':
-../Fuentes/Teclado.c:32:3: warning: implicit declaration of function 'delay32Ms' [-Wimplicit-function-declaration]
-   delay32Ms(0, TIMMER_FONDO_BLANCO);
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv1p30_LPC11xx -D__REDLIB__ -I"F:\Proyectos LPC1115\Monitor_Fetal\CMSISv1p30_LPC11xx\inc" -I"F:\Proyectos LPC1115\Monitor_Fetal\Monitor_v1.0\Cabeceras" -I"F:\Proyectos LPC1115\Monitor_Fetal\Monitor_v1.0\Drivers" -Os -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"Fuentes/Menu.d" -MT"Fuentes/Menu.o" -MT"Fuentes/Menu.d" -o "Fuentes/Menu.o" "../Fuentes/Menu.c"
+../Fuentes/Menu.c:26:21: warning: 'menu' initialized and declared 'extern'
+ extern unsigned int menu = 0, menu1 = -1, menu2 = -1, menu3 = -1,
+                     ^
+../Fuentes/Menu.c:26:31: warning: 'menu1' initialized and declared 'extern'
+ extern unsigned int menu = 0, menu1 = -1, menu2 = -1, menu3 = -1,
+                               ^
+../Fuentes/Menu.c:26:43: warning: 'menu2' initialized and declared 'extern'
+ extern unsigned int menu = 0, menu1 = -1, menu2 = -1, menu3 = -1,
+                                           ^
+../Fuentes/Menu.c:26:55: warning: 'menu3' initialized and declared 'extern'
+ extern unsigned int menu = 0, menu1 = -1, menu2 = -1, menu3 = -1,
+                                                       ^
+../Fuentes/Menu.c:27:6: warning: 'menu32' initialized and declared 'extern'
+      menu32 = -1, menu4 = -1, menu41 = -1, menu41_1 = -1,
+      ^
+../Fuentes/Menu.c:27:19: warning: 'menu4' initialized and declared 'extern'
+      menu32 = -1, menu4 = -1, menu41 = -1, menu41_1 = -1,
+                   ^
+../Fuentes/Menu.c:27:31: warning: 'menu41' initialized and declared 'extern'
+      menu32 = -1, menu4 = -1, menu41 = -1, menu41_1 = -1,
+                               ^
+../Fuentes/Menu.c:27:44: warning: 'menu41_1' initialized and declared 'extern'
+      menu32 = -1, menu4 = -1, menu41 = -1, menu41_1 = -1,
+                                            ^
+../Fuentes/Menu.c:28:6: warning: 'menu41_2' initialized and declared 'extern'
+      menu41_2 = -1, menu41_3 = -1, menu41_4 = -1;
+      ^
+../Fuentes/Menu.c:28:21: warning: 'menu41_3' initialized and declared 'extern'
+      menu41_2 = -1, menu41_3 = -1, menu41_4 = -1;
+                     ^
+../Fuentes/Menu.c:28:36: warning: 'menu41_4' initialized and declared 'extern'
+      menu41_2 = -1, menu41_3 = -1, menu41_4 = -1;
+                                    ^
+../Fuentes/Menu.c: In function 'Menu_Inicial':
+../Fuentes/Menu.c:767:3: warning: implicit declaration of function 'func_actualiza_fw' [-Wimplicit-function-declaration]
+   func_actualiza_fw();      // Entra en la funcion muestra fecha y hora.
    ^
-Finished building: ../Fuentes/Teclado.c
+Finished building: ../Fuentes/Menu.c
  
 Building target: Monitor_v1.0.axf
 Invoking: MCU Linker
@@ -18,8 +51,8 @@ make --no-print-directory post-build
 Performing post-build steps
 arm-none-eabi-size "Monitor_v1.0.axf"; # arm-none-eabi-objcopy -O binary "Monitor_v1.0.axf" "Monitor_v1.0.bin" ; checksum -p LPC1114_302 -d "Monitor_v1.0.bin";
    text	   data	    bss	    dec	    hex	filename
-  31120	     92	   1672	  32884	   8074	Monitor_v1.0.axf
+  29580	     88	   1576	  31244	   7a0c	Monitor_v1.0.axf
  
 
-09:36:39 Build Finished (took 486ms)
+16:31:53 Build Finished (took 586ms)
 

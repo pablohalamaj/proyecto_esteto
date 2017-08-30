@@ -43,7 +43,7 @@ int					norecarga=0,muefunc=0;
 char				menuactual,toca,toca1,modo_func,actualiza_fw=0,
 					t,pressok,prs,velc,dir_comu,
 					flagesp=0,salir=0,mod=0;
-char pos_x=25,pos_y,PUNTO,BORRA,num_pulso,hab_corazon;
+char pos_x=25,pos_y,PUNTO,BORRA,num_pulso,hab_corazon,FILTRO_DIG=0;
 unsigned long int v=0,ha=0;
 unsigned int 		cont_tra=0,tcla[4],
 					adc_valX, adc_valY,	// Variables GLOBALES con los valores de posicion en X e Y.
@@ -851,7 +851,7 @@ flag_sleepsubmenu = 1;						// Restablesco el valor original de la bandera.
 
 //						  2.1 Parametrizar Atributos
 //--------------------------------------------------------------------------
-void Func_Atributos (void)
+void Func_Ingreso (void)
 {
 	// Mientras no se presione Back.
 	while(! ((0xD0 < adc_valX) && (adc_valX < 0xEA) &&
@@ -866,15 +866,62 @@ void Func_Atributos (void)
 		WG12864A_printf("Nombre:", Arial8x6, NEGRO);
 		WG12864A_posXY(1, 3);
 		WG12864A_printf("Edad:", Arial8x6, NEGRO);
-		WG12864A_posXY(1, 4);
-		WG12864A_printf("Afiliado:", Arial8x6, NEGRO);
+		WG12864A_posXY(1, 5);
+		WG12864A_printf(" 1 2 3 4 5 6 7 8 9 0", Arial8x6, NEGRO);
 		WG12864A_posXY(1, 6);
 		WG12864A_printf("Q W E R T Y U I O P ", Arial8x6, NEGRO);
 		WG12864A_posXY(1, 7);
 		WG12864A_printf(" A S D F G H J K L", Arial8x6, NEGRO);
 		WG12864A_posXY(1, 8);
 		WG12864A_printf("  Z X C V B N M ", Arial8x6, NEGRO);
-		func_teclado();
+		WG12864A_posXY(90, 3);
+		WG12864A_print_symbol(LeftArrow16x16, BLANCO);
+		WG12864A_posXY(110, 3);
+		WG12864A_print_symbol(OK16x16, BLANCO);
+		// Se Presionó Flecha Izquerda?
+		if( (0x95 < adc_valX) && (adc_valX < 0xB5) &&
+			(0x70 < adc_valY) && (adc_valY < 0xA9) ){
+
+			WG12864A_posXY(90, 3);						// Animacion del dibujo.
+			WG12864A_print_symbol(LeftArrow16x16, NEGRO);
+			delay32Ms(0, TIMMER_FONDO_BLANCO_BOTONES);
+			adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
+			WG12864A_posXY(cur, 2);					// Presento el cursor donde corresponde.
+			WG12864A_printf(" ", Arial8x6, NEGRO);
+			cur -= 12;								// Corro el cursor 1 lugar.
+			norecarga=0;
+			indice --;									// Decremento el Indice del vector que guarda la clave ingresada.
+
+			// Acomodo el cursor dentro de los 4 casilleros de la clave a ingresar y el indice del vector de la clave.
+			if( cur < 76 ){
+
+				cur = 112;
+				indice = 3;
+			}
+		}
+		// Se Presionó OK?
+		if( (0xD0 < adc_valX) && (adc_valX < 0xEA) &&
+			(0x70 < adc_valY) && (adc_valY < 0xA9) ){
+
+			WG12864A_posXY(110, 3);						// Animacion del dibujo.
+			WG12864A_print_symbol(OK16x16, NEGRO);
+			delay32Ms(0, TIMMER_FONDO_BLANCO_BOTONES);
+			adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
+			WG12864A_posXY(cur, 2);					// Presento el cursor donde corresponde.
+			WG12864A_printf(" ", Arial8x6, NEGRO);
+			cur -= 12;								// Corro el cursor 1 lugar.
+			norecarga=0;
+			indice --;									// Decremento el Indice del vector que guarda la clave ingresada.
+
+			// Acomodo el cursor dentro de los 4 casilleros de la clave a ingresar y el indice del vector de la clave.
+			if( cur < 76 ){
+
+				cur = 112;
+				indice = 3;
+			}
+		}
+
+	   func_teclado();
 		// Funcion que maneja el Sleep de la pantalla y la IRQ del TOUCH.
 		Func_Sleep (flagirq, sleepmenu);
 	}
@@ -886,7 +933,7 @@ void Func_Atributos (void)
 		delay32Ms(0, TIMMER_FONDO_BLANCO);	// Para demorar su utiliza vTaskDelay()
 		adc_valX = 0, adc_valY = 0;			// Reseteo el valor de X, Y del ADC.
 		WG12864A_Limpiar(NEGRO);
-		menu2 = 0;
+		menu1 = 0;
 	}
 
 	flag_sleepsubmenu = 1;						// Restablesco el valor original de la bandera.
@@ -895,7 +942,7 @@ void Func_Atributos (void)
 
 //						  2.1 Parametrizar semaforos
 //--------------------------------------------------------------------------
-void Func_Semaforos (void)
+void Func_Monitoreo (void)
 {
 	char m=0,n=0;
 	// Mientras no se presione Back.
@@ -928,6 +975,27 @@ void Func_Semaforos (void)
 		WG12864A_posXY(40, 7);
 		WG12864A_printf(buffer_pulso, Arial8x6, NEGRO);
 
+		if((0xA9 < adc_valX) &&(adc_valX < 0xC0) && (0x2A < adc_valY) && (adc_valY < 0x5A))
+		{
+			adc_valX=0;
+			adc_valY=0;
+			delay32Ms(0, TIMMER_FONDO_BLANCO);	// Para demorar su utiliza vTaskDelay()
+			if(FILTRO_DIG)
+				FILTRO_DIG=0;
+			else
+				FILTRO_DIG=1;
+		}
+		if(FILTRO_DIG)
+		{
+			WG12864A_posXY(90, 7);
+			WG12864A_print_symbol(FD16x16, BLANCO);
+		}
+		else
+		{
+			WG12864A_posXY(90, 7);
+			WG12864A_print_symbol(FD16x16, NEGRO);
+		}
+
 //----------------------------------------------------------------
 		if(hab_corazon)
 		{
@@ -949,9 +1017,9 @@ void Func_Semaforos (void)
 		else
 		{
 			WG12864A_posXY(70, 7);
-			WG12864A_printf("    ", Arial8x6, NEGRO);
+			WG12864A_printf("   ", Arial8x6, NEGRO);
 			WG12864A_posXY(70, 8);
-			WG12864A_printf("    ", Arial8x6, NEGRO);
+			WG12864A_printf("   ", Arial8x6, NEGRO);
 
 		}
 //PUNTO Viene de un valor del ADC
@@ -1015,9 +1083,9 @@ void Func_Semaforos (void)
 	flag_sleepsubmenu = 1;						// Restablesco el valor original de la bandera.
 }
 
-//						  2.1 Parametrizar dirección
+//						  2.3 Parametrizar dirección
 //--------------------------------------------------------------------------
-void Func_Direccion (void){
+void Func_Config (void){
 
 	// Mientras no se presione Back.
 	while(! ((0xD0 < adc_valX) && (adc_valX < 0xEA) &&
@@ -1025,7 +1093,7 @@ void Func_Direccion (void){
 
 		// Titulo del menu.
 		WG12864A_posXY(1, 1);
-		WG12864A_printf("*info.Comunicaciones*", Arial8x6, BLANCO);
+		WG12864A_printf(" *Setea parametros*  ", Arial8x6, BLANCO);
 		WG12864A_posXY(110, 7);
 		WG12864A_print_symbol(BACK16x16, BLANCO);
 		menuactual=comu;

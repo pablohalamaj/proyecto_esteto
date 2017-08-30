@@ -87,15 +87,15 @@ void Menu_Inicial(void){
 		WG12864A_posXY(1, 1);
 		WG12864A_printf("  *Menu Principal*   ", Arial8x6, BLANCO);
 		WG12864A_posXY(1, 2);
-		WG12864A_printf("1. Menu de Consultas ", Arial8x6, NEGRO);
+		WG12864A_printf("1. Listado Pacientes ", Arial8x6, NEGRO);
 		WG12864A_posXY(1, 3);
 		WG12864A_printf("                     ", Arial8x6, NEGRO);
 		WG12864A_posXY(1, 4);
-		WG12864A_printf("2. Menu de Parametros", Arial8x6, NEGRO);
+		WG12864A_printf("2. Monitoreos        ", Arial8x6, NEGRO);
 		WG12864A_posXY(1, 5);
 		WG12864A_printf("                     ", Arial8x6, NEGRO);
 		WG12864A_posXY(1, 6);
-		WG12864A_printf("3. Menu de Reloj     ", Arial8x6, NEGRO);
+		WG12864A_printf("3. Ajustes           ", Arial8x6, NEGRO);
 		WG12864A_posXY(1, 7);
 		WG12864A_printf("                     ", Arial8x6, NEGRO);
 		WG12864A_posXY(1, 8);
@@ -142,7 +142,7 @@ void Menu_Inicial(void){
 
 	case 1:
 		WG12864A_posXY(1, 2);
-		WG12864A_printf("1. Menu de Consultas", Arial8x6, BLANCO);
+		WG12864A_printf("1. Listado Pacientes", Arial8x6, BLANCO);
 		delay32Ms(0, TIMMER_FONDO_BLANCO);
 		adc_valX = 0, adc_valY = 0;			// Reseteo el valor de X, Y del ADC.
 		menu = -1;							// Desabilito que entre al Menú Principal.
@@ -151,7 +151,7 @@ void Menu_Inicial(void){
 
 	case 2:
 		WG12864A_posXY(1, 4);
-		WG12864A_printf("2. Menu de Parametros", Arial8x6, BLANCO);
+		WG12864A_printf("2. Monitoreo        ", Arial8x6, BLANCO);
 		delay32Ms(0, TIMMER_FONDO_BLANCO);
 		adc_valX = 0, adc_valY = 0;			// Reseteo el valor de X, Y del ADC.
 		menu = -1;							// Desabilito que entre al Menú Principal.
@@ -160,7 +160,7 @@ void Menu_Inicial(void){
 
 	case 3:
 		WG12864A_posXY(1, 6);
-		WG12864A_printf("3. Menu de Reloj", Arial8x6, BLANCO);
+		WG12864A_printf("3. Ajustes         ", Arial8x6, BLANCO);
 		delay32Ms(0, TIMMER_FONDO_BLANCO);
 		adc_valX = 0, adc_valY = 0;			// Reseteo el valor de X, Y del ADC.
 		menu = -1;							// Desabilito que entre al Menú Principal.
@@ -189,15 +189,15 @@ void Menu_Inicial(void){
 	case 0:
 		adc_valX = 0, adc_valY = 0;			// Reseteo el valor de X, Y del ADC.
 		WG12864A_posXY(1, 1);
-		WG12864A_printf(" *Menu de Consultas* ", Arial8x6, BLANCO);
+		WG12864A_printf(" *Listado Pacientes* ", Arial8x6, BLANCO);
 		WG12864A_posXY(1, 2);
-		WG12864A_printf("1.1 Consulta Estados ", Arial8x6, NEGRO);
+		WG12864A_printf("1.1 Nuevo Ingreso    ", Arial8x6, NEGRO);
 		WG12864A_posXY(1, 4);
-		WG12864A_printf("1.2 Consulta Ptros   ", Arial8x6, NEGRO);
+		WG12864A_printf("1.2 Buscar Paciente  ", Arial8x6, NEGRO);
 		WG12864A_posXY(1, 6);
-		WG12864A_printf("1.3 Consulta Errores ", Arial8x6, NEGRO);
+		WG12864A_printf("1.3 Editar Paciente  ", Arial8x6, NEGRO);
 		WG12864A_posXY(1, 8);
-		WG12864A_printf("1.4 Borrar Errores", Arial8x6, NEGRO);
+		WG12864A_printf("1.4 Borrar Pacient", Arial8x6, NEGRO);
 		WG12864A_posXY(110, 7);
 		WG12864A_print_symbol(BACK16x16, BLANCO);
 		menu1 = 0;								//??
@@ -248,17 +248,16 @@ void Menu_Inicial(void){
 
 	case 1:
 		WG12864A_posXY(1, 2);
-		WG12864A_printf("1.1 Consulta Estados", Arial8x6, BLANCO);
+		WG12864A_printf("1.1 Nuevo Ingreso    ", Arial8x6, BLANCO);
 		delay32Ms(0, TIMMER_FONDO_BLANCO);
 		adc_valX = 0, adc_valY = 0;				// Reseteo el valor de X, Y del ADC.
 		WG12864A_Limpiar(NEGRO); 				// Limpio la pantalla y entro al submenu 1.1
-
-		func_consultaestados();					// Entra en el submenu de consulta de estados
+		Func_Ingreso();							// Funcion del SubMenu seleccionado.
 		break;
 
 	case 2:
 		WG12864A_posXY(1, 4);
-		WG12864A_printf("1.2 Consulta Ptros", Arial8x6, BLANCO);
+		WG12864A_printf("1.2 Buscar Paciente  ", Arial8x6, BLANCO);
 		delay32Ms(0, TIMMER_FONDO_BLANCO);
 		adc_valX = 0, adc_valY = 0;				// Reseteo el valor de X, Y del ADC.
 		WG12864A_Limpiar(NEGRO); 				// Limpio la pantalla y entro al submenu 1.2
@@ -268,7 +267,7 @@ void Menu_Inicial(void){
 
 	case 3:
 		WG12864A_posXY(1, 6);
-		WG12864A_printf("1.3 Consulta Errores", Arial8x6, BLANCO);
+		WG12864A_printf("1.3 Editar Paciente  ", Arial8x6, BLANCO);
 		delay32Ms(0, TIMMER_FONDO_BLANCO);
 		adc_valX = 0, adc_valY = 0;				// Reseteo el valor de X, Y del ADC.
 		WG12864A_Limpiar(NEGRO); 				// Limpio la pantalla y entro al submenu 1.3
@@ -278,7 +277,7 @@ void Menu_Inicial(void){
 
 	case 4:
 		WG12864A_posXY(1, 8);
-		WG12864A_printf("1.4 Borrar Errores", Arial8x6, BLANCO);
+		WG12864A_printf("1.4 Borrar Pacient", Arial8x6, BLANCO);
 		delay32Ms(0, TIMMER_FONDO_BLANCO);
 		adc_valX = 0, adc_valY = 0;				// Reseteo el valor de X, Y del ADC.
 		WG12864A_Limpiar(NEGRO);				// Limpio la pantalla y entro al submenu 1.4
@@ -299,13 +298,13 @@ void Menu_Inicial(void){
 	case 0:
 		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
 		WG12864A_posXY(1, 1);
-		WG12864A_printf("     *Parametros*    ", Arial8x6, BLANCO);
+		WG12864A_printf("     *Monitoreo*    ", Arial8x6, BLANCO);
 		WG12864A_posXY(1, 2);
-		WG12864A_printf("2.1 Ingresar Paciente", Arial8x6, NEGRO);
+		WG12864A_printf("2.1 Iniciar Monitoreo", Arial8x6, NEGRO);
 		WG12864A_posXY(1, 4);
-		WG12864A_printf("2.2 Iniciar Monitoreo", Arial8x6, NEGRO);
+		WG12864A_printf("2.2 Configuraciones  ", Arial8x6, NEGRO);
 		WG12864A_posXY(1, 6);
-		WG12864A_printf("2.3 Comunicaciones   ", Arial8x6, NEGRO);
+		WG12864A_printf("                     ", Arial8x6, NEGRO);
 		WG12864A_posXY(110, 7);
 		WG12864A_print_symbol(BACK16x16, BLANCO);
 		WG12864A_posXY(1, 8);
@@ -352,34 +351,34 @@ void Menu_Inicial(void){
 
 	case 1:
 		WG12864A_posXY(1, 2);
-		WG12864A_printf("2.1 Ingresar Paciente", Arial8x6, BLANCO);
+		WG12864A_printf("2.1 Iniciar Monitoreo", Arial8x6, BLANCO);
 		delay32Ms(0, TIMMER_FONDO_BLANCO);
 		adc_valX = 0, adc_valY = 0;				// Reseteo el valor de X, Y del ADC.
 		WG12864A_Limpiar(NEGRO); 				// Limpio la pantalla y entro al submenu 2.1
 
-		Func_Atributos();						// Funcion del SubMenu seleccionado.
+		Func_Monitoreo();						// Funcion del SubMenu seleccionado.
 
 		break;
 
 	case 2:
 		WG12864A_posXY(1, 4);
-		WG12864A_printf("2.2 Iniciar Monitoreo", Arial8x6, BLANCO);
+		WG12864A_printf("2.2 Configuraciones  ", Arial8x6, BLANCO);
 		delay32Ms(0, TIMMER_FONDO_BLANCO);
 		adc_valX = 0, adc_valY = 0;				// Reseteo el valor de X, Y del ADC.
 		WG12864A_Limpiar(NEGRO); 				// Limpio la pantalla y entro al submenu 2.2
 
-		Func_Semaforos();						// Funcion del SubMenu seleccionado.
+		Func_Config();						// Funcion del SubMenu seleccionado.
 
 		break;
 
 	case 3:
 		WG12864A_posXY(1, 6);
-		WG12864A_printf("2.3 Comunicaciones   ", Arial8x6, BLANCO);
+		WG12864A_printf("                    ", Arial8x6, BLANCO);
 		delay32Ms(0, TIMMER_FONDO_BLANCO);
 		adc_valX = 0, adc_valY = 0;				// Reseteo el valor de X, Y del ADC.
 		WG12864A_Limpiar(NEGRO); 				// Limpio la pantalla y entro al submenu 2.3
 
-		Func_Direccion();						// Funcion del SubMenu seleccionado.
+		//Func_Config();						// Funcion del SubMenu seleccionado.
 
 		break;
 

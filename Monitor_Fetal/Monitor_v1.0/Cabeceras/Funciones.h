@@ -44,11 +44,11 @@ void func_borrarerr(void);
 //--------------------------------------------------------------------------
 
 // Funcion Parametrizar Atributos - 2.1
-void Func_Atributos (void);
+void Func_Ingreso (void);
 // Funcion Parametrizar Semaforos - 2.2
-void Func_Semaforos (void);
+void Func_Monitoreo (void);
 // Funcion Parametrizar Direccion - 2.3
-void Func_Direccion (void);
+void Func_Config (void);
 
 //--------------------------------------------------------------------------
 /****************************  Submenues 3  ********************************/
