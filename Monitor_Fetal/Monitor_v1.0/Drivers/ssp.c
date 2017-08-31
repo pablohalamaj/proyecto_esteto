@@ -26,7 +26,7 @@
 
 //--------------------------------------------------------------------
 // Includes
-#include "comunicaciones.h"
+#include "Comunicaciones.h"
 //--------------------------------------------------------------------
 
 /* statistics of all the interrupts */

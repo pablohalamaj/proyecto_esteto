@@ -46,30 +46,30 @@ int var_aux;
 void Menu_Logo(void){
 
 	// "AUTOTROL" (Mensaje de inicio).
-	WG12864A_posXY(15,3);
-	WG12864A_print_symbol(a16x16, BLANCO);
-	WG12864A_posXY(31,3);
-	WG12864A_print_symbol(b16x16, BLANCO);
-	WG12864A_posXY(47,3);
-	WG12864A_print_symbol(c16x16, BLANCO);
-	WG12864A_posXY(63,3);
-	WG12864A_print_symbol(d16x16, BLANCO);
-	WG12864A_posXY(79,3);
-	WG12864A_print_symbol(e16x16, BLANCO);
-	WG12864A_posXY(95,3);
-	WG12864A_print_symbol(f16x16, BLANCO);
-	WG12864A_posXY(15,5);
-	WG12864A_print_symbol(g16x16, BLANCO);
-	WG12864A_posXY(31,5);
-	WG12864A_print_symbol(h16x16, BLANCO);
-	WG12864A_posXY(47,5);
-	WG12864A_print_symbol(i16x16, BLANCO);
-	WG12864A_posXY(63,5);
-	WG12864A_print_symbol(j16x16, BLANCO);
-	WG12864A_posXY(79,5);
-	WG12864A_print_symbol(k16x16, BLANCO);
-	WG12864A_posXY(95,5);
-	WG12864A_print_symbol(l16x16, BLANCO);
+	WG12864A_posXY(11,3);
+	WG12864A_print_symbol(LM16x16, NEGRO);
+	WG12864A_posXY(27,3);
+	WG12864A_print_symbol(LO16x16, NEGRO);
+	WG12864A_posXY(43,3);
+	WG12864A_print_symbol(LN16x16, NEGRO);
+	WG12864A_posXY(59,3);
+	WG12864A_print_symbol(LI16x16, NEGRO);
+	WG12864A_posXY(75,3);
+	WG12864A_print_symbol(LT16x16, NEGRO);
+	WG12864A_posXY(91,3);
+	WG12864A_print_symbol(LOO16x16, NEGRO);
+	WG12864A_posXY(107,3);
+	WG12864A_print_symbol(LR16x16, NEGRO);
+	WG12864A_posXY(27,5);
+	WG12864A_print_symbol(LF16x16, NEGRO);
+	WG12864A_posXY(43,5);
+	WG12864A_print_symbol(LE16x16, NEGRO);
+	WG12864A_posXY(59,5);
+	WG12864A_print_symbol(LTT16x16, NEGRO);
+	WG12864A_posXY(75,5);
+	WG12864A_print_symbol(LA16x16, NEGRO);
+	WG12864A_posXY(91,5);
+	WG12864A_print_symbol(LL16x16, NEGRO);
 	GLCD_Output_High(BACKLIGHT);
 
 	delay32Ms(0, TIMMER_LOGO_AUTOTROL);
@@ -151,7 +151,7 @@ void Menu_Inicial(void){
 
 	case 2:
 		WG12864A_posXY(1, 4);
-		WG12864A_printf("2. Monitoreo        ", Arial8x6, BLANCO);
+		WG12864A_printf("2. Monitoreos       ", Arial8x6, BLANCO);
 		delay32Ms(0, TIMMER_FONDO_BLANCO);
 		adc_valX = 0, adc_valY = 0;			// Reseteo el valor de X, Y del ADC.
 		menu = -1;							// Desabilito que entre al Menú Principal.

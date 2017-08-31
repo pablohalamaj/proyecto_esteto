@@ -875,15 +875,15 @@ void Func_Ingreso (void)
 		WG12864A_posXY(1, 8);
 		WG12864A_printf("  Z X C V B N M ", Arial8x6, NEGRO);
 		WG12864A_posXY(90, 3);
-		WG12864A_print_symbol(LeftArrow16x16, BLANCO);
+		WG12864A_print_symbol(BK8x16, NEGRO);
 		WG12864A_posXY(110, 3);
-		WG12864A_print_symbol(OK16x16, BLANCO);
+		WG12864A_print_symbol(OKS8x16, NEGRO);
 		// Se Presionó Flecha Izquerda?
 		if( (0x95 < adc_valX) && (adc_valX < 0xB5) &&
 			(0x70 < adc_valY) && (adc_valY < 0xA9) ){
 
 			WG12864A_posXY(90, 3);						// Animacion del dibujo.
-			WG12864A_print_symbol(LeftArrow16x16, NEGRO);
+			WG12864A_print_symbol(BK8x16, BLANCO);
 			delay32Ms(0, TIMMER_FONDO_BLANCO_BOTONES);
 			adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
 			WG12864A_posXY(cur, 2);					// Presento el cursor donde corresponde.
@@ -893,9 +893,9 @@ void Func_Ingreso (void)
 			indice --;									// Decremento el Indice del vector que guarda la clave ingresada.
 
 			// Acomodo el cursor dentro de los 4 casilleros de la clave a ingresar y el indice del vector de la clave.
-			if( cur < 76 ){
+			if( cur < 48 ){
 
-				cur = 112;
+				cur = 48;
 				indice = 3;
 			}
 		}
@@ -904,19 +904,16 @@ void Func_Ingreso (void)
 			(0x70 < adc_valY) && (adc_valY < 0xA9) ){
 
 			WG12864A_posXY(110, 3);						// Animacion del dibujo.
-			WG12864A_print_symbol(OK16x16, NEGRO);
+			WG12864A_print_symbol(OKS8x16, BLANCO);
 			delay32Ms(0, TIMMER_FONDO_BLANCO_BOTONES);
 			adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
-			WG12864A_posXY(cur, 2);					// Presento el cursor donde corresponde.
+			WG12864A_posXY(48, 3);					// Presento el cursor donde corresponde.
 			WG12864A_printf(" ", Arial8x6, NEGRO);
-			cur -= 12;								// Corro el cursor 1 lugar.
-			norecarga=0;
-			indice --;									// Decremento el Indice del vector que guarda la clave ingresada.
 
 			// Acomodo el cursor dentro de los 4 casilleros de la clave a ingresar y el indice del vector de la clave.
-			if( cur < 76 ){
+			if( cur < 48 ){
 
-				cur = 112;
+				cur = 48;
 				indice = 3;
 			}
 		}
