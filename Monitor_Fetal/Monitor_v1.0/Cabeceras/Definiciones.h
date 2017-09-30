@@ -33,10 +33,11 @@
 #define	TOUCH_X2P				R_PIO0_11		//AD0
 #define	TOUCH_Y1M				R_PIO1_2		//AD3
 #define	TOUCH_Y2P				R_PIO1_0		//AD1
-
+#define ADC_LATIDOS				PIO1_4
 //	ADC's TOUCH.
 #define	TOUCH_ADC2_X1M			2				//AD2
 #define	TOUCH_ADC3_Y1M			3				//AD3
+#define ENTRADA_ADC				5				//AD5
 
 //	TIEMPOS PARA DEMORAS.
 //#define	TIMMER_DEMORA_IRQ			500			//0.5 Seg. para demorar la habilitacion de la IRQ del Touch.

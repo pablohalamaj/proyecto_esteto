@@ -2,8 +2,8 @@
 <?scdStore version="2"?><scannerInfo id="org.eclipse.cdt.make.core.discoveredScannerInfo">
 <instance id="com.crt.advproject.config.exe.debug.970211303;com.crt.advproject.config.exe.debug.970211303.;com.crt.advproject.gcc.exe.debug.1936408992;com.crt.advproject.compiler.input.1402704198">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
-<includePath path="c:/nxp/lpcxpresso_8.2.2_650/lpcxpresso/tools/redlib/include"/>
-<includePath path="c:/nxp/lpcxpresso_8.2.2_650/lpcxpresso/tools/features/include"/>
+<includePath path="/usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/redlib/include"/>
+<includePath path="/usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/features/include"/>
 <definedSymbol symbol="__STDC__=1"/>
 <definedSymbol symbol="__STDC_VERSION__=201112L"/>
 <definedSymbol symbol="__STDC_UTF_16__=1"/>
@@ -351,8 +351,8 @@
 </instance>
 <instance id="com.crt.advproject.config.exe.debug.970211303;com.crt.advproject.config.exe.debug.970211303.;com.crt.advproject.gas.exe.debug.1674894713;com.crt.advproject.assembler.input.1792333795">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
-<includePath path="c:/nxp/lpcxpresso_8.2.2_650/lpcxpresso/tools/redlib/include"/>
-<includePath path="c:/nxp/lpcxpresso_8.2.2_650/lpcxpresso/tools/features/include"/>
+<includePath path="/usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/redlib/include"/>
+<includePath path="/usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/features/include"/>
 <definedSymbol symbol="__STDC__=1"/>
 <definedSymbol symbol="__STDC_VERSION__=201112L"/>
 <definedSymbol symbol="__STDC_UTF_16__=1"/>
@@ -1398,8 +1398,8 @@
 </instance>
 <instance id="com.crt.advproject.config.exe.debug.970211303;com.crt.advproject.config.exe.debug.970211303.Fuentes/cr_startup_lpc11.c;com.crt.advproject.gcc.exe.debug.1936408992.1099320275;com.crt.advproject.compiler.input.24986584">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
-<includePath path="c:/nxp/lpcxpresso_8.2.2_650/lpcxpresso/tools/redlib/include"/>
-<includePath path="c:/nxp/lpcxpresso_8.2.2_650/lpcxpresso/tools/features/include"/>
+<includePath path="/usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/redlib/include"/>
+<includePath path="/usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/features/include"/>
 <definedSymbol symbol="__STDC__=1"/>
 <definedSymbol symbol="__STDC_VERSION__=201112L"/>
 <definedSymbol symbol="__STDC_UTF_16__=1"/>

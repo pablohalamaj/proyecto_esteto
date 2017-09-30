@@ -10,7 +10,7 @@
  *
  *
 ****************************************************************************/
-
+#include "adc.h"
 #include "Menu.h"
 #include "Touch.h"
 #include "timer32.h"
@@ -39,7 +39,7 @@ extern int 			h,mi,seg,d,m,anio,ds,
 //--------------------------------------------------------------------------
 //***********************  Variables Propias  ******************************
 
-int					norecarga=0,muefunc=0;
+int					norecarga=0,muefunc=0,num_buff=0,latido=0,lati=0;
 char				menuactual,toca,toca1,modo_func,actualiza_fw=0,
 					t,pressok,prs,velc,dir_comu,
 					flagesp=0,salir=0,mod=0;
@@ -56,7 +56,8 @@ unsigned int 		cont_tra=0,tcla[4],
 					cla[4],				// Variable para capturar el numero del teclado en pantalla.
 					sleepmenu,			// Variable que me indica con que menu vuelvo del Sleep en la funcion Sleep.
 					flag_sleepsubmenu = 1,// Bandera que me indica si se durmio en un SubMenu y evita el codigo del boton Back.
-					varmod=0,backmod=0,s=0,tcl;
+					varmod=0,backmod=0,s=0,tcl,
+					alm_latidos[10][100],lat_co[100];
 static char  	buffer_pulso[44] ;
 
 // *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
@@ -1858,10 +1859,66 @@ void func_temp(void)
 }
 void func_punto (void)
 {
-	char val_adc;
+	unsigned int val_adc=0;
+	int i,j,g,auxL[10],auxLAT;
 	PUNTO=0x10;
-	val_adc=adc_valY&0x0f;
-	switch (val_adc)
+	GPIOIntDisable(PORT1, 4);
+
+
+	LPC_IOCON->ADC_LATIDOS = 0x42;			//Paso el Pin a Hi-z y Open Drain.
+	GPIOSetDir (PORT1,4,ENTRADA);			//Seteo el Pin como Entrada.
+
+
+//	LPC_IOCON->ADC_LATIDOS = 0xD1;			//Paso el Pin a PULL UP.
+
+//	val_adc=ADCRead (3);//(ENTRADA_ADC);//adc_valY&0x0f;
+/*	for( g = 0; g < 10; g++ ){
+
+		//Tomo 10 Muestras del ADC.
+		auxL[g] = ADCRead (5);//(TOUCH_ADC3_Y1M);
+	}
+	for(i=0;i<10;i++)
+	{
+		for(j=1;j<10;j++)
+		{
+			if(auxL[i]>auxL[j]&&auxL[i]>val_adc)
+				val_adc=auxL[i];
+		}
+
+	}
+*/
+	for( g = 0; g < 10; g++ ){
+
+		//Tomo 10 Muestras del ADC.
+		auxLAT += ADCRead (5);
+	}
+
+	//Obtengo el Promedio de los valores obtenidos.
+	auxLAT = auxLAT/10;
+	//Le sumo un desplazamiento al valor obtenido por un error de Offset.
+	val_adc = auxLAT;// + OFFSET_ADC;
+
+	//Le sumo un desplazamiento al valor obtenido por un error de Offset.
+	//val_adc = auxL + OFFSET_ADC;
+
+
+	//	alm_latidos[num_buff][latido]=val_adc;
+	lat_co[lati]=val_adc;
+	lati++;
+	if(lati>=100)
+		lati=0;
+/*	if(latido>=100)
+	{
+		latido=0;
+		num_buff++;
+	}
+	else
+	{
+		latido++;
+	}
+	if(num_buff>=10)
+		num_buff=0;
+*/	switch (val_adc)
 	{
 	case 0x01:
 		PUNTO=0x10;

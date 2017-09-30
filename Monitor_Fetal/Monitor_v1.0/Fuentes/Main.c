@@ -36,6 +36,9 @@ char 	cont=0,flagmm=0,flagbll=0;
 char 	Rx[30];Rx1[30],Rx2[30],btens[16],movmp[16],version[16],version_prt[16];
 char 	causaerr[11],causaerror[11],moduloerr[11],icomu[5],sumaerr=0,lec=0;
 extern char actualiza_fw;
+extern unsigned int 	lat_co[];
+int val_adc;
+extern int lati;
 // *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 int main(void)
 {
@@ -72,9 +75,13 @@ int main(void)
 	GPIOIntClear(PORT1, 2);		// Limpio la Interrupcion y la habilito.
 	GPIOIntEnable(PORT1, 2);
 	actualiza_fw=0;
+//	GPIOIntClear(PORT1, 4);		// Limpio la Interrupcion y la habilito.
+//	GPIOIntEnable(PORT1, 4);
+
 	while(1)
-	{
+	{unsigned int i=0;
 		//Corro el Menu.
 		Menu_Inicial();
+
 	}
 }

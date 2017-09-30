@@ -138,11 +138,11 @@ void ADCInit( uint32_t ADC_Clk )
   LPC_IOCON->R_PIO1_1    = 0x02;	// Select AD2 pin function
   LPC_IOCON->R_PIO1_2    = 0x02;	// Select AD3 pin function
 
-/*  LPC_IOCON->ARM_SWDIO_PIO1_3    = 0x02;	// Select AD4 pin function
+//  LPC_IOCON->ARM_SWDIO_PIO1_3    = 0x02;	// Select AD4 pin function
   LPC_IOCON->PIO1_4    = 0x01;	// Select AD5 pin function
   LPC_IOCON->PIO1_10   = 0x01;	// Select AD6 pin function
   LPC_IOCON->PIO1_11   = 0x01;	// Select AD7 pin function
-*/
+
 
   LPC_ADC->CR = ((SystemCoreClock/LPC_SYSCON->SYSAHBCLKDIV)/ADC_Clk-1)<<8;
 
@@ -202,7 +202,10 @@ uint32_t ADCRead( uint8_t channelNum )
 
   //Le queto precision sacandole los bits menos significativos
   //Rotandolo 8 veces y le aplico las mascara de 8 bits (0xFF) y no de 10 como tenia.
-  ADC_Data = ( regVal >> 8 ) & 0xFF;
+//  if(channelNum==5)
+//	  ADC_Data = ( regVal >> 6 ) & 0x3FF;
+ // else
+	  ADC_Data = ( regVal >> 8 ) & 0xFF;
 
   return ( ADC_Data );	/* return A/D conversion value */
 #else

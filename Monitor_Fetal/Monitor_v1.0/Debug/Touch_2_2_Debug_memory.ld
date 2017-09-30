@@ -5,7 +5,7 @@
  * Generated linker script file for LPC1114/302
  * Created from memory.ldt by FMCreateLinkMemory
  * Using Freemarker v2.3.23
- * LPCXpresso v8.2.2 [Build 650] [2016-09-09]  on 31-ago-2017 12:07:22
+ * LPCXpresso v8.2.2 [Build 650] [2016-09-09]  on 30/09/2017 17:37:53
  */
 
 MEMORY

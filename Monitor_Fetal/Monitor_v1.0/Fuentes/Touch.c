@@ -42,6 +42,7 @@ void TOUCH_Init(void){
 // Configuracion de INTERRUPCION TOUCH por bajo nivel.
 	GPIOInit();
 	GPIOSetInterrupt(PORT1, 2, 0, 0, 0);
+	GPIOSetInterrupt(PORT1, 4, 0, 0, 0);
 }
 
 // *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
@@ -96,6 +97,8 @@ void TOUCH_Standby(void){
 	//Y1M (-) ENABLE PULL UP / INT.
 	LPC_IOCON->TOUCH_Y1M = 0xD1;			//Paso el Pin a PULL UP.
 	GPIOSetDir (PORT1,2,ENTRADA);			//Seteo el Pin como Entrada.
+	LPC_IOCON->ADC_LATIDOS = 0xD1;			//Paso el Pin a PULL UP.
+	GPIOSetDir (PORT1,4,ENTRADA);			//Seteo el Pin como Entrada.
 
 	//Y2P (+) DISABLE PULL UP & PULL DOWN - GPIO.
 	LPC_IOCON->TOUCH_Y2P = 0xC1;			//Paso el Pin a Puerto GPIO.
@@ -105,7 +108,7 @@ void TOUCH_Standby(void){
 // *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 void TOUCH_GetX(void){
 
-	int g, auxX = 0;
+	int g, auxX = 0,auxLA=0;
 
 	//Desabilito la IRQ ya que modifico el estado de los pines.
 	GPIOIntDisable(PORT1, 2);
@@ -132,10 +135,12 @@ void TOUCH_GetX(void){
 
 		//Tomo 10 Muestras del ADC.
 		auxX += ADCRead (TOUCH_ADC3_Y1M);
+
 	}
 
 	//Obtengo el Promedio de los valores obtenidos.
 	auxX = auxX/10;
+
 	//Le sumo un desplazamiento al valor obtenido por un error de Offset.
 	adc_valX = auxX + OFFSET_ADC;
 }
