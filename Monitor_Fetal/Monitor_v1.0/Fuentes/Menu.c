@@ -28,7 +28,7 @@ extern unsigned int menu = 0, menu1 = -1, menu2 = -1, menu3 = -1,
 					menu41_2 = -1, menu41_3 = -1, menu41_4 = -1;
 extern char			flagmm;
 // Variables GLOBALES con los valores de posicion en X e Y.
-unsigned int adc_valX, adc_valY;
+unsigned int adc_valX, adc_valY,adc_valLA;
 
 // Vectores para validar la clave del Menú Especial.
 unsigned int clave[] = CLAVE, cla[4];

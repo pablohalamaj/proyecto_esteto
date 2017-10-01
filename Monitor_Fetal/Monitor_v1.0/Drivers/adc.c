@@ -129,7 +129,8 @@ void ADCInit( uint32_t ADC_Clk )
   LPC_IOCON->R_PIO1_1  |= 0x02;  /* ADC IN2 */
   LPC_IOCON->R_PIO1_2 &= ~0x8F;	
   LPC_IOCON->R_PIO1_2 |= 0x02; /* ADC IN3 */
-#ifdef __SWD_DISABLED
+
+ #ifdef __SWD_DISABLED
   LPC_IOCON->SWDIO_PIO1_3   &= ~0x8F;	
   LPC_IOCON->SWDIO_PIO1_3   |= 0x02;  /* ADC IN4 */
 #endif
@@ -143,8 +144,12 @@ void ADCInit( uint32_t ADC_Clk )
   LPC_IOCON->PIO1_10   = 0x01;	// Select AD6 pin function
   LPC_IOCON->PIO1_11   = 0x01;	// Select AD7 pin function
 
-
-  LPC_ADC->CR = ((SystemCoreClock/LPC_SYSCON->SYSAHBCLKDIV)/ADC_Clk-1)<<8;
+  LPC_SYSCON->PDRUNCFG        &=   ~(0x1<<4);  //power the ADC (sec. 3.5.35)
+  LPC_SYSCON->SYSAHBCLKCTRL   |= (1<<13);    //enable clock for ADC
+  LPC_IOCON->PIO1_4    &= ~(0x97);    //clear FUNC field for pin 40, set to   analog input (sec. 7.4.36)
+  LPC_IOCON->PIO1_4    |= (1<<0);     //set to ADC mode for pin 40
+  LPC_ADC->CR           = 0x0B20;
+ // LPC_ADC->CR = ((SystemCoreClock/LPC_SYSCON->SYSAHBCLKDIV)/ADC_Clk-1)<<8;
 
   /* If POLLING, no need to do the following */
 #if CONFIG_ADC_ENABLE_ADC_IRQHANDLER==1
@@ -202,9 +207,9 @@ uint32_t ADCRead( uint8_t channelNum )
 
   //Le queto precision sacandole los bits menos significativos
   //Rotandolo 8 veces y le aplico las mascara de 8 bits (0xFF) y no de 10 como tenia.
-//  if(channelNum==5)
-//	  ADC_Data = ( regVal >> 6 ) & 0x3FF;
- // else
+  if(channelNum==5)
+	  ADC_Data = ( regVal >> 6 ) & 0x3FF;
+  else
 	  ADC_Data = ( regVal >> 8 ) & 0xFF;
 
   return ( ADC_Data );	/* return A/D conversion value */

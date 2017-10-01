@@ -28,8 +28,8 @@ extern unsigned int cur, 			// Posicion del cursor dentro de la pantalla.
 					indice,			// Variable dinamica para moverse por el vector de la clave ingresada.
 					sleep,			// Variable que a cierto valor duerme la pantalla.
 					flagsleep ,		// Variable que me indica si el Display esta dormido para despertarlo.
-					flagirq ;		// Bandera que me indica si habilitar o no la IRQ del TOUCH.
-
+					flagirq ,		// Bandera que me indica si habilitar o no la IRQ del TOUCH.
+					adc_valLA;
 extern char			flagmm,flagbll,cantver,cantprt,version[],version_prt[],no_recibo,queenv,
 					causaerr[],causaerror[],moduloerr[],sumaerr,lec;
 extern int 			h,mi,seg,d,m,anio,ds,
@@ -41,7 +41,7 @@ extern int 			h,mi,seg,d,m,anio,ds,
 
 int					norecarga=0,muefunc=0,num_buff=0,latido=0,lati=0;
 char				menuactual,toca,toca1,modo_func,actualiza_fw=0,
-					t,pressok,prs,velc,dir_comu,
+					t,pressok,prs,velc,dir_comu,CONV_OK,
 					flagesp=0,salir=0,mod=0;
 char pos_x=25,pos_y,PUNTO,BORRA,num_pulso,hab_corazon,FILTRO_DIG=0;
 unsigned long int v=0,ha=0;
@@ -1066,6 +1066,7 @@ void Func_Monitoreo (void)
 */
 		// Funcion que maneja el Sleep de la pantalla y la IRQ del TOUCH.
 		Func_Sleep (flagirq, sleepmenu);
+		GPIOIntEnable(PORT1, 4);
 	}
 
 	if(flag_sleepsubmenu){					// Si la bandera esta arriba salio del menu normal, sino salio por sleep.
@@ -1862,63 +1863,29 @@ void func_punto (void)
 	unsigned int val_adc=0;
 	int i,j,g,auxL[10],auxLAT;
 	PUNTO=0x10;
-	GPIOIntDisable(PORT1, 4);
 
-
-	LPC_IOCON->ADC_LATIDOS = 0x42;			//Paso el Pin a Hi-z y Open Drain.
-	GPIOSetDir (PORT1,4,ENTRADA);			//Seteo el Pin como Entrada.
-
-
-//	LPC_IOCON->ADC_LATIDOS = 0xD1;			//Paso el Pin a PULL UP.
-
-//	val_adc=ADCRead (3);//(ENTRADA_ADC);//adc_valY&0x0f;
-/*	for( g = 0; g < 10; g++ ){
-
-		//Tomo 10 Muestras del ADC.
-		auxL[g] = ADCRead (5);//(TOUCH_ADC3_Y1M);
-	}
-	for(i=0;i<10;i++)
+	if(CONV_OK)
 	{
-		for(j=1;j<10;j++)
+		CONV_OK=0;
+		//	alm_latidos[num_buff][latido]=val_adc;
+		lat_co[lati]=adc_valLA;//val_adc;
+		lati++;
+		if(lati>=100)
+			lati=0;
+	/*	if(latido>=100)
 		{
-			if(auxL[i]>auxL[j]&&auxL[i]>val_adc)
-				val_adc=auxL[i];
+			latido=0;
+			num_buff++;
 		}
-
+		else
+		{
+			latido++;
+		}
+		if(num_buff>=10)
+			num_buff=0;
+	*/
 	}
-*/
-	for( g = 0; g < 10; g++ ){
-
-		//Tomo 10 Muestras del ADC.
-		auxLAT += ADCRead (5);
-	}
-
-	//Obtengo el Promedio de los valores obtenidos.
-	auxLAT = auxLAT/10;
-	//Le sumo un desplazamiento al valor obtenido por un error de Offset.
-	val_adc = auxLAT;// + OFFSET_ADC;
-
-	//Le sumo un desplazamiento al valor obtenido por un error de Offset.
-	//val_adc = auxL + OFFSET_ADC;
-
-
-	//	alm_latidos[num_buff][latido]=val_adc;
-	lat_co[lati]=val_adc;
-	lati++;
-	if(lati>=100)
-		lati=0;
-/*	if(latido>=100)
-	{
-		latido=0;
-		num_buff++;
-	}
-	else
-	{
-		latido++;
-	}
-	if(num_buff>=10)
-		num_buff=0;
-*/	switch (val_adc)
+	switch (val_adc)
 	{
 	case 0x01:
 		PUNTO=0x10;

@@ -21,8 +21,8 @@
 // *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 
 // Variables del modulo
-extern unsigned int adc_valX, adc_valY;
-
+extern unsigned int adc_valX, adc_valY,adc_valLA;
+extern char CONV_OK;
 // Variable GLOBAL que me indica con que tipo de menu vuelvo del Sleep, en la Funcion Sleep.
 extern unsigned int sleepmenu;
 
@@ -47,36 +47,53 @@ void TOUCH_Init(void){
 
 // *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 void PIOINT1_IRQHandler(void){
+	uint32_t regVal;
 
-	GPIOIntClear(PORT1, 2);				// Limpio la Interrupcion.
+	  regVal = GPIOIntStatus( PORT1, 2 );	// reviso si es interrupcion por señal de TOUCH
 
-	if( flagsleep ){					// Si la Bandera de Sleep esta arriba es que el Display duerme y los despiesto.
+	  if ( regVal )
+	  {
+			GPIOIntClear(PORT1, 2);				// Limpio la Interrupcion.
 
-		enable_timer32(1);				// Habilito el timer para el proximo Sleep.
+			if( flagsleep ){					// Si la Bandera de Sleep esta arriba es que el Display duerme y los despiesto.
 
-		if( sleep >= MULTIPLICADOR_TIMMER_SLEEP ){ // Si es Mayor a 5 reinicio por completo, sino solo prendo la pantalla.
+				enable_timer32(1);				// Habilito el timer para el proximo Sleep.
 
-			flagsleep = 0;				// Bajo la bandera de que el Display duerme.
-			sleepmenu = 1;				// Seleccion con que modalidad vuelve del Sleep.
-			sleep = 0;					// Reset la variable que duerme la pantalla.
-		}else{
+				if( sleep >= MULTIPLICADOR_TIMMER_SLEEP ){ // Si es Mayor a 5 reinicio por completo, sino solo prendo la pantalla.
 
-			flagsleep = 0;				// Bajo la bandera de que el Display duerme.
-			sleepmenu = 0;				// Seleccion con que modalidad vuelve del Sleep.
-			sleep = 0;					// Reset la variable que duerme la pantalla.
-		}
-	}else{
+					flagsleep = 0;				// Bajo la bandera de que el Display duerme.
+					sleepmenu = 1;				// Seleccion con que modalidad vuelve del Sleep.
+					sleep = 0;					// Reset la variable que duerme la pantalla.
+				}else{
 
-		reset_timer32 (1);				// Reseteo el Timmer de Sleep porque la pantalla esta en uso.
-		sleep = 0;						// Reset la variable que duerme la pantalla.
-		flagirq = 0;					// Bandera que me indica si habilitar o no la IRQ del TOUCH.
-		adc_valX = 0, adc_valY = 0;		// Reseteo el valor de X, Y del ADC.
+					flagsleep = 0;				// Bajo la bandera de que el Display duerme.
+					sleepmenu = 0;				// Seleccion con que modalidad vuelve del Sleep.
+					sleep = 0;					// Reset la variable que duerme la pantalla.
+				}
+			}else{
 
-		//Obtengo las Coordenadas donde se presiono y pongo el Touch en reposo.
-		TOUCH_GetX();
-		TOUCH_GetY();
-		TOUCH_Standby();
-	}
+				reset_timer32 (1);				// Reseteo el Timmer de Sleep porque la pantalla esta en uso.
+				sleep = 0;						// Reset la variable que duerme la pantalla.
+				flagirq = 0;					// Bandera que me indica si habilitar o no la IRQ del TOUCH.
+				adc_valX = 0, adc_valY = 0;		// Reseteo el valor de X, Y del ADC.
+
+				//Obtengo las Coordenadas donde se presiono y pongo el Touch en reposo.
+				TOUCH_GetX();
+				TOUCH_GetY();
+				TOUCH_Standby();
+			}
+
+	  }
+//-------------------------------------------------------------------------------------------
+	  regVal = GPIOIntStatus( PORT1, 4 );		// Interrupción PIN 1_4 ADC_5 Latidos
+
+	  if ( regVal )
+	  {
+			GPIOIntClear(PORT1, 4);				// Limpio la Interrupcion.
+			Tomo_Latido();
+	  }
+
+
 }
 
 // *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
@@ -97,8 +114,6 @@ void TOUCH_Standby(void){
 	//Y1M (-) ENABLE PULL UP / INT.
 	LPC_IOCON->TOUCH_Y1M = 0xD1;			//Paso el Pin a PULL UP.
 	GPIOSetDir (PORT1,2,ENTRADA);			//Seteo el Pin como Entrada.
-	LPC_IOCON->ADC_LATIDOS = 0xD1;			//Paso el Pin a PULL UP.
-	GPIOSetDir (PORT1,4,ENTRADA);			//Seteo el Pin como Entrada.
 
 	//Y2P (+) DISABLE PULL UP & PULL DOWN - GPIO.
 	LPC_IOCON->TOUCH_Y2P = 0xC1;			//Paso el Pin a Puerto GPIO.
@@ -181,4 +196,34 @@ void TOUCH_GetY(void){
 	auxY = auxY/10;
 	//Le sumo un desplazamiento al valor obtenido por un error de Offset.
 	adc_valY = auxY + OFFSET_ADC;
+}
+void Tomo_Latido(void)
+{
+	int g,auxLA=0;
+
+	//Desabilito la IRQ ya que modifico el estado de los pines.
+	GPIOIntDisable(PORT1, 4);
+
+	LPC_IOCON->ADC_LATIDOS = 0xD1;			//Paso el Pin a PULL UP.
+	GPIOSetDir (PORT1,4,ENTRADA);			//Seteo el Pin como Entrada.
+//	LPC_IOCON->ADC_LATIDOS = 0x42;			//Paso el Pin a Hi-z y Open Drain.
+//	GPIOSetDir (PORT1,4,ENTRADA);			//Seteo el Pin como Entrada.
+
+	for( g = 0; g < 10; g++ ){
+
+		//Tomo 10 Muestras del ADC.
+		auxLA += ADCRead (5);
+//		LPC_ADC->CR     |= (1<<24);							//startconversion by   setting "Start Conversion Now" bit (sec. 25.5.1)
+//		while((LPC_ADC->DR[5] <  0x7FFFFFFF));				//wait for"done" bit to   be   set (sec. 25.5.4)
+//		auxLA += ((LPC_ADC->DR[5] & 0xFFC0) >> 8);
+
+	}
+
+	//Obtengo el Promedio de los valores obtenidos.
+	auxLA = auxLA/10;
+
+	//Le sumo un desplazamiento al valor obtenido por un error de Offset.
+	adc_valLA = auxLA + OFFSET_ADC;
+	CONV_OK=1;
+
 }
