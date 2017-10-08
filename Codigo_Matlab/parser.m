@@ -81,6 +81,13 @@ latido_out_t = mi_var_filtrada;
 % - INPUT: señal en tiempo filtrada dentro de la variable latido_out_t
 % - OUTPUT: ploteo en t y f de la entrada y la salida para compararlas.
 % Ploteo la señal en el Tiempo
+
+% Guardo la señal filtrada en el archivo de salida
+dlmwrite('output.txt',latido_out_t,'delimiter','\t','precision',3);
+
+
+
+
 figure(2);
 subplot(2,1,1);
 LON_t =plot(t,latido_out_t);
