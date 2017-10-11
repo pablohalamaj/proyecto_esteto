@@ -1,0 +1,59 @@
+/*
+ * Display.c
+ *
+ *  Created on: 9 de oct. de 2017
+ *      Author: sebastian
+ */
+#include <stdio.h>
+#include "gpio.h"
+#include "Subfunciones.h"
+#include "WG12864A.h"
+#include "Definiciones.h"
+//#include "Comunicaciones.h"
+
+
+extern char btens[];
+void func_nada(void)
+{
+	int i=0,fila=5,colut=1;
+	for(i=0;i<14;i++)
+	{
+		WG12864A_posXY(colut, fila);
+		WG12864A_printf(&btens[i], Arial8x6, NEGRO);
+		colut+=6;
+
+	}
+
+}
+
+void Menu_Logo(void){
+
+	// "AUTOTROL" (Mensaje de inicio).
+	WG12864A_posXY(11,3);
+	WG12864A_print_symbol(LM16x16, NEGRO);
+	WG12864A_posXY(27,3);
+	WG12864A_print_symbol(LO16x16, NEGRO);
+	WG12864A_posXY(43,3);
+	WG12864A_print_symbol(LN16x16, NEGRO);
+	WG12864A_posXY(59,3);
+	WG12864A_print_symbol(LI16x16, NEGRO);
+	WG12864A_posXY(75,3);
+	WG12864A_print_symbol(LT16x16, NEGRO);
+	WG12864A_posXY(91,3);
+	WG12864A_print_symbol(LOO16x16, NEGRO);
+	WG12864A_posXY(107,3);
+	WG12864A_print_symbol(LR16x16, NEGRO);
+	WG12864A_posXY(27,5);
+	WG12864A_print_symbol(LF16x16, NEGRO);
+	WG12864A_posXY(43,5);
+	WG12864A_print_symbol(LE16x16, NEGRO);
+	WG12864A_posXY(59,5);
+	WG12864A_print_symbol(LTT16x16, NEGRO);
+	WG12864A_posXY(75,5);
+	WG12864A_print_symbol(LA16x16, NEGRO);
+	WG12864A_posXY(91,5);
+	WG12864A_print_symbol(LL16x16, NEGRO);
+	GLCD_Output_High(BACKLIGHT);
+
+//	delay32Ms(0, TIMMER_LOGO_AUTOTROL);
+}

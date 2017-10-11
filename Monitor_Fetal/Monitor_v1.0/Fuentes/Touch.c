@@ -28,6 +28,8 @@ extern unsigned int sleepmenu;
 
 // Variables GLOBALES para posicionamiento en todo el Menú.
 unsigned int menu, menu1, menu2, menu3,	menu32, menu4, menu41, menu41_1,menu41_2, menu41_3, menu41_4;
+extern int valpru[];
+extern int inc;
 
 // Variables GLOBALES.
 unsigned int 	sleep,			// Variable que a cierto valor duerme la pantalla.
@@ -42,7 +44,7 @@ void TOUCH_Init(void){
 // Configuracion de INTERRUPCION TOUCH por bajo nivel.
 	GPIOInit();
 	GPIOSetInterrupt(PORT1, 2, 0, 0, 0);
-	GPIOSetInterrupt(PORT1, 4, 0, 0, 0);
+//	GPIOSetInterrupt(PORT1, 4, 0, 0, 0);
 }
 
 // *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
@@ -85,14 +87,14 @@ void PIOINT1_IRQHandler(void){
 
 	  }
 //-------------------------------------------------------------------------------------------
-	  regVal = GPIOIntStatus( PORT1, 4 );		// Interrupción PIN 1_4 ADC_5 Latidos
+/*	  regVal = GPIOIntStatus( PORT1, 4 );		// Interrupción PIN 1_4 ADC_5 Latidos
 
 	  if ( regVal )
 	  {
 			GPIOIntClear(PORT1, 4);				// Limpio la Interrupcion.
 			Tomo_Latido();
 	  }
-
+*/
 
 }
 
@@ -200,6 +202,8 @@ void TOUCH_GetY(void){
 void Tomo_Latido(void)
 {
 	int g,auxLA=0;
+	 unsigned int i  = 0;
+
 
 	//Desabilito la IRQ ya que modifico el estado de los pines.
 	GPIOIntDisable(PORT1, 4);
@@ -212,10 +216,22 @@ void Tomo_Latido(void)
 	for( g = 0; g < 10; g++ ){
 
 		//Tomo 10 Muestras del ADC.
-		auxLA += ADCRead (5);
-//		LPC_ADC->CR     |= (1<<24);							//startconversion by   setting "Start Conversion Now" bit (sec. 25.5.1)
-//		while((LPC_ADC->DR[5] <  0x7FFFFFFF));				//wait for"done" bit to   be   set (sec. 25.5.4)
-//		auxLA += ((LPC_ADC->DR[5] & 0xFFC0) >> 8);
+//		auxLA += ADCRead (5);
+/*
+   	 LPC_ADC->CR |= (1<<24);                            //startconversion by   setting "Start Conversion Now" bit (sec. 25.5.1)
+   	 while((LPC_ADC->DR[5] <  0x7FFFFFFF));                  //wait for"done" bit to   be   set (sec. 25.5.4)
+   	 valpru[inc]= ((LPC_ADC->DR[5] & 0xFFC0) >> 8);
+   	 inc++;
+   	 if(inc>=100)
+   		 inc=50;
+   	 for(i=0; i  <  0xFFFFF; ++i);                            //simple delay to   make scope shots easier to   view
+
+	 valpru[inc]=ADCRead (5);
+	 inc++;
+	 if(inc>=100)
+		 inc=50;
+	 for(i=0; i  <  0xFFFFF; ++i);                            //simple delay to   make scope shots easier to   vie
+*/
 
 	}
 

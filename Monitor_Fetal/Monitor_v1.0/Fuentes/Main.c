@@ -30,6 +30,7 @@ __CRP const unsigned int CRP_WORD = CRP_NO_CRP ;
 #include "WG12864A.h"
 #include "Definiciones.h"
 //#include "Comunicaciones.h"
+void func_nada(void);
 //---------------------------------------------------
 //---------  Variables globales  --------------------
 char 	cont=0,flagmm=0,flagbll=0;
@@ -39,49 +40,70 @@ extern char actualiza_fw;
 extern unsigned int 	lat_co[];
 int val_adc;
 extern int lati;
-// *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-int main(void)
+int valpru[100];
+int inc=0;
+void main(void)
 {
+	//*-*-*-*-*-*-*-*-*-*-* Configuracion de la SPI. *-*-*-*-*-*-*-*-*-*-*-*
 
-//*-*-*-*-*-*-*-*-*-*-* Configuracion de la SPI. *-*-*-*-*-*-*-*-*-*-*-*
+		SSP_IOConfig(SPI_0);		// Configuracion de SPI_0.
+		SSP_Init(SPI_0);			// Inicializacion de SPI_0.
+		SSP_IOConfig(SPI_1);		// Configuracion de SPI_1.
+		SSP_Init(SPI_1);			// Inicializacion de SPI_1.
 
-	SSP_IOConfig(SPI_0);		// Configuracion de SPI_0.
-	SSP_Init(SPI_0);			// Inicializacion de SPI_0.
-	SSP_IOConfig(SPI_1);		// Configuracion de SPI_1.
-	SSP_Init(SPI_1);			// Inicializacion de SPI_1.
+	//*-*-*-*-*-*-*-*-*-*-* Configuracion del DISPLAY. *-*-*-*-*-*-*-*-*-*-*
 
-//*-*-*-*-*-*-*-*-*-*-* Configuracion del DISPLAY. *-*-*-*-*-*-*-*-*-*-*
+		WG12864A_Init();			// Inicializacion del DISPLAY.
 
-	WG12864A_Init();			// Inicializacion del DISPLAY.
-
-//*-*-*-*-*-*-*-*-*-*-*-* Configuracion del ADC. *-*-*-*-*-*-*-*-*-*-*-*
+	//*-*-*-*-*-*-*-*-*-*-*-* Configuracion del ADC. *-*-*-*-*-*-*-*-*-*-*-*
 
 	ADCInit(ADC_CLK);			// Inicializacion de ADC.
 
-//*-*-*-*-*-*-*-*-*-*-*-* Configuracion de TOUCH. *-*-*-*-*-*-*-*-*-*-*-*
+	//*-*-*-*-*-*-*-*-*-*-*-* Configuracion de TOUCH. *-*-*-*-*-*-*-*-*-*-*-*
 
-	TOUCH_Init();				// Inicializacion del TOUCH.
-	TOUCH_Standby();
+		TOUCH_Init();				// Inicializacion del TOUCH.
+		TOUCH_Standby();
 
-//*-*-*-*-*-*-*-*-*-*-* Configuracion del TIMMER. *-*-*-*-*-*-*-*-*-*-*-*
+	//*-*-*-*-*-*-*-*-*-*-* Configuracion del TIMMER. *-*-*-*-*-*-*-*-*-*-*-*
+		init_timer32 (0, 1);								// Timmer 0, para Delays.
+		init_timer32 (1, (TIMMER_BASE_1S * TIMMER_SLEEP));	// Timmer 1, para Sleep Display.
 
-	init_timer32 (0, 1);								// Timmer 0, para Delays.
-	init_timer32 (1, (TIMMER_BASE_1S * TIMMER_SLEEP));	// Timmer 1, para Sleep Display.
+	//*-*-*-*-*-*-*-*-*-*-* MAIN. *-*-*-*-*-*-*-*-*-*-*-*
 
-//*-*-*-*-*-*-*-*-*-*-* MAIN. *-*-*-*-*-*-*-*-*-*-*-*
+		Menu_Logo();				// Presento el Logo de la Empresa.
+		enable_timer32(1);			// Disparo el Timmer que controla el Sleep del Display.
+		GPIOIntClear(PORT1, 2);		// Limpio la Interrupcion y la habilito.
+		GPIOIntEnable(PORT1, 2);
+		actualiza_fw=0;
+//		GPIOIntClear(PORT1, 4);		// Limpio la Interrupcion y la habilito.
+//		GPIOIntEnable(PORT1, 4);
 
-	Menu_Logo();				// Presento el Logo de la Empresa.
-	enable_timer32(1);			// Disparo el Timmer que controla el Sleep del Display.
-	GPIOIntClear(PORT1, 2);		// Limpio la Interrupcion y la habilito.
-	GPIOIntEnable(PORT1, 2);
-	actualiza_fw=0;
-//	GPIOIntClear(PORT1, 4);		// Limpio la Interrupcion y la habilito.
-//	GPIOIntEnable(PORT1, 4);
 
-	while(1)
-	{unsigned int i=0;
-		//Corro el Menu.
-		Menu_Inicial();
+	int inc=0;
+	 unsigned int i  = 0;
+	inc=0;
+/*	LPC_SYSCON->PDRUNCFG &=   ~(0x1<<4);  //power the ADC (sec. 3.5.35)
+	LPC_SYSCON->SYSAHBCLKCTRL |= (1<<13);    //enable clock for ADC (sec.3.5.14)
+	LPC_IOCON->PIO1_4 &= ~(0x97);    //clear FUNC field for pin 40, set to   analog input (sec. 7.4.36)
+	LPC_IOCON->PIO1_4 |= (1<<0);     //set to ADC mode for pin 40 (sec. 7.4.36)
+	LPC_ADC->CR = 0x0B20;      //select ADC channel AD5 (pin 40), set up   clock (sec 25.5.1)
+*/
+	ADCInit(ADC_CLK);			// Inicializacion de ADC.
+		while(1)
+	     {                                     //infinite loop
+/*	    	 LPC_ADC->CR |= (1<<24);                            //startconversion by   setting "Start Conversion Now" bit (sec. 25.5.1)
+	    	 while((LPC_ADC->DR[5] <  0x7FFFFFFF));                  //wait for"done" bit to   be   set (sec. 25.5.4)
+	    	 valpru[inc]= ((LPC_ADC->DR[5] & 0xFFC0) >> 8);
+*/
+			Menu_Inicial();
+			 valpru[inc]=ADCRead (5);
+			 inc++;
+			 if(inc>=100)
+				 inc=0;
+			 for(i=0; i  <  0xFFFFF; ++i);                            //simple delay to   make scope shots easier to   vie
 
-	}
+//			muestra_estados (3);
+
+	     }
 }
+

@@ -14,11 +14,21 @@
 		<item value="org.eclipse.platform:4.5.2.v20160212-1500"/>
 		<item value="org.eclipse.rcp:4.5.2.v20160212-1500"/>
 	</list>
+	<section name="CleanDialogSettings">
+		<item value="563" key="DIALOG_WIDTH"/>
+		<item value="true" key="BUILD_ALL"/>
+		<item value="false" key="TOGGLE_SELECTED"/>
+		<item value="557" key="DIALOG_HEIGHT"/>
+		<item value="425" key="DIALOG_X_ORIGIN"/>
+		<item value="95" key="DIALOG_Y_ORIGIN"/>
+		<item value="true" key="BUILD_NOW"/>
+	</section>
 	<section name="ExternalProjectImportWizard">
 		<item value="false" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
 		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
 		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="/home/sebastian/LPCXpresso/workspace/Proyectos LPC1115/Monitor_Fetal/ADC"/>
 			<item value="/home/sebastian/LPCXpresso/workspace/Proyectos LPC1115/modpot_CT800C_1.2"/>
 			<item value="F:\Proyectos LPC1115\Monitor_Fetal\CMSISv1p30_LPC11xx"/>
 			<item value="F:\Proyectos LPC1115\Monitor_Fetal\Monitor_v1.0"/>
@@ -29,6 +39,14 @@
 	</section>
 	<section name="WORKBENCH_SETTINGS">
 		<list key="ENABLED_TRANSFERS">
+		</list>
+	</section>
+	<section name="NewWizardAction">
+		<item value="com.crt.quickstart.new.CProjectWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.ui.Basic"/>
+			<item value="org.eclipse.cdt.ui.newCWizards"/>
+			<item value="org.eclipse.team.cvs.ui.newWizards"/>
 		</list>
 	</section>
 	<section name="ChooseWorkspaceDialogSettings">

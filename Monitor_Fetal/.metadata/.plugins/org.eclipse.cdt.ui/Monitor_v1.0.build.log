@@ -1,6 +1,6 @@
-12:19:42 **** Incremental Build of configuration Debug for project Monitor_v1.0 ****
+21:21:48 **** Incremental Build of configuration Debug for project Monitor_v1.0 ****
 make -r all 
 make: No se hace nada para 'all'.
 
-12:19:42 Build Finished (took 161ms)
+21:21:48 Build Finished (took 161ms)
 

@@ -1,0 +1,6 @@
+19:51:46 **** Build of configuration Debug for project modpot_CT800C_1.1 ****
+make -r all 
+startup/cr_startup_lpc11.d:1: *** hay varios patrones de objetivos.  Alto.
+
+19:51:46 Build Finished (took 162ms)
+

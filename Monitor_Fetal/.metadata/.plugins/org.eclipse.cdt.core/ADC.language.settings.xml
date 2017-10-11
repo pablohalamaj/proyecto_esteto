@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project>
+	<configuration id="com.crt.advproject.config.exe.debug.970211303" name="Debug">
+		<extension point="org.eclipse.cdt.core.LanguageSettingsProvider">
+			<provider id="com.crt.advproject.GCCBuildCommandParser">
+				<language id="org.eclipse.cdt.core.gcc">
+					<resource project-relative-path="Drivers/ssp.c">
+						<entry kind="includePath" name="/CMSISv1p30_LPC11xx/inc">
+							<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/Cabeceras">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/Drivers">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="macro" name="DEBUG" value=""/>
+						<entry kind="macro" name="__CODE_RED" value=""/>
+						<entry kind="macro" name="__REDLIB__" value=""/>
+						<entry kind="macro" name="__USE_CMSIS" value="CMSISv1p30_LPC11xx"/>
+					</resource>
+					<resource project-relative-path="Fuentes/WG12864A.c">
+						<entry kind="includePath" name="/CMSISv1p30_LPC11xx/inc">
+							<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/Cabeceras">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/Drivers">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="macro" name="DEBUG" value=""/>
+						<entry kind="macro" name="__CODE_RED" value=""/>
+						<entry kind="macro" name="__REDLIB__" value=""/>
+						<entry kind="macro" name="__USE_CMSIS" value="CMSISv1p30_LPC11xx"/>
+					</resource>
+					<resource project-relative-path="Fuentes/Funciones.c">
+						<entry kind="includePath" name="/CMSISv1p30_LPC11xx/inc">
+							<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/Cabeceras">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/Drivers">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="macro" name="DEBUG" value=""/>
+						<entry kind="macro" name="__CODE_RED" value=""/>
+						<entry kind="macro" name="__REDLIB__" value=""/>
+						<entry kind="macro" name="__USE_CMSIS" value="CMSISv1p30_LPC11xx"/>
+					</resource>
+					<resource project-relative-path="Fuentes/Menu.c">
+						<entry kind="includePath" name="/CMSISv1p30_LPC11xx/inc">
+							<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/Cabeceras">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/Drivers">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="macro" name="DEBUG" value=""/>
+						<entry kind="macro" name="__CODE_RED" value=""/>
+						<entry kind="macro" name="__REDLIB__" value=""/>
+						<entry kind="macro" name="__USE_CMSIS" value="CMSISv1p30_LPC11xx"/>
+					</resource>
+					<resource project-relative-path="Fuentes/Comunicaciones.c">
+						<entry kind="includePath" name="/CMSISv1p30_LPC11xx/inc">
+							<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/Cabeceras">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/Drivers">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="macro" name="DEBUG" value=""/>
+						<entry kind="macro" name="__CODE_RED" value=""/>
+						<entry kind="macro" name="__REDLIB__" value=""/>
+						<entry kind="macro" name="__USE_CMSIS" value="CMSISv1p30_LPC11xx"/>
+					</resource>
+					<resource project-relative-path="Fuentes/Subfunciones.c">
+						<entry kind="includePath" name="/CMSISv1p30_LPC11xx/inc">
+							<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/Cabeceras">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/Drivers">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="macro" name="DEBUG" value=""/>
+						<entry kind="macro" name="__CODE_RED" value=""/>
+						<entry kind="macro" name="__REDLIB__" value=""/>
+						<entry kind="macro" name="__USE_CMSIS" value="CMSISv1p30_LPC11xx"/>
+					</resource>
+					<resource project-relative-path="Fuentes/Touch.c">
+						<entry kind="includePath" name="/CMSISv1p30_LPC11xx/inc">
+							<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/Cabeceras">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/Drivers">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="macro" name="DEBUG" value=""/>
+						<entry kind="macro" name="__CODE_RED" value=""/>
+						<entry kind="macro" name="__REDLIB__" value=""/>
+						<entry kind="macro" name="__USE_CMSIS" value="CMSISv1p30_LPC11xx"/>
+					</resource>
+					<resource project-relative-path="Drivers/wdt.c">
+						<entry kind="includePath" name="/CMSISv1p30_LPC11xx/inc">
+							<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/Cabeceras">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/Drivers">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="macro" name="DEBUG" value=""/>
+						<entry kind="macro" name="__CODE_RED" value=""/>
+						<entry kind="macro" name="__REDLIB__" value=""/>
+						<entry kind="macro" name="__USE_CMSIS" value="CMSISv1p30_LPC11xx"/>
+					</resource>
+					<resource project-relative-path="Drivers/adc.c">
+						<entry kind="includePath" name="/CMSISv1p30_LPC11xx/inc">
+							<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/Cabeceras">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/Drivers">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="macro" name="DEBUG" value=""/>
+						<entry kind="macro" name="__CODE_RED" value=""/>
+						<entry kind="macro" name="__REDLIB__" value=""/>
+						<entry kind="macro" name="__USE_CMSIS" value="CMSISv1p30_LPC11xx"/>
+					</resource>
+					<resource project-relative-path="Fuentes/Teclado.c">
+						<entry kind="includePath" name="/CMSISv1p30_LPC11xx/inc">
+							<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/Cabeceras">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/Drivers">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="macro" name="DEBUG" value=""/>
+						<entry kind="macro" name="__CODE_RED" value=""/>
+						<entry kind="macro" name="__REDLIB__" value=""/>
+						<entry kind="macro" name="__USE_CMSIS" value="CMSISv1p30_LPC11xx"/>
+					</resource>
+					<resource project-relative-path="Drivers/gpio.c">
+						<entry kind="includePath" name="/CMSISv1p30_LPC11xx/inc">
+							<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/Cabeceras">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/Drivers">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="macro" name="DEBUG" value=""/>
+						<entry kind="macro" name="__CODE_RED" value=""/>
+						<entry kind="macro" name="__REDLIB__" value=""/>
+						<entry kind="macro" name="__USE_CMSIS" value="CMSISv1p30_LPC11xx"/>
+					</resource>
+					<resource project-relative-path="Fuentes/cr_startup_lpc11.c">
+						<entry kind="includePath" name="/CMSISv1p30_LPC11xx/inc">
+							<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/Cabeceras">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/Drivers">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="macro" name="DEBUG" value=""/>
+						<entry kind="macro" name="__CODE_RED" value=""/>
+						<entry kind="macro" name="__REDLIB__" value=""/>
+						<entry kind="macro" name="__USE_CMSIS" value="CMSISv1p30_LPC11xx"/>
+					</resource>
+					<resource project-relative-path="Fuentes/Main.c">
+						<entry kind="includePath" name="/CMSISv1p30_LPC11xx/inc">
+							<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/Cabeceras">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/Drivers">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="macro" name="DEBUG" value=""/>
+						<entry kind="macro" name="__CODE_RED" value=""/>
+						<entry kind="macro" name="__REDLIB__" value=""/>
+						<entry kind="macro" name="__USE_CMSIS" value="CMSISv1p30_LPC11xx"/>
+					</resource>
+					<resource project-relative-path="Drivers/timer32.c">
+						<entry kind="includePath" name="/CMSISv1p30_LPC11xx/inc">
+							<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/Cabeceras">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/Drivers">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="macro" name="DEBUG" value=""/>
+						<entry kind="macro" name="__CODE_RED" value=""/>
+						<entry kind="macro" name="__REDLIB__" value=""/>
+						<entry kind="macro" name="__USE_CMSIS" value="CMSISv1p30_LPC11xx"/>
+					</resource>
+				</language>
+			</provider>
+		</extension>
+	</configuration>
+</project>

@@ -1,0 +1,28 @@
+/*
+ * Display.c
+ *
+ *  Created on: 9 de oct. de 2017
+ *      Author: sebastian
+ */
+#include <stdio.h>
+#include "gpio.h"
+#include "Subfunciones.h"
+#include "WG12864A.h"
+#include "Definiciones.h"
+//#include "Comunicaciones.h"
+
+
+extern char btens[];
+void func_nada(void)
+{
+	int i=0,fila=5,colut=1;
+	for(i=0;i<14;i++)
+	{
+		WG12864A_posXY(colut, fila);
+		WG12864A_printf(&btens[i], Arial8x6, NEGRO);
+		colut+=6;
+
+	}
+
+}
+

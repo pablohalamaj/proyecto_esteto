@@ -1587,3 +1587,1560 @@ Command-line arguments:  -os linux -ws gtk -arch x86
 !MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.mi.service.MIRunControl$9@ce68e0): Status ERROR: org.eclipse.cdt.dsf.gdb code=10004 Interrupt failed. null' resulted in an error.
 !SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-10-01 12:25:46.363
 !MESSAGE Interrupt failed.
+!SESSION 2017-10-02 18:52:14.803 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_65
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=es_AR
+Command-line arguments:  -os linux -ws gtk -arch x86
+
+!ENTRY com.crt.log 1 0 2017-10-02 19:23:31.124
+!MESSAGE Drivers loaded in 1434 milliseconds
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2017-10-02 19:29:52.945
+!MESSAGE Error in final launch sequence
+!STACK 1
+org.eclipse.core.runtime.CoreException: Failed to execute MI command:
+-exec-continue
+Error message from debugger back end:
+Warning:\nCannot insert hardware breakpoint 1.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:111)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:235)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:109)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:97)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: java.lang.Exception: Warning:\nCannot insert hardware breakpoint 1.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:927)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:756)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-10-02 19:29:52.949
+!MESSAGE Failed to execute MI command:
+-exec-continue
+Error message from debugger back end:
+Warning:\nCannot insert hardware breakpoint 1.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+!STACK 0
+java.lang.Exception: Warning:\nCannot insert hardware breakpoint 1.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:927)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:756)
+
+!ENTRY com.crt.dsfdebug 4 0 2017-10-02 19:29:53.071
+!MESSAGE 15: Target error from Set break/watch
+!SUBENTRY 1 com.crt.dsfdebug 4 0 2017-10-02 19:29:53.071
+!MESSAGE 15: Target error from Set break/watch
+!SUBENTRY 1 com.crt.dsfdebug 4 0 2017-10-02 19:29:53.071
+!MESSAGE Unable to set an execution break - no resource available.
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2017-10-02 19:30:07.751
+!MESSAGE Error in final launch sequence
+!STACK 1
+org.eclipse.core.runtime.CoreException: Failed to execute MI command:
+-exec-continue
+Error message from debugger back end:
+Warning:\nCannot insert hardware breakpoint 3.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:111)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:235)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:109)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:97)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: java.lang.Exception: Warning:\nCannot insert hardware breakpoint 3.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:927)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:756)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-10-02 19:30:07.752
+!MESSAGE Failed to execute MI command:
+-exec-continue
+Error message from debugger back end:
+Warning:\nCannot insert hardware breakpoint 3.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+!STACK 0
+java.lang.Exception: Warning:\nCannot insert hardware breakpoint 3.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:927)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:756)
+
+!ENTRY com.crt.dsfdebug 4 0 2017-10-02 19:30:07.873
+!MESSAGE 15: Target error from Set break/watch
+!SUBENTRY 1 com.crt.dsfdebug 4 0 2017-10-02 19:30:07.873
+!MESSAGE 15: Target error from Set break/watch
+!SUBENTRY 1 com.crt.dsfdebug 4 0 2017-10-02 19:30:07.873
+!MESSAGE Unable to set an execution break - no resource available.
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2017-10-02 19:30:34.978
+!MESSAGE Error in final launch sequence
+!STACK 1
+org.eclipse.core.runtime.CoreException: Failed to execute MI command:
+-exec-continue
+Error message from debugger back end:
+Warning:\nCannot insert hardware breakpoint 1.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:111)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:235)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:109)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:97)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: java.lang.Exception: Warning:\nCannot insert hardware breakpoint 1.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:927)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:756)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-10-02 19:30:34.978
+!MESSAGE Failed to execute MI command:
+-exec-continue
+Error message from debugger back end:
+Warning:\nCannot insert hardware breakpoint 1.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+!STACK 0
+java.lang.Exception: Warning:\nCannot insert hardware breakpoint 1.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:927)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:756)
+
+!ENTRY com.crt.dsfdebug 4 0 2017-10-02 19:30:34.988
+!MESSAGE 15: Target error from Set break/watch
+!SUBENTRY 1 com.crt.dsfdebug 4 0 2017-10-02 19:30:34.988
+!MESSAGE 15: Target error from Set break/watch
+!SUBENTRY 1 com.crt.dsfdebug 4 0 2017-10-02 19:30:34.988
+!MESSAGE Unable to set an execution break - no resource available.
+
+!ENTRY com.crt.log 1 0 2017-10-02 19:30:54.237
+!MESSAGE Drivers loaded in 1432 milliseconds
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2017-10-02 19:30:58.861
+!MESSAGE Error in final launch sequence
+!STACK 1
+org.eclipse.core.runtime.CoreException: Failed to execute MI command:
+-exec-continue
+Error message from debugger back end:
+Warning:\nCannot insert hardware breakpoint 3.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:111)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:235)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:109)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:97)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: java.lang.Exception: Warning:\nCannot insert hardware breakpoint 3.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:927)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:756)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-10-02 19:30:58.861
+!MESSAGE Failed to execute MI command:
+-exec-continue
+Error message from debugger back end:
+Warning:\nCannot insert hardware breakpoint 3.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+!STACK 0
+java.lang.Exception: Warning:\nCannot insert hardware breakpoint 3.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:927)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:756)
+
+!ENTRY com.crt.dsfdebug 4 0 2017-10-02 19:30:58.966
+!MESSAGE 15: Target error from Set break/watch
+!SUBENTRY 1 com.crt.dsfdebug 4 0 2017-10-02 19:30:58.966
+!MESSAGE 15: Target error from Set break/watch
+!SUBENTRY 1 com.crt.dsfdebug 4 0 2017-10-02 19:30:58.966
+!MESSAGE Unable to set an execution break - no resource available.
+
+!ENTRY com.crt.log 1 0 2017-10-02 19:31:22.814
+!MESSAGE Drivers loaded in 1415 milliseconds
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2017-10-02 19:31:27.363
+!MESSAGE Error in final launch sequence
+!STACK 1
+org.eclipse.core.runtime.CoreException: Failed to execute MI command:
+-exec-continue
+Error message from debugger back end:
+Warning:\nCannot insert hardware breakpoint 4.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:111)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:235)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:109)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:97)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: java.lang.Exception: Warning:\nCannot insert hardware breakpoint 4.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:927)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:756)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-10-02 19:31:27.364
+!MESSAGE Failed to execute MI command:
+-exec-continue
+Error message from debugger back end:
+Warning:\nCannot insert hardware breakpoint 4.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+!STACK 0
+java.lang.Exception: Warning:\nCannot insert hardware breakpoint 4.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:927)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:756)
+
+!ENTRY com.crt.dsfdebug 4 0 2017-10-02 19:31:27.479
+!MESSAGE 15: Target error from Set break/watch
+!SUBENTRY 1 com.crt.dsfdebug 4 0 2017-10-02 19:31:27.479
+!MESSAGE 15: Target error from Set break/watch
+!SUBENTRY 1 com.crt.dsfdebug 4 0 2017-10-02 19:31:27.479
+!MESSAGE Unable to set an execution break - no resource available.
+
+!ENTRY org.eclipse.ui 4 4 2017-10-02 19:31:35.918
+!MESSAGE Plugin org.eclipse.cdt.ui, extension org.eclipse.ui.decorators, id org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator: Duplicate id found: org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator
+
+!ENTRY org.eclipse.ui 4 4 2017-10-02 19:31:35.918
+!MESSAGE Plugin org.eclipse.cdt.ui, extension org.eclipse.ui.decorators, id org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator: Unknown extension tag found: decorator
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2017-10-02 19:32:07.845
+!MESSAGE Error in final launch sequence
+!STACK 1
+org.eclipse.core.runtime.CoreException: Failed to execute MI command:
+-exec-continue
+Error message from debugger back end:
+Warning:\nCannot insert hardware breakpoint 1.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:111)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:235)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:109)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:97)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: java.lang.Exception: Warning:\nCannot insert hardware breakpoint 1.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:927)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:756)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-10-02 19:32:07.845
+!MESSAGE Failed to execute MI command:
+-exec-continue
+Error message from debugger back end:
+Warning:\nCannot insert hardware breakpoint 1.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+!STACK 0
+java.lang.Exception: Warning:\nCannot insert hardware breakpoint 1.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:927)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:756)
+
+!ENTRY com.crt.dsfdebug 4 0 2017-10-02 19:32:07.981
+!MESSAGE 15: Target error from Set break/watch
+!SUBENTRY 1 com.crt.dsfdebug 4 0 2017-10-02 19:32:07.981
+!MESSAGE 15: Target error from Set break/watch
+!SUBENTRY 1 com.crt.dsfdebug 4 0 2017-10-02 19:32:07.981
+!MESSAGE Unable to set an execution break - no resource available.
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2017-10-02 19:32:41.247
+!MESSAGE Error in final launch sequence
+!STACK 1
+org.eclipse.core.runtime.CoreException: Failed to execute MI command:
+-exec-continue
+Error message from debugger back end:
+Warning:\nCannot insert hardware breakpoint 1.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:111)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:235)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:109)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:97)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: java.lang.Exception: Warning:\nCannot insert hardware breakpoint 1.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:927)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:756)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-10-02 19:32:41.247
+!MESSAGE Failed to execute MI command:
+-exec-continue
+Error message from debugger back end:
+Warning:\nCannot insert hardware breakpoint 1.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+!STACK 0
+java.lang.Exception: Warning:\nCannot insert hardware breakpoint 1.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:927)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:756)
+
+!ENTRY com.crt.dsfdebug 4 0 2017-10-02 19:32:41.363
+!MESSAGE 15: Target error from Set break/watch
+!SUBENTRY 1 com.crt.dsfdebug 4 0 2017-10-02 19:32:41.363
+!MESSAGE 15: Target error from Set break/watch
+!SUBENTRY 1 com.crt.dsfdebug 4 0 2017-10-02 19:32:41.363
+!MESSAGE Unable to set an execution break - no resource available.
+
+!ENTRY com.crt.log 1 0 2017-10-02 19:33:40.428
+!MESSAGE Drivers loaded in 1408 milliseconds
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2017-10-02 19:34:14.673
+!MESSAGE Error in final launch sequence
+!STACK 1
+org.eclipse.core.runtime.CoreException: Failed to execute MI command:
+-exec-continue
+Error message from debugger back end:
+Warning:\nCannot insert hardware breakpoint 4.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:111)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:235)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:109)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:97)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: java.lang.Exception: Warning:\nCannot insert hardware breakpoint 4.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:927)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:756)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-10-02 19:34:14.673
+!MESSAGE Failed to execute MI command:
+-exec-continue
+Error message from debugger back end:
+Warning:\nCannot insert hardware breakpoint 4.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+!STACK 0
+java.lang.Exception: Warning:\nCannot insert hardware breakpoint 4.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:927)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:756)
+
+!ENTRY com.crt.dsfdebug 4 0 2017-10-02 19:34:14.690
+!MESSAGE 15: Target error from Set break/watch
+!SUBENTRY 1 com.crt.dsfdebug 4 0 2017-10-02 19:34:14.690
+!MESSAGE 15: Target error from Set break/watch
+!SUBENTRY 1 com.crt.dsfdebug 4 0 2017-10-02 19:34:14.690
+!MESSAGE Unable to set an execution break - no resource available.
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2017-10-02 19:35:12.998
+!MESSAGE Error in final launch sequence
+!STACK 1
+org.eclipse.core.runtime.CoreException: Failed to execute MI command:
+-exec-continue
+Error message from debugger back end:
+Warning:\nCannot insert hardware breakpoint 1.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:111)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:235)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:109)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:97)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: java.lang.Exception: Warning:\nCannot insert hardware breakpoint 1.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:927)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:756)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-10-02 19:35:13.000
+!MESSAGE Failed to execute MI command:
+-exec-continue
+Error message from debugger back end:
+Warning:\nCannot insert hardware breakpoint 1.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+!STACK 0
+java.lang.Exception: Warning:\nCannot insert hardware breakpoint 1.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:927)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:756)
+
+!ENTRY com.crt.dsfdebug 4 0 2017-10-02 19:35:13.024
+!MESSAGE 15: Target error from Set break/watch
+!SUBENTRY 1 com.crt.dsfdebug 4 0 2017-10-02 19:35:13.024
+!MESSAGE 15: Target error from Set break/watch
+!SUBENTRY 1 com.crt.dsfdebug 4 0 2017-10-02 19:35:13.024
+!MESSAGE Unable to set an execution break - no resource available.
+
+!ENTRY com.crt.log 1 0 2017-10-02 19:36:51.707
+!MESSAGE Drivers loaded in 1321 milliseconds
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2017-10-02 19:36:57.542
+!MESSAGE Error in final launch sequence
+!STACK 1
+org.eclipse.core.runtime.CoreException: Failed to execute MI command:
+-exec-continue
+Error message from debugger back end:
+Warning:\nCannot insert hardware breakpoint 1.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:111)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:235)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:109)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:97)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: java.lang.Exception: Warning:\nCannot insert hardware breakpoint 1.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:927)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:756)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-10-02 19:36:57.543
+!MESSAGE Failed to execute MI command:
+-exec-continue
+Error message from debugger back end:
+Warning:\nCannot insert hardware breakpoint 1.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+!STACK 0
+java.lang.Exception: Warning:\nCannot insert hardware breakpoint 1.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:927)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:756)
+
+!ENTRY com.crt.dsfdebug 4 0 2017-10-02 19:36:57.559
+!MESSAGE 15: Target error from Set break/watch
+!SUBENTRY 1 com.crt.dsfdebug 4 0 2017-10-02 19:36:57.559
+!MESSAGE 15: Target error from Set break/watch
+!SUBENTRY 1 com.crt.dsfdebug 4 0 2017-10-02 19:36:57.559
+!MESSAGE Unable to set an execution break - no resource available.
+!SESSION 2017-10-02 19:38:00.383 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_65
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=es_AR
+Command-line arguments:  -os linux -ws gtk -arch x86
+
+!ENTRY com.crt.log 1 0 2017-10-02 19:38:21.471
+!MESSAGE Drivers loaded in 1440 milliseconds
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-10-02 19:42:41.202
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.mi.service.MIRunControl$9@eee52c): Status ERROR: org.eclipse.cdt.dsf code=10004 Sequence "" failed while rolling back. null children=[Status ERROR: org.eclipse.cdt.dsf.gdb code=10004 Failed to execute MI command:
+-exec-continue
+Error message from debugger back end:
+Warning:\nCannot insert hardware breakpoint 10.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n java.lang.Exception: Warning:\nCannot insert hardware breakpoint 10.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n Status ERROR: org.eclipse.cdt.dsf.gdb code=10004 Failed to execute MI command:
+-exec-continue
+Error message from debugger back end:
+Warning:\nCannot insert hardware breakpoint 10.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n java.lang.Exception: Warning:\nCannot insert hardware breakpoint 10.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n]' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-10-02 19:42:41.202
+!MESSAGE Failed to execute MI command:
+-exec-continue
+Error message from debugger back end:
+Warning:\nCannot insert hardware breakpoint 10.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+!STACK 0
+java.lang.Exception: Warning:\nCannot insert hardware breakpoint 10.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:927)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:756)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-10-02 19:42:41.203
+!MESSAGE Failed to execute MI command:
+-exec-continue
+Error message from debugger back end:
+Warning:\nCannot insert hardware breakpoint 10.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+!STACK 0
+java.lang.Exception: Warning:\nCannot insert hardware breakpoint 10.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:927)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:756)
+
+!ENTRY com.crt.dsfdebug 4 0 2017-10-02 19:42:41.569
+!MESSAGE 15: Target error from Set break/watch
+!SUBENTRY 1 com.crt.dsfdebug 4 0 2017-10-02 19:42:41.569
+!MESSAGE 15: Target error from Set break/watch
+!SUBENTRY 1 com.crt.dsfdebug 4 0 2017-10-02 19:42:41.569
+!MESSAGE Unable to set an execution break - no resource available.
+!SESSION 2017-10-02 19:43:23.194 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_65
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=es_AR
+Command-line arguments:  -os linux -ws gtk -arch x86
+
+!ENTRY org.eclipse.core.resources 2 10035 2017-10-02 19:43:24.432
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY com.crt.log 1 0 2017-10-02 19:43:42.948
+!MESSAGE Drivers loaded in 1430 milliseconds
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2017-10-02 19:43:47.796
+!MESSAGE Error in final launch sequence
+!STACK 1
+org.eclipse.core.runtime.CoreException: Failed to execute MI command:
+-exec-continue
+Error message from debugger back end:
+Warning:\nCannot insert hardware breakpoint 2.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:111)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:235)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:109)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:97)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: java.lang.Exception: Warning:\nCannot insert hardware breakpoint 2.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:927)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:756)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-10-02 19:43:47.801
+!MESSAGE Failed to execute MI command:
+-exec-continue
+Error message from debugger back end:
+Warning:\nCannot insert hardware breakpoint 2.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+!STACK 0
+java.lang.Exception: Warning:\nCannot insert hardware breakpoint 2.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:927)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:756)
+
+!ENTRY com.crt.dsfdebug 4 0 2017-10-02 19:43:47.973
+!MESSAGE 15: Target error from Set break/watch
+!SUBENTRY 1 com.crt.dsfdebug 4 0 2017-10-02 19:43:47.973
+!MESSAGE 15: Target error from Set break/watch
+!SUBENTRY 1 com.crt.dsfdebug 4 0 2017-10-02 19:43:47.973
+!MESSAGE Unable to set an execution break - no resource available.
+!SESSION 2017-10-02 19:44:11.737 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_65
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=es_AR
+Command-line arguments:  -os linux -ws gtk -arch x86
+
+!ENTRY com.crt.log 1 0 2017-10-02 19:44:29.735
+!MESSAGE Drivers loaded in 1431 milliseconds
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2017-10-02 19:44:34.764
+!MESSAGE Error in final launch sequence
+!STACK 1
+org.eclipse.core.runtime.CoreException: Failed to execute MI command:
+-exec-continue
+Error message from debugger back end:
+Warning:\nCannot insert hardware breakpoint 4.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:111)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:235)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:109)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:97)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: java.lang.Exception: Warning:\nCannot insert hardware breakpoint 4.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:927)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:756)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-10-02 19:44:34.768
+!MESSAGE Failed to execute MI command:
+-exec-continue
+Error message from debugger back end:
+Warning:\nCannot insert hardware breakpoint 4.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+!STACK 0
+java.lang.Exception: Warning:\nCannot insert hardware breakpoint 4.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:927)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:756)
+
+!ENTRY com.crt.dsfdebug 4 0 2017-10-02 19:44:34.941
+!MESSAGE 15: Target error from Set break/watch
+!SUBENTRY 1 com.crt.dsfdebug 4 0 2017-10-02 19:44:34.941
+!MESSAGE 15: Target error from Set break/watch
+!SUBENTRY 1 com.crt.dsfdebug 4 0 2017-10-02 19:44:34.941
+!MESSAGE Unable to set an execution break - no resource available.
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2017-10-02 19:44:50.158
+!MESSAGE Error in final launch sequence
+!STACK 1
+org.eclipse.core.runtime.CoreException: Failed to execute MI command:
+-exec-continue
+Error message from debugger back end:
+Warning:\nCannot insert hardware breakpoint 4.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:111)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:235)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:109)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:97)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: java.lang.Exception: Warning:\nCannot insert hardware breakpoint 4.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:927)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:756)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-10-02 19:44:50.160
+!MESSAGE Failed to execute MI command:
+-exec-continue
+Error message from debugger back end:
+Warning:\nCannot insert hardware breakpoint 4.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+!STACK 0
+java.lang.Exception: Warning:\nCannot insert hardware breakpoint 4.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:927)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:756)
+
+!ENTRY com.crt.dsfdebug 4 0 2017-10-02 19:44:50.273
+!MESSAGE 15: Target error from Set break/watch
+!SUBENTRY 1 com.crt.dsfdebug 4 0 2017-10-02 19:44:50.273
+!MESSAGE 15: Target error from Set break/watch
+!SUBENTRY 1 com.crt.dsfdebug 4 0 2017-10-02 19:44:50.273
+!MESSAGE Unable to set an execution break - no resource available.
+!SESSION 2017-10-02 19:45:16.703 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_65
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=es_AR
+Command-line arguments:  -os linux -ws gtk -arch x86
+
+!ENTRY com.crt.log 1 0 2017-10-02 19:45:36.230
+!MESSAGE Drivers loaded in 1152 milliseconds
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2017-10-02 19:45:41.236
+!MESSAGE Error in final launch sequence
+!STACK 1
+org.eclipse.core.runtime.CoreException: Failed to execute MI command:
+-exec-continue
+Error message from debugger back end:
+Warning:\nCannot insert hardware breakpoint 1.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:111)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:235)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:109)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:97)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: java.lang.Exception: Warning:\nCannot insert hardware breakpoint 1.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:927)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:756)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-10-02 19:45:41.237
+!MESSAGE Failed to execute MI command:
+-exec-continue
+Error message from debugger back end:
+Warning:\nCannot insert hardware breakpoint 1.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+!STACK 0
+java.lang.Exception: Warning:\nCannot insert hardware breakpoint 1.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:927)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:756)
+
+!ENTRY com.crt.dsfdebug 4 0 2017-10-02 19:45:41.383
+!MESSAGE 15: Target error from Set break/watch
+!SUBENTRY 1 com.crt.dsfdebug 4 0 2017-10-02 19:45:41.383
+!MESSAGE 15: Target error from Set break/watch
+!SUBENTRY 1 com.crt.dsfdebug 4 0 2017-10-02 19:45:41.383
+!MESSAGE Unable to set an execution break - no resource available.
+
+!ENTRY com.crt.log 1 0 2017-10-02 19:45:59.551
+!MESSAGE Drivers loaded in 1354 milliseconds
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2017-10-02 19:46:04.572
+!MESSAGE Error in final launch sequence
+!STACK 1
+org.eclipse.core.runtime.CoreException: Failed to execute MI command:
+-exec-continue
+Error message from debugger back end:
+Warning:\nCannot insert hardware breakpoint 4.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:111)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:235)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:109)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:97)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: java.lang.Exception: Warning:\nCannot insert hardware breakpoint 4.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:927)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:756)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-10-02 19:46:04.573
+!MESSAGE Failed to execute MI command:
+-exec-continue
+Error message from debugger back end:
+Warning:\nCannot insert hardware breakpoint 4.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+!STACK 0
+java.lang.Exception: Warning:\nCannot insert hardware breakpoint 4.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:927)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:756)
+
+!ENTRY com.crt.dsfdebug 4 0 2017-10-02 19:46:04.680
+!MESSAGE 15: Target error from Set break/watch
+!SUBENTRY 1 com.crt.dsfdebug 4 0 2017-10-02 19:46:04.680
+!MESSAGE 15: Target error from Set break/watch
+!SUBENTRY 1 com.crt.dsfdebug 4 0 2017-10-02 19:46:04.680
+!MESSAGE Unable to set an execution break - no resource available.
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2017-10-02 19:46:22.975
+!MESSAGE Error in final launch sequence
+!STACK 1
+org.eclipse.core.runtime.CoreException: Failed to execute MI command:
+-exec-continue
+Error message from debugger back end:
+Warning:\nCannot insert hardware breakpoint 4.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:111)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:235)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:109)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:97)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: java.lang.Exception: Warning:\nCannot insert hardware breakpoint 4.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:927)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:756)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-10-02 19:46:22.975
+!MESSAGE Failed to execute MI command:
+-exec-continue
+Error message from debugger back end:
+Warning:\nCannot insert hardware breakpoint 4.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+!STACK 0
+java.lang.Exception: Warning:\nCannot insert hardware breakpoint 4.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:927)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:756)
+
+!ENTRY com.crt.dsfdebug 4 0 2017-10-02 19:46:23.096
+!MESSAGE 15: Target error from Set break/watch
+!SUBENTRY 1 com.crt.dsfdebug 4 0 2017-10-02 19:46:23.096
+!MESSAGE 15: Target error from Set break/watch
+!SUBENTRY 1 com.crt.dsfdebug 4 0 2017-10-02 19:46:23.096
+!MESSAGE Unable to set an execution break - no resource available.
+!SESSION 2017-10-02 19:49:23.597 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_65
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=es_AR
+Command-line arguments:  -os linux -ws gtk -arch x86
+
+!ENTRY com.crt.log 1 0 2017-10-02 19:50:00.589
+!MESSAGE Drivers loaded in 1395 milliseconds
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2017-10-02 19:50:06.021
+!MESSAGE Error in final launch sequence
+!STACK 1
+org.eclipse.core.runtime.CoreException: Failed to execute MI command:
+-exec-continue
+Error message from debugger back end:
+Warning:\nCannot insert hardware breakpoint 4.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:111)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:235)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:109)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:97)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: java.lang.Exception: Warning:\nCannot insert hardware breakpoint 4.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:927)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:756)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-10-02 19:50:06.024
+!MESSAGE Failed to execute MI command:
+-exec-continue
+Error message from debugger back end:
+Warning:\nCannot insert hardware breakpoint 4.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+!STACK 0
+java.lang.Exception: Warning:\nCannot insert hardware breakpoint 4.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:927)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:756)
+
+!ENTRY com.crt.dsfdebug 4 0 2017-10-02 19:50:06.210
+!MESSAGE 15: Target error from Set break/watch
+!SUBENTRY 1 com.crt.dsfdebug 4 0 2017-10-02 19:50:06.210
+!MESSAGE 15: Target error from Set break/watch
+!SUBENTRY 1 com.crt.dsfdebug 4 0 2017-10-02 19:50:06.210
+!MESSAGE Unable to set an execution break - no resource available.
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2017-10-02 19:51:05.936
+!MESSAGE Error in final launch sequence
+!STACK 1
+org.eclipse.core.runtime.CoreException: Failed to execute MI command:
+-exec-continue
+Error message from debugger back end:
+Warning:\nCannot insert hardware breakpoint 2.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:111)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:235)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:109)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:97)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: java.lang.Exception: Warning:\nCannot insert hardware breakpoint 2.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:927)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:756)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-10-02 19:51:05.937
+!MESSAGE Failed to execute MI command:
+-exec-continue
+Error message from debugger back end:
+Warning:\nCannot insert hardware breakpoint 2.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+!STACK 0
+java.lang.Exception: Warning:\nCannot insert hardware breakpoint 2.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:927)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:756)
+
+!ENTRY com.crt.dsfdebug 4 0 2017-10-02 19:51:06.076
+!MESSAGE 15: Target error from Set break/watch
+!SUBENTRY 1 com.crt.dsfdebug 4 0 2017-10-02 19:51:06.076
+!MESSAGE 15: Target error from Set break/watch
+!SUBENTRY 1 com.crt.dsfdebug 4 0 2017-10-02 19:51:06.076
+!MESSAGE Unable to set an execution break - no resource available.
+
+!ENTRY org.eclipse.ui 4 4 2017-10-02 19:51:12.405
+!MESSAGE Plugin org.eclipse.cdt.ui, extension org.eclipse.ui.decorators, id org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator: Duplicate id found: org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator
+
+!ENTRY org.eclipse.ui 4 4 2017-10-02 19:51:12.405
+!MESSAGE Plugin org.eclipse.cdt.ui, extension org.eclipse.ui.decorators, id org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator: Unknown extension tag found: decorator
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2017-10-02 19:53:03.314
+!MESSAGE Error in final launch sequence
+!STACK 1
+org.eclipse.core.runtime.CoreException: Failed to execute MI command:
+-exec-continue
+Error message from debugger back end:
+Warning:\nCannot insert hardware breakpoint 3.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:111)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:235)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:109)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:97)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: java.lang.Exception: Warning:\nCannot insert hardware breakpoint 3.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:927)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:756)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-10-02 19:53:03.315
+!MESSAGE Failed to execute MI command:
+-exec-continue
+Error message from debugger back end:
+Warning:\nCannot insert hardware breakpoint 3.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+!STACK 0
+java.lang.Exception: Warning:\nCannot insert hardware breakpoint 3.\nCould not insert hardware breakpoints:\nYou may have requested too many hardware breakpoints/watchpoints.\n
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:927)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:756)
+
+!ENTRY com.crt.dsfdebug 4 0 2017-10-02 19:53:03.421
+!MESSAGE 15: Target error from Set break/watch
+!SUBENTRY 1 com.crt.dsfdebug 4 0 2017-10-02 19:53:03.421
+!MESSAGE 15: Target error from Set break/watch
+!SUBENTRY 1 com.crt.dsfdebug 4 0 2017-10-02 19:53:03.421
+!MESSAGE Unable to set an execution break - no resource available.
+!SESSION 2017-10-02 20:07:12.003 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_65
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=es_AR
+Command-line arguments:  -os linux -ws gtk -arch x86
+
+!ENTRY com.crt.log 1 0 2017-10-02 20:07:33.591
+!MESSAGE Drivers loaded in 1411 milliseconds
+
+!ENTRY com.crt.log 1 0 2017-10-02 20:13:27.587
+!MESSAGE Drivers loaded in 1353 milliseconds
+
+!ENTRY org.eclipse.ui 4 4 2017-10-02 20:21:06.198
+!MESSAGE Plugin org.eclipse.cdt.ui, extension org.eclipse.ui.decorators, id org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator: Duplicate id found: org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator
+
+!ENTRY org.eclipse.ui 4 4 2017-10-02 20:21:06.198
+!MESSAGE Plugin org.eclipse.cdt.ui, extension org.eclipse.ui.decorators, id org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator: Unknown extension tag found: decorator
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-10-02 20:21:33.425
+!MESSAGE Indexed 'ADC' (14 sources, 23 headers) in 0,589 sec: 1.667 declarations; 7.719 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0 %)
+
+!ENTRY com.crt.log 1 0 2017-10-02 20:27:50.155
+!MESSAGE Drivers loaded in 1345 milliseconds
+
+!ENTRY com.crt.log 1 0 2017-10-02 20:42:51.275
+!MESSAGE Drivers loaded in 1139 milliseconds
+
+!ENTRY com.crt.log 1 0 2017-10-02 20:57:00.627
+!MESSAGE Drivers loaded in 1411 milliseconds
+
+!ENTRY com.crt.log 1 0 2017-10-02 21:00:41.514
+!MESSAGE Drivers loaded in 1423 milliseconds
+
+!ENTRY com.crt.log 1 0 2017-10-02 21:02:51.028
+!MESSAGE Drivers loaded in 1359 milliseconds
+
+!ENTRY com.crt.debugcommon 2 0 2017-10-02 21:05:50.811
+!MESSAGE All SWD targets are currently connected to other debug sessions.
+
+
+Press 'Cancel' to terminate this launch.
+!SESSION 2017-10-02 21:09:49.631 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_65
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=es_AR
+Command-line arguments:  -os linux -ws gtk -arch x86
+
+!ENTRY com.crt.debugcommon 2 0 2017-10-02 21:11:49.220
+!MESSAGE All SWD targets are currently connected to other debug sessions.
+
+
+Press 'Cancel' to terminate this launch.
+
+!ENTRY org.eclipse.ui 4 4 2017-10-02 21:13:49.155
+!MESSAGE Plugin org.eclipse.cdt.ui, extension org.eclipse.ui.decorators, id org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator: Duplicate id found: org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator
+
+!ENTRY org.eclipse.ui 4 4 2017-10-02 21:13:49.156
+!MESSAGE Plugin org.eclipse.cdt.ui, extension org.eclipse.ui.decorators, id org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator: Unknown extension tag found: decorator
+
+!ENTRY com.crt.debugcommon 2 0 2017-10-02 21:23:13.361
+!MESSAGE All SWD targets are currently connected to other debug sessions.
+
+
+Press 'Cancel' to terminate this launch.
+
+!ENTRY com.crt.debugcommon 2 0 2017-10-02 21:25:08.781
+!MESSAGE All SWD targets are currently connected to other debug sessions.
+
+
+Press 'Cancel' to terminate this launch.
+
+!ENTRY com.crt.debugcommon 2 0 2017-10-02 21:25:55.776
+!MESSAGE All SWD targets are currently connected to other debug sessions.
+
+
+Press 'Cancel' to terminate this launch.
+
+!ENTRY com.crt.debugcommon 2 0 2017-10-02 21:28:09.344
+!MESSAGE All SWD targets are currently connected to other debug sessions.
+
+
+Press 'Cancel' to terminate this launch.
+
+!ENTRY com.crt.debugcommon 2 0 2017-10-02 21:29:50.005
+!MESSAGE All SWD targets are currently connected to other debug sessions.
+
+
+Press 'Cancel' to terminate this launch.
+!SESSION 2017-10-09 18:47:55.219 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_65
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=es_AR
+Command-line arguments:  -os linux -ws gtk -arch x86
+
+!ENTRY com.crt.log 1 0 2017-10-09 19:08:55.350
+!MESSAGE Drivers loaded in 1165 milliseconds
+
+!ENTRY org.eclipse.ui 4 4 2017-10-09 19:23:24.265
+!MESSAGE Plugin org.eclipse.cdt.ui, extension org.eclipse.ui.decorators, id org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator: Duplicate id found: org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator
+
+!ENTRY org.eclipse.ui 4 4 2017-10-09 19:23:24.266
+!MESSAGE Plugin org.eclipse.cdt.ui, extension org.eclipse.ui.decorators, id org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator: Unknown extension tag found: decorator
+
+!ENTRY org.eclipse.ui.console 4 120 2017-10-09 20:06:39.057
+!MESSAGE Error logged from Console plug-in: 
+!STACK 0
+java.io.IOException: Output Stream is closed
+	at org.eclipse.ui.console.IOConsoleOutputStream.encodedWrite(IOConsoleOutputStream.java:231)
+	at org.eclipse.ui.console.IOConsoleOutputStream.write(IOConsoleOutputStream.java:199)
+	at java.io.BufferedOutputStream.flushBuffer(BufferedOutputStream.java:82)
+	at java.io.BufferedOutputStream.flush(BufferedOutputStream.java:140)
+	at com.crt.debugcommon.emulator.client.RedlinkServerConsole$RedlinkMessageConsoleStream.print(RedlinkServerConsole.java:94)
+	at com.crt.debugcommon.emulator.client.RedlinkServerConsole$RedlinkMessageConsoleStream.println(RedlinkServerConsole.java:115)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.receive(RedlinkServerClient.java:977)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.sendReceive(RedlinkServerClient.java:1076)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.getProbeRefCount(RedlinkServerClient.java:494)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.possiblyExitAndShutdownServer(RedlinkServerClient.java:439)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.launchesTerminated(RedlinkServerClient.java:792)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.run(LaunchManager.java:318)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.notify(LaunchManager.java:270)
+	at org.eclipse.debug.internal.core.LaunchManager.fireUpdate(LaunchManager.java:1059)
+	at org.eclipse.debug.core.Launch.fireTerminate(Launch.java:406)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch.access$1(DsfLaunch.java:1)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch$2.run(DsfLaunch.java:52)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.run(DebugPlugin.java:1116)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.async(DebugPlugin.java:1097)
+	at org.eclipse.debug.core.DebugPlugin$EventDispatchJob.run(DebugPlugin.java:439)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.ui.console 4 120 2017-10-09 20:06:39.065
+!MESSAGE Error logged from Console plug-in: 
+!STACK 0
+java.io.IOException: Output Stream is closed
+	at org.eclipse.ui.console.IOConsoleOutputStream.encodedWrite(IOConsoleOutputStream.java:231)
+	at org.eclipse.ui.console.IOConsoleOutputStream.write(IOConsoleOutputStream.java:199)
+	at java.io.BufferedOutputStream.flushBuffer(BufferedOutputStream.java:82)
+	at java.io.BufferedOutputStream.flush(BufferedOutputStream.java:140)
+	at com.crt.debugcommon.emulator.client.RedlinkServerConsole$RedlinkMessageConsoleStream.print(RedlinkServerConsole.java:94)
+	at com.crt.debugcommon.emulator.client.RedlinkServerConsole$RedlinkMessageConsoleStream.println(RedlinkServerConsole.java:115)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.receive(RedlinkServerClient.java:977)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.sendReceive(RedlinkServerClient.java:1076)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.getProbeRefCount(RedlinkServerClient.java:494)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.possiblyExitAndShutdownServer(RedlinkServerClient.java:439)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.launchesTerminated(RedlinkServerClient.java:792)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.run(LaunchManager.java:318)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.notify(LaunchManager.java:270)
+	at org.eclipse.debug.internal.core.LaunchManager.fireUpdate(LaunchManager.java:1059)
+	at org.eclipse.debug.core.Launch.fireTerminate(Launch.java:406)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch.access$1(DsfLaunch.java:1)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch$2.run(DsfLaunch.java:52)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.run(DebugPlugin.java:1116)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.async(DebugPlugin.java:1097)
+	at org.eclipse.debug.core.DebugPlugin$EventDispatchJob.run(DebugPlugin.java:439)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.ui.console 4 120 2017-10-09 20:06:39.065
+!MESSAGE Error logged from Console plug-in: 
+!STACK 0
+java.io.IOException: Output Stream is closed
+	at org.eclipse.ui.console.IOConsoleOutputStream.encodedWrite(IOConsoleOutputStream.java:231)
+	at org.eclipse.ui.console.IOConsoleOutputStream.write(IOConsoleOutputStream.java:199)
+	at java.io.BufferedOutputStream.flushBuffer(BufferedOutputStream.java:82)
+	at java.io.BufferedOutputStream.flush(BufferedOutputStream.java:140)
+	at com.crt.debugcommon.emulator.client.RedlinkServerConsole$RedlinkMessageConsoleStream.print(RedlinkServerConsole.java:94)
+	at com.crt.debugcommon.emulator.client.RedlinkServerConsole$RedlinkMessageConsoleStream.println(RedlinkServerConsole.java:115)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.receive(RedlinkServerClient.java:977)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.sendReceive(RedlinkServerClient.java:1076)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.getProbeRefCount(RedlinkServerClient.java:494)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.possiblyExitAndShutdownServer(RedlinkServerClient.java:439)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.launchesTerminated(RedlinkServerClient.java:792)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.run(LaunchManager.java:318)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.notify(LaunchManager.java:270)
+	at org.eclipse.debug.internal.core.LaunchManager.fireUpdate(LaunchManager.java:1059)
+	at org.eclipse.debug.core.Launch.fireTerminate(Launch.java:406)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch.access$1(DsfLaunch.java:1)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch$2.run(DsfLaunch.java:52)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.run(DebugPlugin.java:1116)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.async(DebugPlugin.java:1097)
+	at org.eclipse.debug.core.DebugPlugin$EventDispatchJob.run(DebugPlugin.java:439)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.ui.console 4 120 2017-10-09 20:06:39.066
+!MESSAGE Error logged from Console plug-in: 
+!STACK 0
+java.io.IOException: Output Stream is closed
+	at org.eclipse.ui.console.IOConsoleOutputStream.encodedWrite(IOConsoleOutputStream.java:231)
+	at org.eclipse.ui.console.IOConsoleOutputStream.write(IOConsoleOutputStream.java:199)
+	at java.io.BufferedOutputStream.flushBuffer(BufferedOutputStream.java:82)
+	at java.io.BufferedOutputStream.flush(BufferedOutputStream.java:140)
+	at com.crt.debugcommon.emulator.client.RedlinkServerConsole$RedlinkMessageConsoleStream.print(RedlinkServerConsole.java:94)
+	at com.crt.debugcommon.emulator.client.RedlinkServerConsole$RedlinkMessageConsoleStream.println(RedlinkServerConsole.java:115)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.receive(RedlinkServerClient.java:977)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.sendReceive(RedlinkServerClient.java:1076)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.getProbeRefCount(RedlinkServerClient.java:494)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.possiblyExitAndShutdownServer(RedlinkServerClient.java:439)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.launchesTerminated(RedlinkServerClient.java:792)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.run(LaunchManager.java:318)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.notify(LaunchManager.java:270)
+	at org.eclipse.debug.internal.core.LaunchManager.fireUpdate(LaunchManager.java:1059)
+	at org.eclipse.debug.core.Launch.fireTerminate(Launch.java:406)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch.access$1(DsfLaunch.java:1)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch$2.run(DsfLaunch.java:52)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.run(DebugPlugin.java:1116)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.async(DebugPlugin.java:1097)
+	at org.eclipse.debug.core.DebugPlugin$EventDispatchJob.run(DebugPlugin.java:439)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.ui.console 4 120 2017-10-09 20:06:39.066
+!MESSAGE Error logged from Console plug-in: 
+!STACK 0
+java.io.IOException: Output Stream is closed
+	at org.eclipse.ui.console.IOConsoleOutputStream.encodedWrite(IOConsoleOutputStream.java:231)
+	at org.eclipse.ui.console.IOConsoleOutputStream.write(IOConsoleOutputStream.java:199)
+	at java.io.BufferedOutputStream.flushBuffer(BufferedOutputStream.java:82)
+	at java.io.BufferedOutputStream.flush(BufferedOutputStream.java:140)
+	at com.crt.debugcommon.emulator.client.RedlinkServerConsole$RedlinkMessageConsoleStream.print(RedlinkServerConsole.java:94)
+	at com.crt.debugcommon.emulator.client.RedlinkServerConsole$RedlinkMessageConsoleStream.println(RedlinkServerConsole.java:115)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.receive(RedlinkServerClient.java:977)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.sendReceive(RedlinkServerClient.java:1076)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.getProbeRefCount(RedlinkServerClient.java:494)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.possiblyExitAndShutdownServer(RedlinkServerClient.java:439)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.launchesTerminated(RedlinkServerClient.java:792)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.run(LaunchManager.java:318)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.notify(LaunchManager.java:270)
+	at org.eclipse.debug.internal.core.LaunchManager.fireUpdate(LaunchManager.java:1059)
+	at org.eclipse.debug.core.Launch.fireTerminate(Launch.java:406)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch.access$1(DsfLaunch.java:1)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch$2.run(DsfLaunch.java:52)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.run(DebugPlugin.java:1116)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.async(DebugPlugin.java:1097)
+	at org.eclipse.debug.core.DebugPlugin$EventDispatchJob.run(DebugPlugin.java:439)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.ui.console 4 120 2017-10-09 20:06:39.066
+!MESSAGE Error logged from Console plug-in: 
+!STACK 0
+java.io.IOException: Output Stream is closed
+	at org.eclipse.ui.console.IOConsoleOutputStream.encodedWrite(IOConsoleOutputStream.java:231)
+	at org.eclipse.ui.console.IOConsoleOutputStream.write(IOConsoleOutputStream.java:199)
+	at java.io.BufferedOutputStream.flushBuffer(BufferedOutputStream.java:82)
+	at java.io.BufferedOutputStream.flush(BufferedOutputStream.java:140)
+	at com.crt.debugcommon.emulator.client.RedlinkServerConsole$RedlinkMessageConsoleStream.print(RedlinkServerConsole.java:94)
+	at com.crt.debugcommon.emulator.client.RedlinkServerConsole$RedlinkMessageConsoleStream.println(RedlinkServerConsole.java:115)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.receive(RedlinkServerClient.java:977)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.sendReceive(RedlinkServerClient.java:1076)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.getProbeRefCount(RedlinkServerClient.java:494)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.possiblyExitAndShutdownServer(RedlinkServerClient.java:439)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.launchesTerminated(RedlinkServerClient.java:792)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.run(LaunchManager.java:318)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.notify(LaunchManager.java:270)
+	at org.eclipse.debug.internal.core.LaunchManager.fireUpdate(LaunchManager.java:1059)
+	at org.eclipse.debug.core.Launch.fireTerminate(Launch.java:406)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch.access$1(DsfLaunch.java:1)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch$2.run(DsfLaunch.java:52)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.run(DebugPlugin.java:1116)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.async(DebugPlugin.java:1097)
+	at org.eclipse.debug.core.DebugPlugin$EventDispatchJob.run(DebugPlugin.java:439)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.ui.console 4 120 2017-10-09 20:06:39.067
+!MESSAGE Error logged from Console plug-in: 
+!STACK 0
+java.io.IOException: Output Stream is closed
+	at org.eclipse.ui.console.IOConsoleOutputStream.encodedWrite(IOConsoleOutputStream.java:231)
+	at org.eclipse.ui.console.IOConsoleOutputStream.write(IOConsoleOutputStream.java:199)
+	at java.io.BufferedOutputStream.flushBuffer(BufferedOutputStream.java:82)
+	at java.io.BufferedOutputStream.flush(BufferedOutputStream.java:140)
+	at com.crt.debugcommon.emulator.client.RedlinkServerConsole$RedlinkMessageConsoleStream.print(RedlinkServerConsole.java:94)
+	at com.crt.debugcommon.emulator.client.RedlinkServerConsole$RedlinkMessageConsoleStream.println(RedlinkServerConsole.java:115)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.receive(RedlinkServerClient.java:977)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.sendReceive(RedlinkServerClient.java:1076)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.getProbeRefCount(RedlinkServerClient.java:494)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.possiblyExitAndShutdownServer(RedlinkServerClient.java:439)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.launchesTerminated(RedlinkServerClient.java:792)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.run(LaunchManager.java:318)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.notify(LaunchManager.java:270)
+	at org.eclipse.debug.internal.core.LaunchManager.fireUpdate(LaunchManager.java:1059)
+	at org.eclipse.debug.core.Launch.fireTerminate(Launch.java:406)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch.access$1(DsfLaunch.java:1)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch$2.run(DsfLaunch.java:52)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.run(DebugPlugin.java:1116)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.async(DebugPlugin.java:1097)
+	at org.eclipse.debug.core.DebugPlugin$EventDispatchJob.run(DebugPlugin.java:439)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.ui.console 4 120 2017-10-09 20:06:39.067
+!MESSAGE Error logged from Console plug-in: 
+!STACK 0
+java.io.IOException: Output Stream is closed
+	at org.eclipse.ui.console.IOConsoleOutputStream.encodedWrite(IOConsoleOutputStream.java:231)
+	at org.eclipse.ui.console.IOConsoleOutputStream.write(IOConsoleOutputStream.java:199)
+	at java.io.BufferedOutputStream.flushBuffer(BufferedOutputStream.java:82)
+	at java.io.BufferedOutputStream.flush(BufferedOutputStream.java:140)
+	at com.crt.debugcommon.emulator.client.RedlinkServerConsole$RedlinkMessageConsoleStream.print(RedlinkServerConsole.java:94)
+	at com.crt.debugcommon.emulator.client.RedlinkServerConsole$RedlinkMessageConsoleStream.println(RedlinkServerConsole.java:115)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.receive(RedlinkServerClient.java:977)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.sendReceive(RedlinkServerClient.java:1076)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.getProbeRefCount(RedlinkServerClient.java:494)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.possiblyExitAndShutdownServer(RedlinkServerClient.java:439)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.launchesTerminated(RedlinkServerClient.java:792)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.run(LaunchManager.java:318)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.notify(LaunchManager.java:270)
+	at org.eclipse.debug.internal.core.LaunchManager.fireUpdate(LaunchManager.java:1059)
+	at org.eclipse.debug.core.Launch.fireTerminate(Launch.java:406)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch.access$1(DsfLaunch.java:1)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch$2.run(DsfLaunch.java:52)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.run(DebugPlugin.java:1116)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.async(DebugPlugin.java:1097)
+	at org.eclipse.debug.core.DebugPlugin$EventDispatchJob.run(DebugPlugin.java:439)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.ui.console 4 120 2017-10-09 20:06:39.067
+!MESSAGE Error logged from Console plug-in: 
+!STACK 0
+java.io.IOException: Output Stream is closed
+	at org.eclipse.ui.console.IOConsoleOutputStream.encodedWrite(IOConsoleOutputStream.java:231)
+	at org.eclipse.ui.console.IOConsoleOutputStream.write(IOConsoleOutputStream.java:199)
+	at java.io.BufferedOutputStream.flushBuffer(BufferedOutputStream.java:82)
+	at java.io.BufferedOutputStream.flush(BufferedOutputStream.java:140)
+	at com.crt.debugcommon.emulator.client.RedlinkServerConsole$RedlinkMessageConsoleStream.print(RedlinkServerConsole.java:94)
+	at com.crt.debugcommon.emulator.client.RedlinkServerConsole$RedlinkMessageConsoleStream.println(RedlinkServerConsole.java:115)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.receive(RedlinkServerClient.java:977)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.sendReceive(RedlinkServerClient.java:1076)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.getProbeRefCount(RedlinkServerClient.java:494)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.possiblyExitAndShutdownServer(RedlinkServerClient.java:439)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.launchesTerminated(RedlinkServerClient.java:792)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.run(LaunchManager.java:318)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.notify(LaunchManager.java:270)
+	at org.eclipse.debug.internal.core.LaunchManager.fireUpdate(LaunchManager.java:1059)
+	at org.eclipse.debug.core.Launch.fireTerminate(Launch.java:406)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch.access$1(DsfLaunch.java:1)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch$2.run(DsfLaunch.java:52)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.run(DebugPlugin.java:1116)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.async(DebugPlugin.java:1097)
+	at org.eclipse.debug.core.DebugPlugin$EventDispatchJob.run(DebugPlugin.java:439)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.ui.console 4 120 2017-10-09 20:06:39.068
+!MESSAGE Error logged from Console plug-in: 
+!STACK 0
+java.io.IOException: Output Stream is closed
+	at org.eclipse.ui.console.IOConsoleOutputStream.encodedWrite(IOConsoleOutputStream.java:231)
+	at org.eclipse.ui.console.IOConsoleOutputStream.write(IOConsoleOutputStream.java:199)
+	at java.io.BufferedOutputStream.flushBuffer(BufferedOutputStream.java:82)
+	at java.io.BufferedOutputStream.flush(BufferedOutputStream.java:140)
+	at com.crt.debugcommon.emulator.client.RedlinkServerConsole$RedlinkMessageConsoleStream.print(RedlinkServerConsole.java:94)
+	at com.crt.debugcommon.emulator.client.RedlinkServerConsole$RedlinkMessageConsoleStream.println(RedlinkServerConsole.java:115)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.receive(RedlinkServerClient.java:977)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.sendReceive(RedlinkServerClient.java:1076)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.getProbeRefCount(RedlinkServerClient.java:494)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.possiblyExitAndShutdownServer(RedlinkServerClient.java:439)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.launchesTerminated(RedlinkServerClient.java:792)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.run(LaunchManager.java:318)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.notify(LaunchManager.java:270)
+	at org.eclipse.debug.internal.core.LaunchManager.fireUpdate(LaunchManager.java:1059)
+	at org.eclipse.debug.core.Launch.fireTerminate(Launch.java:406)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch.access$1(DsfLaunch.java:1)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch$2.run(DsfLaunch.java:52)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.run(DebugPlugin.java:1116)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.async(DebugPlugin.java:1097)
+	at org.eclipse.debug.core.DebugPlugin$EventDispatchJob.run(DebugPlugin.java:439)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.ui.console 4 120 2017-10-09 20:06:39.068
+!MESSAGE Error logged from Console plug-in: 
+!STACK 0
+java.io.IOException: Output Stream is closed
+	at org.eclipse.ui.console.IOConsoleOutputStream.encodedWrite(IOConsoleOutputStream.java:231)
+	at org.eclipse.ui.console.IOConsoleOutputStream.write(IOConsoleOutputStream.java:199)
+	at java.io.BufferedOutputStream.flushBuffer(BufferedOutputStream.java:82)
+	at java.io.BufferedOutputStream.flush(BufferedOutputStream.java:140)
+	at com.crt.debugcommon.emulator.client.RedlinkServerConsole$RedlinkMessageConsoleStream.print(RedlinkServerConsole.java:94)
+	at com.crt.debugcommon.emulator.client.RedlinkServerConsole$RedlinkMessageConsoleStream.println(RedlinkServerConsole.java:115)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.receive(RedlinkServerClient.java:977)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.sendReceive(RedlinkServerClient.java:1076)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.getProbeRefCount(RedlinkServerClient.java:494)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.possiblyExitAndShutdownServer(RedlinkServerClient.java:439)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.launchesTerminated(RedlinkServerClient.java:792)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.run(LaunchManager.java:318)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.notify(LaunchManager.java:270)
+	at org.eclipse.debug.internal.core.LaunchManager.fireUpdate(LaunchManager.java:1059)
+	at org.eclipse.debug.core.Launch.fireTerminate(Launch.java:406)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch.access$1(DsfLaunch.java:1)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch$2.run(DsfLaunch.java:52)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.run(DebugPlugin.java:1116)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.async(DebugPlugin.java:1097)
+	at org.eclipse.debug.core.DebugPlugin$EventDispatchJob.run(DebugPlugin.java:439)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.ui.console 4 120 2017-10-09 20:06:39.069
+!MESSAGE Error logged from Console plug-in: 
+!STACK 0
+java.io.IOException: Output Stream is closed
+	at org.eclipse.ui.console.IOConsoleOutputStream.encodedWrite(IOConsoleOutputStream.java:231)
+	at org.eclipse.ui.console.IOConsoleOutputStream.write(IOConsoleOutputStream.java:199)
+	at java.io.BufferedOutputStream.flushBuffer(BufferedOutputStream.java:82)
+	at java.io.BufferedOutputStream.flush(BufferedOutputStream.java:140)
+	at com.crt.debugcommon.emulator.client.RedlinkServerConsole$RedlinkMessageConsoleStream.print(RedlinkServerConsole.java:94)
+	at com.crt.debugcommon.emulator.client.RedlinkServerConsole$RedlinkMessageConsoleStream.println(RedlinkServerConsole.java:115)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.receive(RedlinkServerClient.java:977)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.sendReceive(RedlinkServerClient.java:1076)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.getProbeRefCount(RedlinkServerClient.java:494)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.possiblyExitAndShutdownServer(RedlinkServerClient.java:439)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.launchesTerminated(RedlinkServerClient.java:792)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.run(LaunchManager.java:318)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.notify(LaunchManager.java:270)
+	at org.eclipse.debug.internal.core.LaunchManager.fireUpdate(LaunchManager.java:1059)
+	at org.eclipse.debug.core.Launch.fireTerminate(Launch.java:406)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch.access$1(DsfLaunch.java:1)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch$2.run(DsfLaunch.java:52)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.run(DebugPlugin.java:1116)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.async(DebugPlugin.java:1097)
+	at org.eclipse.debug.core.DebugPlugin$EventDispatchJob.run(DebugPlugin.java:439)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.ui.console 4 120 2017-10-09 20:06:39.069
+!MESSAGE Error logged from Console plug-in: 
+!STACK 0
+java.io.IOException: Output Stream is closed
+	at org.eclipse.ui.console.IOConsoleOutputStream.encodedWrite(IOConsoleOutputStream.java:231)
+	at org.eclipse.ui.console.IOConsoleOutputStream.write(IOConsoleOutputStream.java:199)
+	at java.io.BufferedOutputStream.flushBuffer(BufferedOutputStream.java:82)
+	at java.io.BufferedOutputStream.flush(BufferedOutputStream.java:140)
+	at com.crt.debugcommon.emulator.client.RedlinkServerConsole$RedlinkMessageConsoleStream.print(RedlinkServerConsole.java:94)
+	at com.crt.debugcommon.emulator.client.RedlinkServerConsole$RedlinkMessageConsoleStream.println(RedlinkServerConsole.java:115)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.receive(RedlinkServerClient.java:977)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.sendReceive(RedlinkServerClient.java:1076)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.getProbeRefCount(RedlinkServerClient.java:494)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.possiblyExitAndShutdownServer(RedlinkServerClient.java:439)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.launchesTerminated(RedlinkServerClient.java:792)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.run(LaunchManager.java:318)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.notify(LaunchManager.java:270)
+	at org.eclipse.debug.internal.core.LaunchManager.fireUpdate(LaunchManager.java:1059)
+	at org.eclipse.debug.core.Launch.fireTerminate(Launch.java:406)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch.access$1(DsfLaunch.java:1)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch$2.run(DsfLaunch.java:52)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.run(DebugPlugin.java:1116)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.async(DebugPlugin.java:1097)
+	at org.eclipse.debug.core.DebugPlugin$EventDispatchJob.run(DebugPlugin.java:439)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.ui.console 4 120 2017-10-09 20:06:39.069
+!MESSAGE Error logged from Console plug-in: 
+!STACK 0
+java.io.IOException: Output Stream is closed
+	at org.eclipse.ui.console.IOConsoleOutputStream.encodedWrite(IOConsoleOutputStream.java:231)
+	at org.eclipse.ui.console.IOConsoleOutputStream.write(IOConsoleOutputStream.java:199)
+	at java.io.BufferedOutputStream.flushBuffer(BufferedOutputStream.java:82)
+	at java.io.BufferedOutputStream.flush(BufferedOutputStream.java:140)
+	at com.crt.debugcommon.emulator.client.RedlinkServerConsole$RedlinkMessageConsoleStream.print(RedlinkServerConsole.java:94)
+	at com.crt.debugcommon.emulator.client.RedlinkServerConsole$RedlinkMessageConsoleStream.println(RedlinkServerConsole.java:115)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.receive(RedlinkServerClient.java:977)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.sendReceive(RedlinkServerClient.java:1076)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.getProbeRefCount(RedlinkServerClient.java:494)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.possiblyExitAndShutdownServer(RedlinkServerClient.java:439)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.launchesTerminated(RedlinkServerClient.java:792)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.run(LaunchManager.java:318)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.notify(LaunchManager.java:270)
+	at org.eclipse.debug.internal.core.LaunchManager.fireUpdate(LaunchManager.java:1059)
+	at org.eclipse.debug.core.Launch.fireTerminate(Launch.java:406)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch.access$1(DsfLaunch.java:1)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch$2.run(DsfLaunch.java:52)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.run(DebugPlugin.java:1116)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.async(DebugPlugin.java:1097)
+	at org.eclipse.debug.core.DebugPlugin$EventDispatchJob.run(DebugPlugin.java:439)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.ui.console 4 120 2017-10-09 20:06:39.070
+!MESSAGE Error logged from Console plug-in: 
+!STACK 0
+java.io.IOException: Output Stream is closed
+	at org.eclipse.ui.console.IOConsoleOutputStream.encodedWrite(IOConsoleOutputStream.java:231)
+	at org.eclipse.ui.console.IOConsoleOutputStream.write(IOConsoleOutputStream.java:199)
+	at java.io.BufferedOutputStream.flushBuffer(BufferedOutputStream.java:82)
+	at java.io.BufferedOutputStream.flush(BufferedOutputStream.java:140)
+	at com.crt.debugcommon.emulator.client.RedlinkServerConsole$RedlinkMessageConsoleStream.print(RedlinkServerConsole.java:94)
+	at com.crt.debugcommon.emulator.client.RedlinkServerConsole$RedlinkMessageConsoleStream.println(RedlinkServerConsole.java:115)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.receive(RedlinkServerClient.java:977)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.sendReceive(RedlinkServerClient.java:1076)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.getProbeRefCount(RedlinkServerClient.java:494)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.possiblyExitAndShutdownServer(RedlinkServerClient.java:439)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.launchesTerminated(RedlinkServerClient.java:792)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.run(LaunchManager.java:318)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.notify(LaunchManager.java:270)
+	at org.eclipse.debug.internal.core.LaunchManager.fireUpdate(LaunchManager.java:1059)
+	at org.eclipse.debug.core.Launch.fireTerminate(Launch.java:406)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch.access$1(DsfLaunch.java:1)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch$2.run(DsfLaunch.java:52)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.run(DebugPlugin.java:1116)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.async(DebugPlugin.java:1097)
+	at org.eclipse.debug.core.DebugPlugin$EventDispatchJob.run(DebugPlugin.java:439)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.ui.console 4 120 2017-10-09 20:06:39.070
+!MESSAGE Error logged from Console plug-in: 
+!STACK 0
+java.io.IOException: Output Stream is closed
+	at org.eclipse.ui.console.IOConsoleOutputStream.encodedWrite(IOConsoleOutputStream.java:231)
+	at org.eclipse.ui.console.IOConsoleOutputStream.write(IOConsoleOutputStream.java:199)
+	at java.io.BufferedOutputStream.flushBuffer(BufferedOutputStream.java:82)
+	at java.io.BufferedOutputStream.flush(BufferedOutputStream.java:140)
+	at com.crt.debugcommon.emulator.client.RedlinkServerConsole$RedlinkMessageConsoleStream.print(RedlinkServerConsole.java:94)
+	at com.crt.debugcommon.emulator.client.RedlinkServerConsole$RedlinkMessageConsoleStream.println(RedlinkServerConsole.java:115)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.receive(RedlinkServerClient.java:977)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.sendReceive(RedlinkServerClient.java:1076)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.getProbeRefCount(RedlinkServerClient.java:494)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.possiblyExitAndShutdownServer(RedlinkServerClient.java:439)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.launchesTerminated(RedlinkServerClient.java:792)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.run(LaunchManager.java:318)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.notify(LaunchManager.java:270)
+	at org.eclipse.debug.internal.core.LaunchManager.fireUpdate(LaunchManager.java:1059)
+	at org.eclipse.debug.core.Launch.fireTerminate(Launch.java:406)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch.access$1(DsfLaunch.java:1)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch$2.run(DsfLaunch.java:52)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.run(DebugPlugin.java:1116)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.async(DebugPlugin.java:1097)
+	at org.eclipse.debug.core.DebugPlugin$EventDispatchJob.run(DebugPlugin.java:439)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.ui.console 4 120 2017-10-09 20:06:39.070
+!MESSAGE Error logged from Console plug-in: 
+!STACK 0
+java.io.IOException: Output Stream is closed
+	at org.eclipse.ui.console.IOConsoleOutputStream.encodedWrite(IOConsoleOutputStream.java:231)
+	at org.eclipse.ui.console.IOConsoleOutputStream.write(IOConsoleOutputStream.java:199)
+	at java.io.BufferedOutputStream.flushBuffer(BufferedOutputStream.java:82)
+	at java.io.BufferedOutputStream.flush(BufferedOutputStream.java:140)
+	at com.crt.debugcommon.emulator.client.RedlinkServerConsole$RedlinkMessageConsoleStream.print(RedlinkServerConsole.java:94)
+	at com.crt.debugcommon.emulator.client.RedlinkServerConsole$RedlinkMessageConsoleStream.println(RedlinkServerConsole.java:115)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.receive(RedlinkServerClient.java:977)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.sendReceive(RedlinkServerClient.java:1076)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.getProbeRefCount(RedlinkServerClient.java:494)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.possiblyExitAndShutdownServer(RedlinkServerClient.java:439)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.launchesTerminated(RedlinkServerClient.java:792)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.run(LaunchManager.java:318)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.notify(LaunchManager.java:270)
+	at org.eclipse.debug.internal.core.LaunchManager.fireUpdate(LaunchManager.java:1059)
+	at org.eclipse.debug.core.Launch.fireTerminate(Launch.java:406)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch.access$1(DsfLaunch.java:1)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch$2.run(DsfLaunch.java:52)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.run(DebugPlugin.java:1116)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.async(DebugPlugin.java:1097)
+	at org.eclipse.debug.core.DebugPlugin$EventDispatchJob.run(DebugPlugin.java:439)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.ui.console 4 120 2017-10-09 20:06:39.071
+!MESSAGE Error logged from Console plug-in: 
+!STACK 0
+java.io.IOException: Output Stream is closed
+	at org.eclipse.ui.console.IOConsoleOutputStream.encodedWrite(IOConsoleOutputStream.java:231)
+	at org.eclipse.ui.console.IOConsoleOutputStream.write(IOConsoleOutputStream.java:199)
+	at java.io.BufferedOutputStream.flushBuffer(BufferedOutputStream.java:82)
+	at java.io.BufferedOutputStream.flush(BufferedOutputStream.java:140)
+	at com.crt.debugcommon.emulator.client.RedlinkServerConsole$RedlinkMessageConsoleStream.print(RedlinkServerConsole.java:94)
+	at com.crt.debugcommon.emulator.client.RedlinkServerConsole$RedlinkMessageConsoleStream.println(RedlinkServerConsole.java:115)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.receive(RedlinkServerClient.java:977)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.sendReceive(RedlinkServerClient.java:1076)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.getProbeRefCount(RedlinkServerClient.java:494)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.possiblyExitAndShutdownServer(RedlinkServerClient.java:439)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.launchesTerminated(RedlinkServerClient.java:792)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.run(LaunchManager.java:318)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.notify(LaunchManager.java:270)
+	at org.eclipse.debug.internal.core.LaunchManager.fireUpdate(LaunchManager.java:1059)
+	at org.eclipse.debug.core.Launch.fireTerminate(Launch.java:406)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch.access$1(DsfLaunch.java:1)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch$2.run(DsfLaunch.java:52)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.run(DebugPlugin.java:1116)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.async(DebugPlugin.java:1097)
+	at org.eclipse.debug.core.DebugPlugin$EventDispatchJob.run(DebugPlugin.java:439)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.ui.console 4 120 2017-10-09 20:06:39.071
+!MESSAGE Error logged from Console plug-in: 
+!STACK 0
+java.io.IOException: Output Stream is closed
+	at org.eclipse.ui.console.IOConsoleOutputStream.encodedWrite(IOConsoleOutputStream.java:231)
+	at org.eclipse.ui.console.IOConsoleOutputStream.write(IOConsoleOutputStream.java:199)
+	at java.io.BufferedOutputStream.flushBuffer(BufferedOutputStream.java:82)
+	at java.io.BufferedOutputStream.flush(BufferedOutputStream.java:140)
+	at com.crt.debugcommon.emulator.client.RedlinkServerConsole$RedlinkMessageConsoleStream.print(RedlinkServerConsole.java:94)
+	at com.crt.debugcommon.emulator.client.RedlinkServerConsole$RedlinkMessageConsoleStream.println(RedlinkServerConsole.java:115)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.send(RedlinkServerClient.java:1022)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.exitAndShutdownServer(RedlinkServerClient.java:457)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.possiblyExitAndShutdownServer(RedlinkServerClient.java:440)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.launchesTerminated(RedlinkServerClient.java:792)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.run(LaunchManager.java:318)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.notify(LaunchManager.java:270)
+	at org.eclipse.debug.internal.core.LaunchManager.fireUpdate(LaunchManager.java:1059)
+	at org.eclipse.debug.core.Launch.fireTerminate(Launch.java:406)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch.access$1(DsfLaunch.java:1)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch$2.run(DsfLaunch.java:52)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.run(DebugPlugin.java:1116)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.async(DebugPlugin.java:1097)
+	at org.eclipse.debug.core.DebugPlugin$EventDispatchJob.run(DebugPlugin.java:439)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.ui.console 4 120 2017-10-09 20:06:39.072
+!MESSAGE Error logged from Console plug-in: 
+!STACK 0
+java.io.IOException: Output Stream is closed
+	at org.eclipse.ui.console.IOConsoleOutputStream.encodedWrite(IOConsoleOutputStream.java:231)
+	at org.eclipse.ui.console.IOConsoleOutputStream.write(IOConsoleOutputStream.java:199)
+	at java.io.BufferedOutputStream.flushBuffer(BufferedOutputStream.java:82)
+	at java.io.BufferedOutputStream.flush(BufferedOutputStream.java:140)
+	at com.crt.debugcommon.emulator.client.RedlinkServerConsole$RedlinkMessageConsoleStream.print(RedlinkServerConsole.java:94)
+	at com.crt.debugcommon.emulator.client.RedlinkServerConsole$RedlinkMessageConsoleStream.println(RedlinkServerConsole.java:115)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.shutdownServer(RedlinkServerClient.java:1104)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.exitAndShutdownServer(RedlinkServerClient.java:460)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.possiblyExitAndShutdownServer(RedlinkServerClient.java:440)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.launchesTerminated(RedlinkServerClient.java:792)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.run(LaunchManager.java:318)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.notify(LaunchManager.java:270)
+	at org.eclipse.debug.internal.core.LaunchManager.fireUpdate(LaunchManager.java:1059)
+	at org.eclipse.debug.core.Launch.fireTerminate(Launch.java:406)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch.access$1(DsfLaunch.java:1)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch$2.run(DsfLaunch.java:52)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.run(DebugPlugin.java:1116)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.async(DebugPlugin.java:1097)
+	at org.eclipse.debug.core.DebugPlugin$EventDispatchJob.run(DebugPlugin.java:439)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.debug.core 4 2 2017-10-09 20:06:39.073
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.debug.core".
+!STACK 0
+java.lang.NullPointerException
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.removeListeners(RedlinkServerClient.java:1131)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.shutdownServer(RedlinkServerClient.java:1110)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.exitAndShutdownServer(RedlinkServerClient.java:460)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.possiblyExitAndShutdownServer(RedlinkServerClient.java:440)
+	at com.crt.debugcommon.emulator.client.RedlinkServerClient.launchesTerminated(RedlinkServerClient.java:792)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.run(LaunchManager.java:318)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.notify(LaunchManager.java:270)
+	at org.eclipse.debug.internal.core.LaunchManager.fireUpdate(LaunchManager.java:1059)
+	at org.eclipse.debug.core.Launch.fireTerminate(Launch.java:406)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch.access$1(DsfLaunch.java:1)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch$2.run(DsfLaunch.java:52)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.run(DebugPlugin.java:1116)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.async(DebugPlugin.java:1097)
+	at org.eclipse.debug.core.DebugPlugin$EventDispatchJob.run(DebugPlugin.java:439)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.debug.core 4 2 2017-10-09 20:06:39.073
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.debug.core".
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.debug.core.DebugPlugin.log(DebugPlugin.java:989)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.handleException(LaunchManager.java:254)
+	at org.eclipse.core.runtime.SafeRunner.handleException(SafeRunner.java:75)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:44)
+	at org.eclipse.debug.internal.core.LaunchManager$LaunchesNotifier.notify(LaunchManager.java:270)
+	at org.eclipse.debug.internal.core.LaunchManager.fireUpdate(LaunchManager.java:1059)
+	at org.eclipse.debug.core.Launch.fireTerminate(Launch.java:406)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch.access$1(DsfLaunch.java:1)
+	at org.eclipse.cdt.dsf.debug.model.DsfLaunch$2.run(DsfLaunch.java:52)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.run(DebugPlugin.java:1116)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.async(DebugPlugin.java:1097)
+	at org.eclipse.debug.core.DebugPlugin$EventDispatchJob.run(DebugPlugin.java:439)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.core.jobs 4 2 2017-10-09 20:06:39.074
+!MESSAGE An internal error occurred during: "Debug Event Dispatch".
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.debug.core.DebugPlugin.log(DebugPlugin.java:989)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.handleException(DebugPlugin.java:1108)
+	at org.eclipse.core.runtime.SafeRunner.handleException(SafeRunner.java:75)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:44)
+	at org.eclipse.debug.core.DebugPlugin$AsynchRunner.async(DebugPlugin.java:1097)
+	at org.eclipse.debug.core.DebugPlugin$EventDispatchJob.run(DebugPlugin.java:439)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SESSION 2017-10-09 20:07:19.997 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_65
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=es_AR
+Command-line arguments:  -os linux -ws gtk -arch x86 -data /home/sebastian/LPCXpresso/workspace/Proyectos LPC1115/Monitor_Fetal
+
+!ENTRY org.eclipse.ui 4 4 2017-10-09 20:07:24.336
+!MESSAGE Plugin org.eclipse.cdt.ui, extension org.eclipse.ui.decorators, id org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator: Duplicate id found: org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator
+
+!ENTRY org.eclipse.ui 4 4 2017-10-09 20:07:24.339
+!MESSAGE Plugin org.eclipse.cdt.ui, extension org.eclipse.ui.decorators, id org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator: Unknown extension tag found: decorator
+
+!ENTRY com.crt.log 1 0 2017-10-09 20:45:02.355
+!MESSAGE Drivers loaded in 1147 milliseconds
+
+!ENTRY com.crt.log 1 0 2017-10-09 20:47:03.985
+!MESSAGE Drivers loaded in 1153 milliseconds
+
+!ENTRY com.crt.log 1 0 2017-10-09 20:56:35.353
+!MESSAGE Drivers loaded in 1165 milliseconds
+
+!ENTRY com.crt.log 1 0 2017-10-09 20:58:17.725
+!MESSAGE Drivers loaded in 1153 milliseconds
+
+!ENTRY com.crt.log 1 0 2017-10-09 21:00:11.328
+!MESSAGE Drivers loaded in 1159 milliseconds
+
+!ENTRY com.crt.debugcommon 2 0 2017-10-09 21:09:10.530
+!MESSAGE All SWD targets are currently connected to other debug sessions.
+
+
+Press 'Cancel' to terminate this launch.
+
+!ENTRY com.crt.debugcommon 2 0 2017-10-09 21:09:26.787
+!MESSAGE All SWD targets are currently connected to other debug sessions.
+
+
+Press 'Cancel' to terminate this launch.

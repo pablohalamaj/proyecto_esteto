@@ -1,0 +1,36 @@
+20:48:40 **** Incremental Build of configuration Debug for project ADC ****
+make -r all 
+Building file: ../Fuentes/Touch.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv1p30_LPC11xx -D__REDLIB__ -I"/home/sebastian/LPCXpresso/workspace/Proyectos LPC1115/Monitor_Fetal/CMSISv1p30_LPC11xx/inc" -I"/home/sebastian/LPCXpresso/workspace/Proyectos LPC1115/Monitor_Fetal/ADC/Cabeceras" -I"/home/sebastian/LPCXpresso/workspace/Proyectos LPC1115/Monitor_Fetal/ADC/Drivers" -Os -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"Fuentes/Touch.d" -MT"Fuentes/Touch.o" -MT"Fuentes/Touch.d" -o "Fuentes/Touch.o" "../Fuentes/Touch.c"
+../Fuentes/Touch.c: In function 'PIOINT1_IRQHandler':
+../Fuentes/Touch.c:94:4: warning: implicit declaration of function 'Tomo_Latido' [-Wimplicit-function-declaration]
+    Tomo_Latido();
+    ^
+../Fuentes/Touch.c: In function 'TOUCH_GetX':
+../Fuentes/Touch.c:127:18: warning: unused variable 'auxLA' [-Wunused-variable]
+  int g, auxX = 0,auxLA=0;
+                  ^
+../Fuentes/Touch.c: At top level:
+../Fuentes/Touch.c:201:6: warning: conflicting types for 'Tomo_Latido'
+ void Tomo_Latido(void)
+      ^
+../Fuentes/Touch.c:94:4: note: previous implicit declaration of 'Tomo_Latido' was here
+    Tomo_Latido();
+    ^
+Finished building: ../Fuentes/Touch.c
+ 
+Building target: ADC.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"/home/sebastian/LPCXpresso/workspace/Proyectos LPC1115/Monitor_Fetal/CMSISv1p30_LPC11xx/Debug" -Xlinker -Map="ADC.map" -Xlinker --gc-sections -mcpu=cortex-m0 -mthumb -T "Touch_2_2_Debug.ld" -o "ADC.axf"  ./Fuentes/Comunicaciones.o ./Fuentes/Funciones.o ./Fuentes/Main.o ./Fuentes/Menu.o ./Fuentes/Subfunciones.o ./Fuentes/Teclado.o ./Fuentes/Touch.o ./Fuentes/WG12864A.o ./Fuentes/cr_startup_lpc11.o  ./Drivers/adc.o ./Drivers/gpio.o ./Drivers/ssp.o ./Drivers/timer32.o ./Drivers/wdt.o   -lCMSISv1p30_LPC11xx
+Finished building target: ADC.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "ADC.axf"; # arm-none-eabi-objcopy -O binary "ADC.axf" "ADC.bin" ; checksum -p LPC1114_302 -d "ADC.bin";
+   text	   data	    bss	    dec	    hex	filename
+   4820	      8	   5680	  10508	   290c	ADC.axf
+ 
+
+20:48:40 Build Finished (took 223ms)
+
