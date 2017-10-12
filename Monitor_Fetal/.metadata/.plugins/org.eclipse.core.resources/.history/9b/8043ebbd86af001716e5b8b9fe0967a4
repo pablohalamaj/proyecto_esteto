@@ -1932,15 +1932,13 @@ int i_ind_buff;
 int lat_adc,lat_ant,LAT_PROM;
 char ind_adc=0,SUBIR,BAJAR,desp_vert,SALTO;
 extern int valpru[];
-//--------------------------------------------------------------------------
-//	Grafica promedio de 20 valores cada 100 muestras
-//--------------------------------------------------------------------------
+
 void Graf_PROM(void)
 {
 	char *		renglon = buffer_pulso ;
 	char n;
 	lat_ant=LAT_PROM;
-	if(PROMEDIAR)															// Promedia 20 muestras
+	if(PROMEDIAR)
 	{
 		PROMEDIAR=0;
 		for(i=0;i<20;i++)
@@ -1956,23 +1954,23 @@ void Graf_PROM(void)
 		*renglon++ = ( LAT_PROM      % 10) + '0' ;
 
 	}
-	i_ind_buff+=20;															// Incrementa 20 pos del buffer para prox promedio
+	i_ind_buff+=20;
 	PROMEDIAR=1;
 	if(i_ind_buff>110)
 		i_ind_buff=0;
 
-	if(ACT_DISP)															// Cada vez que completa el buffer muestra 1 prom
+	if(ACT_DISP)
 	{
 		ACT_DISP=0;
-		pos_x++;															// incrementa una posición
+		pos_x++;
 		if(pos_x>=120)
 			pos_x=25;
 		hab_corazon=1;
-		if(LAT_PROM>(lat_ant+5))											// Sube o baja dependiendo del resultado del prom
+		if(LAT_PROM>(lat_ant+5))
 			desp_vert++;
 		if(LAT_PROM<(lat_ant-5))
 			desp_vert--;
-		if(desp_vert>8)														// Mantiene dentro de los margenes
+		if(desp_vert>8)
 		{
 			desp_vert=1;
 			pos_y--;
@@ -1982,9 +1980,9 @@ void Graf_PROM(void)
 			desp_vert=8;
 			pos_y++;
 		}
-		func_punto ();														// Posiciona el punto en pantalla
-//---------------------------------------------------------
-		for(m=1;m<5;m++)													// Borra el display a medida que actualiza la pantalla
+		func_punto ();
+		//-----------------------------------------------
+		for(m=1;m<5;m++)
 		{
 			for(n=2;n<7;n++)
 			{
@@ -1996,7 +1994,7 @@ void Graf_PROM(void)
 					GLCD_enviaBYTE(DER, 0x00);  // enciende byte
 			}
 		}
-//---------------------------------------------------------
+	//---------------------------------------------------------
 		if(pos_y>6)
 		{
 			pos_y=6;
@@ -2011,7 +2009,7 @@ void Graf_PROM(void)
 			hab_corazon=0;
 			desp_vert=8;
 		}
-		WG12864A_posXY(pos_x,pos_y);										// Escribe el punto en pantalla
+		WG12864A_posXY(pos_x,pos_y);
 		GLCD_Output_High(RS);   // Modo datos
 		if(pos_x<65)
 			GLCD_enviaBYTE(IZQ, (PUNTO));  // enciende byte
@@ -2024,8 +2022,8 @@ void Graf_PROM(void)
 //_________________________________________________________________________________________________________________________________________________________________________
 
 //8 puntos por linea en 4 lineas
-void Graf_latidos(void)														// Grafica el latido del corazon sin promediar
-{																			// Falta corregir
+void Graf_latidos(void)
+{
 	char *		renglon = buffer_pulso ;
 	char n;
 	if(PROMEDIAR)

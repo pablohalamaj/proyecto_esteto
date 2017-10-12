@@ -1,31 +1,89 @@
-16:38:48 **** Incremental Build of configuration Debug for project Graficador_v1.0 ****
+16:51:31 **** Incremental Build of configuration Debug for project Graficador_v1.0 ****
 make -r all 
-Building file: ../Fuentes/Main.c
+Building file: ../Fuentes/Funciones.c
 Invoking: MCU C Compiler
-arm-none-eabi-gcc -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv1p30_LPC11xx -D__REDLIB__ -I"F:\Proyectos LPC1115\Monitor_Fetal\CMSISv1p30_LPC11xx\inc" -I"F:\Proyectos LPC1115\Monitor_Fetal\Graficador_v1.0\Cabeceras" -I"F:\Proyectos LPC1115\Monitor_Fetal\Graficador_v1.0\Drivers" -Os -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"Fuentes/Main.d" -MT"Fuentes/Main.o" -MT"Fuentes/Main.d" -o "Fuentes/Main.o" "../Fuentes/Main.c"
-../Fuentes/Main.c:48:6: warning: return type of 'main' is not 'int' [-Wmain]
- void main(void)
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv1p30_LPC11xx -D__REDLIB__ -I"F:\Proyectos LPC1115\Monitor_Fetal\CMSISv1p30_LPC11xx\inc" -I"F:\Proyectos LPC1115\Monitor_Fetal\Graficador_v1.0\Cabeceras" -I"F:\Proyectos LPC1115\Monitor_Fetal\Graficador_v1.0\Drivers" -Os -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"Fuentes/Funciones.d" -MT"Fuentes/Funciones.o" -MT"Fuentes/Funciones.d" -o "Fuentes/Funciones.o" "../Fuentes/Funciones.c"
+../Fuentes/Funciones.c: In function 'func_consultaestados':
+../Fuentes/Funciones.c:484:13: warning: unused variable 'z' [-Wunused-variable]
+  int fila=6,z=0;
+             ^
+../Fuentes/Funciones.c:484:6: warning: unused variable 'fila' [-Wunused-variable]
+  int fila=6,z=0;
       ^
-../Fuentes/Main.c: In function 'main':
-../Fuentes/Main.c:58:35: warning: integer overflow in expression [-Woverflow]
-  init_timer32 (1, (TIMMER_BASE_1S * TIMMER_SLEEP)); // Timmer 1, para Sleep Display.
-                                   ^
-../Fuentes/Main.c:94:10: warning: implicit declaration of function 'Func_Monitoreo' [-Wimplicit-function-declaration]
- */       Func_Monitoreo();
-          ^
-../Fuentes/Main.c:62:16: warning: unused variable 'i' [-Wunused-variable]
-   unsigned int i  = 0;
-                ^
-../Fuentes/Main.c:61:21: warning: unused variable 'aux2' [-Wunused-variable]
-  int inc_ind=0,aux1,aux2;
-                     ^
-../Fuentes/Main.c:61:16: warning: unused variable 'aux1' [-Wunused-variable]
-  int inc_ind=0,aux1,aux2;
-                ^
-../Fuentes/Main.c:61:6: warning: variable 'inc_ind' set but not used [-Wunused-but-set-variable]
-  int inc_ind=0,aux1,aux2;
+../Fuentes/Funciones.c: In function 'func_consultaptros':
+../Fuentes/Funciones.c:631:28: warning: array subscript has type 'char' [-Wchar-subscripts]
+    WG12864A_printf(&version[t], Arial8x6, NEGRO);
+                            ^
+../Fuentes/Funciones.c:640:32: warning: array subscript has type 'char' [-Wchar-subscripts]
+    WG12864A_printf(&version_prt[t], Arial8x6, NEGRO);
+                                ^
+../Fuentes/Funciones.c: In function 'func_conserr':
+../Fuentes/Funciones.c:723:15: warning: array subscript has type 'char' [-Wchar-subscripts]
+     causaerror[sumaerr]=causaerr[11];
+               ^
+../Fuentes/Funciones.c:724:14: warning: array subscript has type 'char' [-Wchar-subscripts]
+     moduloerr[sumaerr]=causaerr[12];
+              ^
+../Fuentes/Funciones.c:725:18: warning: array subscript has type 'char' [-Wchar-subscripts]
+     if(causaerror[sumaerr]==0)
+                  ^
+../Fuentes/Funciones.c:727:15: warning: array subscript has type 'char' [-Wchar-subscripts]
+      moduloerr[sumaerr]=10;
+               ^
+../Fuentes/Funciones.c:729:28: warning: array subscript has type 'char' [-Wchar-subscripts]
+     Muestra_causa(moduloerr[sumaerr], causaerror[sumaerr],fila);
+                            ^
+../Fuentes/Funciones.c:729:49: warning: array subscript has type 'char' [-Wchar-subscripts]
+     Muestra_causa(moduloerr[sumaerr], causaerror[sumaerr],fila);
+                                                 ^
+../Fuentes/Funciones.c: At top level:
+../Fuentes/Funciones.c:1066:1: warning: "/*" within comment [-Wcomment]
+ /*  WG12864A_posXY(70, 7);
+ ^
+../Fuentes/Funciones.c: In function 'Func_Monitoreo':
+../Fuentes/Funciones.c:1912:3: warning: implicit declaration of function 'Graf_PROM' [-Wimplicit-function-declaration]
+   Graf_PROM();
+   ^
+../Fuentes/Funciones.c:1817:11: warning: unused variable 'n' [-Wunused-variable]
+  char m=0,n=0;
+           ^
+../Fuentes/Funciones.c:1817:7: warning: unused variable 'm' [-Wunused-variable]
+  char m=0,n=0;
+       ^
+../Fuentes/Funciones.c: At top level:
+../Fuentes/Funciones.c:1938:6: warning: conflicting types for 'Graf_PROM'
+ void Graf_PROM(void)
       ^
-Finished building: ../Fuentes/Main.c
+../Fuentes/Funciones.c:1912:3: note: previous implicit declaration of 'Graf_PROM' was here
+   Graf_PROM();
+   ^
+../Fuentes/Funciones.c: In function 'Graf_PROM':
+../Fuentes/Funciones.c:1985:3: warning: implicit declaration of function 'func_punto' [-Wimplicit-function-declaration]
+   func_punto ();              // Posiciona el punto en pantalla
+   ^
+../Fuentes/Funciones.c: In function 'Graf_latidos':
+../Fuentes/Funciones.c:2052:16: warning: array subscript has type 'char' [-Wchar-subscripts]
+  lat_adc=valpru[ind_adc];
+                ^
+../Fuentes/Funciones.c: In function 'func_temp':
+../Fuentes/Funciones.c:2262:16: warning: array subscript has type 'char' [-Wchar-subscripts]
+  lat_adc=valpru[ind_adc];
+                ^
+../Fuentes/Funciones.c: At top level:
+../Fuentes/Funciones.c:2329:6: warning: conflicting types for 'func_punto'
+ void func_punto (void)
+      ^
+../Fuentes/Funciones.c:1985:3: note: previous implicit declaration of 'func_punto' was here
+   func_punto ();              // Posiciona el punto en pantalla
+   ^
+../Fuentes/Funciones.c: In function 'leo_adc':
+../Fuentes/Funciones.c:2369:19: warning: array subscript has type 'char' [-Wchar-subscripts]
+ while((LPC_ADC->DR[Channel] < 0x7FFFFFFF));//wait for "done" bit to be set (sec. 25.5.4)
+                   ^
+../Fuentes/Funciones.c:2370:20: warning: array subscript has type 'char' [-Wchar-subscripts]
+ Data = (LPC_ADC->DR[Channel] & 0xFFC0) >> 4;//8;
+                    ^
+Finished building: ../Fuentes/Funciones.c
  
 Building target: Graficador_v1.0.axf
 Invoking: MCU Linker
@@ -39,5 +97,5 @@ arm-none-eabi-size "Graficador_v1.0.axf"; # arm-none-eabi-objcopy -O binary "Gra
    9108	     24	   5788	  14920	   3a48	Graficador_v1.0.axf
  
 
-16:38:49 Build Finished (took 530ms)
+16:51:32 Build Finished (took 938ms)
 
