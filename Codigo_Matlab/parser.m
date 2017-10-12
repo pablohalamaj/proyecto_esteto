@@ -30,7 +30,11 @@ t = 0;					% Vector de tiempo -> se define mas abajo
 % - INPUT: Recibe los valores de una señal temporal en texto, muestra su espectro
 % - OUTPUT: ploteo en t y f de la entrada
 
-latido_in_t = dlmread('input.txt');
+% guardo mis latidos en una variable temporal
+var_temporal = dlmread('input.txt');
+
+% Le resto el valor medio asi le saco la continua :D 
+latido_in_t = var_temporal - mean(var_temporal);
 L = length(latido_in_t);
 t = (0:L-1)*T;
 
@@ -69,8 +73,8 @@ hold off;
 
 mi_var = latido_in_t;
 
-% no hago nada!
-mi_var_filtrada = mi_var -  626.1850 ;
+% mi filtro no hace nada!!
+mi_var_filtrada = mi_var -  0 ;
 
 
 latido_out_t = mi_var_filtrada;
