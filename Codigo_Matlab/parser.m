@@ -70,7 +70,7 @@ hold off;
 mi_var = latido_in_t;
 
 % no hago nada!
-mi_var_filtrada = mi_var -  sin(2*pi*1.5*t) ;
+mi_var_filtrada = mi_var -  626.1850 ;
 
 
 latido_out_t = mi_var_filtrada;
