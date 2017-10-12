@@ -140,7 +140,8 @@ void ADCInit( uint32_t ADC_Clk )
   LPC_IOCON->R_PIO1_2    = 0x02;	// Select AD3 pin function
 
 //  LPC_IOCON->ARM_SWDIO_PIO1_3    = 0x02;	// Select AD4 pin function
- /*
+/*
+  LPC_IOCON->PIO1_4    = 0x01;	// Select AD5 pin function
   LPC_IOCON->PIO1_10   = 0x01;	// Select AD6 pin function
   LPC_IOCON->PIO1_11   = 0x01;	// Select AD7 pin function
 */
@@ -150,9 +151,9 @@ void ADCInit( uint32_t ADC_Clk )
 	LPC_IOCON->PIO1_4 &= ~(0x97);    //clear FUNC field for pin 40, set to   analog input (sec. 7.4.36)
 	LPC_IOCON->PIO1_4 |= (1<<0);     //set to ADC mode for pin 40 (sec. 7.4.36)
 //	LPC_ADC->CR = 0x0B2F;      //select ADC channel AD5 (pin 40), set up   clock (sec 25.5.1)
-//	LPC_ADC->CR = 0x0B20;      //select ADC channel AD5 (pin 40), set up   clock (sec 25.5.1)
+	LPC_ADC->CR = 0x0B20;      //select ADC channel AD5 (pin 40), set up   clock (sec 25.5.1)
 
-   LPC_ADC->CR = ((SystemCoreClock/LPC_SYSCON->SYSAHBCLKDIV)/ADC_Clk-1)<<8;
+ //  LPC_ADC->CR = ((SystemCoreClock/LPC_SYSCON->SYSAHBCLKDIV)/ADC_Clk-1)<<8;
 
   /* If POLLING, no need to do the following */
 #if CONFIG_ADC_ENABLE_ADC_IRQHANDLER==1

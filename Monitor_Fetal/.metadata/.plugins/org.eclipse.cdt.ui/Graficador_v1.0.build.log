@@ -1,0 +1,43 @@
+16:38:48 **** Incremental Build of configuration Debug for project Graficador_v1.0 ****
+make -r all 
+Building file: ../Fuentes/Main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv1p30_LPC11xx -D__REDLIB__ -I"F:\Proyectos LPC1115\Monitor_Fetal\CMSISv1p30_LPC11xx\inc" -I"F:\Proyectos LPC1115\Monitor_Fetal\Graficador_v1.0\Cabeceras" -I"F:\Proyectos LPC1115\Monitor_Fetal\Graficador_v1.0\Drivers" -Os -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"Fuentes/Main.d" -MT"Fuentes/Main.o" -MT"Fuentes/Main.d" -o "Fuentes/Main.o" "../Fuentes/Main.c"
+../Fuentes/Main.c:48:6: warning: return type of 'main' is not 'int' [-Wmain]
+ void main(void)
+      ^
+../Fuentes/Main.c: In function 'main':
+../Fuentes/Main.c:58:35: warning: integer overflow in expression [-Woverflow]
+  init_timer32 (1, (TIMMER_BASE_1S * TIMMER_SLEEP)); // Timmer 1, para Sleep Display.
+                                   ^
+../Fuentes/Main.c:94:10: warning: implicit declaration of function 'Func_Monitoreo' [-Wimplicit-function-declaration]
+ */       Func_Monitoreo();
+          ^
+../Fuentes/Main.c:62:16: warning: unused variable 'i' [-Wunused-variable]
+   unsigned int i  = 0;
+                ^
+../Fuentes/Main.c:61:21: warning: unused variable 'aux2' [-Wunused-variable]
+  int inc_ind=0,aux1,aux2;
+                     ^
+../Fuentes/Main.c:61:16: warning: unused variable 'aux1' [-Wunused-variable]
+  int inc_ind=0,aux1,aux2;
+                ^
+../Fuentes/Main.c:61:6: warning: variable 'inc_ind' set but not used [-Wunused-but-set-variable]
+  int inc_ind=0,aux1,aux2;
+      ^
+Finished building: ../Fuentes/Main.c
+ 
+Building target: Graficador_v1.0.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"F:\Proyectos LPC1115\Monitor_Fetal\CMSISv1p30_LPC11xx\Debug" -Xlinker -Map="Graficador_v1.0.map" -Xlinker --gc-sections -mcpu=cortex-m0 -mthumb -T "Touch_2_2_Debug.ld" -o "Graficador_v1.0.axf"  ./Fuentes/Comunicaciones.o ./Fuentes/Funciones.o ./Fuentes/Main.o ./Fuentes/Menu.o ./Fuentes/Subfunciones.o ./Fuentes/Teclado.o ./Fuentes/Touch.o ./Fuentes/WG12864A.o ./Fuentes/cr_startup_lpc11.o  ./Drivers/adc.o ./Drivers/gpio.o ./Drivers/ssp.o ./Drivers/timer32.o ./Drivers/wdt.o   -lCMSISv1p30_LPC11xx
+Finished building target: Graficador_v1.0.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "Graficador_v1.0.axf"; # arm-none-eabi-objcopy -O binary "Graficador_v1.0.axf" "Graficador_v1.0.bin" ; checksum -p LPC1114_302 -d "Graficador_v1.0.bin";
+   text	   data	    bss	    dec	    hex	filename
+   9108	     24	   5788	  14920	   3a48	Graficador_v1.0.axf
+ 
+
+16:38:49 Build Finished (took 530ms)
+

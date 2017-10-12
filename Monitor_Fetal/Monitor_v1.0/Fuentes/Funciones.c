@@ -1066,7 +1066,7 @@ void Func_Monitoreo (void)
 */
 		// Funcion que maneja el Sleep de la pantalla y la IRQ del TOUCH.
 		Func_Sleep (flagirq, sleepmenu);
-		GPIOIntEnable(PORT1, 4);
+		GPIOIntEnable(PORT1, 4);											// Habilito INT PORT 1.4
 	}
 
 	if(flag_sleepsubmenu){					// Si la bandera esta arriba salio del menu normal, sino salio por sleep.

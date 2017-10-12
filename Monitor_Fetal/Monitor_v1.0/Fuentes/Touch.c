@@ -206,14 +206,22 @@ void Tomo_Latido(void)
 
 
 	//Desabilito la IRQ ya que modifico el estado de los pines.
-	GPIOIntDisable(PORT1, 4);
-
-	LPC_IOCON->ADC_LATIDOS = 0xD1;			//Paso el Pin a PULL UP.
-	GPIOSetDir (PORT1,4,ENTRADA);			//Seteo el Pin como Entrada.
+//	GPIOIntDisable(PORT1, 4);
+/*	valpru[inc]=ADCRead (5);
+	LPC_ADC->CR |= (1<<24);                            //startconversion by   setting "Start Conversion Now" bit (sec. 25.5.1)
+    while((LPC_ADC->DR[5] <  0x7FFFFFFF));                  //wait for"done" bit to   be   set (sec. 25.5.4)
+    valpru[inc]= ((LPC_ADC->DR[5] & 0xFFC0) >> 8);
+	inc++;
+	if(inc>=100)
+	inc=0;
+	for(i=0; i  <  0xFFFFF; ++i);                            //simple delay to   make scope shots easier to   view
+*/
+//	LPC_IOCON->ADC_LATIDOS = 0xD1;			//Paso el Pin a PULL UP.
+//	GPIOSetDir (PORT1,4,ENTRADA);			//Seteo el Pin como Entrada.
 //	LPC_IOCON->ADC_LATIDOS = 0x42;			//Paso el Pin a Hi-z y Open Drain.
 //	GPIOSetDir (PORT1,4,ENTRADA);			//Seteo el Pin como Entrada.
 
-	for( g = 0; g < 10; g++ ){
+//	for( g = 0; g < 10; g++ ){
 
 		//Tomo 10 Muestras del ADC.
 //		auxLA += ADCRead (5);
@@ -233,7 +241,7 @@ void Tomo_Latido(void)
 	 for(i=0; i  <  0xFFFFF; ++i);                            //simple delay to   make scope shots easier to   vie
 */
 
-	}
+//	}
 
 	//Obtengo el Promedio de los valores obtenidos.
 	auxLA = auxLA/10;

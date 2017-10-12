@@ -15,7 +15,7 @@
 		<item value="org.eclipse.rcp:4.5.2.v20160212-1500"/>
 	</list>
 	<section name="CleanDialogSettings">
-		<item value="563" key="DIALOG_WIDTH"/>
+		<item value="662" key="DIALOG_WIDTH"/>
 		<item value="true" key="BUILD_ALL"/>
 		<item value="false" key="TOGGLE_SELECTED"/>
 		<item value="557" key="DIALOG_HEIGHT"/>
