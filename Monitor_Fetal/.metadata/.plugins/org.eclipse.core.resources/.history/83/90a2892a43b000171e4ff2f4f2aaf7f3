@@ -63,8 +63,8 @@ static char  	buffer_pulso[44] ;
 
 
 int inc_ind=0,aux1,aux2;
-unsigned int i  = 0,i_buff=0,i_disp=0,i_disp_ant=0;
-int valpru[100],mu_pro[100];
+unsigned int i  = 0;
+int valpru[100];
 char PROMEDIAR=0,ACT_DISP=0,NO_ENTR=0,DISMINUYO=0,AUMENTO=0;
 // *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 void TIMER32_1_IRQHandler(void)
@@ -1940,21 +1940,13 @@ void Graf_PROM(void)
 {
 	char *		renglon = buffer_pulso ;
 	char n;
-	int aux1,aux2;
 	lat_ant=LAT_PROM;
-/*	if(lat_ant!=LAT_PROM)
-	{
-		mu_pro[i_buff]=LAT_PROM;
-		i_buff++;
-		if(i_buff>99)
-			i_buff=0;
-	}
-*/	if(PROMEDIAR&&NO_ENTR)															// Promedia 20 muestras
+	if(PROMEDIAR&&NO_ENTR)															// Promedia 20 muestras
 	{
 		PROMEDIAR=0;
-		for(i=0;i<10;i++)
+		for(i=0;i<20;i++)
 			lat_adc+=valpru[i_ind_buff+i];
-		lat_adc=lat_adc/10;
+		lat_adc=lat_adc/20;
 		LAT_PROM=lat_adc;
 		//pos_y=4;
 //		hab_corazon=1;
@@ -1964,7 +1956,7 @@ void Graf_PROM(void)
 		*renglon++ = ( LAT_PROM       % 10) + '0' ;
 
 	}
-	i_ind_buff+=10;															// Incrementa 20 pos del buffer para prox promedio
+	i_ind_buff+=20;															// Incrementa 20 pos del buffer para prox promedio
 	PROMEDIAR=1;
 	if(i_ind_buff>99)
 	{
@@ -1978,15 +1970,11 @@ void Graf_PROM(void)
 		ACT_DISP=0;
 		pos_x++;															// incrementa una posición
 		if(pos_x>=120)
-		{	pos_x=25;
-			pos_y=4;
-		}
+			pos_x=25;
 		hab_corazon=1;
-//		aux1=mu_pro[i_disp];
-//		aux2=mu_pro[i_disp_ant];
-		if(LAT_PROM<lat_ant)// && (LAT_PROM<(lat_ant+5)))		//if(LAT_PROM>(lat_ant))//+5))// Sube o baja dependiendo del resultado del prom
+		if((LAT_PROM>lat_ant))// && (LAT_PROM<(lat_ant+5)))		//if(LAT_PROM>(lat_ant))//+5))// Sube o baja dependiendo del resultado del prom
 			desp_vert++;
-		if(LAT_PROM>lat_ant)// && (LAT_PROM>(lat_ant-5)))		//if(LAT_PROM<(lat_ant))//-5))
+		if((LAT_PROM<lat_ant))// && (LAT_PROM>(lat_ant-5)))		//if(LAT_PROM<(lat_ant))//-5))
 			desp_vert--;
 /*		if((LAT_PROM>lat_ant) && (LAT_PROM>(lat_ant+5)))
 		{
@@ -1998,10 +1986,6 @@ void Graf_PROM(void)
 			DISMINUYO=1;
 			desp_vert-=4;
 		}
-*//*		i_disp_ant=i_disp;
-		i_disp++;
-		if(i_disp>99)
-			i_disp=0;
 */		if(desp_vert>8)														// Mantiene dentro de los margenes
 		{
 			desp_vert=1;

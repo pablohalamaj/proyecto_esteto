@@ -12,7 +12,7 @@
 		<item value="LPC11_12_13_32K_8K.cfx," key="flashdriver"/>
 		<item value="false" key="clipboard"/>
 		<item value="" key="extended"/>
-		<item value="F:\Proyectos LPC1115\Monitor_Fetal\Monitor_v1.0\Debug\Monitor_v1.0.axf;/home/sebastian/LPCXpresso/workspace/Proyectos LPC1115/Monitor_Fetal/Monitor_v1.0/Debug/Monitor_v1.0.axf;/home/sebastian/LPCXpresso/workspace/Proyectos LPC1115/Display_Touch/Touch_2.3/Debug/Touch_2.3.axf," key="file"/>
+		<item value="F:\Proyectos LPC1115\Monitor_Fetal\Graficador_v1.0\Debug\Graficador_v1.0.axf;F:\Proyectos LPC1115\Monitor_Fetal\Monitor_v1.0\Debug\Monitor_v1.0.axf;/home/sebastian/LPCXpresso/workspace/Proyectos LPC1115/Monitor_Fetal/Monitor_v1.0/Debug/Monitor_v1.0.axf;/home/sebastian/LPCXpresso/workspace/Proyectos LPC1115/Display_Touch/Touch_2.3/Debug/Touch_2.3.axf," key="file"/>
 		<item value="true" key="erase_mass"/>
 		<item value="false" key="reopen"/>
 		<item value="false" key="repeat"/>

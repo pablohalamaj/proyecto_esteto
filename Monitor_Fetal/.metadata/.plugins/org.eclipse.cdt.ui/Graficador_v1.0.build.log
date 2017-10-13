@@ -1,4 +1,4 @@
-16:51:31 **** Incremental Build of configuration Debug for project Graficador_v1.0 ****
+16:03:22 **** Incremental Build of configuration Debug for project Graficador_v1.0 ****
 make -r all 
 Building file: ../Fuentes/Funciones.c
 Invoking: MCU C Compiler
@@ -41,7 +41,7 @@ arm-none-eabi-gcc -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv1p30_LPC11xx -D__REDL
  /*  WG12864A_posXY(70, 7);
  ^
 ../Fuentes/Funciones.c: In function 'Func_Monitoreo':
-../Fuentes/Funciones.c:1912:3: warning: implicit declaration of function 'Graf_PROM' [-Wimplicit-function-declaration]
+../Fuentes/Funciones.c:1913:3: warning: implicit declaration of function 'Graf_PROM' [-Wimplicit-function-declaration]
    Graf_PROM();
    ^
 ../Fuentes/Funciones.c:1817:11: warning: unused variable 'n' [-Wunused-variable]
@@ -51,38 +51,44 @@ arm-none-eabi-gcc -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv1p30_LPC11xx -D__REDL
   char m=0,n=0;
        ^
 ../Fuentes/Funciones.c: At top level:
-../Fuentes/Funciones.c:1938:6: warning: conflicting types for 'Graf_PROM'
+../Fuentes/Funciones.c:1939:6: warning: conflicting types for 'Graf_PROM'
  void Graf_PROM(void)
       ^
-../Fuentes/Funciones.c:1912:3: note: previous implicit declaration of 'Graf_PROM' was here
+../Fuentes/Funciones.c:1913:3: note: previous implicit declaration of 'Graf_PROM' was here
    Graf_PROM();
    ^
 ../Fuentes/Funciones.c: In function 'Graf_PROM':
-../Fuentes/Funciones.c:1985:3: warning: implicit declaration of function 'func_punto' [-Wimplicit-function-declaration]
+../Fuentes/Funciones.c:2015:3: warning: implicit declaration of function 'func_punto' [-Wimplicit-function-declaration]
    func_punto ();              // Posiciona el punto en pantalla
    ^
+../Fuentes/Funciones.c:1943:11: warning: unused variable 'aux2' [-Wunused-variable]
+  int aux1,aux2;
+           ^
+../Fuentes/Funciones.c:1943:6: warning: unused variable 'aux1' [-Wunused-variable]
+  int aux1,aux2;
+      ^
 ../Fuentes/Funciones.c: In function 'Graf_latidos':
-../Fuentes/Funciones.c:2052:16: warning: array subscript has type 'char' [-Wchar-subscripts]
+../Fuentes/Funciones.c:2142:16: warning: array subscript has type 'char' [-Wchar-subscripts]
   lat_adc=valpru[ind_adc];
                 ^
 ../Fuentes/Funciones.c: In function 'func_temp':
-../Fuentes/Funciones.c:2262:16: warning: array subscript has type 'char' [-Wchar-subscripts]
+../Fuentes/Funciones.c:2352:16: warning: array subscript has type 'char' [-Wchar-subscripts]
   lat_adc=valpru[ind_adc];
                 ^
 ../Fuentes/Funciones.c: At top level:
-../Fuentes/Funciones.c:2329:6: warning: conflicting types for 'func_punto'
+../Fuentes/Funciones.c:2419:6: warning: conflicting types for 'func_punto'
  void func_punto (void)
       ^
-../Fuentes/Funciones.c:1985:3: note: previous implicit declaration of 'func_punto' was here
+../Fuentes/Funciones.c:2015:3: note: previous implicit declaration of 'func_punto' was here
    func_punto ();              // Posiciona el punto en pantalla
    ^
 ../Fuentes/Funciones.c: In function 'leo_adc':
-../Fuentes/Funciones.c:2369:19: warning: array subscript has type 'char' [-Wchar-subscripts]
- while((LPC_ADC->DR[Channel] < 0x7FFFFFFF));//wait for "done" bit to be set (sec. 25.5.4)
-                   ^
-../Fuentes/Funciones.c:2370:20: warning: array subscript has type 'char' [-Wchar-subscripts]
- Data = (LPC_ADC->DR[Channel] & 0xFFC0) >> 4;//8;
+../Fuentes/Funciones.c:2534:20: warning: array subscript has type 'char' [-Wchar-subscripts]
+  while((LPC_ADC->DR[Channel] < 0x7FFFFFFF));//wait for "done" bit to be set (sec. 25.5.4)
                     ^
+../Fuentes/Funciones.c:2535:21: warning: array subscript has type 'char' [-Wchar-subscripts]
+  Data = (LPC_ADC->DR[Channel] & 0xFFC0) >> 4;//8;
+                     ^
 Finished building: ../Fuentes/Funciones.c
  
 Building target: Graficador_v1.0.axf
@@ -94,8 +100,8 @@ make --no-print-directory post-build
 Performing post-build steps
 arm-none-eabi-size "Graficador_v1.0.axf"; # arm-none-eabi-objcopy -O binary "Graficador_v1.0.axf" "Graficador_v1.0.bin" ; checksum -p LPC1114_302 -d "Graficador_v1.0.bin";
    text	   data	    bss	    dec	    hex	filename
-   9108	     24	   5788	  14920	   3a48	Graficador_v1.0.axf
+   9444	     24	   6192	  15660	   3d2c	Graficador_v1.0.axf
  
 
-16:51:32 Build Finished (took 938ms)
+16:03:23 Build Finished (took 880ms)
 

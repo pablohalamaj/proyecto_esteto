@@ -28,6 +28,7 @@
 		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
 		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="F:\Proyectos LPC1115\Monitor_Fetal\Graficador_v1.0"/>
 			<item value="/home/sebastian/LPCXpresso/workspace/Proyectos LPC1115/Monitor_Fetal/ADC"/>
 			<item value="/home/sebastian/LPCXpresso/workspace/Proyectos LPC1115/modpot_CT800C_1.2"/>
 			<item value="F:\Proyectos LPC1115\Monitor_Fetal\CMSISv1p30_LPC11xx"/>

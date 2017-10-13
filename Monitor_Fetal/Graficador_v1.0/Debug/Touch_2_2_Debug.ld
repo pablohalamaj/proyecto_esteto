@@ -5,7 +5,7 @@
  * Generated linker script file for LPC1114/302
  * Created from linkscript.ldt by FMCreateLinkLibraries
  * Using Freemarker v2.3.23
- * LPCXpresso v8.2.2 [Build 650] [2016-09-09]  on 12-oct-2017 16:51:31
+ * LPCXpresso v8.2.2 [Build 650] [2016-09-09]  on 13-oct-2017 16:03:22
  */
 
 INCLUDE "Touch_2_2_Debug_library.ld"
