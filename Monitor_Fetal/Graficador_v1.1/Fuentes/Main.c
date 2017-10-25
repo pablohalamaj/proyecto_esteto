@@ -31,7 +31,7 @@ __CRP const unsigned int CRP_WORD = CRP_NO_CRP ;
 //#include "Comunicaciones.h"
 //---------------------------------------------------
 //---------  Variables globales  --------------------
-char 	cont=0,flagmm=0,flagbll=0,flag_1seg;
+char 	cont=0,flagmm=0,flagbll=0,flag_1seg,flag_25ms;
 char 	Rx[30],Rx1[30],Rx2[30],btens[16],movmp[16],version[16],version_prt[16];
 char 	causaerr[11],causaerror[11],moduloerr[11],icomu[5],sumaerr=0,lec=0;
 extern char actualiza_fw,pos_y;
@@ -50,7 +50,6 @@ void inicializaciones (void);
 void main(void)
 {
 //-------------------------------------------------------------------
-	pos_y=4;
 	inicializaciones();
 	while(1)
 	{                                     //infinite loop
@@ -66,14 +65,19 @@ void inicializaciones (void)
 	SSP_IOConfig(SPI_1);		// Configuracion de SPI_1.
 	SSP_Init(SPI_1);			// Inicializacion de SPI_1.
 	WG12864A_Init();			// Inicializacion del DISPLAY.
-	init_timer32 (0, 1,0x2DC8A01,0x00D2F8A);								// Timmer 0, para Delays.
-	init_timer32 (1, (TIMMER_BASE_1S * TIMMER_SLEEP),0x2DC8A01,0x2DC8A01);	// Timmer 1, para Sleep Display.
+//	init_timer32 (0, 1,0x2DC8A01,0x00D2F8A);								// Timmer 0, para Delays.
+//	init_timer32 (1, (TIMMER_BASE_1S * TIMMER_SLEEP),0x2DC8A01,0x2DC8A01);	// Timmer 1, para Sleep Display.
 //	enable_timer32(1);			// Disparo el Timmer que controla el Sleep del Display.
+	init_timer32(0,0x0001770F, 0x2DC8A01,0x0003A9A6);						//Interrupción cada 25mSeg, para timer_0
+	enable_timer32(0);			// Disparo el Timmer que controla el Sleep del Display.
+	init_timer32(1,0x0003A9A6, 0x0003A9A6,0x0003A9A6);						//Interrupción cada 25mSeg, para timer_1, 0x0001770F (2mSeg)
+	enable_timer32(1);			// Disparo el Timmer que controla el Sleep del Display.
 // 	Inicialización ADC 5
 	LPC_SYSCON->PDRUNCFG        &= ~(0x1<<4);  //power the ADC (sec. 3.5.35)
 	LPC_SYSCON->SYSAHBCLKCTRL   |= (1<<13);    //enable clock for ADC (sec. 3.5.14)
 	LPC_IOCON->PIO1_4 &= ~(0x97);    //clear FUNC field for pin 40, set to   analog input (sec. 7.4.36)
 	LPC_IOCON->PIO1_4 |= (1<<0);     //set to ADC mode for pin 40 (sec. 7.4.36)
 	LPC_ADC->CR = 0x0B20;      //select ADC channel AD5 (pin 40), set up   clock (sec 25.5.1)
+	pos_y=4;
 	GLCD_Output_High(BACKLIGHT);
 }

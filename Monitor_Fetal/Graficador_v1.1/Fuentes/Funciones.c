@@ -18,116 +18,77 @@
 #include "Definiciones.h"
 
 
-int 	Umbral_Sup=2400,Umbral_Inf=2100,
-		cont_pico_POS=0,cont_pico_NEG=0,PPM=0,ind_Muestras,
-		valpru[100],inc_ind,i_ind_buff,
+int 	Umbral_Sup=3000,Umbral_Inf=2000,
+		cont_pico_POS=0,cont_pico_NEG=0,PPM=0,
+		inc_ind,inc_ind2,i_ind_buff,
 		lat_adc,lat_ant,LAT_PROM;
-char 	PULSO_OK,flag_SUP,flag_INF,
+char 	PULSO_OK,flag_SUP=1,flag_INF=1,
 		pos_x,pos_y,PUNTO,AUMENTO,DISMINUYO,
 		cont_10seg,FILTRO_DIG,hab_corazon,
 		PROMEDIAR,NO_ENTR,ACT_DISP,v,
 		ind_adc=0,SUBIR,BAJAR,desp_vert,SALTO;
+unsigned int valpru[1000],valpru2[800],ind_Muestras,aux_prov;
 
-extern int valpru[];
-extern char flag_1seg;
+//extern int valpru[];
+extern char flag_1seg,flag_25ms;
 uint16_t leo_adc(char Channel);
-//__________________________________________________________________________________________________________________________________________________________________________
+//_______________________________________________________________________________________________________________________________
 
 // Muestra Pantalla de Monitoreo
-//__________________________________________________________________________________________________________________________________________________________________________
+//_______________________________________________________________________________________________________________________________
 void Func_Monitoreo (void)
 {
 	char m=0,n=0;
+	//unsigned int valpru2[800];
 	// Mientras no se presione Back.
-	while(1)
-	{
-		// Titulo del menu.
-		WG12864A_posXY(1, 1);
-		WG12864A_printf(" *  Monitor Fetal  * ", Arial8x6, BLANCO);
-		WG12864A_posXY(110, 7);
-		WG12864A_print_symbol(BACK16x16, BLANCO);
-		WG12864A_posXY(1, 2);
-		WG12864A_printf("Max|", Arial8x6, NEGRO);
-		WG12864A_posXY(121, 2);
-		WG12864A_printf("|", Arial8x6, NEGRO);
-		WG12864A_posXY(1, 3);
-		WG12864A_printf("   |", Arial8x6, NEGRO);
-		WG12864A_posXY(121, 3);
-		WG12864A_printf("|", Arial8x6, NEGRO);
-		WG12864A_posXY(1, 4);
-		WG12864A_printf("med|", Arial8x6, NEGRO);
-		WG12864A_posXY(121, 4);
-		WG12864A_printf("|", Arial8x6, NEGRO);
-		WG12864A_posXY(1, 5);
-		WG12864A_printf("   |", Arial8x6, NEGRO);
-		WG12864A_posXY(121, 5);
-		WG12864A_printf("|", Arial8x6, NEGRO);
-		WG12864A_posXY(1, 6);
-		WG12864A_printf("Min|", Arial8x6, NEGRO);
-		WG12864A_posXY(121, 6);
-		WG12864A_printf("|", Arial8x6, NEGRO);
-		WG12864A_posXY(1, 7);
-		WG12864A_printf("Pulso:", Arial8x6, NEGRO);
-		WG12864A_posXY(40, 7);
-		WG12864A_printf(PPM, Arial8x6, NEGRO);
-		if(FILTRO_DIG)
-		{
-			WG12864A_posXY(90, 7);
-			WG12864A_print_symbol(FD16x16, BLANCO);
-		}
-		else
-		{
-			WG12864A_posXY(90, 7);
-			WG12864A_print_symbol(FD16x16, NEGRO);
-		}
+//	while(1)
+//	{
+	// Titulo del menu.
+//	WG12864A_posXY(1, 1);
+//	WG12864A_printf(" *  Monitor Fetal  * ", Arial8x6, BLANCO);
 
-//----------------------------------------------------------------
-		if(hab_corazon)
+		if(flag_25ms)
 		{
-//			hab_corazon=0;
-		if(v<10)//SACAR
-		{
-			WG12864A_posXY(70, 7);
-			WG12864A_print_symbol(HEART16x16, BLANCO);
-		}
-		else
-		{
-			WG12864A_posXY(70, 7);
-			WG12864A_print_symbol(HEART16x16, NEGRO);
-		}
-		v++;
-		if(v>=20)
-			v=0;
-		}
-		else
-		{
-			WG12864A_posXY(70, 7);
-			WG12864A_printf("   ", Arial8x6, NEGRO);
-			WG12864A_posXY(70, 8);
-			WG12864A_printf("   ", Arial8x6, NEGRO);
+			flag_25ms=0;
+			if(inc_ind<1000)
+			{
+				valpru[inc_ind]=leo_adc(5);
+			}
+			else
+			{
+				valpru2[inc_ind2]=leo_adc(5);
+				inc_ind2++;
+			}
+			inc_ind++;
+			aux_prov++;
 
 		}
-		valpru[inc_ind]=leo_adc(5);
-		inc_ind++;
-		if(inc_ind>=100)
+/*		if(inc_ind>=100)
 		{
 			inc_ind=0;
 			PROMEDIAR=1;
 			NO_ENTR=1;
 			ACT_DISP=1;
 		}
-		if(flag_1seg)
+*/		if(flag_1seg)
 		{
 			flag_1seg=0;
 			cont_10seg++;
 		}
 		if(cont_10seg>=10)
 		{
+			ind_Muestras=aux_prov;
+			aux_prov=0;
+			inc_ind=0;
+			inc_ind2=0;
+			PROMEDIAR=1;
+			NO_ENTR=1;
+			ACT_DISP=1;
 			detector_pulsos();
 			cont_10seg=0;
 		}
-		Graf_PROM();
-	}
+//		Graf_PROM();
+//	}
 }
 
 
@@ -136,8 +97,8 @@ void Func_Monitoreo (void)
 //--------------------------------------------------------------------------
 void detector_pulsos(void)
 {
-	int i=0;
-	while(i<ind_Muestras)
+	int i=0,j=0;
+	while(i<1000)
 	{
 		if(valpru[i]>Umbral_Sup && flag_INF)
 		{
@@ -153,6 +114,23 @@ void detector_pulsos(void)
 		}
 		i++;
 	}
+	while(1000<i &&i<1800)
+	{
+		if(valpru2[j]>Umbral_Sup && flag_INF)
+		{
+			flag_SUP=1;
+			flag_INF=0;
+			cont_pico_POS++;
+		}
+		if(valpru2[j]<Umbral_Inf && flag_SUP)
+		{
+			flag_SUP=0;
+			flag_INF=1;
+			cont_pico_NEG++;
+		}
+		j++;
+	}
+
 	if(cont_pico_POS<cont_pico_NEG+2 && cont_pico_POS>cont_pico_NEG-2)
 	{
 		PPM=cont_pico_POS*6;
@@ -161,6 +139,7 @@ void detector_pulsos(void)
 	cont_pico_POS=0;
 	cont_pico_NEG=0;
 }
+
 //--------------------------------------------------------------------------
 //	Grafica promedio de 20 valores cada 100 muestras
 //--------------------------------------------------------------------------
@@ -170,6 +149,76 @@ void Graf_PROM(void)
 	char *		renglon = PPM ;
 	char n;
 	int aux1,aux2,i=0,m;
+//-------------------------------------------------------------
+	WG12864A_posXY(110, 7);
+	WG12864A_print_symbol(BACK16x16, BLANCO);
+	WG12864A_posXY(1, 2);
+	WG12864A_printf("Max|", Arial8x6, NEGRO);
+	WG12864A_posXY(121, 2);
+	WG12864A_printf("|", Arial8x6, NEGRO);
+	WG12864A_posXY(1, 3);
+	WG12864A_printf("   |", Arial8x6, NEGRO);
+	WG12864A_posXY(121, 3);
+	WG12864A_printf("|", Arial8x6, NEGRO);
+	WG12864A_posXY(1, 4);
+	WG12864A_printf("med|", Arial8x6, NEGRO);
+	WG12864A_posXY(121, 4);
+	WG12864A_printf("|", Arial8x6, NEGRO);
+	WG12864A_posXY(1, 5);
+	WG12864A_printf("   |", Arial8x6, NEGRO);
+	WG12864A_posXY(121, 5);
+	WG12864A_printf("|", Arial8x6, NEGRO);
+	WG12864A_posXY(1, 6);
+	WG12864A_printf("Min|", Arial8x6, NEGRO);
+	WG12864A_posXY(121, 6);
+	WG12864A_printf("|", Arial8x6, NEGRO);
+	WG12864A_posXY(1, 7);
+	WG12864A_printf("Pulso:", Arial8x6, NEGRO);
+	WG12864A_posXY(40, 7);
+	WG12864A_printf(PPM, Arial8x6, NEGRO);
+
+	if(FILTRO_DIG)
+	{
+		WG12864A_posXY(90, 7);
+		WG12864A_print_symbol(FD16x16, BLANCO);
+	}
+	else
+	{
+		WG12864A_posXY(90, 7);
+		WG12864A_print_symbol(FD16x16, NEGRO);
+	}
+
+//----------------------------------------------------------------
+	if(hab_corazon)
+	{
+//			hab_corazon=0;
+	if(v<10)//SACAR
+	{
+		WG12864A_posXY(70, 7);
+		WG12864A_print_symbol(HEART16x16, BLANCO);
+	}
+	else
+	{
+		WG12864A_posXY(70, 7);
+		WG12864A_print_symbol(HEART16x16, NEGRO);
+	}
+	v++;
+	if(v>=20)
+		v=0;
+	}
+	else
+	{
+		WG12864A_posXY(70, 7);
+		WG12864A_printf("   ", Arial8x6, NEGRO);
+		WG12864A_posXY(70, 8);
+		WG12864A_printf("   ", Arial8x6, NEGRO);
+
+	}
+
+
+//-------------------------------------------------------------
+
+
 	lat_ant=LAT_PROM;
 /*	if(lat_ant!=LAT_PROM)
 	{
@@ -182,7 +231,7 @@ void Graf_PROM(void)
 	{
 		PROMEDIAR=0;
 		for(i=0;i<10;i++)
-			lat_adc+=valpru[i_ind_buff+i];
+//			lat_adc+=valpru[i_ind_buff+i];
 		lat_adc=lat_adc/10;
 		LAT_PROM=lat_adc;
 		//pos_y=4;
@@ -465,7 +514,7 @@ uint16_t leo_adc(char Channel)
 
 	LPC_ADC->CR |= (1<<24);                         //start conversion by setting "Start Conversion Now" bit (sec. 25.5.1)
 	while((LPC_ADC->DR[Channel] < 0x7FFFFFFF));//wait for "done" bit to be set (sec. 25.5.4)
-	Data = (LPC_ADC->DR[Channel] & 0xFFC0) >> 4;//8;
+	Data = (LPC_ADC->DR[Channel] & 0xFFF0) >> 4;//8;0xFFC0
 	return (Data);
 }
 

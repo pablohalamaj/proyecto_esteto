@@ -42,7 +42,7 @@ clean:
 
 post-build:
 	-@echo 'Performing post-build steps'
-	-arm-none-eabi-size "Graficador_v1.1.axf"; # arm-none-eabi-objcopy -O binary "Graficador_v1.1.axf" "Graficador_v1.1.bin" ; checksum -p LPC1114_302 -d "Graficador_v1.1.bin";
+	-arm-none-eabi-size "Graficador_v1.1.axf"; # arm-none-eabi-objcopy -O binary "Graficador_v1.1.axf" "Graficador_v1.1.bin" ; checksum -p LPC1115_303 -d "Graficador_v1.1.bin";
 	-@echo ' '
 
 .PHONY: all clean dependents

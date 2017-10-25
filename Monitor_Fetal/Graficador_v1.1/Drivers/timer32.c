@@ -96,18 +96,19 @@ void delay32Ms(uint8_t timer_num, uint32_t delayInMs)
 ** Returned value:		None
 ** 
 ******************************************************************************/
-extern char flag_1seg;
+extern char flag_1seg,flag_25ms;
 void TIMER32_0_IRQHandler(void)
 {  
   if ( LPC_TMR32B0->IR & 0x01 )
   {  
+
 	LPC_TMR32B0->IR = 1;				/* clear interrupt flag */
 	timer32_0_counter++;
   }
 	if ( LPC_TMR32B0->IR & 0x02)			//Interrupción de 1Seg, TIMER 0 (Verifica lamparas apagadas o CT apagado en estado de ROJ.
 	{
 		LPC_TMR32B0->IR = 2;				//Reseteo interrupción correspondiente
-		flag_1seg=0;						// Borro Flags 1 seg
+		flag_1seg=1;						// Borro Flags 1 seg
 		reset_timer32(0);					// Reseteo TIMER 0
 //		disable_timer32(0);					// deshabilito timer 1s
 	}
@@ -126,7 +127,7 @@ void TIMER32_0_IRQHandler(void)
 }
 #endif //CONFIG_TIMER32_DEFAULT_TIMER32_0_IRQHANDLER
 
-#if CONFIG_TIMER32_DEFAULT_TIMER32_1_IRQHANDLER==0
+#if CONFIG_TIMER32_DEFAULT_TIMER32_1_IRQHANDLER==1
 /******************************************************************************
 ** Function name:		TIMER32_1_IRQHandler
 **
@@ -139,14 +140,23 @@ void TIMER32_0_IRQHandler(void)
 ******************************************************************************/
 void TIMER32_1_IRQHandler(void)
 {  
-  if ( LPC_TMR32B1->IR & 0x01 )
-  {    
-	LPC_TMR32B1->IR = 1;			/* clear interrupt flag */
-	timer32_1_counter++;
+  if ( LPC_TMR32B1->IR & 0x01 )			//Interrupción de fin de periodo de señal PWM (5mSeg Periodo)
+  {
+	  flag_25ms=1;
+	  reset_timer32(1);					// Reseteo TIMER 0
+	LPC_TMR32B1->IR = 1;				//Reset de flag de interrupción del timer_1
+  }
+  if (LPC_TMR32B1->IR & 0x02)			//Interrupción de fin de ciclo de actividad ON de señal PWM
+  {
+   LPC_TMR32B1->IR = 2;					//Reset de flag de interrupción del timer_1
+  }
+  if (LPC_TMR32B1->IR & 0x04)			//Interrupción por llave lamparas apagada o CT apagado (1Seg)
+  {
+   LPC_TMR32B1->IR = 4;					//Reseteo interrupción
   }
   if ( LPC_TMR32B1->IR & (0x1<<4) )
   {  
-	LPC_TMR32B1->IR = 0x1<<4;		/* clear interrupt flag */
+	LPC_TMR32B1->IR = 0x1<<4;			/* clear interrupt flag */
 	timer32_1_capture++;
   }
   return;
@@ -295,8 +305,8 @@ void init_timer32(uint8_t timer_num, uint32_t TimerInterval_0, uint32_t TimerInt
     LPC_IOCON->ARM_SWDIO_PIO1_3  &= ~0x07;
     LPC_IOCON->ARM_SWDIO_PIO1_3  |= 0x03;	/* Timer1_32 MAT2 */
 #endif
-    LPC_IOCON->PIO1_4 &= ~0x07;
-    LPC_IOCON->PIO1_4 |= 0x02;		/* Timer0_32 MAT3 */
+   // LPC_IOCON->PIO1_4 &= ~0x07;
+   // LPC_IOCON->PIO1_4 |= 0x02;		/* Timer0_32 MAT3 */
 
 #if CONFIG_TIMER32_DEFAULT_TIMER32_1_IRQHANDLER==1
     timer32_1_counter = 0;
