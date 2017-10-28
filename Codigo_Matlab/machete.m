@@ -30,3 +30,7 @@ title('Single-Sided Amplitude Spectrum of y(t)')
 xlabel('Frequency (Hz)')
 ylabel('|Y(f)|')
 
+% Reproducir un audio a 16 Bits
+load handel.mat;
+nBits = 16;
+sound(y,Fs,nBits);
