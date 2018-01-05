@@ -56,8 +56,28 @@ static char  	buffer_pulso[44] ;
 
 int inc_ind=0,aux1,aux2;
 unsigned int i  = 0,i_buff=0,i_disp=0,i_disp_ant=0;
-int valpru[100],mu_pro[100];
+int /*valpru[100],*/mu_pro[100];
 char PROMEDIAR=0,ACT_DISP=0,NO_ENTR=0,DISMINUYO=0,AUMENTO=0;
+
+
+int 	Umbral_Sup=3000,Umbral_Inf=2000,
+		cont_pico_POS=0,cont_pico_NEG=0,PPM=0,
+		inc_ind,inc_ind2,i_ind_buff,PARLANTE,
+		lat_adc,lat_ant,LAT_PROM;
+char 	PULSO_OK,flag_SUP=1,flag_INF=1,
+		pos_x,pos_y,PUNTO,AUMENTO,DISMINUYO,
+		cont_10seg,FILTRO_DIG,hab_corazon,
+		PROMEDIAR,NO_ENTR,ACT_DISP,v,
+		ind_adc=0,SUBIR,BAJAR,desp_vert,SALTO;
+unsigned int valpru[100],valpru2[80],ind_Muestras,aux_prov;
+//unsigned int valpru[1000],valpru2[800],ind_Muestras,aux_prov;
+//extern int valpru[];
+extern char flag_1seg,flag_25ms;
+uint16_t leo_adc(char Channel);
+void detector_pulsos(void);
+void grafica_PPM(void);
+
+
 
 
 // *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
@@ -885,99 +905,72 @@ flag_sleepsubmenu = 1;						// Restablesco el valor original de la bandera.
 
 //						  2.1 Parametrizar Atributos
 //--------------------------------------------------------------------------
-void Func_Atributos (void)
+void Func_Monitoreo (void)
 {
+	char m=0,n=0;
 	// Mientras no se presione Back.
 	while(! ((0xD0 < adc_valX) && (adc_valX < 0xEA) &&
 			 (0x2A < adc_valY) && (adc_valY < 0x5A)))
 	{
 		// Titulo del menu.
 		WG12864A_posXY(1, 1);
-		WG12864A_printf("  * Modo Ciclado *   ", Arial8x6, BLANCO);
-		WG12864A_posXY(110, 7);
-		WG12864A_print_symbol(BACK16x16, BLANCO);
-		WG12864A_posXY(1, 2);
-		WG12864A_printf("M. Act:", Arial8x6, NEGRO);
-		WG12864A_posXY(1, 3);
-		WG12864A_printf("Seleccione modo func:", Arial8x6, NEGRO);
-		WG12864A_posXY(1, 4);
-		WG12864A_printf("Modo Normal", Arial8x6, NEGRO);
-		WG12864A_posXY(1, 5);
-		WG12864A_printf("Modo Emergencia", Arial8x6, NEGRO);
-		WG12864A_posXY(1, 6);
-		WG12864A_printf("Modo Titilante", Arial8x6, NEGRO);
-		WG12864A_posXY(1, 7);
-		WG12864A_printf("Modo Apagado", Arial8x6, NEGRO);
-		switch (modo_func)
-		{
-		case NORMAL:
-			WG12864A_posXY(55, 2);
-			WG12864A_printf(" NORMAL     ", Arial8x6, BLANCO);
-			break;
-		case PLAN:
-			WG12864A_posXY(55, 2);
-			WG12864A_printf(" PLAN       ", Arial8x6, BLANCO);
-			break;
-		case TITILANTE:
-			WG12864A_posXY(55, 2);
-			WG12864A_printf(" TITILANTE  ", Arial8x6, BLANCO);
-			break;
-		case APAGADO:
-			WG12864A_posXY(55, 2);
-			WG12864A_printf(" APAGADO    ", Arial8x6, BLANCO);
-			break;
-		case EMERGENCIA:
-			WG12864A_posXY(55, 2);
-			WG12864A_printf(" EMERGENCIA ", Arial8x6, BLANCO);
-			break;
-		default:
-			break;
-		}
-		// Consulta que modo se presionó.
-		if( (0x1A < adc_valX) && (adc_valX < 0xEA) &&
-			(0x85 < adc_valY) && (adc_valY < 0xA0) )
-		{
-			WG12864A_posXY(1, 4);
-			WG12864A_printf("Modo Normal", Arial8x6, BLANCO);
-			delay32Ms(0, TIMMER_FONDO_BLANCO);
-			adc_valX = 0, adc_valY = 0;				// Reseteo el valor de X, Y del ADC.
-			modo_func=NORMAL;
-			queenv=MODO_CICLADO;
-			no_recibo=1;
-		}
-		if( (0x1A < adc_valX) && (adc_valX < 0xEA) &&
-			(0x7A < adc_valY) && (adc_valY < 0x85) )
-		{
-			WG12864A_posXY(1, 5);
-			WG12864A_printf("Modo Emergencia", Arial8x6, BLANCO);
-			delay32Ms(0, TIMMER_FONDO_BLANCO);
-			adc_valX = 0, adc_valY = 0;				// Reseteo el valor de X, Y del ADC.
-			modo_func=EMERGENCIA;
-			queenv=MODO_CICLADO;
-			no_recibo=1;
-		}
-		if( (0x1A < adc_valX) && (adc_valX < 0xA0) &&
-			(0x5A < adc_valY) && (adc_valY < 0x7A) ){
+		WG12864A_printf(" *  Monitor Fetal  * ", Arial8x6, BLANCO);
+		//SACAR DE ACA
+		grafica_PPM();												// Función que detecta los pulsos del corazon
+			if(flag_25ms)														// Toma una muestra cada 5ms!
+			{																	// 1800 muestras en 10seg
+				flag_25ms=0;
+				if(inc_ind<1000)
+				{
+//					valpru[inc_ind]=leo_adc(5);									// Toma las primeras 1000
+				}
+				else
+				{
+//					valpru2[inc_ind2]=leo_adc(5);								// Toma las ultimas 800
+					inc_ind2++;
+				}
+	/*			if(PARLANTE>20)
+					GPIOSetValue( 2, 10, 0 );										// Habilito salida de latido 1 vez por seg PRUEBA
+	*/			inc_ind++;
+				aux_prov++;
+	//			PARLANTE++;
+			}
+	/*		if(inc_ind>=100)
+			{
+				inc_ind=0;
+				PROMEDIAR=1;
+				NO_ENTR=1;
+				ACT_DISP=1;
+			}
+	*/		if(flag_1seg)														// Contador 1 seg
+			{
+				flag_1seg=0;
+				cont_10seg++;
+				if(PARLANTE)
+				{
+					GPIOSetValue( 2, 10, 1 );										// Habilito salida de latido 1 vez por seg PRUEBA
+					PARLANTE=0;
+				}
+				else
+				{
+					GPIOSetValue( 2, 10, 0 );										// Habilito salida de latido 1 vez por seg PRUEBA
+					PARLANTE=1;
+				}
+			}
+			if(cont_10seg>=10)													// A los 10 seg
+			{
+				ind_Muestras=aux_prov;											// almacena la cantidad de muestras que se tomaron
+				aux_prov=0;														// Resetea variables
+				inc_ind=0;
+				inc_ind2=0;
+				PROMEDIAR=1;													// Habilita el promedio de las muestras
+				NO_ENTR=1;
+				ACT_DISP=1;
+				detector_pulsos();												// Función que detecta los pulsos del corazon
+				cont_10seg=0;
+			}
+	//		Graf_PROM();
 
-			WG12864A_posXY(1, 6);
-			WG12864A_printf("Modo Titilante", Arial8x6, BLANCO);
-			delay32Ms(0, TIMMER_FONDO_BLANCO);
-			adc_valX = 0, adc_valY = 0;				// Reseteo el valor de X, Y del ADC.
-			modo_func=TITILANTE;
-			queenv=MODO_CICLADO;
-			no_recibo=1;
-		}
-		if( (0x1A < adc_valX) && (adc_valX < 0xA0) &&
-			(0x35 < adc_valY) && (adc_valY < 0x5A) )
-		{
-			WG12864A_posXY(1, 7);
-			WG12864A_printf("Modo Apagado", Arial8x6, BLANCO);
-			delay32Ms(0, TIMMER_FONDO_BLANCO);
-			adc_valX = 0, adc_valY = 0;				// Reseteo el valor de X, Y del ADC.
-			modo_func=APAGADO;
-			queenv=MODO_CICLADO;
-			no_recibo=1;
-		}
 		// Funcion que maneja el Sleep de la pantalla y la IRQ del TOUCH.
 		Func_Sleep (flagirq, sleepmenu);
 	}
@@ -995,6 +988,153 @@ void Func_Atributos (void)
 	flag_sleepsubmenu = 1;						// Restablesco el valor original de la bandera.
 
 }
+
+//--------------------------------------------------------------------------
+//	Detecta Picos + y - del corazón
+//--------------------------------------------------------------------------
+
+void detector_pulsos(void)
+{
+	int i=0,j=0;
+	while(i<1000)															// Analiza el primer buffer
+	{
+		if(valpru[i]>Umbral_Sup && flag_INF)								// Debe superar el Umbral sup y haber pasado un pico -
+		{																	// Para no detectar falso pico +
+			flag_SUP=1;
+			flag_INF=0;
+			cont_pico_POS++;
+		}
+		if(valpru[i]<Umbral_Inf && flag_SUP)								// debe ser menor al Umbral neg y haber pasado un pico +
+		{																	// para no detectar un falso pico -
+			flag_SUP=0;
+			flag_INF=1;
+			cont_pico_NEG++;
+		}
+		i++;
+	}
+	while(1000<i &&i<1800)													// Analiza el 2do buffer mismo procedimiento
+	{
+		if(valpru2[j]>Umbral_Sup && flag_INF)
+		{
+			flag_SUP=1;
+			flag_INF=0;
+			cont_pico_POS++;
+		}
+		if(valpru2[j]<Umbral_Inf && flag_SUP)
+		{
+			flag_SUP=0;
+			flag_INF=1;
+			cont_pico_NEG++;
+		}
+		j++;
+	}
+
+	if(cont_pico_POS<cont_pico_NEG+2 && cont_pico_POS>cont_pico_NEG-2)		// Si conto la misma cantidad de picos + y -
+	{																		// +/-2 de error, entonces
+		PPM=cont_pico_POS*6;												// Calcula las pulsaciones (cant en 10seg*6=PPM)
+		PULSO_OK=1;
+	}
+	cont_pico_POS=0;
+	cont_pico_NEG=0;
+}
+
+void grafica_PPM(void)
+{
+	char PPM ;
+	char *		renglon = buffer_pulso ;
+	char n;
+	int aux1,aux2,i=0,m;
+//-------------------------------------------------------------------------- Grafica recuadro
+	WG12864A_posXY(110, 7);
+	WG12864A_print_symbol(BACK16x16, BLANCO);
+	WG12864A_posXY(1, 2);
+	WG12864A_printf("150|", Arial8x6, NEGRO);
+	WG12864A_posXY(121, 2);
+	WG12864A_printf("|", Arial8x6, NEGRO);
+	WG12864A_posXY(1, 3);
+	WG12864A_printf("   |", Arial8x6, NEGRO);
+	WG12864A_posXY(121, 3);
+	WG12864A_printf("|", Arial8x6, NEGRO);
+	WG12864A_posXY(1, 4);
+	WG12864A_printf("110|", Arial8x6, NEGRO);
+	WG12864A_posXY(121, 4);
+	WG12864A_printf("|", Arial8x6, NEGRO);
+	WG12864A_posXY(1, 5);
+	WG12864A_printf("   |", Arial8x6, NEGRO);
+	WG12864A_posXY(121, 5);
+	WG12864A_printf("|", Arial8x6, NEGRO);
+	WG12864A_posXY(1, 6);
+	WG12864A_printf(" 70|", Arial8x6, NEGRO);
+	WG12864A_posXY(121, 6);
+	WG12864A_printf("|", Arial8x6, NEGRO);
+	WG12864A_posXY(1, 7);
+	WG12864A_printf("Pulso:", Arial8x6, NEGRO);
+	WG12864A_posXY(40, 7);
+	WG12864A_printf(buffer_pulso, Arial8x6, NEGRO);
+	if((0xA0 < adc_valX) &&(adc_valX < 0xB9) && (0x2A < adc_valY) && (adc_valY < 0x5A))// Se presionó FD?
+	{
+		adc_valX = 0, adc_valY = 0;			// Reseteo el valor de X, Y del ADC.
+		if(FILTRO_DIG)
+			FILTRO_DIG=0;
+		else
+			FILTRO_DIG=1;
+	}
+	if(FILTRO_DIG)															// Grafica boton FD
+	{
+		WG12864A_posXY(90, 7);
+		WG12864A_print_symbol(FD16x16, BLANCO);
+		PPM=121;//SACARRRRR
+		*renglon++ = ((PPM/100) % 10) + '0' ;
+		*renglon++ = ((PPM/10)  % 10) + '0' ;
+		*renglon++ = ( PPM      % 10) + '0' ;
+
+	}
+	else
+	{
+		WG12864A_posXY(90, 7);
+		WG12864A_print_symbol(FD16x16, NEGRO);
+		PPM=60;//SACARRRR
+		*renglon++ = ((PPM/100) % 10) + '0' ;
+		*renglon++ = ((PPM/10)  % 10) + '0' ;
+		*renglon++ = ( PPM      % 10) + '0' ;
+
+	}
+
+//--------------------------------------------------------------------------// Grafica Corazón
+	if(PPM>70&&PPM<150)
+	{
+//			hab_corazon=0;
+	if(v<10)//SACAR
+	{
+		WG12864A_posXY(70, 7);
+		WG12864A_print_symbol(HEART16x16, BLANCO);
+	}
+	else
+	{
+		WG12864A_posXY(70, 7);
+		WG12864A_print_symbol(HEART16x16, NEGRO);
+	}
+	v++;																	// Apaga Corazon
+	if(v>=20)
+		v=0;
+	}
+	else
+	{
+		WG12864A_posXY(70, 7);
+		WG12864A_printf("   ", Arial8x6, NEGRO);
+		WG12864A_posXY(70, 8);
+		WG12864A_printf("   ", Arial8x6, NEGRO);
+
+	}
+
+}
+
+
+
+
+
+
+
 
 //						  2.1 Parametrizar semaforos
 //--------------------------------------------------------------------------

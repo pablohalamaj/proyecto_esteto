@@ -41,6 +41,7 @@ extern const char LE16x16[];
 extern const char LTT16x16[];
 extern const char LA16x16[];
 extern const char LL16x16[];
+extern const char L116x16[];
 extern const char a16x16[];
 extern const char b16x16[];
 extern const char c16x16[];

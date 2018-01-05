@@ -53,6 +53,7 @@ int AA = 0;
 ** Returned value:		None
 ** 
 *****************************************************************************/
+extern char flag_1seg,flag_25ms;
 void delay32Ms(uint8_t timer_num, uint32_t delayInMs)
 {
   if (timer_num == 0)
@@ -64,7 +65,7 @@ void delay32Ms(uint8_t timer_num, uint32_t delayInMs)
     LPC_TMR32B0->IR  = 0xff;		/* reset all interrrupts */
     LPC_TMR32B0->MCR = 0x04;		/* stop timer on match */
     LPC_TMR32B0->TCR = 0x01;		/* start timer */
-  
+    flag_1seg=1;						// Borro Flags 1 seg SACARRRRRRRRRRR
     /* wait until delay time has elapsed */
     while (LPC_TMR32B0->TCR & 0x01);
   }
