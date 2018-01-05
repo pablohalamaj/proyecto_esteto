@@ -28,7 +28,7 @@ unsigned int adc_valX, adc_valY;
 unsigned int clave[] = CLAVE, cla[4];
 
 // Variable Globales.
-unsigned int 	cur=76,			// Posicion del cursor dentro de la pantalla.
+unsigned int 	cur=48,			// Posicion del cursor dentro de la pantalla.
 				indice=0,			// Variable dinamica para moverse por el vector de la clave ingresada.
 				sleepmenu=0,		// Variable que me indica con que menu vuelvo del Sleep en la funcion Sleep.
 				flagirq=-1;		// Bandera que me indica si habilitar o no la IRQ del TOUCH.
@@ -40,33 +40,37 @@ int var_aux;
 void Menu_Logo(void){
 
 	// (Mensaje de inicio).
-	WG12864A_posXY(15,3);
+	WG12864A_posXY(10,3);
 	WG12864A_print_symbol(LM16x16, NEGRO);
-	WG12864A_posXY(31,3);
+	WG12864A_posXY(26,3);
 	WG12864A_print_symbol(LO16x16, NEGRO);
-	WG12864A_posXY(47,3);
+	WG12864A_posXY(42,3);
 	WG12864A_print_symbol(LN16x16, NEGRO);
-	WG12864A_posXY(63,3);
+	WG12864A_posXY(58,3);
 	WG12864A_print_symbol(LI16x16, NEGRO);
-	WG12864A_posXY(79,3);
+	WG12864A_posXY(74,3);
 	WG12864A_print_symbol(LT16x16, NEGRO);
-	WG12864A_posXY(95,3);
+	WG12864A_posXY(90,3);
 	WG12864A_print_symbol(LOO16x16, NEGRO);
-	WG12864A_posXY(111,3);
+	WG12864A_posXY(106,3);
 	WG12864A_print_symbol(LR16x16, NEGRO);
-	WG12864A_posXY(15,5);
+	WG12864A_posXY(10,5);
 	WG12864A_print_symbol(LF16x16, NEGRO);
-	WG12864A_posXY(31,5);
+	WG12864A_posXY(26,5);
 	WG12864A_print_symbol(LE16x16, NEGRO);
-	WG12864A_posXY(47,5);
+	WG12864A_posXY(42,5);
 	WG12864A_print_symbol(LTT16x16, NEGRO);
-	WG12864A_posXY(63,5);
+	WG12864A_posXY(58,5);
 	WG12864A_print_symbol(LA16x16, NEGRO);
-	WG12864A_posXY(79,5);
+	WG12864A_posXY(74,5);
 	WG12864A_print_symbol(LL16x16, NEGRO);
-	WG12864A_posXY(95,5);
+	WG12864A_posXY(90,5);
 	WG12864A_print_symbol(L116x16, NEGRO);
 	GLCD_Output_High(BACKLIGHT);
+	WG12864A_posXY(1, 7);
+	WG12864A_printf("  Monitor ", Arial8x6, NEGRO);
+	WG12864A_posXY(1, 8);
+	WG12864A_printf("              Fetal", Arial8x6, NEGRO);
 
 	delay32Ms(0, TIMMER_LOGO_AUTOTROL);
 }
@@ -510,7 +514,7 @@ void Menu_Inicial(void){
 			WG12864A_Limpiar(NEGRO); 				// Limpio la pantalla.
 			menu4= 1;
 			indice = 0;								// Preparo el indice del vector de la clave.
-			cur = 76;							// Preparo el cursor para la proxima vez.
+			cur = 48;							// Preparo el cursor para la proxima vez.
 		}
 		break;
 
@@ -528,7 +532,7 @@ void Menu_Inicial(void){
 			}else{
 
 				indice = 0;							// Reseteo el indice del vector de la clave.
-				cur = 76;						// Acomodo el cursor para la proxima vez.
+				cur = 48;						// Acomodo el cursor para la proxima vez.
 				WG12864A_posXY(cur, 2);			// Limpio la clave en pantalla.
 				WG12864A_printf(" ", Arial8x6, NEGRO);
 				WG12864A_posXY(88, 2);
@@ -550,7 +554,7 @@ void Menu_Inicial(void){
 			adc_valX = 0, adc_valY = 0;				// Reseteo el valor de X, Y del ADC.
 			menu4 = 0;								// Habilito que entre al Menu Seleccionado.
 			WG12864A_Limpiar(NEGRO); 				// Limpio la pantalla y vuelvo al menu anterior.
-			cur = 76;							// Acomodo el cursor para la proxima vez.
+			cur = 48;							// Acomodo el cursor para la proxima vez.
 			indice = 0;								// Reseteo el indice del vector de la clave.
 		}
 
@@ -582,7 +586,7 @@ void Menu_Inicial(void){
 				WG12864A_Limpiar(NEGRO);
 				menu4 = 0;
 				indice = 0;							// Reseteo el indice del vector de la clave.
-				cur = 76;						// Acomodo el cursor para la proxima vez.
+				cur = 48;						// Acomodo el cursor para la proxima vez.
 			}
 		}
 		break;

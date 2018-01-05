@@ -102,7 +102,7 @@ void TIMER32_1_IRQHandler(void)
 			disable_timer32(1); 				// Desabilito el timmer porque ya se durmio el Display.
 			cla[0] = 0, cla[1] = 0,	cla[2] = 0, cla[3] = 0;	// Limpio la clave del ingreso al menu especial.
 			indice = 0;							// Acomodo el indicel del vector de clave al inicio.
-			cur = 76;						// Preparo el cursor para la proxima vez.
+			cur = 48;						// Preparo el cursor para la proxima vez.
 		}
 
 		sleep ++;								// Incremento la variable que duerme la pantalla.
@@ -260,7 +260,7 @@ uint32_t Func_MuestraTeclado(int opcion)
 		indice --;									// Decremento el Indice del vector que guarda la clave ingresada.
 
 		// Acomodo el cursor dentro de los 4 casilleros de la clave a ingresar y el indice del vector de la clave.
-		if( cur < 76 ){
+		if( cur < 48 ){
 
 			cur = 112;
 			indice = 3;
@@ -284,7 +284,7 @@ uint32_t Func_MuestraTeclado(int opcion)
 		// Acomodo el cursor dentro de los 4 casilleros de la clave a ingresar y el indice del vector de la clave.
 		if( cur > 112 ){
 
-			cur = 76;
+			cur = 48;
 			norecarga=0;
 			indice = 0;
 		}
@@ -1381,7 +1381,7 @@ void func_modfyh()
 									}else{
 
 										indice = 0;							// Reseteo el indice del vector de la clave.
-										cur = 76;						// Acomodo el cursor para la proxima vez.
+										cur = 48;						// Acomodo el cursor para la proxima vez.
 										WG12864A_posXY(cur, 2);			// Limpio la clave en pantalla.
 										WG12864A_printf(" ", Arial8x6, NEGRO);
 										WG12864A_posXY(88, 2);
@@ -1404,7 +1404,7 @@ void func_modfyh()
 									mod=1;
 									s=0;
 									indice = 0;							// Reseteo el indice del vector de la clave.
-									cur=76;
+									cur=48;
 									WG12864A_posXY(76, 2);
 									WG12864A_printf("       ", Arial8x6, NEGRO);
 									for(i=0;i<3;i++)
@@ -1427,7 +1427,7 @@ void func_modfyh()
 								WG12864A_posXY(110, 7);
 								WG12864A_print_symbol(BACK16x16, NEGRO);
 								delay32Ms(0, TIMMER_FONDO_BLANCO);	// Para demorar su utiliza vTaskDelay()
-								cur=76;
+								cur=48;
 								mod=-1;
 								menu32=-1;
 								menu3= 2;
@@ -1450,7 +1450,7 @@ void func_modfyh()
 									}else{
 
 										indice = 0;							// Reseteo el indice del vector de la clave.
-										cur = 76;						// Acomodo el cursor para la proxima vez.
+										cur = 48;						// Acomodo el cursor para la proxima vez.
 										WG12864A_posXY(cur, 2);			// Limpio la clave en pantalla.
 										WG12864A_printf(" ", Arial8x6, NEGRO);
 										WG12864A_posXY(88, 2);
@@ -1473,7 +1473,7 @@ void func_modfyh()
 										mod=2;
 										s=0;
 										indice = 0;							// Reseteo el indice del vector de la clave.
-										cur=76;
+										cur=48;
 										WG12864A_posXY(76, 2);
 										WG12864A_printf("       ", Arial8x6, NEGRO);
 										for(i=0;i<3;i++)
@@ -1495,7 +1495,7 @@ void func_modfyh()
 								WG12864A_posXY(110, 7);
 								WG12864A_print_symbol(BACK16x16, NEGRO);
 								delay32Ms(0, TIMMER_FONDO_BLANCO);	// Para demorar su utiliza vTaskDelay()
-								cur=76;
+								cur=48;
 								mod=-1;
 								menu32=-1;
 								menu3= 2;
@@ -1519,7 +1519,7 @@ void func_modfyh()
 									}else{
 
 										indice = 0;							// Reseteo el indice del vector de la clave.
-										cur = 76;						// Acomodo el cursor para la proxima vez.
+										cur = 48;						// Acomodo el cursor para la proxima vez.
 										WG12864A_posXY(cur, 2);			// Limpio la clave en pantalla.
 										WG12864A_printf(" ", Arial8x6, NEGRO);
 										WG12864A_posXY(88, 2);
@@ -1546,7 +1546,7 @@ void func_modfyh()
 										mod=4;
 										s=0;
 										indice = 0;							// Reseteo el indice del vector de la clave.
-										cur=76;
+										cur=48;
 										WG12864A_posXY(76, 2);
 										WG12864A_printf("       ", Arial8x6, NEGRO);
 										for(i=0;i<3;i++)
@@ -1568,7 +1568,7 @@ void func_modfyh()
 								WG12864A_posXY(110, 7);
 								WG12864A_print_symbol(BACK16x16, NEGRO);
 								delay32Ms(0, TIMMER_FONDO_BLANCO);	// Para demorar su utiliza vTaskDelay()
-								cur=76;
+								cur=48;
 								mod=-1;
 								menu32=-1;
 								menu3= 2;
@@ -1612,7 +1612,7 @@ void func_modfyh()
 								WG12864A_posXY(110, 7);
 								WG12864A_print_symbol(BACK16x16, NEGRO);
 								delay32Ms(0, TIMMER_FONDO_BLANCO);	// Para demorar su utiliza vTaskDelay()
-								cur=76;
+								cur=48;
 								mod=-1;
 								menu32=-1;
 								menu3= 2;
@@ -1669,7 +1669,7 @@ void func_modfyh()
 									}else{
 
 										indice = 0;							// Reseteo el indice del vector de la clave.
-										cur = 76;						// Acomodo el cursor para la proxima vez.
+										cur = 48;						// Acomodo el cursor para la proxima vez.
 										WG12864A_posXY(cur, 2);			// Limpio la clave en pantalla.
 										WG12864A_printf(" ", Arial8x6, NEGRO);
 										WG12864A_posXY(88, 2);
@@ -1692,7 +1692,7 @@ void func_modfyh()
 										mod=1;
 										s=0;
 										indice = 0;							// Reseteo el indice del vector de la clave.
-										cur=76;
+										cur=48;
 										WG12864A_posXY(76, 2);
 										WG12864A_printf("       ", Arial8x6, NEGRO);
 										for(i=0;i<3;i++)
@@ -1714,7 +1714,7 @@ void func_modfyh()
 								WG12864A_posXY(110, 7);
 								WG12864A_print_symbol(BACK16x16, NEGRO);
 								delay32Ms(0, TIMMER_FONDO_BLANCO);	// Para demorar su utiliza vTaskDelay()
-								cur=76;
+								cur=48;
 								mod=-1;
 								menu32=-1;
 								menu3= 2;
@@ -1737,7 +1737,7 @@ void func_modfyh()
 									}else{
 
 										indice = 0;							// Reseteo el indice del vector de la clave.
-										cur = 76;						// Acomodo el cursor para la proxima vez.
+										cur = 48;						// Acomodo el cursor para la proxima vez.
 										WG12864A_posXY(cur, 2);			// Limpio la clave en pantalla.
 										WG12864A_printf(" ", Arial8x6, NEGRO);
 										WG12864A_posXY(88, 2);
@@ -1760,7 +1760,7 @@ void func_modfyh()
 										mod=2;
 										s=0;
 										indice = 0;							// Reseteo el indice del vector de la clave.
-										cur=76;
+										cur=48;
 										WG12864A_posXY(76, 2);
 										WG12864A_printf("       ", Arial8x6, NEGRO);
 										for(i=0;i<3;i++)
@@ -1782,7 +1782,7 @@ void func_modfyh()
 								WG12864A_posXY(110, 7);
 								WG12864A_print_symbol(BACK16x16, NEGRO);
 								delay32Ms(0, TIMMER_FONDO_BLANCO);	// Para demorar su utiliza vTaskDelay()
-								cur=76;
+								cur=48;
 								mod=-1;
 								menu32=-1;
 								menu3= 2;
@@ -1827,7 +1827,7 @@ void func_modfyh()
 								WG12864A_posXY(110, 7);
 								WG12864A_print_symbol(BACK16x16, NEGRO);
 								delay32Ms(0, TIMMER_FONDO_BLANCO);	// Para demorar su utiliza vTaskDelay()
-								cur=76;
+								cur=48;
 								mod=-1;
 								menu32=-1;
 								menu3= 2;
