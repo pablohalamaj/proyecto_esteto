@@ -8,7 +8,7 @@
 /***************************************************************************
  *	Comentarios:
  *
- *
+ * Funciones de manejo del display
 ****************************************************************************/
 
 #include "ssp.h"
@@ -384,70 +384,68 @@ const char L116x16[] = {
 
 #endif
 
-//------------------------------------------
-//--------------------------------------------------------------------
-// *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-void GLCD_Data_Out(unsigned int data){
+//--------------------------------------------------------------------------
 
+void GLCD_Data_Out(unsigned int data)
+{
 	unsigned int aux;
 
-	aux = (data << 8) & DATA_MASK;	// Roto 8 bits a la Izquierda el dato y lo enmascaro para dejar el dato limpio.
-	salida &= CTRL_MASK;			// Enmascaro en el buffer de salida los bits de control.
-	salida |= aux;					// Cargo en buffer de salida los datos a enviar.
+	aux = (data << 8) & DATA_MASK;											// Roto 8 bits a la Izquierda el dato y lo enmascaro para dejar el dato limpio.
+	salida &= CTRL_MASK;													// Enmascaro en el buffer de salida los bits de control.
+	salida |= aux;															// Cargo en buffer de salida los datos a enviar.
 
 	SSP_Send(SPI_1, &salida, 1);
 }
-
-// *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-void GLCD_Output_Low(unsigned int signal){
-
-	salida &= ~signal;				// Cargo en SALIDA la Instruccion a enviar.
+//--------------------------------------------------------------------------
+void GLCD_Output_Low(unsigned int signal)
+{
+	salida &= ~signal;														// Cargo en SALIDA la Instruccion a enviar.
 	SSP_Send(SPI_1, &salida, 1);
 }
-
-// *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-void GLCD_Output_High(unsigned int signal){
-
-	salida |= signal;				// cargo en SALIDA la señal a enviar en alto
+//--------------------------------------------------------------------------
+void GLCD_Output_High(unsigned int signal)
+{
+	salida |= signal;														// cargo en SALIDA la señal a enviar en alto
 	SSP_Send(SPI_1, &salida, 1);
 }
-
-// *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-void GLCD_enviaBYTE(unsigned int lado, unsigned int valor){
-
-	if(lado == IZQ){				// Selecciono el lado correspondiente, y los Habilito.
+//--------------------------------------------------------------------------
+void GLCD_enviaBYTE(unsigned int lado, unsigned int valor)
+{
+	if(lado == IZQ)															// Selecciono el lado correspondiente, y los Habilito.
+	{
 
 		GLCD_Output_High(CS1);
-	} else{
-
+	}
+	else
+	{
 		GLCD_Output_High(CS2);
 	}
+	GLCD_Data_Out(valor);													// Coloco el dato en el puerto.
+	//delay_ms(1);															// espero.
+	GLCD_Output_High(E);													// Coloco el bit de ENABLE en alto, para que entre el dato.
+	//delay_ms(2);															// espero.
+	GLCD_Output_Low(E);														// Coloco el bit de ENABLE en bajo.
 
-	GLCD_Data_Out(valor);			// Coloco el dato en el puerto.
-	//delay_ms(1);					// espero.
-	GLCD_Output_High(E);			// Coloco el bit de ENABLE en alto, para que entre el dato.
-	//delay_ms(2);					// espero.
-	GLCD_Output_Low(E);				// Coloco el bit de ENABLE en bajo.
-
-	if(lado == IZQ){				// selecciono el lado correspondiente y lo Deshabilito.
-
+	if(lado == IZQ)															// selecciono el lado correspondiente y lo Deshabilito.
+	{
 		GLCD_Output_Low(CS1);
-	} else{
-
+	}
+	else
+	{
 		GLCD_Output_Low(CS2);
 	}
 }
 
-// *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-void WG12864A_Init(void){
-
-	salida = 0;						// Reseteo el buffer de salida.
+//--------------------------------------------------------------------------
+void WG12864A_Init(void)
+{
+	salida = 0;																// Reseteo el buffer de salida.
 
 	// Seteo los pines de control para el inico.
-	GLCD_Output_Low(E);				// Bajo la señal de Enable (Desabilito del Display).
-	GLCD_Output_Low(CS1);			// Bajo la señal de CS1 (Desabilito Columna 1-64).
-	GLCD_Output_Low(CS2);			// Bajo la señal de CS2 (Desabilito Columna 65-128).
-	GLCD_Output_Low(RS);			// Bajo la señal de RS (Modo Cargar Instrucciones).
+	GLCD_Output_Low(E);														// Bajo la señal de Enable (Desabilito del Display).
+	GLCD_Output_Low(CS1);													// Bajo la señal de CS1 (Desabilito Columna 1-64).
+	GLCD_Output_Low(CS2);													// Bajo la señal de CS2 (Desabilito Columna 65-128).
+	GLCD_Output_Low(RS);													// Bajo la señal de RS (Modo Cargar Instrucciones).
 
 	// Envio de datos de inicializacion.
 	GLCD_enviaBYTE(IZQ, START_LINE);
@@ -463,15 +461,15 @@ void WG12864A_Init(void){
 	WG12864A_Limpiar(NEGRO);
 }
 
-// *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+//--------------------------------------------------------------------------
 void WG12864A_Limpiar(unsigned int color)
 {
    unsigned int i, j;
 
    // Recorre las 8 paginas (Vertical).
-   for(i = 0; i < 8; ++i){
-
-      GLCD_Output_Low(RS);   		// Bajo la señal de RS (Modo Cargar Instrucciones).
+   for(i = 0; i < 8; ++i)
+   {
+      GLCD_Output_Low(RS);   												// Bajo la señal de RS (Modo Cargar Instrucciones).
 
       //Comienzo, en cada pagina, desde la direccion 0
       GLCD_enviaBYTE(IZQ, Y_ADDRESS);
@@ -481,34 +479,34 @@ void WG12864A_Limpiar(unsigned int color)
       GLCD_enviaBYTE(IZQ, i | X_ADDRESS);
       GLCD_enviaBYTE(DER, i | X_ADDRESS);
 
-      GLCD_Output_High(RS);   		// Levanto la señal de RS (Modo Cargar Datos).
+      GLCD_Output_High(RS);   												// Levanto la señal de RS (Modo Cargar Datos).
 
       // Recorre las dos mitades (Horizontales).
       for(j = 0; j < 64; ++j){
 
-    	 GLCD_enviaBYTE(IZQ, color);  // Enciende/Apaga pixeles.
-         GLCD_enviaBYTE(DER, color);  // Enciende/Apaga pixeles.
+    	 GLCD_enviaBYTE(IZQ, color);  										// Enciende/Apaga pixeles.
+         GLCD_enviaBYTE(DER, color);  										// Enciende/Apaga pixeles.
       }
    }
 }
 
-// *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-void WG12864A_posXY(unsigned int X, unsigned int Y){
+//--------------------------------------------------------------------------
+void WG12864A_posXY(unsigned int X, unsigned int Y)
+{
+	GLCD_Output_Low(RS);   													// Bajo la señal de RS (Modo Cargar Instrucciones).
 
-	GLCD_Output_Low(RS);   			// Bajo la señal de RS (Modo Cargar Instrucciones).
-
-	if( (0<Y) && (Y<9) ){
-
-		if( (0<X) && (X<65) ){
-
+	if( (0<Y) && (Y<9) )
+	{
+		if( (0<X) && (X<65) )
+		{
 			posX = X;
 			posY = Y;
-			GLCD_enviaBYTE(IZQ, (Y_ADDRESS | (posX - 1)));	// Ubico en la columna X.
-			GLCD_enviaBYTE(IZQ, (X_ADDRESS | (posY - 1)));	// Ubico en el renglon Y.
+			GLCD_enviaBYTE(IZQ, (Y_ADDRESS | (posX - 1)));					// Ubico en la columna X.
+			GLCD_enviaBYTE(IZQ, (X_ADDRESS | (posY - 1)));					// Ubico en el renglon Y.
 		}
 
-		if( (64<X) && (X<129) ){
-
+		if( (64<X) && (X<129) )
+		{
 			posX = X;
 			posY = Y;
 			GLCD_enviaBYTE(DER, (Y_ADDRESS | (posX - 65)));	// Ubico en la columna X.
@@ -517,100 +515,84 @@ void WG12864A_posXY(unsigned int X, unsigned int Y){
 	}
 }
 
-// *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-void WG12864A_putchar(const char c, const char *letra, const char color){
-
+//--------------------------------------------------------------------------
+void WG12864A_putchar(const char c, const char *letra, const char color)
+{
 	char i;
-
-    GLCD_Output_High(RS);				// Levanto la señal de RS (Modo Cargar Datos).
-
-	if( (posX>128) || ((posX+5)>128) ){	// Si sobrepasa la ultima columna de escritura.
-
-		posX = 1;						// Reseteo la columna.
-		posY++;							// Incremento el renglon.
-
-		if( posY > 8 ){					// Si me paso del ultimo renglon.
-
-			posY = 1;					// Reseteo el renglon.
+    GLCD_Output_High(RS);													// Levanto la señal de RS (Modo Cargar Datos).
+	if( (posX>128) || ((posX+5)>128) )										// Si sobrepasa la ultima columna de escritura.
+	{
+		posX = 1;															// Reseteo la columna.
+		posY++;																// Incremento el renglon.
+		if( posY > 8 )														// Si me paso del ultimo renglon.
+		{
+			posY = 1;														// Reseteo el renglon.
 		}
-
-		WG12864A_posXY(posX, posY);		// Reseteo la posicion en pantalla.
-
-		GLCD_Output_High(RS);   		// Levanto la señal de RS (Modo Cargar Datos).
+		WG12864A_posXY(posX, posY);											// Reseteo la posicion en pantalla.
+		GLCD_Output_High(RS);   											// Levanto la señal de RS (Modo Cargar Datos).
 	}
-
-	for( i = 0; i < 6; i++ ){
-
-		if( posX < 65 ){				// Con 5 mas se completa el ancho de la letra y no entra.
-
-			GLCD_enviaBYTE(IZQ, (letra[((c-32)*6)+i])^color);  	// Enciende byte
+	for( i = 0; i < 6; i++ )
+	{
+		if( posX < 65 )														// Con 5 mas se completa el ancho de la letra y no entra.
+		{
+			GLCD_enviaBYTE(IZQ, (letra[((c-32)*6)+i])^color);  				// Enciende byte
 		}
-
-		if( posX > 64 ){
-
+		if( posX > 64 )
+		{
 			WG12864A_posXY(posX, posY);
-			GLCD_Output_High(RS);  								// Levanto la señal de RS (Modo Cargar Datos).
-			GLCD_enviaBYTE(DER, (letra[((c-32)*6)+i])^color);  	// Enciende byte.
+			GLCD_Output_High(RS);  											// Levanto la señal de RS (Modo Cargar Datos).
+			GLCD_enviaBYTE(DER, (letra[((c-32)*6)+i])^color);  				// Enciende byte.
 		}
-
-		posX++;							//incremento posicion en X
+		posX++;																//incremento posicion en X
 	}
 }
 
-// *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-void WG12864A_printf(const char *texto, const char *letra, const char color){
-
-	while(*texto != '\0'){				// Mientras no se haya terminado el texto a representar.
-
+//--------------------------------------------------------------------------
+void WG12864A_printf(const char *texto, const char *letra, const char color)
+{
+	while(*texto != '\0')													// Mientras no se haya terminado el texto a representar.
+	{
 		WG12864A_putchar(*texto++, letra, color);
 	}
 }
-
-// *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-void WG12864A_print_symbol(const char *symbol, const char color){
-
+//--------------------------------------------------------------------------
+void WG12864A_print_symbol(const char *symbol, const char color)
+{
 	char i, j;
 	volatile unsigned char X;
 
 	X = posX;
+	for( j = 0; j < 2; j++)
+	{
+		GLCD_Output_High(RS); 										  		// Modo datos
+		if( (posX>128) || ((posX+15)>128) )									// si sobrepasa la ultima columna de escritura
+		{
+			posX = 1;														// reseteo la columna
+			posY++;															// incremento el renglon
+			if( posY > 8 ){													// si me paso del ultimo renglon
 
-	for( j = 0; j < 2; j++){
-
-		GLCD_Output_High(RS);   		// Modo datos
-
-		if( (posX>128) || ((posX+15)>128) ){	// si sobrepasa la ultima columna de escritura
-
-			posX = 1;					// reseteo la columna
-			posY++;						// incremento el renglon
-			if( posY > 8 ){				// si me paso del ultimo renglon
-
-				posY = 1;				// reseteo el renglon
+				posY = 1;													// reseteo el renglon
 			}
-
-			WG12864A_posXY(posX, posY);	// reseteo la posicion en pantalla
-			GLCD_Output_High(RS);   	// Modo datos
+			WG12864A_posXY(posX, posY);										// reseteo la posicion en pantalla
+			GLCD_Output_High(RS);   										// Modo datos
 		}
-
-		for( i = 0; i < 16; i++){
-
-			if( posX < 65 ){			// con 5 mas se completa el ancho de la letra y no entra
-
-				GLCD_enviaBYTE(IZQ, (symbol[i+(16*j)])^color);  // enciende byte
+		for( i = 0; i < 16; i++)
+		{
+			if( posX < 65 )													// con 5 mas se completa el ancho de la letra y no entra
+			{
+				GLCD_enviaBYTE(IZQ, (symbol[i+(16*j)])^color);  			// enciende byte
 			}
-
-			if( posX > 64){
-
+			if( posX > 64)
+			{
 				WG12864A_posXY(posX, posY);
-				GLCD_Output_High(RS);   // Modo datos
-				GLCD_enviaBYTE(DER, (symbol[i+(16*j)])^color);  // enciende byte
+				GLCD_Output_High(RS);   									// Modo datos
+				GLCD_enviaBYTE(DER, (symbol[i+(16*j)])^color);  			// enciende byte
 			}
-			posX++;						//incremento posicion en X
+			posX++;															//incremento posicion en X
 		}
-
 		posY++;
 		posX = X;
-		WG12864A_posXY(posX, posY);		// reseteo la posicion en pantalla
+		WG12864A_posXY(posX, posY);											// reseteo la posicion en pantalla
 	}
-
 	posX = X;
 }

@@ -1,9 +1,16 @@
-/********************************************************
- Name          	: Menu.c
- Created on		: 08/11/2013
- Author        	: Sebastian Sisevich/potero
- Copyright     	:
- **********************************************************/
+/***************************************************************************
+ *  Proyecto Final-UTN.BA
+ *  Proyecto: Monitor Fetal
+ *  Versión: v1.0
+ *  Fecha: 30-08-2017
+ *  Autor: Sebastian Sisevich
+****************************************************************************/
+/***************************************************************************
+ *	Comentarios:
+ *
+ * Funciones del programa, Se llaman desde Menu dependiendo la pantalla en
+ * la que se encuentre el display.
+****************************************************************************/
 
 #include "Menu.h"
 #include "Touch.h"
@@ -12,23 +19,19 @@
 #include "Funciones.h"
 #include "Subfunciones.h"
 #include "Definiciones.h"
-
-// *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-
 //--------------------------------------------------------------------------
-//***********************  Variables Externas  *****************************
+//**********************  Variables Externas  ******************************
 
-extern unsigned int cur, 			// Posicion del cursor dentro de la pantalla.
-					indice,			// Variable dinamica para moverse por el vector de la clave ingresada.
-					sleep,			// Variable que a cierto valor duerme la pantalla.
-					flagsleep ,		// Variable que me indica si el Display esta dormido para despertarlo.
-					flagirq ;		// Bandera que me indica si habilitar o no la IRQ del TOUCH.
+extern unsigned int cur, 													// Posicion del cursor dentro de la pantalla.
+					indice,													// Variable dinamica para moverse por el vector de la clave ingresada.
+					sleep,													// Variable que a cierto valor duerme la pantalla.
+					flagsleep ,												// Variable que me indica si el Display esta dormido para despertarlo.
+					flagirq ;												// Bandera que me indica si habilitar o no la IRQ del TOUCH.
 
-extern char			flagmm,flagbll,cantver,cantprt,version[],version_prt[],no_recibo,queenv,
-					causaerr[],causaerror[],moduloerr[],b_tog[],sumaerr,lec;
-extern int 			h,mi,seg,d,m,anio,ds,
-					proxf[],proxh[],
-					var_aux;
+extern char			flagmm,flagbll,cantver,cantprt,version[],version_prt[],
+					no_recibo,queenv,causaerr[],causaerror[],moduloerr[],
+					b_tog[],sumaerr,lec;
+extern int 			h,mi,seg,d,m,anio,ds,proxf[],proxh[],var_aux;
 
 //--------------------------------------------------------------------------
 //***********************  Variables Propias  ******************************
@@ -38,78 +41,78 @@ char				menuactual,toca,toca1,modo_func,actualiza_fw=0,
 					t,pressok,prs,velc,dir_comu,sd_disp,
 					flagesp=0,salir=0,mod=0;
 unsigned int 		cont_tra=0,tcla[4],
-					adc_valX, adc_valY,	// Variables GLOBALES con los valores de posicion en X e Y.
-					menu, menu1, menu2,	// Variables GLOBALES para posicionamiento en todo el Menú.
+					adc_valX, adc_valY,										// Variables GLOBALES con los valores de posicion en X e Y.
+					menu, menu1, menu2,										// Variables GLOBALES para posicionamiento en todo el Menú.
 					menu3,	menu32, menu4,
 					menu41, menu41_1,menu41_2,
 					menu41_3, menu41_4,
 					adc_val5,
-					tit = 0,			// Variables para hacer titilante el cursor al ingresar datos del teclado numerico.
-					num = -1,			// Variable para capturar el numero del teclado en pantalla.
-					cla[4],				// Variable para capturar el numero del teclado en pantalla.
-					sleepmenu,			// Variable que me indica con que menu vuelvo del Sleep en la funcion Sleep.
-					flag_sleepsubmenu = 1,// Bandera que me indica si se durmio en un SubMenu y evita el codigo del boton Back.
+					tit = 0,												// Variables para hacer titilante el cursor al ingresar datos del teclado numerico.
+					num = -1,												// Variable para capturar el numero del teclado en pantalla.
+					cla[4],													// Variable para capturar el numero del teclado en pantalla.
+					sleepmenu,												// Variable que me indica con que menu vuelvo del Sleep en la funcion Sleep.
+					flag_sleepsubmenu = 1,									// Bandera que me indica si se durmio en un SubMenu y evita el codigo del boton Back.
 					varmod=0,backmod=0,s=0,tcl;
-alm_latidos[10][100],lat_co[100];
-static char  	buffer_pulso[44] ;
+//				alm_latidos[10][100],lat_co[100];
+static char  		buffer_pulso[44] ;
 
 
-int inc_ind=0,aux1,aux2;
-unsigned int i  = 0,i_buff=0,i_disp=0,i_disp_ant=0;
-int /*valpru[100],*/mu_pro[100];
-char PROMEDIAR=0,ACT_DISP=0,NO_ENTR=0,DISMINUYO=0,AUMENTO=0;
+int 				inc_ind=0,aux1,aux2;
+unsigned int 		i= 0,i_buff=0,i_disp=0,i_disp_ant=0;
+int 				/*valpru[100],*/mu_pro[100];
+char 				PROMEDIAR=0,ACT_DISP=0,NO_ENTR=0,DISMINUYO=0,AUMENTO=0;
 
 
-int 	Umbral_Sup=3000,Umbral_Inf=2000,
-		cont_pico_POS=0,cont_pico_NEG=0,PPM=0,
-		inc_ind,inc_ind2,i_ind_buff,PARLANTE,
-		lat_adc,lat_ant,LAT_PROM;
-char 	PULSO_OK,flag_SUP=1,flag_INF=1,
-		pos_x,pos_y,PUNTO,AUMENTO,DISMINUYO,
-		cont_10seg,FILTRO_DIG,hab_corazon,
-		PROMEDIAR,NO_ENTR,ACT_DISP,v,
-		ind_adc=0,SUBIR,BAJAR,desp_vert,SALTO;
-unsigned int valpru[100],valpru2[80],ind_Muestras,aux_prov;
+int 				Umbral_Sup=3000,Umbral_Inf=2000,
+					cont_pico_POS=0,cont_pico_NEG=0,PPM=0,
+					inc_ind,inc_ind2,i_ind_buff,PARLANTE,
+					lat_adc,lat_ant,LAT_PROM;
+char 				PULSO_OK,flag_SUP=1,flag_INF=1,
+					pos_x,pos_y,PUNTO,AUMENTO,DISMINUYO,
+					cont_10seg,FILTRO_DIG,hab_corazon,
+					PROMEDIAR,NO_ENTR,ACT_DISP,v,
+					ind_adc=0,SUBIR,BAJAR,desp_vert,SALTO;
+unsigned int 		valpru[100],valpru2[80],ind_Muestras,aux_prov;
 //unsigned int valpru[1000],valpru2[800],ind_Muestras,aux_prov;
 //extern int valpru[];
-extern char flag_1seg,flag_25ms;
+extern char 		flag_1seg,flag_25ms;
+
 uint16_t leo_adc(char Channel);
 void detector_pulsos(void);
 void grafica_PPM(void);
 
 
 
-
-// *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+//--------------------------------------------------------------------------
 void TIMER32_1_IRQHandler(void)
 {
-	// La interrupcion la genero el MRO??
+																			// La interrupcion la genero el MRO??
 	if( LPC_TMR32B1->IR & 0x01 ){
 
-		LPC_TMR32B1->IR = 1;					// Reseteo el Flag de IRQ.
+		LPC_TMR32B1->IR = 1;												// Reseteo el Flag de IRQ.
 
 		if( sleep == 0 ){
 
-			flagsleep = 1;						// Activo la Bandera de que el Display duerme para en la IRQ despertarlo.
-			GLCD_Output_Low(BACKLIGHT);			// Apaga el display
-			TOUCH_Standby();					// Standby, en espera de si activacion.
-			flagirq = 0;						// Bandera que me indica si habilitar o no la IRQ del TOUCH.
+			flagsleep = 1;													// Activo la Bandera de que el Display duerme para en la IRQ despertarlo.
+			GLCD_Output_Low(BACKLIGHT);										// Apaga el display
+			TOUCH_Standby();												// Standby, en espera de si activacion.
+			flagirq = 0;													// Bandera que me indica si habilitar o no la IRQ del TOUCH.
 		}
 
 		if( sleep == MULTIPLICADOR_TIMMER_SLEEP ){
 
-			flagirq = 0;						// Bandera que me indica si habilitar o no la IRQ del TOUCH.
-			disable_timer32(1); 				// Desabilito el timmer porque ya se durmio el Display.
-			cla[0] = 0, cla[1] = 0,	cla[2] = 0, cla[3] = 0;	// Limpio la clave del ingreso al menu especial.
-			indice = 0;							// Acomodo el indicel del vector de clave al inicio.
-			cur = 48;						// Preparo el cursor para la proxima vez.
+			flagirq = 0;													// Bandera que me indica si habilitar o no la IRQ del TOUCH.
+			disable_timer32(1); 											// Desabilito el timmer porque ya se durmio el Display.
+			cla[0] = 0, cla[1] = 0,	cla[2] = 0, cla[3] = 0;					// Limpio la clave del ingreso al menu especial.
+			indice = 0;														// Acomodo el indicel del vector de clave al inicio.
+			cur = 48;														// Preparo el cursor para la proxima vez.
 		}
 
-		sleep ++;								// Incremento la variable que duerme la pantalla.
+		sleep ++;															// Incremento la variable que duerme la pantalla.
 	}
 }
 
-// *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+//--------------------------------------------------------------------------
 void Func_Sleep(int opcion_1, int opcion_2 )
 {
 	int i;
@@ -117,10 +120,10 @@ void Func_Sleep(int opcion_1, int opcion_2 )
 
 		case 0:
 
-			GPIOIntClear(PORT1, 2);				// Limpio la Interrupcion.
-			for(i=0; i == 10; i ++){;}			// Pequeña demora (Ciclos de Clock para que baje la Bandera).
-			GPIOIntEnable(PORT1, 2);			// Habilito la Interrupcion.
-			flagirq = -1;						// Bandera que me indica si habilitar o no la IRQ del TOUCH.
+			GPIOIntClear(PORT1, 2);											// Limpio la Interrupcion.
+			for(i=0; i == 10; i ++){;}										// Pequeña demora (Ciclos de Clock para que baje la Bandera).
+			GPIOIntEnable(PORT1, 2);										// Habilito la Interrupcion.
+			flagirq = -1;													// Bandera que me indica si habilitar o no la IRQ del TOUCH.
 			menu = menu, menu1 = menu1, menu2 = menu2, menu3 = menu3,
 			menu32 = menu32, menu4 = menu4, menu41 = menu41, menu41_1 = menu41_1,
 			menu41_2 = menu41_2, menu41_3 = menu41_3, menu41_4 = menu41_4;
@@ -130,50 +133,50 @@ void Func_Sleep(int opcion_1, int opcion_2 )
 			break;
 	}
 
-	switch( opcion_2 ){							// Si es Mayor a 5 reinicio por completo, sino solo prendo la pantalla.
+	switch( opcion_2 ){														// Si es Mayor a 5 reinicio por completo, sino solo prendo la pantalla.
 
 		case 0:
 
-			WG12864A_Limpiar(NEGRO); 			// Limpio la pantalla de lo que tenia.
-			Menu_Logo();						// Presento el Logo de la Empresa.
-			WG12864A_Limpiar(NEGRO); 			// Limpio el logo de la pantalla.
-			sleepmenu = -1;						// Seleccion con que modalidad vuelve del Sleep.
-			adc_valX = 0, adc_valY = 0;			// Reseteo el valor de X, Y del ADC.
+			WG12864A_Limpiar(NEGRO); 										// Limpio la pantalla de lo que tenia.
+			Menu_Logo();													// Presento el Logo de la Empresa.
+			WG12864A_Limpiar(NEGRO); 										// Limpio el logo de la pantalla.
+			sleepmenu = -1;													// Seleccion con que modalidad vuelve del Sleep.
+			adc_valX = 0, adc_valY = 0;										// Reseteo el valor de X, Y del ADC.
 			break;
 
 		case 1:
 
-			WG12864A_Limpiar(NEGRO); 			// Limpio la pantalla de lo que tenia.
-			Menu_Logo();						// Presento el Logo de la Empresa.
-			WG12864A_Limpiar(NEGRO); 			// Limpio el logo de la pantalla.
-			sleepmenu = -1;						// Seleccion con que modalidad vuelve del Sleep.
-			flag_sleepsubmenu = 0;				// Aviso por medio de esta bandera que vuelve al menu principal por medio de Sleep.
+			WG12864A_Limpiar(NEGRO); 										// Limpio la pantalla de lo que tenia.
+			Menu_Logo();													// Presento el Logo
+			WG12864A_Limpiar(NEGRO); 										// Limpio el logo de la pantalla.
+			sleepmenu = -1;													// Seleccion con que modalidad vuelve del Sleep.
+			flag_sleepsubmenu = 0;											// Aviso por medio de esta bandera que vuelve al menu principal por medio de Sleep.
 
 			// Si me encuentro en un SubMenu le paso a X e Y las coordenadas del BACK y acomodo el menu.
 			if( (menu2 >= 1 || menu2 <= 3) ||
 				(menu3 >= 1 || menu3 <= 2) ){
 
-				adc_valX = 0xDF, adc_valY = 0x40;				// Selecciono las coordenadas del BACK.
+				adc_valX = 0xDF, adc_valY = 0x40;							// Selecciono las coordenadas del BACK.
 				menu = 0, menu1 = -1, menu2 = -1, menu3 = -1,
 				menu32 = -1, menu4 = -1, menu41 = -1, menu41_1 = -1,
 				menu41_2 = -1, menu41_3 = -1, menu41_4 = -1;
 			}else{
 
-				adc_valX = 0, adc_valY = 0;						// Reseteo el valor de X, Y del ADC.
+				adc_valX = 0, adc_valY = 0;									// Reseteo el valor de X, Y del ADC.
 				menu = 0, menu1 = -1, menu2 = -1, menu3 = -1,
 				menu32 = -1, menu4 = -1, menu41 = -1, menu41_1 = -1,
 				menu41_2 = -1, menu41_3 = -1, menu41_4 = -1;
 			}
 			break;
 	}
-	if(flagbll)													// Flag buffer lleno
+	if(flagbll)																// Flag buffer lleno
 	{
 		flagbll=0;
-		leobuffer(flagmm);										// Leo buffer de recepción
+		leobuffer(flagmm);													// Leo buffer de recepción
 	}
 }
 
-// *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+//--------------------------------------------------------------------------
 uint32_t Func_MuestraTeclado(int opcion)
 {
 	num = -1;
@@ -236,28 +239,28 @@ uint32_t Func_MuestraTeclado(int opcion)
 			break;
 	}
 
-	WG12864A_posXY(80, 4);							// Muestra Flecha Izq.
+	WG12864A_posXY(80, 4);													// Muestra Flecha Izq.
 	WG12864A_print_symbol(LeftArrow16x16, BLANCO);
-	WG12864A_posXY(110, 4);							// Muestra Flecha Der.
+	WG12864A_posXY(110, 4);													// Muestra Flecha Der.
 	WG12864A_print_symbol(RightArrow16x16, BLANCO);
-	WG12864A_posXY(80, 7);							// Muestra Boton Ok.
+	WG12864A_posXY(80, 7);													// Muestra Boton Ok.
 	WG12864A_print_symbol(OK16x16, BLANCO);
-	WG12864A_posXY(110, 7);							// Muestra Boton Back.
+	WG12864A_posXY(110, 7);													// Muestra Boton Back.
 	WG12864A_print_symbol(BACK16x16, BLANCO);
 
 	// Se Presionó Flecha Izquerda?
 	if( (0x95 < adc_valX) && (adc_valX < 0xB5) &&
 		(0x70 < adc_valY) && (adc_valY < 0x9A) ){
 
-		WG12864A_posXY(80, 4);						// Animacion del dibujo.
+		WG12864A_posXY(80, 4);												// Animacion del dibujo.
 		WG12864A_print_symbol(LeftArrow16x16, NEGRO);
 		delay32Ms(0, TIMMER_FONDO_BLANCO_BOTONES);
-		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
-		WG12864A_posXY(cur, 2);					// Presento el cursor donde corresponde.
+		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
+		WG12864A_posXY(cur, 2);												// Presento el cursor donde corresponde.
 		WG12864A_printf(" ", Arial8x6, NEGRO);
-		cur -= 12;								// Corro el cursor 1 lugar.
+		cur -= 12;															// Corro el cursor 1 lugar.
 		norecarga=0;
-		indice --;									// Decremento el Indice del vector que guarda la clave ingresada.
+		indice --;															// Decremento el Indice del vector que guarda la clave ingresada.
 
 		// Acomodo el cursor dentro de los 4 casilleros de la clave a ingresar y el indice del vector de la clave.
 		if( cur < 48 ){
@@ -271,15 +274,15 @@ uint32_t Func_MuestraTeclado(int opcion)
 	if( (0xC5 < adc_valX) && (adc_valX < 0xE5) &&
 		(0x70 < adc_valY) && (adc_valY < 0x9A) ){
 
-		WG12864A_posXY(110, 4);						// Animacion del dibujo.
+		WG12864A_posXY(110, 4);												// Animacion del dibujo.
 		WG12864A_print_symbol(RightArrow16x16, NEGRO);
 		delay32Ms(0, TIMMER_FONDO_BLANCO_BOTONES);
-		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
-		WG12864A_posXY(cur, 2);					// Presento el cursor donde corresponde.
+		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
+		WG12864A_posXY(cur, 2);												// Presento el cursor donde corresponde.
 		WG12864A_printf(" ", Arial8x6, NEGRO);
-		cur += 12;								// Corro el cursor 1 lugar.
+		cur += 12;															// Corro el cursor 1 lugar.
 		norecarga=0;
-		indice ++;									// Incremento el Indice del vector que guarda la clave ingresada.
+		indice ++;															// Incremento el Indice del vector que guarda la clave ingresada.
 
 		// Acomodo el cursor dentro de los 4 casilleros de la clave a ingresar y el indice del vector de la clave.
 		if( cur > 112 ){
@@ -290,10 +293,10 @@ uint32_t Func_MuestraTeclado(int opcion)
 		}
 	}
 
-	delay32Ms(0, TIMMER_TIT_CURSOR);				// Demora para que titile el cursor.
+	delay32Ms(0, TIMMER_TIT_CURSOR);										// Demora para que titile el cursor.
 	WG12864A_posXY(cur, 2);
 
-	if( tit )	{									// Cursor titilante.
+	if( tit )	{															// Cursor titilante.
 
 		WG12864A_printf("_", Arial8x6, NEGRO);
 		tit = 0;
@@ -311,12 +314,12 @@ uint32_t Func_MuestraTeclado(int opcion)
 		WG12864A_posXY(1, 1);
 		WG12864A_printf(" 1 ", Arial8x6, BLANCO);
 		delay32Ms(0, TIMMER_FONDO_BLANCO);
-		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
+		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
 		WG12864A_posXY(cur, 2);
 		WG12864A_printf("1", Arial8x6, NEGRO);
-		cur += 12;								// Corro el cursor 1 lugar.
+		cur += 12;															// Corro el cursor 1 lugar.
 		norecarga=0;
-		num = 1;									// Guardo el numero seleccionado para que la funcion lo devuelva.
+		num = 1;															// Guardo el numero seleccionado para que la funcion lo devuelva.
 	}
 
 	// Se presionó 2?
@@ -484,7 +487,7 @@ uint32_t Func_MuestraTeclado(int opcion)
 		num = '#';
 	}
 
-	return (num);									// La funcion devuelve el numero seleccionado.
+	return (num);															// La funcion devuelve el numero seleccionado.
 }
 
 //--------------------------------------------------------------------------
@@ -497,9 +500,9 @@ void func_consultaestados(void)
 {
 	int fila=6,z=0;
 	while(!((0xD0 < adc_valX) &&(adc_valX < 0xEA) &&
-			(0x2A < adc_valY) && (adc_valY < 0x5A))) // Mientras no se presione back
+			(0x2A < adc_valY) && (adc_valY < 0x5A))) 						// Mientras no se presione back
 	{
-		switch(toca)											// Case para definir el menu actual en la recepción
+		switch(toca)														// Case para definir el menu actual en la recepción
 		{
 		case 0:
 			menuactual=fyh;
@@ -541,9 +544,9 @@ void func_consultaestados(void)
 		WG12864A_printf("7", Arial8x6, BLANCO);
 		WG12864A_posXY(79,8);
 		WG12864A_printf("8", Arial8x6, BLANCO);
-		WG12864A_posXY(86, 5);							// Muestra Flecha Izq.
+		WG12864A_posXY(86, 5);												// Muestra Flecha Izq.
 		WG12864A_print_symbol(LeftArrow16x16, BLANCO);
-		WG12864A_posXY(110, 5);							// Muestra Flecha Der.
+		WG12864A_posXY(110, 5);												// Muestra Flecha Der.
 		WG12864A_print_symbol(RightArrow16x16, BLANCO);
 
 		WG12864A_posXY(110,7);
@@ -568,10 +571,10 @@ void func_consultaestados(void)
 if( (0xA0 < adc_valX) && (adc_valX < 0xC0) &&
 	(0x60 < adc_valY) && (adc_valY < 0x8A) )
 {
-	WG12864A_posXY(86, 5);						// Animacion del dibujo.
+	WG12864A_posXY(86, 5);													// Animacion del dibujo.
 	WG12864A_print_symbol(LeftArrow16x16, NEGRO);
 	delay32Ms(0, TIMMER_FONDO_BLANCO_BOTONES);
-	adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
+	adc_valX = 0, adc_valY = 0;												// Reseteo el valor de X, Y del ADC.
 	muefunc--;
 	if(muefunc<0)
 		muefunc=4;
@@ -582,10 +585,10 @@ if( (0xC5 < adc_valX) && (adc_valX < 0xE5) &&
 	(0x60 < adc_valY) && (adc_valY < 0x8A) )
 {
 
-	WG12864A_posXY(110, 5);						// Animacion del dibujo.
+	WG12864A_posXY(110, 5);													// Animacion del dibujo.
 	WG12864A_print_symbol(RightArrow16x16, NEGRO);
 	delay32Ms(0, TIMMER_FONDO_BLANCO_BOTONES);
-	adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
+	adc_valX = 0, adc_valY = 0;												// Reseteo el valor de X, Y del ADC.
 	muefunc++;
 	if(muefunc>4)
 		muefunc=0;
@@ -617,13 +620,13 @@ if( (0xC5 < adc_valX) && (adc_valX < 0xE5) &&
 
 		WG12864A_posXY(110, 7);
 		WG12864A_print_symbol(BACK16x16, NEGRO);
-		delay32Ms(0, TIMMER_FONDO_BLANCO);	// Para demorar su utiliza vTaskDelay()
-		adc_valX = 0, adc_valY = 0;			// Reseteo el valor de X, Y del ADC.
+		delay32Ms(0, TIMMER_FONDO_BLANCO);									// Para demorar su utiliza vTaskDelay()
+		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
 		WG12864A_Limpiar(NEGRO);
 		menu1 = 0;
 	}
 
-	flag_sleepsubmenu = 1;						// Restablesco el valor original de la bandera.
+	flag_sleepsubmenu = 1;													// Restablesco el valor original de la bandera.
 
 }
 //						  1.2 Consulta de Parametros
@@ -632,7 +635,8 @@ void func_consultaptros()
 {
 	char t,colu;
 
-	while(!((0xD0 < adc_valX) &&(adc_valX < 0xEA) && (0x2A < adc_valY) && (adc_valY < 0x5A))) // Mientras no se presione back
+	while(!((0xD0 < adc_valX) &&(adc_valX < 0xEA) &&
+			(0x2A < adc_valY) && (adc_valY < 0x5A))) 						// Mientras no se presione back
 	{
 		menuactual=consp;
 		WG12864A_posXY(1, 1);
@@ -724,13 +728,13 @@ void func_consultaptros()
 
 		WG12864A_posXY(110, 7);
 		WG12864A_print_symbol(BACK16x16, NEGRO);
-		delay32Ms(0, TIMMER_FONDO_BLANCO);	// Para demorar su utiliza vTaskDelay()
-		adc_valX = 0, adc_valY = 0;			// Reseteo el valor de X, Y del ADC.
+		delay32Ms(0, TIMMER_FONDO_BLANCO);									// Para demorar su utiliza vTaskDelay()
+		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
 		WG12864A_Limpiar(NEGRO);
 		menu1 = 0;
 	}
 
-	flag_sleepsubmenu = 1;						// Restablesco el valor original de la bandera.
+	flag_sleepsubmenu = 1;													// Restablesco el valor original de la bandera.
 }
 
 //						  1.3 Consulta de errores
@@ -740,7 +744,8 @@ void func_conserr()
 	int fila=7;
 	sumaerr=0;
 	causaerr[0]=sinerr;														//Primer ingreso hasta que lea los datos recibidos
-	while(!((0xD0 < adc_valX) &&(adc_valX < 0xEA) && (0x2A < adc_valY) && (adc_valY < 0x5A))) // Mientras no se presione back
+	while(!((0xD0 < adc_valX) &&(adc_valX < 0xEA) &&
+			(0x2A < adc_valY) && (adc_valY < 0x5A))) 						// Mientras no se presione back
 	{
 		switch (toca1)
 		{
@@ -797,11 +802,12 @@ void func_conserr()
 			WG12864A_print_symbol(RightArrow16x16, BLANCO);
 			WG12864A_posXY(110, 7);
 			WG12864A_print_symbol(BACK16x16, BLANCO);
-			if((0x9A < adc_valX) &&(adc_valX < 0xBA) && (0x60 < adc_valY) && (adc_valY < 0x80))	// Se presionó LeftArrow?
+			if((0x9A < adc_valX) &&(adc_valX < 0xBA) &&
+					(0x60 < adc_valY) && (adc_valY < 0x80))					// Se presionó LeftArrow?
 			{
 				WG12864A_posXY(80, 5);
 				WG12864A_print_symbol(LeftArrow16x16, NEGRO);
-				delay32Ms(0, TIMMER_FONDO_BLANCO);	// Para demorar su utiliza vTaskDelay()
+				delay32Ms(0, TIMMER_FONDO_BLANCO);							// Para demorar su utiliza vTaskDelay()
 				adc_valX = 0;												// Reseteo el valor de X, Y del ADC
 				adc_valY = 0;
 				sumaerr--;
@@ -811,11 +817,12 @@ void func_conserr()
 					sumaerr=8;//9;
 				}
 			}
-			if((0xCA < adc_valX) &&(adc_valX < 0xEA) && (0x60 < adc_valY) && (adc_valY < 0x80))	// Se presionó RightArrow?
+			if((0xCA < adc_valX) &&(adc_valX < 0xEA) &&
+					(0x60 < adc_valY) && (adc_valY < 0x80))					// Se presionó RightArrow?
 			{
 				WG12864A_posXY(110, 5);
 				WG12864A_print_symbol(RightArrow16x16, NEGRO);
-				delay32Ms(0, TIMMER_FONDO_BLANCO);	// Para demorar su utiliza vTaskDelay()
+				delay32Ms(0, TIMMER_FONDO_BLANCO);							// Para demorar su utiliza vTaskDelay()
 				adc_valX = 0;												// Reseteo el valor de X, Y del ADC
 				adc_valY = 0;
 				sumaerr++;
@@ -842,20 +849,21 @@ void func_conserr()
 
 		WG12864A_posXY(110, 7);
 		WG12864A_print_symbol(BACK16x16, NEGRO);
-		delay32Ms(0, TIMMER_FONDO_BLANCO);	// Para demorar su utiliza vTaskDelay()
-		adc_valX = 0, adc_valY = 0;			// Reseteo el valor de X, Y del ADC.
+		delay32Ms(0, TIMMER_FONDO_BLANCO);									// Para demorar su utiliza vTaskDelay()
+		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
 		WG12864A_Limpiar(NEGRO);
 		menu1 = 0;
 	}
 
-	flag_sleepsubmenu = 1;						// Restablesco el valor original de la bandera.
+	flag_sleepsubmenu = 1;													// Restablesco el valor original de la bandera.
 }
 
 //						  1.4 Borrar errores
 //--------------------------------------------------------------------------
 void func_borrarerr()
 {
-	while((!((0xD0 < adc_valX) &&(adc_valX < 0xEA) && (0x2A < adc_valY) && (adc_valY < 0x5A)))&& (pressok==0)) // Mientras no se presione back
+	while((!((0xD0 < adc_valX) &&(adc_valX < 0xEA) &&
+			(0x2A < adc_valY) && (adc_valY < 0x5A)))&& (pressok==0)) 		// Mientras no se presione back
 	{
 		WG12864A_posXY(1, 1);
 		WG12864A_printf("  *Borrar errores*   ", Arial8x6, BLANCO);
@@ -867,10 +875,10 @@ void func_borrarerr()
 		{
 			WG12864A_posXY(80, 7);
 			WG12864A_print_symbol(OK16x16, NEGRO);
-			delay32Ms(0, TIMMER_FONDO_BLANCO);	// Para demorar su utiliza vTaskDelay()
+			delay32Ms(0, TIMMER_FONDO_BLANCO);								// Para demorar su utiliza vTaskDelay()
 			adc_valX = 0;													// Reseteo el valor de X, Y del ADC
 			adc_valY = 0;
-			menuactual=berr;											// Envio menu actual por Recibe datos para borrar err en flash
+			menuactual=berr;												// Envio menu actual por Recibe datos para borrar err en flash
 			causaerr[0]=sinerr;	// provisorio, sacar!
 			WG12864A_Limpiar(NEGRO);
 			pressok=1;														// Activo la señal para salir por ok
@@ -886,8 +894,8 @@ if(flag_sleepsubmenu)
 	{
 		WG12864A_posXY(110, 7);
 		WG12864A_print_symbol(BACK16x16, NEGRO);
-		delay32Ms(0, TIMMER_FONDO_BLANCO);	// Para demorar su utiliza vTaskDelay()
-		adc_valX = 0, adc_valY = 0;			// Reseteo el valor de X, Y del ADC.
+		delay32Ms(0, TIMMER_FONDO_BLANCO);									// Para demorar su utiliza vTaskDelay()
+		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
 		WG12864A_Limpiar(NEGRO);
 		menu1 = 0;
 	}
@@ -895,7 +903,7 @@ if(flag_sleepsubmenu)
 
 }
 
-flag_sleepsubmenu = 1;						// Restablesco el valor original de la bandera.
+flag_sleepsubmenu = 1;														// Restablesco el valor original de la bandera.
 
 }
 
@@ -916,21 +924,21 @@ void Func_Monitoreo (void)
 		WG12864A_posXY(1, 1);
 		WG12864A_printf(" *  Monitor Fetal  * ", Arial8x6, BLANCO);
 		//SACAR DE ACA
-		grafica_PPM();												// Función que detecta los pulsos del corazon
-			if(flag_25ms)														// Toma una muestra cada 5ms!
-			{																	// 1800 muestras en 10seg
+		grafica_PPM();														// Función que detecta los pulsos del corazon
+			if(flag_25ms)													// Toma una muestra cada 5ms!
+			{																// 1800 muestras en 10seg
 				flag_25ms=0;
 				if(inc_ind<1000)
 				{
-//					valpru[inc_ind]=leo_adc(5);									// Toma las primeras 1000
+//					valpru[inc_ind]=leo_adc(5);								// Toma las primeras 1000
 				}
 				else
 				{
-//					valpru2[inc_ind2]=leo_adc(5);								// Toma las ultimas 800
+//					valpru2[inc_ind2]=leo_adc(5);							// Toma las ultimas 800
 					inc_ind2++;
 				}
 	/*			if(PARLANTE>20)
-					GPIOSetValue( 2, 10, 0 );										// Habilito salida de latido 1 vez por seg PRUEBA
+					GPIOSetValue( 2, 10, 0 );								// Habilito salida de latido 1 vez por seg PRUEBA
 	*/			inc_ind++;
 				aux_prov++;
 	//			PARLANTE++;
@@ -942,31 +950,31 @@ void Func_Monitoreo (void)
 				NO_ENTR=1;
 				ACT_DISP=1;
 			}
-	*/		if(flag_1seg)														// Contador 1 seg
+	*/		if(flag_1seg)													// Contador 1 seg
 			{
 				flag_1seg=0;
 				cont_10seg++;
 				if(PARLANTE)
 				{
-					GPIOSetValue( 2, 10, 1 );										// Habilito salida de latido 1 vez por seg PRUEBA
+					GPIOSetValue( 2, 10, 1 );								// Habilito salida de latido 1 vez por seg PRUEBA
 					PARLANTE=0;
 				}
 				else
 				{
-					GPIOSetValue( 2, 10, 0 );										// Habilito salida de latido 1 vez por seg PRUEBA
+					GPIOSetValue( 2, 10, 0 );								// Habilito salida de latido 1 vez por seg PRUEBA
 					PARLANTE=1;
 				}
 			}
-			if(cont_10seg>=10)													// A los 10 seg
+			if(cont_10seg>=10)												// A los 10 seg
 			{
-				ind_Muestras=aux_prov;											// almacena la cantidad de muestras que se tomaron
-				aux_prov=0;														// Resetea variables
+				ind_Muestras=aux_prov;										// almacena la cantidad de muestras que se tomaron
+				aux_prov=0;													// Resetea variables
 				inc_ind=0;
 				inc_ind2=0;
-				PROMEDIAR=1;													// Habilita el promedio de las muestras
+				PROMEDIAR=1;												// Habilita el promedio de las muestras
 				NO_ENTR=1;
 				ACT_DISP=1;
-				detector_pulsos();												// Función que detecta los pulsos del corazon
+				detector_pulsos();											// Función que detecta los pulsos del corazon
 				cont_10seg=0;
 			}
 	//		Graf_PROM();
@@ -975,17 +983,17 @@ void Func_Monitoreo (void)
 		Func_Sleep (flagirq, sleepmenu);
 	}
 
-	if(flag_sleepsubmenu){					// Si la bandera esta arriba salio del menu normal, sino salio por sleep.
+	if(flag_sleepsubmenu){													// Si la bandera esta arriba salio del menu normal, sino salio por sleep.
 
 		WG12864A_posXY(110, 7);
 		WG12864A_print_symbol(BACK16x16, NEGRO);
-		delay32Ms(0, TIMMER_FONDO_BLANCO);	// Para demorar su utiliza vTaskDelay()
-		adc_valX = 0, adc_valY = 0;			// Reseteo el valor de X, Y del ADC.
+		delay32Ms(0, TIMMER_FONDO_BLANCO);									// Para demorar su utiliza vTaskDelay()
+		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
 		WG12864A_Limpiar(NEGRO);
 		menu2 = 0;
 	}
 
-	flag_sleepsubmenu = 1;						// Restablesco el valor original de la bandera.
+	flag_sleepsubmenu = 1;													// Restablesco el valor original de la bandera.
 
 }
 
@@ -1071,9 +1079,10 @@ void grafica_PPM(void)
 	WG12864A_printf("Pulso:", Arial8x6, NEGRO);
 	WG12864A_posXY(40, 7);
 	WG12864A_printf(buffer_pulso, Arial8x6, NEGRO);
-	if((0xA0 < adc_valX) &&(adc_valX < 0xB9) && (0x2A < adc_valY) && (adc_valY < 0x5A))// Se presionó FD?
+	if((0xA0 < adc_valX) &&(adc_valX < 0xB9) &&
+			(0x2A < adc_valY) && (adc_valY < 0x5A))							// Se presionó FD?
 	{
-		adc_valX = 0, adc_valY = 0;			// Reseteo el valor de X, Y del ADC.
+		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
 		if(FILTRO_DIG)
 			FILTRO_DIG=0;
 		else
@@ -1181,17 +1190,17 @@ void Func_Semaforos (void)
 		Func_Sleep (flagirq, sleepmenu);
 	}
 
-	if(flag_sleepsubmenu){					// Si la bandera esta arriba salio del menu normal, sino salio por sleep.
+	if(flag_sleepsubmenu){													// Si la bandera esta arriba salio del menu normal, sino salio por sleep.
 
 		WG12864A_posXY(110, 7);
 		WG12864A_print_symbol(BACK16x16, NEGRO);
-		delay32Ms(0, TIMMER_FONDO_BLANCO);	// Para demorar su utiliza vTaskDelay()
-		adc_valX = 0, adc_valY = 0;			// Reseteo el valor de X, Y del ADC.
+		delay32Ms(0, TIMMER_FONDO_BLANCO);									// Para demorar su utiliza vTaskDelay()
+		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
 		WG12864A_Limpiar(NEGRO);
 		menu2 = 0;
 	}
 
-	flag_sleepsubmenu = 1;						// Restablesco el valor original de la bandera.
+	flag_sleepsubmenu = 1;													// Restablesco el valor original de la bandera.
 }
 
 //						  2.1 Parametrizar dirección
@@ -1229,7 +1238,7 @@ void Func_Direccion (void){
 
 				break;
 		}
-		switch (dir_comu)															// Muestra el módulo en conflicto
+		switch (dir_comu)													// Muestra el módulo en conflicto
 		{
 		case 1:
 				WG12864A_posXY(79,6);
@@ -1281,13 +1290,13 @@ void Func_Direccion (void){
 
 		WG12864A_posXY(110, 7);
 		WG12864A_print_symbol(BACK16x16, NEGRO);
-		delay32Ms(0, TIMMER_FONDO_BLANCO);	// Para demorar su utiliza vTaskDelay()
-		adc_valX = 0, adc_valY = 0;			// Reseteo el valor de X, Y del ADC.
+		delay32Ms(0, TIMMER_FONDO_BLANCO);									// Para demorar su utiliza vTaskDelay()
+		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
 		WG12864A_Limpiar(NEGRO);
 		menu2 = 0;
 	}
 
-	flag_sleepsubmenu = 1;						// Restablesco el valor original de la bandera.
+	flag_sleepsubmenu = 1;													// Restablesco el valor original de la bandera.
 
 }
 
@@ -1298,7 +1307,8 @@ void Func_Direccion (void){
 //--------------------------------------------------------------------------
 void func_muestrafyh()
 {
-	while(!((0xD0 < adc_valX) &&(adc_valX < 0xEA) && (0x2A < adc_valY) && (adc_valY < 0x5A))) // Mientras no se presione back
+	while(!((0xD0 < adc_valX) &&(adc_valX < 0xEA) &&
+			(0x2A < adc_valY) && (adc_valY < 0x5A))) 						// Mientras no se presione back
 	{
 		menuactual=fyh;
 		WG12864A_posXY(1, 1);
@@ -1316,12 +1326,12 @@ void func_muestrafyh()
 
 		WG12864A_posXY(110, 7);
 		WG12864A_print_symbol(BACK16x16, NEGRO);
-		delay32Ms(0, TIMMER_FONDO_BLANCO);	// Para demorar su utiliza vTaskDelay()
-		adc_valX = 0, adc_valY = 0;			// Reseteo el valor de X, Y del ADC.
+		delay32Ms(0, TIMMER_FONDO_BLANCO);									// Para demorar su utiliza vTaskDelay()
+		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
 		WG12864A_Limpiar(NEGRO);
 		menu3 = 0;
 	}
-	flag_sleepsubmenu = 1;						// Restablesco el valor original de la bandera.
+	flag_sleepsubmenu = 1;													// Restablesco el valor original de la bandera.
 
 }
 
@@ -1330,7 +1340,8 @@ void func_muestrafyh()
 void func_modfyh()
 {
 	int i=0;
-	while((!((0xD0 < adc_valX) &&(adc_valX < 0xEA) && (0x2A < adc_valY) && (adc_valY < 0x5A))) && flagesp!=1) // Mientras no se presione back
+	while((!((0xD0 < adc_valX) &&(adc_valX < 0xEA) &&
+			(0x2A < adc_valY) && (adc_valY < 0x5A))) && flagesp!=1) 		// Mientras no se presione back
 	{
 		WG12864A_posXY(1, 1);
 		WG12864A_printf(" * Modificar reloj * ", Arial8x6, BLANCO);
@@ -1354,8 +1365,8 @@ void func_modfyh()
 				case 1:
 					WG12864A_posXY(13, 5);
 					WG12864A_printf(" Fecha ", Arial8x6, BLANCO);
-					delay32Ms(0, TIMMER_FONDO_BLANCO);	// Para demorar su utiliza vTaskDelay()
-					adc_valX = 0;												// Reseteo el valor de X, Y del ADC
+					delay32Ms(0, TIMMER_FONDO_BLANCO);						// Para demorar su utiliza vTaskDelay()
+					adc_valX = 0;											// Reseteo el valor de X, Y del ADC
 					adc_valY = 0;
 					for(i=0;i<3;i++)
 					{
@@ -1371,7 +1382,7 @@ void func_modfyh()
 							s=0;
 							while((!((0xD0 < adc_valX) &&(adc_valX < 0xEA) && (0x2A < adc_valY) && (adc_valY < 0x5A))) && salir==0) // Mientras no se presione back
 							{
-								var_aux=Func_MuestraTeclado(2);								// Muestra el teclado numerico
+								var_aux=Func_MuestraTeclado(2);				// Muestra el teclado numerico
 								if( var_aux != -1 ){						// Valida el numero del teclado que se pulso.
 
 									if (indice < 2){						// Si no cargo los 4 Digitos, lo carga sino limpia la clave.
@@ -1381,8 +1392,8 @@ void func_modfyh()
 									}else{
 
 										indice = 0;							// Reseteo el indice del vector de la clave.
-										cur = 48;						// Acomodo el cursor para la proxima vez.
-										WG12864A_posXY(cur, 2);			// Limpio la clave en pantalla.
+										cur = 48;							// Acomodo el cursor para la proxima vez.
+										WG12864A_posXY(cur, 2);				// Limpio la clave en pantalla.
 										WG12864A_printf(" ", Arial8x6, NEGRO);
 										WG12864A_posXY(88, 2);
 										WG12864A_printf(" ", Arial8x6, NEGRO);
@@ -1391,19 +1402,19 @@ void func_modfyh()
 
 								if((0xA0 < adc_valX) &&(adc_valX < 0xB9) && (0x2A < adc_valY) && (adc_valY < 0x5A))	// OK?
 								{
-								varmod=(tcla[0]*10)+(tcla[1]);						// Cargo el numero ingresado
+								varmod=(tcla[0]*10)+(tcla[1]);				// Cargo el numero ingresado
 								if((varmod)<32 &&(varmod>0))
 								{
-									proxf[0]=varmod;					//Cargo el dia
+									proxf[0]=varmod;						//Cargo el dia
 									WG12864A_posXY(80, 7);
 									WG12864A_print_symbol(OK16x16, NEGRO);
-									delay32Ms(0, TIMMER_FONDO_BLANCO);	// Para demorar su utiliza vTaskDelay()
-									adc_valX = 0;									// Reseteo el valor de X, Y del ADC
+									delay32Ms(0, TIMMER_FONDO_BLANCO);		// Para demorar su utiliza vTaskDelay()
+									adc_valX = 0;							// Reseteo el valor de X, Y del ADC
 									adc_valY = 0;
 									salir=1;
 									mod=1;
 									s=0;
-									indice = 0;							// Reseteo el indice del vector de la clave.
+									indice = 0;								// Reseteo el indice del vector de la clave.
 									cur=48;
 									WG12864A_posXY(76, 2);
 									WG12864A_printf("       ", Arial8x6, NEGRO);
@@ -1412,11 +1423,11 @@ void func_modfyh()
 										tcla[i]=0;
 									}
 								}
-								else												// El valor ingresado no es correcto
+								else										// El valor ingresado no es correcto
 								{
 									WG12864A_posXY(80, 7);
 									WG12864A_print_symbol(Cross16x16, NEGRO);
-									delay32Ms(0, TIMMER_FONDO_BLANCO);	// Para demorar su utiliza vTaskDelay()
+									delay32Ms(0, TIMMER_FONDO_BLANCO);		// Para demorar su utiliza vTaskDelay()
 
 								}
 								}
@@ -1426,7 +1437,7 @@ void func_modfyh()
 							{
 								WG12864A_posXY(110, 7);
 								WG12864A_print_symbol(BACK16x16, NEGRO);
-								delay32Ms(0, TIMMER_FONDO_BLANCO);	// Para demorar su utiliza vTaskDelay()
+								delay32Ms(0, TIMMER_FONDO_BLANCO);			// Para demorar su utiliza vTaskDelay()
 								cur=48;
 								mod=-1;
 								menu32=-1;
@@ -1438,7 +1449,8 @@ void func_modfyh()
 							break;
 						case 1:
 							s=0;
-							while((!((0xD0 < adc_valX) &&(adc_valX < 0xEA) && (0x2A < adc_valY) && (adc_valY < 0x5A))) && salir==0) // Mientras no se presione back
+							while((!((0xD0 < adc_valX) &&(adc_valX < 0xEA) &&
+									(0x2A < adc_valY) && (adc_valY < 0x5A))) && salir==0) // Mientras no se presione back
 							{
 								var_aux=Func_MuestraTeclado(3);
 								if( var_aux != -1 ){						// Valida el numero del teclado que se pulso.
@@ -1450,24 +1462,25 @@ void func_modfyh()
 									}else{
 
 										indice = 0;							// Reseteo el indice del vector de la clave.
-										cur = 48;						// Acomodo el cursor para la proxima vez.
-										WG12864A_posXY(cur, 2);			// Limpio la clave en pantalla.
+										cur = 48;							// Acomodo el cursor para la proxima vez.
+										WG12864A_posXY(cur, 2);				// Limpio la clave en pantalla.
 										WG12864A_printf(" ", Arial8x6, NEGRO);
 										WG12864A_posXY(88, 2);
 										WG12864A_printf(" ", Arial8x6, NEGRO);
 									}
 								}
 
-								if((0xA0 < adc_valX) &&(adc_valX < 0xB9) && (0x2A < adc_valY) && (adc_valY < 0x5A))
+								if((0xA0 < adc_valX) &&(adc_valX < 0xB9) &&
+										(0x2A < adc_valY) && (adc_valY < 0x5A))
 								{
-									varmod=(tcla[0]*10)+(tcla[1]);					//Cargo el valor ingresado por teclado
+									varmod=(tcla[0]*10)+(tcla[1]);			//Cargo el valor ingresado por teclado
 									if((varmod)<13 &&(varmod>0))
 									{
-										proxf[1]=varmod;				//Cargo el mes
+										proxf[1]=varmod;					//Cargo el mes
 										WG12864A_posXY(80, 7);
 										WG12864A_print_symbol(OK16x16, NEGRO);
 										delay32Ms(0, TIMMER_FONDO_BLANCO);	// Para demorar su utiliza vTaskDelay()
-										adc_valX = 0;									// Reseteo el valor de X, Y del ADC
+										adc_valX = 0;						// Reseteo el valor de X, Y del ADC
 										adc_valY = 0;
 										salir=1;
 										mod=2;
@@ -1494,7 +1507,7 @@ void func_modfyh()
 							{
 								WG12864A_posXY(110, 7);
 								WG12864A_print_symbol(BACK16x16, NEGRO);
-								delay32Ms(0, TIMMER_FONDO_BLANCO);	// Para demorar su utiliza vTaskDelay()
+								delay32Ms(0, TIMMER_FONDO_BLANCO);			// Para demorar su utiliza vTaskDelay()
 								cur=48;
 								mod=-1;
 								menu32=-1;
@@ -1506,7 +1519,8 @@ void func_modfyh()
 							break;
 						case 2:
 							s=0;
-							while((!((0xD0 < adc_valX) &&(adc_valX < 0xEA) && (0x2A < adc_valY) && (adc_valY < 0x5A))) && salir==0) // Mientras no se presione back
+							while((!((0xD0 < adc_valX) &&(adc_valX < 0xEA) &&
+									(0x2A < adc_valY) && (adc_valY < 0x5A))) && salir==0) // Mientras no se presione back
 							{
 								var_aux=Func_MuestraTeclado(4);
 
@@ -1519,8 +1533,8 @@ void func_modfyh()
 									}else{
 
 										indice = 0;							// Reseteo el indice del vector de la clave.
-										cur = 48;						// Acomodo el cursor para la proxima vez.
-										WG12864A_posXY(cur, 2);			// Limpio la clave en pantalla.
+										cur = 48;							// Acomodo el cursor para la proxima vez.
+										WG12864A_posXY(cur, 2);				// Limpio la clave en pantalla.
 										WG12864A_printf(" ", Arial8x6, NEGRO);
 										WG12864A_posXY(88, 2);
 										WG12864A_printf(" ", Arial8x6, NEGRO);
@@ -1531,16 +1545,17 @@ void func_modfyh()
 									}
 								}
 
-								if((0xA0 < adc_valX) &&(adc_valX < 0xB9) && (0x2A < adc_valY) && (adc_valY < 0x5A))
+								if((0xA0 < adc_valX) &&(adc_valX < 0xB9) &&
+										(0x2A < adc_valY) && (adc_valY < 0x5A))
 								{
 									varmod=(tcla[0]*1000)+(tcla[1]*100)+(tcla[2]*10)+(tcla[3]);// Cargo el valor ingresado por teclado
 									if(1)//(varmod)<2100 &&(varmod>1979))
 									{
-										proxf[2]=varmod;				//Cargo el año
+										proxf[2]=varmod;					//Cargo el año
 										WG12864A_posXY(80, 7);
 										WG12864A_print_symbol(OK16x16, NEGRO);
 										delay32Ms(0, TIMMER_FONDO_BLANCO);	// Para demorar su utiliza vTaskDelay()
-										adc_valX = 0;									// Reseteo el valor de X, Y del ADC
+										adc_valX = 0;						// Reseteo el valor de X, Y del ADC
 										adc_valY = 0;
 										salir=1;
 										mod=4;
@@ -1567,7 +1582,7 @@ void func_modfyh()
 							{
 								WG12864A_posXY(110, 7);
 								WG12864A_print_symbol(BACK16x16, NEGRO);
-								delay32Ms(0, TIMMER_FONDO_BLANCO);	// Para demorar su utiliza vTaskDelay()
+								delay32Ms(0, TIMMER_FONDO_BLANCO);			// Para demorar su utiliza vTaskDelay()
 								cur=48;
 								mod=-1;
 								menu32=-1;
@@ -1579,7 +1594,8 @@ void func_modfyh()
 							break;
 						case 4:
 							WG12864A_Limpiar(NEGRO);
-							while((!((0xD0 < adc_valX) &&(adc_valX < 0xEA) && (0x2A < adc_valY) && (adc_valY < 0x5A))) && salir==0) // Mientras no se presione back
+							while((!((0xD0 < adc_valX) &&(adc_valX < 0xEA) &&
+									(0x2A < adc_valY) && (adc_valY < 0x5A))) && salir==0) // Mientras no se presione back
 							{
 								WG12864A_posXY(1, 1);
 								WG12864A_printf(" * Modificar fecha * ", Arial8x6, BLANCO);
@@ -1587,15 +1603,16 @@ void func_modfyh()
 								WG12864A_printf("Fecha  Mes  A;o", Arial8x6, NEGRO);	// Muestra que los datos ingresados sean correctos
 								prox_fecha (5);								// Muestra la prox fecha a cargar
 								WG12864A_posXY(1,5);
-								WG12864A_posXY(80, 7);													// Muestra ok
+								WG12864A_posXY(80, 7);						// Muestra ok
 								WG12864A_print_symbol(OK16x16, BLANCO);
-								WG12864A_posXY(110, 7);													// Muestra back
+								WG12864A_posXY(110, 7);						// Muestra back
 								WG12864A_print_symbol(BACK16x16, BLANCO);
-								if((0xA0 < adc_valX) &&(adc_valX < 0xB9) && (0x2A < adc_valY) && (adc_valY < 0x5A)) //OK?
+								if((0xA0 < adc_valX) &&(adc_valX < 0xB9) &&
+										(0x2A < adc_valY) && (adc_valY < 0x5A)) //OK?
 								{
 									WG12864A_posXY(80, 7);
 									WG12864A_print_symbol(OK16x16, NEGRO);
-									delay32Ms(0, TIMMER_FONDO_BLANCO);	// Para demorar su utiliza vTaskDelay()
+									delay32Ms(0, TIMMER_FONDO_BLANCO);		// Para demorar su utiliza vTaskDelay()
 									adc_valX=0xD5;
 									adc_valY=0x3A;
 									mod=-1;
@@ -1611,7 +1628,7 @@ void func_modfyh()
 							{
 								WG12864A_posXY(110, 7);
 								WG12864A_print_symbol(BACK16x16, NEGRO);
-								delay32Ms(0, TIMMER_FONDO_BLANCO);	// Para demorar su utiliza vTaskDelay()
+								delay32Ms(0, TIMMER_FONDO_BLANCO);			// Para demorar su utiliza vTaskDelay()
 								cur=48;
 								mod=-1;
 								menu32=-1;
@@ -1624,7 +1641,7 @@ void func_modfyh()
 						default:
 							break;
 						}
-						if(norecarga==0)													// Si se presionó un num incrementa el vector de clave
+						if(norecarga==0)									// Si se presionó un num incrementa el vector de clave
 						{
 							norecarga=1;
 							//tcla[s]=num;
@@ -1642,7 +1659,7 @@ void func_modfyh()
 		case 2:
 				WG12864A_posXY(78, 5);
 				WG12864A_printf(" Hora ", Arial8x6, BLANCO);
-				delay32Ms(0, TIMMER_FONDO_BLANCO);	// Para demorar su utiliza vTaskDelay()
+				delay32Ms(0, TIMMER_FONDO_BLANCO);							// Para demorar su utiliza vTaskDelay()
 				adc_valX = 0;												// Reseteo el valor de X, Y del ADC
 				adc_valY = 0;
 				for(i=0;i<3;i++)
@@ -1651,13 +1668,15 @@ void func_modfyh()
 				}
 				s=0;
 				WG12864A_Limpiar(NEGRO);
-				while((!((0xD0 < adc_valX) &&(adc_valX < 0xEA) && (0x2A < adc_valY) && (adc_valY < 0x5A))) && flagesp!=1) // Mientras no se presione back
+				while((!((0xD0 < adc_valX) &&(adc_valX < 0xEA) &&
+						(0x2A < adc_valY) && (adc_valY < 0x5A))) && flagesp!=1) // Mientras no se presione back
 				{
 					switch(mod)
 					{
 					case 0:
 							s=0;
-							while((!((0xD0 < adc_valX) &&(adc_valX < 0xEA) && (0x2A < adc_valY) && (adc_valY < 0x5A))) && salir==0) // Mientras no se presione back
+							while((!((0xD0 < adc_valX) &&(adc_valX < 0xEA) &&
+									(0x2A < adc_valY) && (adc_valY < 0x5A))) && salir==0) // Mientras no se presione back
 							{
 								var_aux=Func_MuestraTeclado(5);
 								if( var_aux != -1 ){						// Valida el numero del teclado que se pulso.
@@ -1669,8 +1688,8 @@ void func_modfyh()
 									}else{
 
 										indice = 0;							// Reseteo el indice del vector de la clave.
-										cur = 48;						// Acomodo el cursor para la proxima vez.
-										WG12864A_posXY(cur, 2);			// Limpio la clave en pantalla.
+										cur = 48;							// Acomodo el cursor para la proxima vez.
+										WG12864A_posXY(cur, 2);				// Limpio la clave en pantalla.
 										WG12864A_printf(" ", Arial8x6, NEGRO);
 										WG12864A_posXY(88, 2);
 										WG12864A_printf(" ", Arial8x6, NEGRO);
@@ -1682,11 +1701,11 @@ void func_modfyh()
 									varmod=(tcla[0]*10)+(tcla[1]);			// Carga los numeros ingresados por teclado
 									if((varmod)<25 &&(varmod>=0))
 									{
-										proxh[0]=varmod;		//Carga la hora
+										proxh[0]=varmod;					//Carga la hora
 										WG12864A_posXY(80, 7);
 										WG12864A_print_symbol(OK16x16, NEGRO);
 										delay32Ms(0, TIMMER_FONDO_BLANCO);	// Para demorar su utiliza vTaskDelay()
-										adc_valX = 0;									// Reseteo el valor de X, Y del ADC
+										adc_valX = 0;						// Reseteo el valor de X, Y del ADC
 										adc_valY = 0;
 										salir=1;
 										mod=1;
@@ -1713,7 +1732,7 @@ void func_modfyh()
 							{
 								WG12864A_posXY(110, 7);
 								WG12864A_print_symbol(BACK16x16, NEGRO);
-								delay32Ms(0, TIMMER_FONDO_BLANCO);	// Para demorar su utiliza vTaskDelay()
+								delay32Ms(0, TIMMER_FONDO_BLANCO);			// Para demorar su utiliza vTaskDelay()
 								cur=48;
 								mod=-1;
 								menu32=-1;
@@ -1737,8 +1756,8 @@ void func_modfyh()
 									}else{
 
 										indice = 0;							// Reseteo el indice del vector de la clave.
-										cur = 48;						// Acomodo el cursor para la proxima vez.
-										WG12864A_posXY(cur, 2);			// Limpio la clave en pantalla.
+										cur = 48;							// Acomodo el cursor para la proxima vez.
+										WG12864A_posXY(cur, 2);				// Limpio la clave en pantalla.
 										WG12864A_printf(" ", Arial8x6, NEGRO);
 										WG12864A_posXY(88, 2);
 										WG12864A_printf(" ", Arial8x6, NEGRO);
@@ -1750,11 +1769,11 @@ void func_modfyh()
 									varmod=(tcla[0]*10)+(tcla[1]);			// Carga los numeros ingresados por teclado
 									if((varmod)<60 &&(varmod>=0))
 									{
-										proxh[1]=varmod;		//Cargo los minutos
+										proxh[1]=varmod;					//Cargo los minutos
 										WG12864A_posXY(80, 7);
 										WG12864A_print_symbol(OK16x16, NEGRO);
 										delay32Ms(0, TIMMER_FONDO_BLANCO);	// Para demorar su utiliza vTaskDelay()
-										adc_valX = 0;									// Reseteo el valor de X, Y del ADC
+										adc_valX = 0;						// Reseteo el valor de X, Y del ADC
 										adc_valY = 0;
 										salir=1;
 										mod=2;
@@ -1781,7 +1800,7 @@ void func_modfyh()
 							{
 								WG12864A_posXY(110, 7);
 								WG12864A_print_symbol(BACK16x16, NEGRO);
-								delay32Ms(0, TIMMER_FONDO_BLANCO);	// Para demorar su utiliza vTaskDelay()
+								delay32Ms(0, TIMMER_FONDO_BLANCO);			// Para demorar su utiliza vTaskDelay()
 								cur=48;
 								mod=-1;
 								menu32=-1;
@@ -1794,7 +1813,8 @@ void func_modfyh()
 
 					case 2:
 							WG12864A_Limpiar(NEGRO);
-							while((!((0xD0 < adc_valX) &&(adc_valX < 0xEA) && (0x2A < adc_valY) && (adc_valY < 0x5A))) && salir==0) // Mientras no se presione back
+							while((!((0xD0 < adc_valX) &&(adc_valX < 0xEA) &&
+									(0x2A < adc_valY) && (adc_valY < 0x5A))) && salir==0) // Mientras no se presione back
 							{
 								WG12864A_posXY(1, 1);
 								WG12864A_printf(" * Modificar Hora * ", Arial8x6, BLANCO);
@@ -1810,7 +1830,7 @@ void func_modfyh()
 								{
 									WG12864A_posXY(80, 7);
 									WG12864A_print_symbol(OK16x16, NEGRO);
-									delay32Ms(0, TIMMER_FONDO_BLANCO);	// Para demorar su utiliza vTaskDelay()
+									delay32Ms(0, TIMMER_FONDO_BLANCO);		// Para demorar su utiliza vTaskDelay()
 									adc_valX=0xD5;
 									adc_valY=0x3A;
 									mod=-1;
@@ -1826,7 +1846,7 @@ void func_modfyh()
 							{
 								WG12864A_posXY(110, 7);
 								WG12864A_print_symbol(BACK16x16, NEGRO);
-								delay32Ms(0, TIMMER_FONDO_BLANCO);	// Para demorar su utiliza vTaskDelay()
+								delay32Ms(0, TIMMER_FONDO_BLANCO);			// Para demorar su utiliza vTaskDelay()
 								cur=48;
 								mod=-1;
 								menu32=-1;
@@ -1858,13 +1878,13 @@ void func_modfyh()
 
 		WG12864A_posXY(110, 7);
 		WG12864A_print_symbol(BACK16x16, NEGRO);
-		delay32Ms(0, TIMMER_FONDO_BLANCO);	// Para demorar su utiliza vTaskDelay()
-		adc_valX = 0, adc_valY = 0;			// Reseteo el valor de X, Y del ADC.
+		delay32Ms(0, TIMMER_FONDO_BLANCO);									// Para demorar su utiliza vTaskDelay()
+		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
 		WG12864A_Limpiar(NEGRO);
 		menu3 = 0;
 	}
 
-	flag_sleepsubmenu = 1;						// Restablesco el valor original de la bandera.
+	flag_sleepsubmenu = 1;													// Restablesco el valor original de la bandera.
 
 }
 
@@ -1887,12 +1907,12 @@ void func_actualiza_fw(void)
 		WG12864A_printf(" Actualizando fw", Arial8x6, NEGRO);
 		WG12864A_posXY(1, 6);
 		WG12864A_printf(" por USB...", Arial8x6, NEGRO);
-		delay32Ms(0, TIMMER_ACTUALIZA_FW);	// Para demorar su utiliza vTaskDelay()
-		menu41_1 = -1;								// Desabilito que entre al SubMenú.
-		menu41 = -1;									// Habilito que entre al Menu Seleccionado.
+		delay32Ms(0, TIMMER_ACTUALIZA_FW);									// Para demorar su utiliza vTaskDelay()
+		menu41_1 = -1;														// Desabilito que entre al SubMenú.
+		menu41 = -1;														// Habilito que entre al Menu Seleccionado.
 		menu4 = -1;
 		menu = 0;
-		menuactual=consp;					// Necesario para sacarlo de la comunicación SPI modo afw
+		menuactual=consp;													// Necesario para sacarlo de la comunicación SPI modo afw
 //		WG12864A_posXY(110, 7);
 //		WG12864A_print_symbol(BACK16x16, BLANCO);
 		// Funcion que maneja el Sleep de la pantalla y la IRQ del TOUCH.
@@ -1945,15 +1965,15 @@ void Func_Ingreso (void)
 		if( (0x95 < adc_valX) && (adc_valX < 0xB5) &&
 			(0x70 < adc_valY) && (adc_valY < 0xA9) ){
 
-			WG12864A_posXY(90, 3);						// Animacion del dibujo.
+			WG12864A_posXY(90, 3);											// Animacion del dibujo.
 			WG12864A_print_symbol(BK8x16, BLANCO);
 			delay32Ms(0, TIMMER_FONDO_BLANCO_BOTONES);
-			adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
-			WG12864A_posXY(cur, 2);					// Presento el cursor donde corresponde.
+			adc_valX = 0, adc_valY = 0;										// Reseteo el valor de X, Y del ADC.
+			WG12864A_posXY(cur, 2);											// Presento el cursor donde corresponde.
 			WG12864A_printf(" ", Arial8x6, NEGRO);
-			cur -= 12;								// Corro el cursor 1 lugar.
+			cur -= 12;														// Corro el cursor 1 lugar.
 			norecarga=0;
-			indice --;									// Decremento el Indice del vector que guarda la clave ingresada.
+			indice --;														// Decremento el Indice del vector que guarda la clave ingresada.
 
 			// Acomodo el cursor dentro de los 4 casilleros de la clave a ingresar y el indice del vector de la clave.
 			if( cur < 48 ){
@@ -1966,11 +1986,11 @@ void Func_Ingreso (void)
 		if( (0xD0 < adc_valX) && (adc_valX < 0xEA) &&
 			(0x70 < adc_valY) && (adc_valY < 0xA9) ){
 
-			WG12864A_posXY(110, 3);						// Animacion del dibujo.
+			WG12864A_posXY(110, 3);											// Animacion del dibujo.
 			WG12864A_print_symbol(OKS8x16, BLANCO);
 			delay32Ms(0, TIMMER_FONDO_BLANCO_BOTONES);
-			adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
-			WG12864A_posXY(48, 3);					// Presento el cursor donde corresponde.
+			adc_valX = 0, adc_valY = 0;										// Reseteo el valor de X, Y del ADC.
+			WG12864A_posXY(48, 3);											// Presento el cursor donde corresponde.
 			WG12864A_printf(" ", Arial8x6, NEGRO);
 
 			// Acomodo el cursor dentro de los 4 casilleros de la clave a ingresar y el indice del vector de la clave.
@@ -1986,17 +2006,17 @@ void Func_Ingreso (void)
 		Func_Sleep (flagirq, sleepmenu);
 	}
 
-	if(flag_sleepsubmenu){					// Si la bandera esta arriba salio del menu normal, sino salio por sleep.
+	if(flag_sleepsubmenu){													// Si la bandera esta arriba salio del menu normal, sino salio por sleep.
 
 		WG12864A_posXY(110, 7);
 		WG12864A_print_symbol(BACK16x16, NEGRO);
-		delay32Ms(0, TIMMER_FONDO_BLANCO);	// Para demorar su utiliza vTaskDelay()
-		adc_valX = 0, adc_valY = 0;			// Reseteo el valor de X, Y del ADC.
+		delay32Ms(0, TIMMER_FONDO_BLANCO);									// Para demorar su utiliza vTaskDelay()
+		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
 		WG12864A_Limpiar(NEGRO);
 		menu1 = 0;
 	}
 
-	flag_sleepsubmenu = 1;						// Restablesco el valor original de la bandera.
+	flag_sleepsubmenu = 1;													// Restablesco el valor original de la bandera.
 
 }
 

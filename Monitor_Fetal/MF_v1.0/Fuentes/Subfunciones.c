@@ -1,10 +1,16 @@
+/***************************************************************************
+ *  Proyecto Final-UTN.BA
+ *  Proyecto: Monitor Fetal
+ *  Versión: v1.0
+ *  Fecha: 30-08-2017
+ *  Autor: Sebastian Sisevich
+****************************************************************************/
+/***************************************************************************
+ *	Comentarios:
+ *
+ * Funciones particulares de cada pantalla del display
+****************************************************************************/
 
-/**********************************************************
- Name          	: Subfunciones.c
- Created on		: 14/01/2014
- Author        	: Sebastian Sisevich
- Copyright     	: SS2014
- **********************************************************/
 #include <stdio.h>
 #include "gpio.h"
 #include "Subfunciones.h"

@@ -1,9 +1,16 @@
-/********************************************************
- Name          	: Menu.c
- Created on		: 08/11/2013
- Author        	: Sebastian Sisevich/potero
- Copyright     	:
- **********************************************************/
+/***************************************************************************
+ *  Proyecto Final-UTN.BA
+ *  Proyecto: Monitor Fetal
+ *  Versión: v1.0
+ *  Fecha: 30-08-2017
+ *  Autor: Sebastian Sisevich
+****************************************************************************/
+/***************************************************************************
+ *	Comentarios:
+ *
+ * Case principal del programa, maneja los distintos menu del programa
+ * llama a la función seleccionada por display
+****************************************************************************/
 
 #include "ssp.h"
 #include "gpio.h"
@@ -13,30 +20,22 @@
 #include "WG12864A.h"
 #include "Funciones.h"
 #include "Definiciones.h"
-
-// *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-
-// Variables GLOBALES para posicionamiento en todo el Menú.
+//--------------------------------------------------------------------------
+//**********************  Variables Externas  ******************************
 extern unsigned int menu = 0, menu1 = -1, menu2 = -1, menu3 = -1,
 					menu32 = -1, menu4 = -1, menu41 = -1, menu41_1 = -1,
 					menu41_2 = -1, menu41_3 = -1, menu41_4 = -1;
 extern char			flagmm;
-// Variables GLOBALES con los valores de posicion en X e Y.
-unsigned int adc_valX, adc_valY;
+unsigned int 		adc_valX, adc_valY;
+unsigned int 		clave[] = CLAVE, cla[4];
+unsigned int 		cur=48,													// Posicion del cursor dentro de la pantalla.
+					indice=0,												// Variable dinamica para moverse por el vector de la clave ingresada.
+					sleepmenu=0,											// Variable que me indica con que menu vuelvo del Sleep en la funcion Sleep.
+					flagirq=-1;												// Bandera que me indica si habilitar o no la IRQ del TOUCH.
+int 				var_aux;
 
-// Vectores para validar la clave del Menú Especial.
-unsigned int clave[] = CLAVE, cla[4];
+//--------------------------------------------------------------------------
 
-// Variable Globales.
-unsigned int 	cur=48,			// Posicion del cursor dentro de la pantalla.
-				indice=0,			// Variable dinamica para moverse por el vector de la clave ingresada.
-				sleepmenu=0,		// Variable que me indica con que menu vuelvo del Sleep en la funcion Sleep.
-				flagirq=-1;		// Bandera que me indica si habilitar o no la IRQ del TOUCH.
-
-// Variable para usos varios.
-int var_aux;
-
-// *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 void Menu_Logo(void){
 
 	// (Mensaje de inicio).
@@ -74,8 +73,7 @@ void Menu_Logo(void){
 
 	delay32Ms(0, TIMMER_LOGO_AUTOTROL);
 }
-
-// *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+//--------------------------------------------------------------------------
 void Menu_Inicial(void){
 
 	// Funcion que maneja el Sleep de la pantalla y la IRQ del TOUCH.
@@ -83,7 +81,7 @@ void Menu_Inicial(void){
 	switch( menu ){
 
 	case 0:
-		adc_valX = 0, adc_valY = 0;			// Reseteo el valor de X, Y del ADC.
+		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
 		WG12864A_posXY(1, 1);
 		WG12864A_printf("  *Menu Principal*   ", Arial8x6, BLANCO);
 		WG12864A_posXY(1, 2);
@@ -144,36 +142,36 @@ void Menu_Inicial(void){
 		WG12864A_posXY(1, 2);
 		WG12864A_printf("1. Listado Pacientes", Arial8x6, BLANCO);
 		delay32Ms(0, TIMMER_FONDO_BLANCO);
-		adc_valX = 0, adc_valY = 0;			// Reseteo el valor de X, Y del ADC.
-		menu = -1;							// Desabilito que entre al Menú Principal.
-		menu1 = 0;							// Habilito que entre al SubMenu Seleccionado.
+		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
+		menu = -1;															// Desabilito que entre al Menú Principal.
+		menu1 = 0;															// Habilito que entre al SubMenu Seleccionado.
 		break;
 
 	case 2:
 		WG12864A_posXY(1, 4);
 		WG12864A_printf("2. Monitoreos       ", Arial8x6, BLANCO);
 		delay32Ms(0, TIMMER_FONDO_BLANCO);
-		adc_valX = 0, adc_valY = 0;			// Reseteo el valor de X, Y del ADC.
-		menu = -1;							// Desabilito que entre al Menú Principal.
-		menu2 = 0;							// Habilito que entre al SubMenu Seleccionado.
+		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
+		menu = -1;															// Desabilito que entre al Menú Principal.
+		menu2 = 0;															// Habilito que entre al SubMenu Seleccionado.
 		break;
 
 	case 3:
 		WG12864A_posXY(1, 6);
 		WG12864A_printf("3. Ajustes         ", Arial8x6, BLANCO);
 		delay32Ms(0, TIMMER_FONDO_BLANCO);
-		adc_valX = 0, adc_valY = 0;			// Reseteo el valor de X, Y del ADC.
-		menu = -1;							// Desabilito que entre al Menú Principal.
-		menu3 = 0;							// Habilito que entre al SubMenu Seleccionado.
+		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
+		menu = -1;															// Desabilito que entre al Menú Principal.
+		menu3 = 0;															// Habilito que entre al SubMenu Seleccionado.
 		break;
 
 	case 4:
 		WG12864A_posXY(1, 8);
 		WG12864A_printf("4. Menu Especial", Arial8x6, BLANCO);
 		delay32Ms(0, TIMMER_FONDO_BLANCO);
-		adc_valX = 0, adc_valY = 0;			// Reseteo el valor de X, Y del ADC.
-		menu = -1;							// Desabilito que entre al Menú Principal.
-		menu4 = 0;							// Habilito que entre al SubMenu Seleccionado.
+		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
+		menu = -1;															// Desabilito que entre al Menú Principal.
+		menu4 = 0;															// Habilito que entre al SubMenu Seleccionado.
 		break;
 
 	default:
@@ -186,7 +184,7 @@ void Menu_Inicial(void){
 	switch( menu1 ){
 
 	case 0:
-		adc_valX = 0, adc_valY = 0;			// Reseteo el valor de X, Y del ADC.
+		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
 		WG12864A_posXY(1, 1);
 		WG12864A_printf(" *Listado Pacientes* ", Arial8x6, BLANCO);
 		WG12864A_posXY(1, 2);
@@ -208,9 +206,9 @@ void Menu_Inicial(void){
 			WG12864A_posXY(110, 7);
 			WG12864A_print_symbol(BACK16x16, NEGRO);
 			delay32Ms(0, TIMMER_FONDO_BLANCO);
-			adc_valX = 0, adc_valY = 0;			// Reseteo el valor de X, Y del ADC.
-			menu1 = -1;							// Desabilito que entre al SubMenú.
-			menu = 0;							// Habilito que entre al Menu Seleccionado.
+			adc_valX = 0, adc_valY = 0;										// Reseteo el valor de X, Y del ADC.
+			menu1 = -1;														// Desabilito que entre al SubMenú.
+			menu = 0;														// Habilito que entre al Menu Seleccionado.
 			WG12864A_posXY(110, 7);
 			WG12864A_print_symbol(BACK16x16, BLANCO);
 		}
@@ -241,7 +239,7 @@ void Menu_Inicial(void){
 		       ((0x1A < adc_valX) && (adc_valX < 0xC0) && (0x5A < adc_valY) && (adc_valY < 0x7A)) ||
 		       ((0x1A < adc_valX) && (adc_valX < 0xC0) && (0x3D < adc_valY) && (adc_valY < 0x50)) )){
 
-			adc_valX = 0, adc_valY = 0;			// Reseteo el valor de X, Y del ADC.
+			adc_valX = 0, adc_valY = 0;										// Reseteo el valor de X, Y del ADC.
 		}
 		break;
 
@@ -249,17 +247,17 @@ void Menu_Inicial(void){
 		WG12864A_posXY(1, 2);
 		WG12864A_printf("1.1 Nuevo Ingreso    ", Arial8x6, BLANCO);
 		delay32Ms(0, TIMMER_FONDO_BLANCO);
-		adc_valX = 0, adc_valY = 0;				// Reseteo el valor de X, Y del ADC.
-		WG12864A_Limpiar(NEGRO); 				// Limpio la pantalla y entro al submenu 1.1
-		Func_Ingreso();							// Funcion del SubMenu seleccionado.
+		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
+		WG12864A_Limpiar(NEGRO); 											// Limpio la pantalla y entro al submenu 1.1
+		Func_Ingreso();														// Funcion del SubMenu seleccionado.
 		break;
 
 	case 2:
 		WG12864A_posXY(1, 4);
 		WG12864A_printf("1.2 Buscar Paciente  ", Arial8x6, BLANCO);
 		delay32Ms(0, TIMMER_FONDO_BLANCO);
-		adc_valX = 0, adc_valY = 0;				// Reseteo el valor de X, Y del ADC.
-		WG12864A_Limpiar(NEGRO); 				// Limpio la pantalla y entro al submenu 1.2
+		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
+		WG12864A_Limpiar(NEGRO); 											// Limpio la pantalla y entro al submenu 1.2
 
 		func_consultaptros();
 		break;
@@ -268,20 +266,20 @@ void Menu_Inicial(void){
 		WG12864A_posXY(1, 6);
 		WG12864A_printf("1.3 Editar Paciente  ", Arial8x6, BLANCO);
 		delay32Ms(0, TIMMER_FONDO_BLANCO);
-		adc_valX = 0, adc_valY = 0;				// Reseteo el valor de X, Y del ADC.
-		WG12864A_Limpiar(NEGRO); 				// Limpio la pantalla y entro al submenu 1.3
+		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
+		WG12864A_Limpiar(NEGRO); 											// Limpio la pantalla y entro al submenu 1.3
 
-		func_conserr();							// Entra en el submenu de consulta de errores.
+		func_conserr();														// Entra en el submenu de consulta de errores.
 		break;
 
 	case 4:
 		WG12864A_posXY(1, 8);
 		WG12864A_printf("1.4 Borrar Pacient", Arial8x6, BLANCO);
 		delay32Ms(0, TIMMER_FONDO_BLANCO);
-		adc_valX = 0, adc_valY = 0;				// Reseteo el valor de X, Y del ADC.
-		WG12864A_Limpiar(NEGRO);				// Limpio la pantalla y entro al submenu 1.4
+		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
+		WG12864A_Limpiar(NEGRO);											// Limpio la pantalla y entro al submenu 1.4
 
-		func_borrarerr();						// Entra en el submenu borrar errores.
+		func_borrarerr();													// Entra en el submenu borrar errores.
 		break;
 
 	default:
@@ -295,7 +293,7 @@ void Menu_Inicial(void){
 	switch( menu2 ){
 
 	case 0:
-		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
+		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
 		WG12864A_posXY(1, 1);
 		WG12864A_printf("     *Monitoreo*    ", Arial8x6, BLANCO);
 		WG12864A_posXY(1, 2);
@@ -317,9 +315,9 @@ void Menu_Inicial(void){
 			WG12864A_posXY(110, 7);
 			WG12864A_print_symbol(BACK16x16, NEGRO);
 			delay32Ms(0, TIMMER_FONDO_BLANCO);
-			adc_valX = 0, adc_valY = 0;			// Reseteo el valor de X, Y del ADC.
-			menu2 = -1;							// Desabilito que entre al SubMenú.
-			menu = 0;							// Habilito que entre al Menu Seleccionado.
+			adc_valX = 0, adc_valY = 0;										// Reseteo el valor de X, Y del ADC.
+			menu2 = -1;														// Desabilito que entre al SubMenú.
+			menu = 0;														// Habilito que entre al Menu Seleccionado.
 			WG12864A_posXY(110, 7);
 			WG12864A_print_symbol(BACK16x16, BLANCO);
 		}
@@ -352,10 +350,10 @@ void Menu_Inicial(void){
 		WG12864A_posXY(1, 2);
 		WG12864A_printf("2.1 Iniciar Monitoreo", Arial8x6, BLANCO);
 		delay32Ms(0, TIMMER_FONDO_BLANCO);
-		adc_valX = 0, adc_valY = 0;				// Reseteo el valor de X, Y del ADC.
-		WG12864A_Limpiar(NEGRO); 				// Limpio la pantalla y entro al submenu 2.1
+		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
+		WG12864A_Limpiar(NEGRO); 											// Limpio la pantalla y entro al submenu 2.1
 
-		Func_Monitoreo();						// Funcion del SubMenu seleccionado.
+		Func_Monitoreo();													// Funcion del SubMenu seleccionado.
 
 		break;
 
@@ -363,10 +361,10 @@ void Menu_Inicial(void){
 		WG12864A_posXY(1, 4);
 		WG12864A_printf("2.2 Configuraciones  ", Arial8x6, BLANCO);
 		delay32Ms(0, TIMMER_FONDO_BLANCO);
-		adc_valX = 0, adc_valY = 0;				// Reseteo el valor de X, Y del ADC.
-		WG12864A_Limpiar(NEGRO); 				// Limpio la pantalla y entro al submenu 2.2
+		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
+		WG12864A_Limpiar(NEGRO); 											// Limpio la pantalla y entro al submenu 2.2
 		Func_Semaforos ();
-//		Func_Config();						// Funcion del SubMenu seleccionado.
+//		Func_Config();														// Funcion del SubMenu seleccionado.
 
 		break;
 
@@ -374,10 +372,10 @@ void Menu_Inicial(void){
 		WG12864A_posXY(1, 6);
 		WG12864A_printf("                    ", Arial8x6, BLANCO);
 		delay32Ms(0, TIMMER_FONDO_BLANCO);
-		adc_valX = 0, adc_valY = 0;				// Reseteo el valor de X, Y del ADC.
-		WG12864A_Limpiar(NEGRO); 				// Limpio la pantalla y entro al submenu 2.3
+		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
+		WG12864A_Limpiar(NEGRO); 											// Limpio la pantalla y entro al submenu 2.3
 
-		//Func_Config();						// Funcion del SubMenu seleccionado.
+		//Func_Config();													// Funcion del SubMenu seleccionado.
 
 		break;
 
@@ -392,7 +390,7 @@ void Menu_Inicial(void){
 	switch( menu3 ){
 
 	case 0:
-		adc_valX = 0, adc_valY = 0;				// Reseteo el valor de X, Y del ADC.
+		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
 		WG12864A_posXY(1, 1);
 		WG12864A_printf("    *Menu reloj*     ", Arial8x6, BLANCO);
 		WG12864A_posXY(1, 2);
@@ -414,9 +412,9 @@ void Menu_Inicial(void){
 			WG12864A_posXY(110, 7);
 			WG12864A_print_symbol(BACK16x16, NEGRO);
 			delay32Ms(0, TIMMER_FONDO_BLANCO);
-			adc_valX = 0, adc_valY = 0;			// Reseteo el valor de X, Y del ADC.
-			menu3 = -1;							// Desabilito que entre al SubMenú.
-			menu = 0;							// Habilito que entre al Menu Seleccionado.
+			adc_valX = 0, adc_valY = 0;										// Reseteo el valor de X, Y del ADC.
+			menu3 = -1;														// Desabilito que entre al SubMenú.
+			menu = 0;														// Habilito que entre al Menu Seleccionado.
 			WG12864A_posXY(110, 7);
 			WG12864A_print_symbol(BACK16x16, BLANCO);
 		}
@@ -435,7 +433,7 @@ void Menu_Inicial(void){
 		if( !( ((0x1A < adc_valX) && (adc_valX < 0xEA) && (0xAA < adc_valY) && (adc_valY < 0xC0)) ||
 			   ((0x1A < adc_valX) && (adc_valX < 0xEA) && (0x85 < adc_valY) && (adc_valY < 0xA0)) )){
 
-			adc_valX = 0, adc_valY = 0;				// Reseteo el valor de X, Y del ADC.
+			adc_valX = 0, adc_valY = 0;										// Reseteo el valor de X, Y del ADC.
 		}
 		break;
 
@@ -445,10 +443,10 @@ void Menu_Inicial(void){
 		WG12864A_posXY(1, 2);
 		WG12864A_printf("3.1 Consulta Reloj", Arial8x6, BLANCO);
 		delay32Ms(0, TIMMER_FONDO_BLANCO);
-		adc_valX = 0, adc_valY = 0;				// Reseteo el valor de X, Y del ADC.
-		WG12864A_Limpiar(NEGRO); 				// Limpio la pantalla y entro al submenu 3.1
+		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
+		WG12864A_Limpiar(NEGRO); 											// Limpio la pantalla y entro al submenu 3.1
 
-		func_muestrafyh();						// Entra en la funcion muestra fecha y hora.
+		func_muestrafyh();													// Entra en la funcion muestra fecha y hora.
 		break;
 
 //-------------------------------------------------------------------------------------------------------------------------------
@@ -457,10 +455,10 @@ void Menu_Inicial(void){
 		WG12864A_posXY(1, 4);
 		WG12864A_printf("3.2 Modificar Reloj", Arial8x6, BLANCO);
 		delay32Ms(0, TIMMER_FONDO_BLANCO);
-		adc_valX = 0, adc_valY = 0;				// Reseteo el valor de X, Y del ADC.
-		WG12864A_Limpiar(NEGRO); 				// Limpio la pantalla y entro al submenu 3.2
+		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
+		WG12864A_Limpiar(NEGRO); 											// Limpio la pantalla y entro al submenu 3.2
 
-		func_modfyh();							// Entra en submenu modifica fecha y hora.
+		func_modfyh();														// Entra en submenu modifica fecha y hora.
 		break;
 
 	default:
@@ -474,7 +472,7 @@ void Menu_Inicial(void){
 	switch( menu4 ){
 
 	case 0:
-		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
+		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
 		WG12864A_posXY(1, 1);
 		WG12864A_printf("   *Menu Especial*   ", Arial8x6, BLANCO);
 		WG12864A_posXY(1,2);
@@ -496,9 +494,9 @@ void Menu_Inicial(void){
 			WG12864A_posXY(110, 7);
 			WG12864A_print_symbol(BACK16x16, NEGRO);
 			delay32Ms(0, TIMMER_FONDO_BLANCO);
-			adc_valX = 0, adc_valY = 0;				// Reseteo el valor de X, Y del ADC.
-			menu4 = -1;								// Desabilito que entre al SubMenú.
-			menu = 0;								// Habilito que entre al Menu Seleccionado.
+			adc_valX = 0, adc_valY = 0;										// Reseteo el valor de X, Y del ADC.
+			menu4 = -1;														// Desabilito que entre al SubMenú.
+			menu = 0;														// Habilito que entre al Menu Seleccionado.
 			WG12864A_posXY(110, 7);
 			WG12864A_print_symbol(BACK16x16, BLANCO);
 		}
@@ -510,30 +508,30 @@ void Menu_Inicial(void){
 			WG12864A_posXY(1, 8);
 			WG12864A_printf("  * _ _ _ _ *  ", Arial8x6, BLANCO);
 			delay32Ms(0, TIMMER_FONDO_BLANCO);
-			adc_valX = 0, adc_valY = 0;				// Reseteo el valor de X, Y del ADC.
-			WG12864A_Limpiar(NEGRO); 				// Limpio la pantalla.
+			adc_valX = 0, adc_valY = 0;										// Reseteo el valor de X, Y del ADC.
+			WG12864A_Limpiar(NEGRO); 										// Limpio la pantalla.
 			menu4= 1;
-			indice = 0;								// Preparo el indice del vector de la clave.
-			cur = 48;							// Preparo el cursor para la proxima vez.
+			indice = 0;														// Preparo el indice del vector de la clave.
+			cur = 48;														// Preparo el cursor para la proxima vez.
 		}
 		break;
 
 	case 1:
 
-//		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
-		var_aux = Func_MuestraTeclado(1);			// Muestra Teclado en pantalla.
+//		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
+		var_aux = Func_MuestraTeclado(1);									// Muestra Teclado en pantalla.
 
-		if( var_aux != -1 ){						// Valida el numero del teclado que se pulso.
+		if( var_aux != -1 ){												// Valida el numero del teclado que se pulso.
 
-			if (indice < 4){						// Si no cargo los 4 Digitos, lo carga sino limpia la clave.
+			if (indice < 4){												// Si no cargo los 4 Digitos, lo carga sino limpia la clave.
 
-				cla[indice] = var_aux;				// Carga en el vector los digitos de la clave.
+				cla[indice] = var_aux;										// Carga en el vector los digitos de la clave.
 				indice ++;
 			}else{
 
-				indice = 0;							// Reseteo el indice del vector de la clave.
-				cur = 48;						// Acomodo el cursor para la proxima vez.
-				WG12864A_posXY(cur, 2);			// Limpio la clave en pantalla.
+				indice = 0;													// Reseteo el indice del vector de la clave.
+				cur = 48;													// Acomodo el cursor para la proxima vez.
+				WG12864A_posXY(cur, 2);										// Limpio la clave en pantalla.
 				WG12864A_printf(" ", Arial8x6, NEGRO);
 				WG12864A_posXY(88, 2);
 				WG12864A_printf(" ", Arial8x6, NEGRO);
@@ -551,11 +549,11 @@ void Menu_Inicial(void){
 			WG12864A_posXY(110, 7);
 			WG12864A_print_symbol(BACK16x16, NEGRO);
 			delay32Ms(0, TIMMER_FONDO_BLANCO);
-			adc_valX = 0, adc_valY = 0;				// Reseteo el valor de X, Y del ADC.
-			menu4 = 0;								// Habilito que entre al Menu Seleccionado.
-			WG12864A_Limpiar(NEGRO); 				// Limpio la pantalla y vuelvo al menu anterior.
-			cur = 48;							// Acomodo el cursor para la proxima vez.
-			indice = 0;								// Reseteo el indice del vector de la clave.
+			adc_valX = 0, adc_valY = 0;										// Reseteo el valor de X, Y del ADC.
+			menu4 = 0;														// Habilito que entre al Menu Seleccionado.
+			WG12864A_Limpiar(NEGRO); 										// Limpio la pantalla y vuelvo al menu anterior.
+			cur = 48;														// Acomodo el cursor para la proxima vez.
+			indice = 0;														// Reseteo el indice del vector de la clave.
 		}
 
 		//Se presionó OK?
@@ -565,15 +563,15 @@ void Menu_Inicial(void){
 			WG12864A_posXY(80, 7);
 			WG12864A_print_symbol(OK16x16, NEGRO);
 			delay32Ms(0, TIMMER_FONDO_BLANCO);
-			adc_valX = 0, adc_valY = 0;				// Reseteo el valor de X, Y del ADC.
-			indice = 0;								// Reseteo el indice del vector de la clave.
-			WG12864A_Limpiar(NEGRO);				// Limpio la pantalla.
+			adc_valX = 0, adc_valY = 0;										// Reseteo el valor de X, Y del ADC.
+			indice = 0;														// Reseteo el indice del vector de la clave.
+			WG12864A_Limpiar(NEGRO);										// Limpio la pantalla.
 
 			//Clave correcta?
 			if( (cla[0] == clave[0]) && (cla[1] == clave[1]) &&
 				(cla[2] == clave[2]) && (cla[3] == clave[3]) ){
 
-				menu4 = -1;							// Desabilito que entre al Menu Seleccionado.
+				menu4 = -1;													// Desabilito que entre al Menu Seleccionado.
 				menu41 = 0;
 				cla[0] = 0, cla[1] = 0,	cla[2] = 0,	cla[3] = 0;
 				indice = 0;
@@ -585,8 +583,8 @@ void Menu_Inicial(void){
 				delay32Ms(0, TIMMER_MUESTRO_MSJ);
 				WG12864A_Limpiar(NEGRO);
 				menu4 = 0;
-				indice = 0;							// Reseteo el indice del vector de la clave.
-				cur = 48;						// Acomodo el cursor para la proxima vez.
+				indice = 0;													// Reseteo el indice del vector de la clave.
+				cur = 48;													// Acomodo el cursor para la proxima vez.
 			}
 		}
 		break;
@@ -602,7 +600,7 @@ void Menu_Inicial(void){
 	switch( menu41 ){
 
 	case 0:
-		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
+		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
 		WG12864A_posXY(1, 1);
 		WG12864A_printf("   *Menu Especial*   ", Arial8x6, BLANCO);
 		WG12864A_posXY(110, 7);
@@ -624,9 +622,9 @@ void Menu_Inicial(void){
 			WG12864A_posXY(110, 7);
 			WG12864A_print_symbol(BACK16x16, NEGRO);
 			delay32Ms(0, TIMMER_FONDO_BLANCO);
-			adc_valX = 0, adc_valY = 0;				// Reseteo el valor de X, Y del ADC.
-			menu41 = -1;							// Desabilito que entre al SubMenú.
-			menu4 = 0;								// Habilito que entre al Menu Seleccionado.
+			adc_valX = 0, adc_valY = 0;										// Reseteo el valor de X, Y del ADC.
+			menu41 = -1;													// Desabilito que entre al SubMenú.
+			menu4 = 0;														// Habilito que entre al Menu Seleccionado.
 			WG12864A_posXY(110, 7);
 			WG12864A_print_symbol(BACK16x16, BLANCO);
 		}
@@ -657,7 +655,7 @@ void Menu_Inicial(void){
 		       ((0x1A < adc_valX) && (adc_valX < 0xC0) && (0x5A < adc_valY) && (adc_valY < 0x7A)) ||
 		       ((0x1A < adc_valX) && (adc_valX < 0xC0) && (0x3D < adc_valY) && (adc_valY < 0x50)) )){
 
-			adc_valX = 0, adc_valY = 0;				// Reseteo el valor de X, Y del ADC.
+			adc_valX = 0, adc_valY = 0;										// Reseteo el valor de X, Y del ADC.
 		}
 		break;
 
@@ -665,40 +663,40 @@ void Menu_Inicial(void){
 			WG12864A_posXY(1, 2);
 			WG12864A_printf("4.1 Prog por USB", Arial8x6, BLANCO);
 			delay32Ms(0, TIMMER_FONDO_BLANCO);
-			adc_valX = 0, adc_valY = 0;				// Reseteo el valor de X, Y del ADC.
-			WG12864A_Limpiar(NEGRO); 				// Limpio la pantalla.
-			menu41 = -1;							// Desabilito que entre al SubMenú.
-			menu41_1 = 0;							// Habilito que entre al Menu Seleccionado.
+			adc_valX = 0, adc_valY = 0;										// Reseteo el valor de X, Y del ADC.
+			WG12864A_Limpiar(NEGRO); 										// Limpio la pantalla.
+			menu41 = -1;													// Desabilito que entre al SubMenú.
+			menu41_1 = 0;													// Habilito que entre al Menu Seleccionado.
 			break;
 
 	case 2:
 			WG12864A_posXY(1, 4);
 			WG12864A_printf("4.2 Prog por SD", Arial8x6, BLANCO);
 			delay32Ms(0, TIMMER_FONDO_BLANCO);
-			adc_valX = 0, adc_valY = 0;				// Reseteo el valor de X, Y del ADC.
-			WG12864A_Limpiar(NEGRO); 				// Limpio la pantalla.
-			menu41 = -1;							// Desabilito que entre al SubMenú.
-			menu41_2 = 0;							// Habilito que entre al Menu Seleccionado.
+			adc_valX = 0, adc_valY = 0;										// Reseteo el valor de X, Y del ADC.
+			WG12864A_Limpiar(NEGRO); 										// Limpio la pantalla.
+			menu41 = -1;													// Desabilito que entre al SubMenú.
+			menu41_2 = 0;													// Habilito que entre al Menu Seleccionado.
 			break;
 
 	case 3:
 			WG12864A_posXY(1, 6);
 			WG12864A_printf("4.3 Grabar en USB", Arial8x6, BLANCO);
 			delay32Ms(0, TIMMER_FONDO_BLANCO);
-			adc_valX = 0, adc_valY = 0;				// Reseteo el valor de X, Y del ADC.
-			WG12864A_Limpiar(NEGRO); 				// Limpio la pantalla.
-			menu41 = -1;							// Desabilito que entre al SubMenú.
-			menu41_3 = 0;							// Habilito que entre al Menu Seleccionado.
+			adc_valX = 0, adc_valY = 0;										// Reseteo el valor de X, Y del ADC.
+			WG12864A_Limpiar(NEGRO); 										// Limpio la pantalla.
+			menu41 = -1;													// Desabilito que entre al SubMenú.
+			menu41_3 = 0;													// Habilito que entre al Menu Seleccionado.
 			break;
 
 	case 4:
 			WG12864A_posXY(1, 8);
 			WG12864A_printf("4.4 Grabar en SD", Arial8x6, BLANCO);
 			delay32Ms(0, TIMMER_FONDO_BLANCO);
-			adc_valX = 0, adc_valY = 0;				// Reseteo el valor de X, Y del ADC.
-			WG12864A_Limpiar(NEGRO);				// Limpio la pantalla.
-			menu41 = -1;							// Desabilito que entre al SubMenú.
-			menu41_4 = 0;							// Habilito que entre al Menu Seleccionado.
+			adc_valX = 0, adc_valY = 0;										// Reseteo el valor de X, Y del ADC.
+			WG12864A_Limpiar(NEGRO);										// Limpio la pantalla.
+			menu41 = -1;													// Desabilito que entre al SubMenú.
+			menu41_4 = 0;													// Habilito que entre al Menu Seleccionado.
 			break;
 
 	default:
@@ -712,7 +710,7 @@ void Menu_Inicial(void){
 	switch( menu41_1 ){
 
 	case 0:
-		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
+		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
 		WG12864A_posXY(1, 1);
 		WG12864A_printf(" *Programar por USB* ", Arial8x6, BLANCO);
 		WG12864A_posXY(1, 3);
@@ -729,12 +727,12 @@ void Menu_Inicial(void){
 			WG12864A_posXY(110, 7);
 			WG12864A_print_symbol(BACK16x16, NEGRO);
 			delay32Ms(0, TIMMER_FONDO_BLANCO);
-			adc_valX = 0, adc_valY = 0;				// Reseteo el valor de X, Y del ADC.
-			menu41_1 = -1;							// Desabilito que entre al SubMenú.
-			menu41 = 0;								// Habilito que entre al Menu Seleccionado.
+			adc_valX = 0, adc_valY = 0;										// Reseteo el valor de X, Y del ADC.
+			menu41_1 = -1;													// Desabilito que entre al SubMenú.
+			menu41 = 0;														// Habilito que entre al Menu Seleccionado.
 			WG12864A_posXY(110, 7);
 			WG12864A_print_symbol(BACK16x16, BLANCO);
-			WG12864A_Limpiar(NEGRO); 				// Limpio la pantalla.
+			WG12864A_Limpiar(NEGRO); 										// Limpio la pantalla.
 		}
 
 		// Consulta que menu se presionó.
@@ -751,7 +749,7 @@ void Menu_Inicial(void){
 		if( !( ((0x1A < adc_valX) && (adc_valX < 0xB0) && (0x9A < adc_valY) && (adc_valY < 0xB0)) ||
 			   ((0x1A < adc_valX) && (adc_valX < 0xB0) && (0x70 < adc_valY) && (adc_valY < 0x90)) )){
 
-			adc_valX = 0, adc_valY = 0;				// Reseteo el valor de X, Y del ADC.
+			adc_valX = 0, adc_valY = 0;										// Reseteo el valor de X, Y del ADC.
 		}
 		break;
 
@@ -759,28 +757,28 @@ void Menu_Inicial(void){
 		WG12864A_posXY(1, 3);
 		WG12864A_printf("Actualizar Firmware", Arial8x6, BLANCO);
 		delay32Ms(0, TIMMER_FONDO_BLANCO);
-		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
-		WG12864A_Limpiar(NEGRO); 					// Limpio la pantalla.
+		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
+		WG12864A_Limpiar(NEGRO); 											// Limpio la pantalla.
 
 		// FUNCION.
-		func_actualiza_fw();						// Entra en la funcion muestra fecha y hora.
+		func_actualiza_fw();												// Entra en la funcion muestra fecha y hora.
 
 		// HACER Q VUELVA A DONDE CORRESPONDE SEGUN LA ACCION DE LA FUNCION.
-//		menu41 = 0;									// Desabilito que entre al SubMenú.
-//		menu41_1 = -1;								// Habilito que entre al Menu Seleccionado.
+//		menu41 = 0;															// Desabilito que entre al SubMenú.
+//		menu41_1 = -1;														// Habilito que entre al Menu Seleccionado.
 		break;
 
 	case 2:
 		WG12864A_posXY(1, 5);
 		WG12864A_printf("Actualizar Software", Arial8x6, BLANCO);
 		delay32Ms(0, TIMMER_FONDO_BLANCO);
-		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
-		WG12864A_Limpiar(NEGRO); 					// Limpio la pantalla.
+		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
+		WG12864A_Limpiar(NEGRO); 											// Limpio la pantalla.
 
 		// FUNCION.
 		// HACER Q VUELVA A DONDE CORRESPONDE SEGUN LA ACCION DE LA FUNCION.
-		menu41_1 = -1;								// Desabilito que entre al SubMenú.
-		menu41 = 0;									// Habilito que entre al Menu Seleccionado.
+		menu41_1 = -1;														// Desabilito que entre al SubMenú.
+		menu41 = 0;															// Habilito que entre al Menu Seleccionado.
 		break;
 
 	default:
@@ -794,7 +792,7 @@ void Menu_Inicial(void){
 	switch( menu41_2 ){
 
 	case 0:
-		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
+		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
 		WG12864A_posXY(1, 1);
 		WG12864A_printf(" *Programar por SD*  ", Arial8x6, BLANCO);
 		WG12864A_posXY(1, 3);
@@ -811,12 +809,12 @@ void Menu_Inicial(void){
 			WG12864A_posXY(110, 7);
 			WG12864A_print_symbol(BACK16x16, NEGRO);
 			delay32Ms(0, TIMMER_FONDO_BLANCO);
-			adc_valX = 0, adc_valY = 0;				// Reseteo el valor de X, Y del ADC.
-			menu41_2 = -1;							// Desabilito que entre al SubMenú.
-			menu41 = 0;								// Habilito que entre al Menu Seleccionado.
+			adc_valX = 0, adc_valY = 0;										// Reseteo el valor de X, Y del ADC.
+			menu41_2 = -1;													// Desabilito que entre al SubMenú.
+			menu41 = 0;														// Habilito que entre al Menu Seleccionado.
 			WG12864A_posXY(110, 7);
 			WG12864A_print_symbol(BACK16x16, BLANCO);
-			WG12864A_Limpiar(NEGRO); 				// Limpio la pantalla.
+			WG12864A_Limpiar(NEGRO); 										// Limpio la pantalla.
 		}
 
 		// Consulta que menu se presionó.
@@ -833,7 +831,7 @@ void Menu_Inicial(void){
 		if( !( ((0x1A < adc_valX) && (adc_valX < 0xB0) && (0x9A < adc_valY) && (adc_valY < 0xB0)) ||
 			   ((0x1A < adc_valX) && (adc_valX < 0xB0) && (0x70 < adc_valY) && (adc_valY < 0x90)) )){
 
-			adc_valX = 0, adc_valY = 0;				// Reseteo el valor de X, Y del ADC.
+			adc_valX = 0, adc_valY = 0;										// Reseteo el valor de X, Y del ADC.
 		}
 		break;
 
@@ -841,26 +839,26 @@ void Menu_Inicial(void){
 		WG12864A_posXY(1, 3);
 		WG12864A_printf("Actualizar Firmware", Arial8x6, BLANCO);
 		delay32Ms(0, TIMMER_FONDO_BLANCO);
-		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
-		WG12864A_Limpiar(NEGRO); 					// Limpio la pantalla.
+		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
+		WG12864A_Limpiar(NEGRO); 											// Limpio la pantalla.
 
 		// FUNCION.
 		// HACER Q VUELVA A DONDE CORRESPONDE SEGUN LA ACCION DE LA FUNCION.
-		menu41_2 = -1;								// Desabilito que entre al SubMenú.
-		menu41 = 0;									// Habilito que entre al Menu Seleccionado.
+		menu41_2 = -1;														// Desabilito que entre al SubMenú.
+		menu41 = 0;															// Habilito que entre al Menu Seleccionado.
 		break;
 
 	case 2:
 		WG12864A_posXY(1, 5);
 		WG12864A_printf("Actualizar Software", Arial8x6, BLANCO);
 		delay32Ms(0, TIMMER_FONDO_BLANCO);
-		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
-		WG12864A_Limpiar(NEGRO); 					// Limpio la pantalla.
+		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
+		WG12864A_Limpiar(NEGRO); 											// Limpio la pantalla.
 
 		// FUNCION.
 		// HACER Q VUELVA A DONDE CORRESPONDE SEGUN LA ACCION DE LA FUNCION.
-		menu41_2 = -1;								// Desabilito que entre al SubMenú.
-		menu41 = 0;									// Habilito que entre al Menu Seleccionado.
+		menu41_2 = -1;														// Desabilito que entre al SubMenú.
+		menu41 = 0;															// Habilito que entre al Menu Seleccionado.
 		break;
 
 	default:
@@ -874,7 +872,7 @@ void Menu_Inicial(void){
 	switch( menu41_3 ){
 
 	case 0:
-		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
+		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
 		WG12864A_posXY(1, 1);
 		WG12864A_printf("   *Grabar en USB*   ", Arial8x6, BLANCO);
 		WG12864A_posXY(1, 3);
@@ -893,12 +891,12 @@ void Menu_Inicial(void){
 			WG12864A_posXY(110, 7);
 			WG12864A_print_symbol(BACK16x16, NEGRO);
 			delay32Ms(0, TIMMER_FONDO_BLANCO);
-			adc_valX = 0, adc_valY = 0;				// Reseteo el valor de X, Y del ADC.
-			menu41 = 0;								// Desabilito que entre al SubMenú.
-			menu41_3 = -1;							// Habilito que entre al Menu Seleccionado.
+			adc_valX = 0, adc_valY = 0;										// Reseteo el valor de X, Y del ADC.
+			menu41 = 0;														// Desabilito que entre al SubMenú.
+			menu41_3 = -1;													// Habilito que entre al Menu Seleccionado.
 			WG12864A_posXY(110, 7);
 			WG12864A_print_symbol(BACK16x16, BLANCO);
-			WG12864A_Limpiar(NEGRO); 				// Limpio la pantalla.
+			WG12864A_Limpiar(NEGRO); 										// Limpio la pantalla.
 		}
 
 		// Consulta que menu se presionó.
@@ -921,7 +919,7 @@ void Menu_Inicial(void){
 			   ((0x1A < adc_valX) && (adc_valX < 0xB0) && (0x70 < adc_valY) && (adc_valY < 0x90)) ||
 			   ((0x1A < adc_valX) && (adc_valX < 0xB0) && (0x45 < adc_valY) && (adc_valY < 0x65)) )){
 
-			adc_valX = 0, adc_valY = 0;				// Reseteo el valor de X, Y del ADC.
+			adc_valX = 0, adc_valY = 0;										// Reseteo el valor de X, Y del ADC.
 		}
 		break;
 
@@ -929,39 +927,39 @@ void Menu_Inicial(void){
 		WG12864A_posXY(1, 3);
 		WG12864A_printf("Grabar Errores", Arial8x6, BLANCO);
 		delay32Ms(0, TIMMER_FONDO_BLANCO);
-		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
-		WG12864A_Limpiar(NEGRO); 					// Limpio la pantalla.
+		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
+		WG12864A_Limpiar(NEGRO); 											// Limpio la pantalla.
 
 		// FUNCION.
 		// HACER Q VUELVA A DONDE CORRESPONDE SEGUN LA ACCION DE LA FUNCION.
-		menu41_3 = -1;								// Desabilito que entre al SubMenú.
-		menu41 = 0;									// Habilito que entre al Menu Seleccionado.
+		menu41_3 = -1;														// Desabilito que entre al SubMenú.
+		menu41 = 0;															// Habilito que entre al Menu Seleccionado.
 		break;
 
 	case 2:
 		WG12864A_posXY(1, 5);
 		WG12864A_printf("Grabar Firmware", Arial8x6, BLANCO);
 		delay32Ms(0, TIMMER_FONDO_BLANCO);
-		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
-		WG12864A_Limpiar(NEGRO); 					// Limpio la pantalla.
+		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
+		WG12864A_Limpiar(NEGRO); 											// Limpio la pantalla.
 
 		// FUNCION.
 		// HACER Q VUELVA A DONDE CORRESPONDE SEGUN LA ACCION DE LA FUNCION.
-		menu41_3 = -1;								// Desabilito que entre al SubMenú.
-		menu41 = 0;									// Habilito que entre al Menu Seleccionado.
+		menu41_3 = -1;														// Desabilito que entre al SubMenú.
+		menu41 = 0;															// Habilito que entre al Menu Seleccionado.
 		break;
 
 	case 3:
 		WG12864A_posXY(1, 7);
 		WG12864A_printf("Grabar Software", Arial8x6, BLANCO);
 		delay32Ms(0, TIMMER_FONDO_BLANCO);
-		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
-		WG12864A_Limpiar(NEGRO); 					// Limpio la pantalla.
+		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
+		WG12864A_Limpiar(NEGRO); 											// Limpio la pantalla.
 
 		// FUNCION.
 		// HACER Q VUELVA A DONDE CORRESPONDE SEGUN LA ACCION DE LA FUNCION.
-		menu41_3 = -1;								// Desabilito que entre al SubMenú.
-		menu41 = 0;									// Habilito que entre al Menu Seleccionado.
+		menu41_3 = -1;														// Desabilito que entre al SubMenú.
+		menu41 = 0;															// Habilito que entre al Menu Seleccionado.
 		break;
 
 	default:
@@ -975,7 +973,7 @@ void Menu_Inicial(void){
 	switch( menu41_4 ){
 
 	case 0:
-		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
+		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
 		WG12864A_posXY(1, 1);
 		WG12864A_printf("   *Grabar en SD*    ", Arial8x6, BLANCO);
 		WG12864A_posXY(1, 3);
@@ -994,12 +992,12 @@ void Menu_Inicial(void){
 			WG12864A_posXY(110, 7);
 			WG12864A_print_symbol(BACK16x16, NEGRO);
 			delay32Ms(0, TIMMER_FONDO_BLANCO);
-			adc_valX = 0, adc_valY = 0;				// Reseteo el valor de X, Y del ADC.
-			menu41_4 = -1;							// Desabilito que entre al SubMenú.
-			menu41 = 0;								// Habilito que entre al Menu Seleccionado.
+			adc_valX = 0, adc_valY = 0;										// Reseteo el valor de X, Y del ADC.
+			menu41_4 = -1;													// Desabilito que entre al SubMenú.
+			menu41 = 0;														// Habilito que entre al Menu Seleccionado.
 			WG12864A_posXY(110, 7);
 			WG12864A_print_symbol(BACK16x16, BLANCO);
-			WG12864A_Limpiar(NEGRO); 				// Limpio la pantalla.
+			WG12864A_Limpiar(NEGRO); 										// Limpio la pantalla.
 		}
 
 		// Consulta que menu se presionó.
@@ -1022,7 +1020,7 @@ void Menu_Inicial(void){
 			   ((0x1A < adc_valX) && (adc_valX < 0xB0) && (0x70 < adc_valY) && (adc_valY < 0x90)) ||
 			   ((0x1A < adc_valX) && (adc_valX < 0xB0) && (0x45 < adc_valY) && (adc_valY < 0x65)) )){
 
-			adc_valX = 0, adc_valY = 0;				// Reseteo el valor de X, Y del ADC.
+			adc_valX = 0, adc_valY = 0;										// Reseteo el valor de X, Y del ADC.
 		}
 		break;
 
@@ -1030,39 +1028,39 @@ void Menu_Inicial(void){
 		WG12864A_posXY(1, 3);
 		WG12864A_printf("Grabar Errores", Arial8x6, BLANCO);
 		delay32Ms(0, TIMMER_FONDO_BLANCO);
-		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
-		WG12864A_Limpiar(NEGRO); 					// Limpio la pantalla.
+		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
+		WG12864A_Limpiar(NEGRO); 											// Limpio la pantalla.
 
 		// FUNCION.
 		// HACER Q VUELVA A DONDE CORRESPONDE SEGUN LA ACCION DE LA FUNCION.
-		menu41_4 = -1;								// Desabilito que entre al SubMenú.
-		menu41 = 0;									// Habilito que entre al Menu Seleccionado.
+		menu41_4 = -1;														// Desabilito que entre al SubMenú.
+		menu41 = 0;															// Habilito que entre al Menu Seleccionado.
 		break;
 
 	case 2:
 		WG12864A_posXY(1, 5);
 		WG12864A_printf("Grabar Firmware", Arial8x6, BLANCO);
 		delay32Ms(0, TIMMER_FONDO_BLANCO);
-		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
-		WG12864A_Limpiar(NEGRO); 					// Limpio la pantalla.
+		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
+		WG12864A_Limpiar(NEGRO); 											// Limpio la pantalla.
 
 		// FUNCION.
 		// HACER Q VUELVA A DONDE CORRESPONDE SEGUN LA ACCION DE LA FUNCION.
-		menu41_4 = -1;								// Desabilito que entre al SubMenú.
-		menu41 = 0;									// Habilito que entre al Menu Seleccionado.
+		menu41_4 = -1;														// Desabilito que entre al SubMenú.
+		menu41 = 0;															// Habilito que entre al Menu Seleccionado.
 		break;
 
 	case 3:
 		WG12864A_posXY(1, 7);
 		WG12864A_printf("Grabar Software", Arial8x6, BLANCO);
 		delay32Ms(0, TIMMER_FONDO_BLANCO);
-		adc_valX = 0, adc_valY = 0;					// Reseteo el valor de X, Y del ADC.
-		WG12864A_Limpiar(NEGRO); 					// Limpio la pantalla.
+		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
+		WG12864A_Limpiar(NEGRO); 											// Limpio la pantalla.
 
 		// FUNCION.
 		// HACER Q VUELVA A DONDE CORRESPONDE SEGUN LA ACCION DE LA FUNCION.
-		menu41_4 = -1;								// Desabilito que entre al SubMenú.
-		menu41 = 0;									// Habilito que entre al Menu Seleccionado.
+		menu41_4 = -1;														// Desabilito que entre al SubMenú.
+		menu41 = 0;															// Habilito que entre al Menu Seleccionado.
 		break;
 
 	default:
