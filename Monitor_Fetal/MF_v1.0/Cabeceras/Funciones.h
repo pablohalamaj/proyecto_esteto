@@ -34,11 +34,14 @@ unsigned int Func_MuestraTeclado (int);
 // Funcion consulta de estados ---- 1.1
 void func_consultaestados(void);
 // Funcion consulta parametros ---- 1.2
-void func_consultaptros(void);
+//void func_consultaptros(void);
+void func_consultapaciente(void);
 // Funcion consulta errores ------- 1.3
-void func_conserr(void);
+//void func_conserr(void);
+void func_editapaciente(void);
 // Funcion borrar errores --------- 1.4
-void func_borrarerr(void);
+//void func_borrarerr(void);
+void func_borrarpaciente(void);
 //--------------------------------------------------------------------------
 /****************************  Submenues 2  ********************************/
 //--------------------------------------------------------------------------

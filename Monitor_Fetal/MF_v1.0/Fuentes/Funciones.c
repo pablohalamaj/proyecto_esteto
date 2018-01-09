@@ -496,142 +496,10 @@ uint32_t Func_MuestraTeclado(int opcion)
 
 //						  1.1 Consulta de estados
 //--------------------------------------------------------------------------
-void func_consultaestados(void)
-{
-	int fila=6,z=0;
-	while(!((0xD0 < adc_valX) &&(adc_valX < 0xEA) &&
-			(0x2A < adc_valY) && (adc_valY < 0x5A))) 						// Mientras no se presione back
-	{
-		switch(toca)														// Case para definir el menu actual en la recepción
-		{
-		case 0:
-			menuactual=fyh;
-			break;
-		case 1:
-			menuactual=ests;
-			break;
-		case 2:
-			menuactual=det;
-			break;
-		case 3:
-			menuactual=modp;
-			break;
-		}
-		toca++;
-		if(toca==4)
-			toca=0;
-//--------------------------------------------------------------------------
-		WG12864A_posXY(1,1);
-		WG12864A_printf("  Autotrol - CT800c  ", Arial8x6, BLANCO);
-		muestra_fecha_y_hora (2);
-//		muestra_movs (3);													// Muestra mov por programa
-		muestra_estados (3);
-		muestra_modpot();
-//--------------------------------------------------------------------------
-		WG12864A_posXY(1,7);
-		WG12864A_printf("1", Arial8x6, BLANCO);
-		WG12864A_posXY(27,7);
-		WG12864A_printf("2", Arial8x6, BLANCO);
-		WG12864A_posXY(53,7);
-		WG12864A_printf("3", Arial8x6, BLANCO);
-		WG12864A_posXY(79,7);
-		WG12864A_printf("4", Arial8x6, BLANCO);
-		WG12864A_posXY(1,8);
-		WG12864A_printf("5", Arial8x6, BLANCO);
-		WG12864A_posXY(27,8);
-		WG12864A_printf("6", Arial8x6, BLANCO);
-		WG12864A_posXY(53,8);
-		WG12864A_printf("7", Arial8x6, BLANCO);
-		WG12864A_posXY(79,8);
-		WG12864A_printf("8", Arial8x6, BLANCO);
-		WG12864A_posXY(86, 5);												// Muestra Flecha Izq.
-		WG12864A_print_symbol(LeftArrow16x16, BLANCO);
-		WG12864A_posXY(110, 5);												// Muestra Flecha Der.
-		WG12864A_print_symbol(RightArrow16x16, BLANCO);
-
-		WG12864A_posXY(110,7);
-		WG12864A_print_symbol(BACK16x16, BLANCO);
-//--------------------------------------------------------------------------
-/*		if(acti)															// Si se activo algun conflico lo muestra
-		{
-			Muestra_causa(modu, cau,fila);
-		}
-		if(CT800C_Read_Pin_IO(LL_TIT))										// Borra causa y los flags al activar llave tit
-		{
-			WG12864A_posXY(1,6);
-			WG12864A_printf("               ", Arial8x6, NEGRO);
-			modu=10;
-			cau=0;
-			acti=0;
-			conflrv=0;
-		}
-*/
-
-// Se Presionó Flecha Izquerda?
-if( (0xA0 < adc_valX) && (adc_valX < 0xC0) &&
-	(0x60 < adc_valY) && (adc_valY < 0x8A) )
-{
-	WG12864A_posXY(86, 5);													// Animacion del dibujo.
-	WG12864A_print_symbol(LeftArrow16x16, NEGRO);
-	delay32Ms(0, TIMMER_FONDO_BLANCO_BOTONES);
-	adc_valX = 0, adc_valY = 0;												// Reseteo el valor de X, Y del ADC.
-	muefunc--;
-	if(muefunc<0)
-		muefunc=4;
-}
-
-// Se Presionó Flecha Dererecha?
-if( (0xC5 < adc_valX) && (adc_valX < 0xE5) &&
-	(0x60 < adc_valY) && (adc_valY < 0x8A) )
-{
-
-	WG12864A_posXY(110, 5);													// Animacion del dibujo.
-	WG12864A_print_symbol(RightArrow16x16, NEGRO);
-	delay32Ms(0, TIMMER_FONDO_BLANCO_BOTONES);
-	adc_valX = 0, adc_valY = 0;												// Reseteo el valor de X, Y del ADC.
-	muefunc++;
-	if(muefunc>4)
-		muefunc=0;
-}
-	switch (muefunc)
-	{
-	case 0:
-		muestra_comunic();
-		break;
-	case 1:
-		muestra_det();
-		break;
-	case 2:
-		muestra_dem();
-		break;
-	case 3:
-		muestra_tin_offset();
-		break;
-	case 4:
-		muestra_tens();
-		break;
-	default:
-		break;
-	}
-		Func_Sleep (flagirq, sleepmenu);
-	}
-	if(flag_sleepsubmenu)
-	{					// Si la bandera esta arriba salio del menu normal, sino salio por sleep.
-
-		WG12864A_posXY(110, 7);
-		WG12864A_print_symbol(BACK16x16, NEGRO);
-		delay32Ms(0, TIMMER_FONDO_BLANCO);									// Para demorar su utiliza vTaskDelay()
-		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
-		WG12864A_Limpiar(NEGRO);
-		menu1 = 0;
-	}
-
-	flag_sleepsubmenu = 1;													// Restablesco el valor original de la bandera.
-
-}
 //						  1.2 Consulta de Parametros
 //--------------------------------------------------------------------------
-void func_consultaptros()
+//void func_consultaptros()
+void func_consultapaciente()
 {
 	char t,colu;
 
@@ -640,86 +508,64 @@ void func_consultaptros()
 	{
 		menuactual=consp;
 		WG12864A_posXY(1, 1);
-		WG12864A_printf("*Consulta Parametros*", Arial8x6, BLANCO);
+		WG12864A_printf(" *Consulta Paciente* ", Arial8x6, BLANCO);
 		WG12864A_posXY(1,3);
-		WG12864A_printf(" Autotrol  CT800c", Arial8x6, NEGRO);
-		WG12864A_posXY(1,5);
-		WG12864A_printf(" fw: ", Arial8x6, NEGRO);
-		colu=31;
-		for(t=0;t<cantver;t++)
-		{
-			WG12864A_posXY(colu,5);
-			WG12864A_printf(&version[t], Arial8x6, NEGRO);
-			colu+=6;
-		}
-		WG12864A_posXY(1,6);
-		WG12864A_printf(" sw:", Arial8x6, NEGRO);
-		colu=31;
-		for(t=0;t<cantprt;t++)
-		{
-			WG12864A_posXY(colu,6);
-			WG12864A_printf(&version_prt[t], Arial8x6, NEGRO);
-			colu+=6;
-		}
-		WG12864A_posXY(1,7);
-		WG12864A_printf(" pr:", Arial8x6, NEGRO);
-		switch (prs)
-		{
-		case 1:
-				WG12864A_posXY(31,7);
-				WG12864A_printf("Flash ext", Arial8x6, NEGRO);
-				break;
-		case 2:
-				WG12864A_posXY(31,7);
-				WG12864A_printf("SD-MMC PC", Arial8x6, NEGRO);
-				break;
-		case 3:
-				WG12864A_posXY(31,7);
-				WG12864A_printf("SD-MMC CT", Arial8x6, NEGRO);
-				break;
-		case 4:
-				WG12864A_posXY(31,7);
-				WG12864A_printf("Sin Prtrs", Arial8x6, NEGRO);
-				break;
-
-		default:
-//			WG12864A_posXY(31,7);
-//			WG12864A_printf("SD-MMC PC", Arial8x6, NEGRO);
-			break;
-		}
-		WG12864A_posXY(1,8);
-		WG12864A_printf(" sd:", Arial8x6, NEGRO);
-		switch (sd_disp)
-		{
-		case 1:
-			WG12864A_posXY(31,8);
-			WG12864A_printf("--     ", Arial8x6, NEGRO);
-			break;
-		case 2:
-			WG12864A_posXY(31,8);
-			WG12864A_printf("2Gb    ", Arial8x6, NEGRO);
-			break;
-		case 4:
-			WG12864A_posXY(31,8);
-			WG12864A_printf("4Gb    ", Arial8x6, NEGRO);
-			break;
-		case 5:
-			WG12864A_posXY(31,8);
-			WG12864A_printf("4Gb HC ", Arial8x6, NEGRO);
-			break;
-		case 8:
-			WG12864A_posXY(31,8);
-			WG12864A_printf("8Gb HC ", Arial8x6, NEGRO);
-			break;
-		case 9:
-			WG12864A_posXY(31,8);
-			WG12864A_printf("16Gb HC", Arial8x6, NEGRO);
-			break;
-		default:
-			break;
-		}
+		WG12864A_printf(" Nombre:", Arial8x6, NEGRO);
 		WG12864A_posXY(110, 7);
 		WG12864A_print_symbol(BACK16x16, BLANCO);
+		WG12864A_posXY(1, 5);
+		WG12864A_printf(" 1 2 3 4 5 6 7 8 9 0", Arial8x6, NEGRO);
+		WG12864A_posXY(1, 6);
+		WG12864A_printf("Q W E R T Y U I O P ", Arial8x6, NEGRO);
+		WG12864A_posXY(1, 7);
+		WG12864A_printf(" A S D F G H J K L", Arial8x6, NEGRO);
+		WG12864A_posXY(1, 8);
+		WG12864A_printf("  Z X C V B N M ", Arial8x6, NEGRO);
+		WG12864A_posXY(90, 3);
+		WG12864A_print_symbol(BK8x16, NEGRO);
+ 		WG12864A_posXY(110, 3);
+		WG12864A_print_symbol(OKS8x16, NEGRO);
+		// Se Presionó Flecha Izquerda?
+		if( (0x95 < adc_valX) && (adc_valX < 0xB5) &&
+			(0x70 < adc_valY) && (adc_valY < 0xA9) ){
+
+			WG12864A_posXY(90, 3);											// Animacion del dibujo.
+			WG12864A_print_symbol(BK8x16, BLANCO);
+			delay32Ms(0, TIMMER_FONDO_BLANCO_BOTONES);
+			adc_valX = 0, adc_valY = 0;										// Reseteo el valor de X, Y del ADC.
+			WG12864A_posXY(cur, 2);											// Presento el cursor donde corresponde.
+			WG12864A_printf(" ", Arial8x6, NEGRO);
+			cur -= 12;														// Corro el cursor 1 lugar.
+			norecarga=0;
+			indice --;														// Decremento el Indice del vector que guarda la clave ingresada.
+
+			// Acomodo el cursor dentro de los 4 casilleros de la clave a ingresar y el indice del vector de la clave.
+			if( cur < 48 ){
+
+				cur = 48;
+				indice = 3;
+			}
+		}
+		// Se Presionó OK?
+		if( (0xD0 < adc_valX) && (adc_valX < 0xEA) &&
+			(0x70 < adc_valY) && (adc_valY < 0xA9) ){
+
+			WG12864A_posXY(110, 3);											// Animacion del dibujo.
+			WG12864A_print_symbol(OKS8x16, BLANCO);
+			delay32Ms(0, TIMMER_FONDO_BLANCO_BOTONES);
+			adc_valX = 0, adc_valY = 0;										// Reseteo el valor de X, Y del ADC.
+			WG12864A_posXY(48, 3);											// Presento el cursor donde corresponde.
+			WG12864A_printf(" ", Arial8x6, NEGRO);
+
+			// Acomodo el cursor dentro de los 4 casilleros de la clave a ingresar y el indice del vector de la clave.
+			if( cur < 48 ){
+
+				cur = 48;
+				indice = 3;
+			}
+		}
+
+	   func_teclado();
 
 		Func_Sleep (flagirq, sleepmenu);
 	}
@@ -739,109 +585,26 @@ void func_consultaptros()
 
 //						  1.3 Consulta de errores
 //--------------------------------------------------------------------------
-void func_conserr()
+//void func_conserr()
+void func_editapaciente()
 {
-	int fila=7;
-	sumaerr=0;
-	causaerr[0]=sinerr;														//Primer ingreso hasta que lea los datos recibidos
+	char t,colu;
+
 	while(!((0xD0 < adc_valX) &&(adc_valX < 0xEA) &&
 			(0x2A < adc_valY) && (adc_valY < 0x5A))) 						// Mientras no se presione back
 	{
-		switch (toca1)
-		{
-		case 0:
-			menuactual=errs;
-			break;
-		case 1:
-			queenv=flecha;
-			no_recibo=1;
-			//menuactual=cauerrs;
-			break;
-		}
-		toca1++;
-		if(toca1==2)
-			toca1=0;
-		if(causaerr[0]!=sinerr)
-		{
-			if(causaerr[0]!=97)												//if(sumaerr<lec)// Si recorre el buffer con err almacenados o ya los leyó todos
-			{
-				WG12864A_posXY(1, 1);										// Muestra los errores en Display
-				WG12864A_printf(" *Consulta errores*  ", Arial8x6, BLANCO);
-				muestra_fyh_err (3);
-				WG12864A_posXY(1,5);
-				WG12864A_printf("Error:", Arial8x6, NEGRO);
-				WG12864A_posXY(1,6);
-				WG12864A_printf("Cod:", Arial8x6, NEGRO);
-				causaerror[sumaerr]=causaerr[11];
-				moduloerr[sumaerr]=causaerr[12];
-				if(causaerror[sumaerr]==0)
-				{
-					moduloerr[sumaerr]=10;
-				}
-				Muestra_causa(moduloerr[sumaerr], causaerror[sumaerr],fila);
+		menuactual=consp;
+		WG12864A_posXY(1, 1);
+		WG12864A_printf(" * Editar Paciente*  ", Arial8x6, BLANCO);
+		WG12864A_posXY(1,3);
+		WG12864A_printf(" N:Pepita     E:26", Arial8x6, NEGRO);
+		WG12864A_posXY(1,5);
+		WG12864A_printf(" Ed Nombre:", Arial8x6, NEGRO);
+		WG12864A_posXY(1,7);
+		WG12864A_printf(" Ed Edad:", Arial8x6, NEGRO);
+		WG12864A_posXY(110, 7);
+		WG12864A_print_symbol(BACK16x16, BLANCO);
 
-			}
-			else
-			{
-				WG12864A_posXY(1, 1);										// Se leyeron todos los err del buffer
-				WG12864A_printf(" *Consulta errores*  ", Arial8x6, BLANCO);
-				WG12864A_posXY(1,3);
-				WG12864A_printf("                     ", Arial8x6, NEGRO);
-				WG12864A_posXY(1,5);
-				WG12864A_printf("Ultimo error", Arial8x6, NEGRO);
-				WG12864A_posXY(1,6);
-				WG12864A_printf("            ", Arial8x6, NEGRO);
-				WG12864A_posXY(1,7);
-				WG12864A_printf("                ", Arial8x6, NEGRO);
-				WG12864A_posXY(110, 7);
-				WG12864A_print_symbol(BACK16x16, BLANCO);
-			}
-			WG12864A_posXY(80, 5);
-			WG12864A_print_symbol(LeftArrow16x16, BLANCO);
-			WG12864A_posXY(110, 5);
-			WG12864A_print_symbol(RightArrow16x16, BLANCO);
-			WG12864A_posXY(110, 7);
-			WG12864A_print_symbol(BACK16x16, BLANCO);
-			if((0x9A < adc_valX) &&(adc_valX < 0xBA) &&
-					(0x60 < adc_valY) && (adc_valY < 0x80))					// Se presionó LeftArrow?
-			{
-				WG12864A_posXY(80, 5);
-				WG12864A_print_symbol(LeftArrow16x16, NEGRO);
-				delay32Ms(0, TIMMER_FONDO_BLANCO);							// Para demorar su utiliza vTaskDelay()
-				adc_valX = 0;												// Reseteo el valor de X, Y del ADC
-				adc_valY = 0;
-				sumaerr--;
-				//				WG12864A_Limpiar(NEGRO);
-				if(sumaerr<0)
-				{
-					sumaerr=8;//9;
-				}
-			}
-			if((0xCA < adc_valX) &&(adc_valX < 0xEA) &&
-					(0x60 < adc_valY) && (adc_valY < 0x80))					// Se presionó RightArrow?
-			{
-				WG12864A_posXY(110, 5);
-				WG12864A_print_symbol(RightArrow16x16, NEGRO);
-				delay32Ms(0, TIMMER_FONDO_BLANCO);							// Para demorar su utiliza vTaskDelay()
-				adc_valX = 0;												// Reseteo el valor de X, Y del ADC
-				adc_valY = 0;
-				sumaerr++;
-				//				WG12864A_Limpiar(NEGRO);
-				if(sumaerr>8)//9)											// Solo 8 pq sino muestra sin error por (berr=9)(Ruido?)
-				{															// Corregir eso antes de agrandar cant de err
-					sumaerr=0;
-				}
-			}
-		}
-		else
-		{
-			WG12864A_posXY(1, 1);											// No hay err almacenados
-			WG12864A_printf(" *Consulta errores*  ", Arial8x6, BLANCO);
-			WG12864A_posXY(25,3);
-			WG12864A_printf(" Sin errores  ", Arial8x6, NEGRO);
-			WG12864A_posXY(110, 7);
-			WG12864A_print_symbol(BACK16x16, BLANCO);
-		}
 		Func_Sleep (flagirq, sleepmenu);
 	}
 	if(flag_sleepsubmenu)
@@ -860,15 +623,18 @@ void func_conserr()
 
 //						  1.4 Borrar errores
 //--------------------------------------------------------------------------
-void func_borrarerr()
+//void func_borrarerr()
+void func_borrarpaciente()
 {
 	while((!((0xD0 < adc_valX) &&(adc_valX < 0xEA) &&
 			(0x2A < adc_valY) && (adc_valY < 0x5A)))&& (pressok==0)) 		// Mientras no se presione back
 	{
 		WG12864A_posXY(1, 1);
-		WG12864A_printf("  *Borrar errores*   ", Arial8x6, BLANCO);
+		WG12864A_printf("  *Borrar Paciente*  ", Arial8x6, BLANCO);
+		WG12864A_posXY(1, 3);
+		WG12864A_printf(" N:Pepita     E:26", Arial8x6, NEGRO);
 		WG12864A_posXY(1, 5);
-		WG12864A_printf("Confirma borrar      errores?", Arial8x6, NEGRO);
+		WG12864A_printf("Confirma borrar      Paciente?", Arial8x6, NEGRO);
 		WG12864A_posXY(80, 7);
 		WG12864A_print_symbol(OK16x16, BLANCO);
 		if((0xA0 < adc_valX) &&(adc_valX < 0xB9) && (0x2A < adc_valY) && (adc_valY < 0x5A))// Se presionó OK?
@@ -1157,15 +923,17 @@ void Func_Semaforos (void)
 
 		// Titulo del menu.
 		WG12864A_posXY(1, 1);
-		WG12864A_printf(" *Editar Parametros* ", Arial8x6, BLANCO);
+		WG12864A_printf(" * Configuraciones * ", Arial8x6, BLANCO);
 		WG12864A_posXY(110, 7);
 		WG12864A_print_symbol(BACK16x16, BLANCO);
 
 		// Funcionalidad del Menú.
-		WG12864A_posXY(7, 4);
-		WG12864A_printf("NO HABILITADO PARA", Arial8x6, NEGRO);
-		WG12864A_posXY(7, 5);
-		WG12864A_printf("ESTE MODELO", Arial8x6, NEGRO);
+		WG12864A_posXY(7, 3);
+		WG12864A_printf("Pantalla de Prueba", Arial8x6, NEGRO);
+		WG12864A_posXY(1, 6);
+		WG12864A_printf("ADC Corazon", Arial8x6, NEGRO);
+		WG12864A_posXY(1, 7);
+		WG12864A_printf("ADC Touch", Arial8x6, NEGRO);
 
 		for(i=0;i<8;i++)
 		{

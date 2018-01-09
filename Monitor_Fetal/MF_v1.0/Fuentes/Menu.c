@@ -258,8 +258,8 @@ void Menu_Inicial(void){
 		delay32Ms(0, TIMMER_FONDO_BLANCO);
 		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
 		WG12864A_Limpiar(NEGRO); 											// Limpio la pantalla y entro al submenu 1.2
-
-		func_consultaptros();
+		func_consultapaciente();
+		//func_consultaptros();
 		break;
 
 	case 3:
@@ -268,8 +268,8 @@ void Menu_Inicial(void){
 		delay32Ms(0, TIMMER_FONDO_BLANCO);
 		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
 		WG12864A_Limpiar(NEGRO); 											// Limpio la pantalla y entro al submenu 1.3
-
-		func_conserr();														// Entra en el submenu de consulta de errores.
+		func_editapaciente();
+		//func_conserr();														// Entra en el submenu de consulta de errores.
 		break;
 
 	case 4:
@@ -278,8 +278,8 @@ void Menu_Inicial(void){
 		delay32Ms(0, TIMMER_FONDO_BLANCO);
 		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
 		WG12864A_Limpiar(NEGRO);											// Limpio la pantalla y entro al submenu 1.4
-
-		func_borrarerr();													// Entra en el submenu borrar errores.
+		func_borrarpaciente();													// Entra en el submenu borrar errores.
+		//func_borrarerr();													// Entra en el submenu borrar errores.
 		break;
 
 	default:
@@ -333,12 +333,12 @@ void Menu_Inicial(void){
 
 			menu2 = 2;
 		}
-		if( (0x1A < adc_valX) && (adc_valX < 0xC0) &&
+/*		if( (0x1A < adc_valX) && (adc_valX < 0xC0) &&
 			(0x5A < adc_valY) && (adc_valY < 0x7A) ){
 
 			menu2 = 3;
 		}
-		if( !( ((0x1A < adc_valX) && (adc_valX < 0xEA) && (0xAA < adc_valY) && (adc_valY < 0xC0)) ||
+*/		if( !( ((0x1A < adc_valX) && (adc_valX < 0xEA) && (0xAA < adc_valY) && (adc_valY < 0xC0)) ||
 			   ((0x1A < adc_valX) && (adc_valX < 0xEA) && (0x85 < adc_valY) && (adc_valY < 0xA0)) ||
 		       ((0x1A < adc_valX) && (adc_valX < 0xC0) && (0x5A < adc_valY) && (adc_valY < 0x7A)) )){
 
