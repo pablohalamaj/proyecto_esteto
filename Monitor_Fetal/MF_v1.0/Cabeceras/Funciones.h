@@ -25,33 +25,32 @@ void TIMER32_1_IRQHandler(void);
 // Funcion Sleep del Display.
 void Func_Sleep (int, int);
 // Funcion Teclado Numerico.
-unsigned int Func_MuestraTeclado (int);
+//unsigned int Func_MuestraTeclado (int);
 
 //--------------------------------------------------------------------------
 /****************************  Submenues 1  ********************************/
 //--------------------------------------------------------------------------
 
-// Funcion consulta de estados ---- 1.1
-void func_consultaestados(void);
-// Funcion consulta parametros ---- 1.2
-//void func_consultaptros(void);
+// Funcion Ingreso Pacientes ------ 1.1
+void Func_Ingreso (void);
+void func_teclado(void);
+unsigned int Func_MuestraTeclado (int);
+// Funcion consulta pacientes ----- 1.2
 void func_consultapaciente(void);
-// Funcion consulta errores ------- 1.3
-//void func_conserr(void);
+// Funcion edita pacientes -------- 1.3
 void func_editapaciente(void);
-// Funcion borrar errores --------- 1.4
-//void func_borrarerr(void);
+// Funcion borrar pacientes ------- 1.4
 void func_borrarpaciente(void);
 //--------------------------------------------------------------------------
 /****************************  Submenues 2  ********************************/
 //--------------------------------------------------------------------------
 
-// Funcion Parametrizar Atributos - 2.1
-void Func_Atributos (void);
-// Funcion Parametrizar Semaforos - 2.2
-void Func_Semaforos (void);
-// Funcion Parametrizar Direccion - 2.3
-void Func_Direccion (void);
+// Funcion iniciar monitoreo ------ 2.1
+void Func_Monitoreo(void);
+// Funcion configuraciones -------- 2.2
+void Func_Configuraciones (void);
+// Funcion Historial monitoreos --- 2.3
+void Func_Historial (void);
 
 //--------------------------------------------------------------------------
 /****************************  Submenues 3  ********************************/

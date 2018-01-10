@@ -301,7 +301,7 @@ void Menu_Inicial(void){
 		WG12864A_posXY(1, 4);
 		WG12864A_printf("2.2 Configuraciones  ", Arial8x6, NEGRO);
 		WG12864A_posXY(1, 6);
-		WG12864A_printf("                     ", Arial8x6, NEGRO);
+		WG12864A_printf("2.3 Historial Monit.", Arial8x6, NEGRO);
 		WG12864A_posXY(110, 7);
 		WG12864A_print_symbol(BACK16x16, BLANCO);
 		WG12864A_posXY(1, 8);
@@ -333,12 +333,12 @@ void Menu_Inicial(void){
 
 			menu2 = 2;
 		}
-/*		if( (0x1A < adc_valX) && (adc_valX < 0xC0) &&
+		if( (0x1A < adc_valX) && (adc_valX < 0xC0) &&
 			(0x5A < adc_valY) && (adc_valY < 0x7A) ){
 
 			menu2 = 3;
 		}
-*/		if( !( ((0x1A < adc_valX) && (adc_valX < 0xEA) && (0xAA < adc_valY) && (adc_valY < 0xC0)) ||
+		if( !( ((0x1A < adc_valX) && (adc_valX < 0xEA) && (0xAA < adc_valY) && (adc_valY < 0xC0)) ||
 			   ((0x1A < adc_valX) && (adc_valX < 0xEA) && (0x85 < adc_valY) && (adc_valY < 0xA0)) ||
 		       ((0x1A < adc_valX) && (adc_valX < 0xC0) && (0x5A < adc_valY) && (adc_valY < 0x7A)) )){
 
@@ -363,19 +363,18 @@ void Menu_Inicial(void){
 		delay32Ms(0, TIMMER_FONDO_BLANCO);
 		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
 		WG12864A_Limpiar(NEGRO); 											// Limpio la pantalla y entro al submenu 2.2
-		Func_Semaforos ();
-//		Func_Config();														// Funcion del SubMenu seleccionado.
+		Func_Configuraciones ();
 
 		break;
 
 	case 3:
 		WG12864A_posXY(1, 6);
-		WG12864A_printf("                    ", Arial8x6, BLANCO);
+		WG12864A_printf("2.3 Historial Monit.", Arial8x6, BLANCO);
 		delay32Ms(0, TIMMER_FONDO_BLANCO);
 		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
 		WG12864A_Limpiar(NEGRO); 											// Limpio la pantalla y entro al submenu 2.3
 
-		//Func_Config();													// Funcion del SubMenu seleccionado.
+		Func_Historial();													// Funcion del SubMenu seleccionado.
 
 		break;
 
