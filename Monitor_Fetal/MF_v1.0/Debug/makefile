@@ -42,7 +42,7 @@ clean:
 
 post-build:
 	-@echo 'Performing post-build steps'
-	-arm-none-eabi-size "MF_v1.0.axf"; # arm-none-eabi-objcopy -O binary "MF_v1.0.axf" "MF_v1.0.bin" ; checksum -p LPC1114_302 -d "MF_v1.0.bin";
+	-arm-none-eabi-size "MF_v1.0.axf"; # arm-none-eabi-objcopy -O binary "MF_v1.0.axf" "MF_v1.0.bin" ; checksum -p LPC1115_303 -d "MF_v1.0.bin";
 	-@echo ' '
 
 .PHONY: all clean dependents

@@ -2,10 +2,10 @@
  * GENERATED FILE - DO NOT EDIT
  * (c) Code Red Technologies Ltd, 2008-2013
  * (c) NXP Semiconductors 2013-2018
- * Generated linker script file for LPC1114/302
+ * Generated linker script file for LPC1115/303
  * Created from library.ldt by FMCreateLinkLibraries
  * Using Freemarker v2.3.23
- * LPCXpresso v8.2.2 [Build 650] [2016-09-09]  on 10-ene-2018 10:08:44
+ * LPCXpresso v8.2.2 [Build 650] [2016-09-09]  on 11-ene-2018 11:38:36
  */
 
 GROUP (

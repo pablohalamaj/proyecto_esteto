@@ -2,10 +2,10 @@
  * GENERATED FILE - DO NOT EDIT
  * (c) Code Red Technologies Ltd, 2008-2013
  * (c) NXP Semiconductors 2013-2018
- * Generated linker script file for LPC1114/302
+ * Generated linker script file for LPC1115/303
  * Created from linkscript.ldt by FMCreateLinkLibraries
  * Using Freemarker v2.3.23
- * LPCXpresso v8.2.2 [Build 650] [2016-09-09]  on 10-ene-2018 10:08:44
+ * LPCXpresso v8.2.2 [Build 650] [2016-09-09]  on 11-ene-2018 11:38:36
  */
 
 INCLUDE "Touch_2_2_Debug_library.ld"
@@ -38,14 +38,14 @@ SECTIONS
 
         *(.after_vectors*)
 
-    } >MFlash32
+    } >MFlash64
 
     .text : ALIGN(4)    
     {
         *(.text*)
         *(.rodata .rodata.* .constdata .constdata.*)
         . = ALIGN(4);
-    } > MFlash32
+    } > MFlash64
     /*
      * for exception handling/unwind - some Newlib functions (in common
      * with C++ and STDC++) use this. 
@@ -53,13 +53,13 @@ SECTIONS
     .ARM.extab : ALIGN(4) 
     {
         *(.ARM.extab* .gnu.linkonce.armextab.*)
-    } > MFlash32
+    } > MFlash64
     __exidx_start = .;
 
     .ARM.exidx : ALIGN(4)
     {
         *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-    } > MFlash32
+    } > MFlash64
     __exidx_end = .;
 
     _etext = .;
@@ -81,7 +81,7 @@ SECTIONS
        *(.data*)
        . = ALIGN(4) ;
        _edata = . ;
-    } > RamLoc8 AT>MFlash32
+    } > RamLoc8 AT>MFlash64
     /* MAIN BSS SECTION */
     .bss : ALIGN(4)
     {

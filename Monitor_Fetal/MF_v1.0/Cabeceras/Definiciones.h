@@ -50,7 +50,7 @@
 #define	TIMMER_BASE_1S				50000000	//1 Seg. para la rutina de IRQ del timmer.
 #define	TIMMER_SLEEP				60			//60 Seg = 1 Min. Para dormir la pantalla.
 #define MULTIPLICADOR_TIMMER_SLEEP	5			//Multiplica cuanto Timmer Sleep son necesarios para reiniciar la Pantalla.
-
+#define TIMMER_BASE_25MS			0x124F80	//25ms->x=0.025*4*12MHz=1200000=0x124F80
 //	CLAVE MENU ESPECIAL.
 #define CLAVE					{3,0,6,0}		//Clave para el acceso del menu especial.
 

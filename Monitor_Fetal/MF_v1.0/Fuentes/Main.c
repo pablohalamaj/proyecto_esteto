@@ -34,7 +34,7 @@ __CRP const unsigned int CRP_WORD = CRP_NO_CRP ;
 //#include "Comunicaciones.h"
 //--------------------------------------------------------------------------
 //**********************  Variables globales  ******************************
-char 	cont=0,flagmm=0,flagbll=0,flag_1seg,flag_25ms;
+char 	cont=0,flagmm=0,flagbll=0,flag_1seg,flag_25ms,cont_1min,cont_1seg;
 char 	Rx[30];Rx1[30],Rx2[30],btens[16],toffset[16],movmp[16],version[16],version_prt[16];
 char 	causaerr[11],causaerror[11],moduloerr[11],icomu[5],b_tog[16],sumaerr=0,lec=0;
 extern char actualiza_fw;
@@ -49,10 +49,14 @@ int main(void)
 	ADCInit(ADC_CLK);														// Inicializacion de ADC.
 	TOUCH_Init();															// Inicializacion del TOUCH.
 	TOUCH_Standby();
-	init_timer32 (0, 1);													// Timmer 0, para Delays.
-	init_timer32 (1, (TIMMER_BASE_1S * TIMMER_SLEEP));						// Timmer 1, para Sleep Display.
+	init_timer32 (0, 1,1,1);													// Timmer 0, para Delays.
+//	init_timer32(0,0x0001770F, 0x2DC8A01,0x0003A9A6);
+//	init_timer32 (1, (TIMMER_BASE_1S)/* * TIMMER_SLEEP)*/,0x2DC8A01,0x0003A9A6);						// Timmer 1, para Sleep Display.
+	init_timer32 (1, TIMMER_BASE_25MS,0x2DC8A01,0x0003A9A6);						// Timmer 1, para Sleep Display.
 	Menu_Logo();															// Presento el Logo
+//	enable_timer32(0);			// Disparo el Timmer que controla el Sleep del Display.
 	enable_timer32(1);														// Disparo el Timmer que controla el Sleep del Display.
+	GPIOInit();		 														//Inicializo GPIO
 	GPIOIntClear(PORT1, 2);													// Limpio la Interrupcion y la habilito.
 	GPIOIntEnable(PORT1, 2);
 	actualiza_fw=0;

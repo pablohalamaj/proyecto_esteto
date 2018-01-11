@@ -75,7 +75,7 @@ char 				PULSO_OK,flag_SUP=1,flag_INF=1,
 unsigned int 		valpru[100],valpru2[80],ind_Muestras,aux_prov;
 //unsigned int valpru[1000],valpru2[800],ind_Muestras,aux_prov;
 //extern int valpru[];
-extern char 		flag_1seg,flag_25ms;
+extern char 		flag_1seg,flag_25ms,cont_1min,cont_1seg;
 
 uint16_t leo_adc(char Channel);
 void detector_pulsos(void);
@@ -87,29 +87,55 @@ void grafica_PPM(void);
 void TIMER32_1_IRQHandler(void)
 {
 																			// La interrupcion la genero el MRO??
-	if( LPC_TMR32B1->IR & 0x01 ){
+	if( LPC_TMR32B1->IR & 0x01 )
+	{
 
 		LPC_TMR32B1->IR = 1;												// Reseteo el Flag de IRQ.
-
-		if( sleep == 0 ){
-
-			flagsleep = 1;													// Activo la Bandera de que el Display duerme para en la IRQ despertarlo.
-			GLCD_Output_Low(BACKLIGHT);										// Apaga el display
-			TOUCH_Standby();												// Standby, en espera de si activacion.
-			flagirq = 0;													// Bandera que me indica si habilitar o no la IRQ del TOUCH.
+		flag_25ms=1;
+		cont_1seg++;
+		if(cont_1seg>=40)
+		{
+			cont_1seg=0;
+			flag_1seg=1;
+			cont_1min++;
+			if(cont_1min>=60)
+			{
+				cont_1min=0;
+				if( sleep == 0 )
+				{
+					flagsleep = 1;													// Activo la Bandera de que el Display duerme para en la IRQ despertarlo.
+					GLCD_Output_Low(BACKLIGHT);										// Apaga el display
+					TOUCH_Standby();												// Standby, en espera de si activacion.
+					flagirq = 0;													// Bandera que me indica si habilitar o no la IRQ del TOUCH.
+				}
+				if( sleep == MULTIPLICADOR_TIMMER_SLEEP )
+				{
+					flagirq = 0;													// Bandera que me indica si habilitar o no la IRQ del TOUCH.
+					disable_timer32(1); 											// Desabilito el timmer porque ya se durmio el Display.
+					cla[0] = 0, cla[1] = 0,	cla[2] = 0, cla[3] = 0;					// Limpio la clave del ingreso al menu especial.
+					indice = 0;														// Acomodo el indicel del vector de clave al inicio.
+					cur = 48;														// Preparo el cursor para la proxima vez.
+				}
+				sleep ++;															// Incremento la variable que duerme la pantalla.
+			}
 		}
-
-		if( sleep == MULTIPLICADOR_TIMMER_SLEEP ){
-
-			flagirq = 0;													// Bandera que me indica si habilitar o no la IRQ del TOUCH.
-			disable_timer32(1); 											// Desabilito el timmer porque ya se durmio el Display.
-			cla[0] = 0, cla[1] = 0,	cla[2] = 0, cla[3] = 0;					// Limpio la clave del ingreso al menu especial.
-			indice = 0;														// Acomodo el indicel del vector de clave al inicio.
-			cur = 48;														// Preparo el cursor para la proxima vez.
-		}
-
-		sleep ++;															// Incremento la variable que duerme la pantalla.
 	}
+	if (LPC_TMR32B1->IR & 0x02)			//Interrupción de fin de ciclo de actividad ON de señal PWM
+	{
+		LPC_TMR32B1->IR = 2;					//Reset de flag de interrupción del timer_1
+//		flag_1seg=1;
+	}
+	if (LPC_TMR32B1->IR & 0x04)			//Interrupción por llave lamparas apagada o CT apagado (1Seg)
+	{
+	   LPC_TMR32B1->IR = 4;					//Reseteo interrupción
+	   flag_25ms=1;
+	}
+	if ( LPC_TMR32B1->IR & (0x1<<4) )
+	{
+		LPC_TMR32B1->IR = 0x1<<4;			/* clear interrupt flag */
+	//	timer32_1_capture++;
+	}
+	return;
 }
 
 //--------------------------------------------------------------------------
@@ -478,24 +504,29 @@ void Func_Monitoreo (void)
 				aux_prov++;
 	//			PARLANTE++;
 			}
-	/*		if(inc_ind>=100)
+			if(inc_ind>=100)
 			{
 				inc_ind=0;
 				PROMEDIAR=1;
 				NO_ENTR=1;
 				ACT_DISP=1;
 			}
-	*/		if(flag_1seg)													// Contador 1 seg
+			if(flag_1seg)													// Contador 1 seg
 			{
 				flag_1seg=0;
 				cont_10seg++;
 				if(PARLANTE)
 				{
+					WG12864A_posXY(70, 7);
+					WG12864A_print_symbol(HEART16x16, BLANCO);
+
 					GPIOSetValue( 2, 10, 1 );								// Habilito salida de latido 1 vez por seg PRUEBA
 					PARLANTE=0;
 				}
 				else
 				{
+					WG12864A_posXY(70, 7);
+					WG12864A_print_symbol(HEART16x16, NEGRO);
 					GPIOSetValue( 2, 10, 0 );								// Habilito salida de latido 1 vez por seg PRUEBA
 					PARLANTE=1;
 				}
@@ -625,7 +656,7 @@ void grafica_PPM(void)
 	{
 		WG12864A_posXY(90, 7);
 		WG12864A_print_symbol(FD16x16, BLANCO);
-		PPM=121;//SACARRRRR
+	//	PPM=121;//SACARRRRR
 		*renglon++ = ((PPM/100) % 10) + '0' ;
 		*renglon++ = ((PPM/10)  % 10) + '0' ;
 		*renglon++ = ( PPM      % 10) + '0' ;
@@ -635,7 +666,7 @@ void grafica_PPM(void)
 	{
 		WG12864A_posXY(90, 7);
 		WG12864A_print_symbol(FD16x16, NEGRO);
-		PPM=60;//SACARRRR
+	//	PPM=60;//SACARRRR
 		*renglon++ = ((PPM/100) % 10) + '0' ;
 		*renglon++ = ((PPM/10)  % 10) + '0' ;
 		*renglon++ = ( PPM      % 10) + '0' ;
@@ -643,7 +674,7 @@ void grafica_PPM(void)
 	}
 
 //--------------------------------------------------------------------------// Grafica Corazón
-	if(PPM>70&&PPM<150)
+/*	if(PPM>70&&PPM<150)
 	{
 //			hab_corazon=0;
 	if(v<10)//SACAR
@@ -668,7 +699,7 @@ void grafica_PPM(void)
 		WG12864A_printf("   ", Arial8x6, NEGRO);
 
 	}
-
+*/
 }
 
 //						  2.2 Configuraciones

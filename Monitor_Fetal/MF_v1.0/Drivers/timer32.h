@@ -53,7 +53,8 @@ extern volatile uint32_t timer32_1_counter;
 void enable_timer32(uint8_t timer_num);
 void disable_timer32(uint8_t timer_num);
 void reset_timer32(uint8_t timer_num);
-void init_timer32(uint8_t timer_num, uint32_t timerInterval);
+void init_timer32(uint8_t timer_num, uint32_t TimerInterval_0, uint32_t TimerInterval_1, uint32_t TimerInterval_2);
+//void init_timer32(uint8_t timer_num, uint32_t timerInterval);
 void init_timer32PWM(uint8_t timer_num, uint32_t period, uint8_t match_enable);
 void setMatch_timer32PWM (uint8_t timer_num, uint8_t match_nr, uint32_t value);
 
