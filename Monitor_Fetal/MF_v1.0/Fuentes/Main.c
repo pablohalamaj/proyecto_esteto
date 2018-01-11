@@ -37,7 +37,7 @@ __CRP const unsigned int CRP_WORD = CRP_NO_CRP ;
 char 	cont=0,flagmm=0,flagbll=0,flag_1seg,flag_25ms,cont_1min,cont_1seg;
 char 	Rx[30];Rx1[30],Rx2[30],btens[16],toffset[16],movmp[16],version[16],version_prt[16];
 char 	causaerr[11],causaerror[11],moduloerr[11],icomu[5],b_tog[16],sumaerr=0,lec=0;
-extern char actualiza_fw;
+extern char actualiza_fw,pos_x;
 
 int main(void)
 {
@@ -60,6 +60,7 @@ int main(void)
 	GPIOIntClear(PORT1, 2);													// Limpio la Interrupcion y la habilito.
 	GPIOIntEnable(PORT1, 2);
 	actualiza_fw=0;
+	pos_x=25;
 	while(1)
 	{
 		Menu_Inicial();														//Corro el Menu.

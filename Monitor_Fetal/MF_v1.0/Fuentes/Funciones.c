@@ -82,22 +82,21 @@ void detector_pulsos(void);
 void grafica_PPM(void);
 
 
-
 //--------------------------------------------------------------------------
 void TIMER32_1_IRQHandler(void)
 {
-																			// La interrupcion la genero el MRO??
+																					// La interrupcion la genero el MRO??
 	if( LPC_TMR32B1->IR & 0x01 )
 	{
 
-		LPC_TMR32B1->IR = 1;												// Reseteo el Flag de IRQ.
-		flag_25ms=1;
-		cont_1seg++;
+		LPC_TMR32B1->IR = 1;														// Reseteo el Flag de IRQ.
+		flag_25ms=1;																// Flag 25ms
+		cont_1seg++;																// Incremento cont 1seg
 		if(cont_1seg>=40)
 		{
 			cont_1seg=0;
-			flag_1seg=1;
-			cont_1min++;
+			flag_1seg=1;															// Flag 1seg
+			cont_1min++;															// Incremento cont 1min
 			if(cont_1min>=60)
 			{
 				cont_1min=0;
@@ -120,19 +119,19 @@ void TIMER32_1_IRQHandler(void)
 			}
 		}
 	}
-	if (LPC_TMR32B1->IR & 0x02)			//Interrupción de fin de ciclo de actividad ON de señal PWM
+	if (LPC_TMR32B1->IR & 0x02)														//Int MR1
 	{
-		LPC_TMR32B1->IR = 2;					//Reset de flag de interrupción del timer_1
+		LPC_TMR32B1->IR = 2;														// Reset Int
 //		flag_1seg=1;
 	}
-	if (LPC_TMR32B1->IR & 0x04)			//Interrupción por llave lamparas apagada o CT apagado (1Seg)
+	if (LPC_TMR32B1->IR & 0x04)														//Int MR2
 	{
-	   LPC_TMR32B1->IR = 4;					//Reseteo interrupción
+	   LPC_TMR32B1->IR = 4;															//Reseteo interrupción
 	   flag_25ms=1;
 	}
 	if ( LPC_TMR32B1->IR & (0x1<<4) )
 	{
-		LPC_TMR32B1->IR = 0x1<<4;			/* clear interrupt flag */
+		LPC_TMR32B1->IR = 0x1<<4;													// clear interrupt flag
 	//	timer32_1_capture++;
 	}
 	return;
@@ -546,6 +545,7 @@ void Func_Monitoreo (void)
 	//		Graf_PROM();
 
 		// Funcion que maneja el Sleep de la pantalla y la IRQ del TOUCH.
+		sleep=1;
 		Func_Sleep (flagirq, sleepmenu);
 	}
 	if(flag_sleepsubmenu)
@@ -584,7 +584,7 @@ void detector_pulsos(void)
 		}
 		i++;
 	}
-	while(1000<i &&i<1800)													// Analiza el 2do buffer mismo procedimiento
+/*	while(1000<i &&i<1800)													// Analiza el 2do buffer mismo procedimiento
 	{
 		if(valpru2[j]>Umbral_Sup && flag_INF)
 		{
@@ -606,13 +606,19 @@ void detector_pulsos(void)
 		PPM=cont_pico_POS*6;												// Calcula las pulsaciones (cant en 10seg*6=PPM)
 		PULSO_OK=1;
 	}
-	cont_pico_POS=0;
+*/	cont_pico_POS=0;
 	cont_pico_NEG=0;
+	PPM++;
+	if(PPM>165)
+		PPM=60;
+	if(PPM<60)
+		PPM=60;
+	Grafica_monitoreo(PPM);
 }
 
 void grafica_PPM(void)
 {
-	char PPM ;
+//	char PPM ;
 	char *		renglon = buffer_pulso ;
 	char n;
 	int aux1,aux2,i=0,m;
