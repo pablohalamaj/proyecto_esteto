@@ -25,10 +25,11 @@ void muestra_estados 		(int fila );
 void Muestra_causa			(int modu, int cau, int fila);
 void muestra_modpot			(void);
 void muestra_fyh_err 		(int fila);
-void func_punto (char,char);
+void func_punto 			(char,char);
+void analizo_salto			(char,char);
 //---  Subfunciones 3  ---
-void prox_fecha (int 	fila );
-void prox_hora (int 	fila );
-void muestra_dsemana(unsigned int FF,int columna,int fila);
+void prox_fecha 			(int 	fila );
+void prox_hora 				(int 	fila );
+void muestra_dsemana		(unsigned int FF,int columna,int fila);
 
 #endif /* SUBFUNCIONES_H_ */

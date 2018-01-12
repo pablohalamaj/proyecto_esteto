@@ -20,7 +20,7 @@
 
 //--------------------------------------------------------------------------
 //***********************  Variables Propias  ******************************
-char			colu=7,ledcoo,pos_x,pnt;
+char			colu=7,ledcoo,pos_x,pnt,pnt_ant,Fila_ant,mitad_ant;
 int 			h,mi,seg,d,m,a,aa,aaa,aaaa,anio,ds,
 				ef,pl,e,ee,eee,eeee,dets,esta,estf,
 				proxf[8],proxh[4];
@@ -37,64 +37,78 @@ extern char		reclq,reclq1,reclq2,reclq3,mtok;
 //--------------------------------------------------------------------------
 void Grafica_monitoreo(char pulso)
 {
-	char m,n,Fila_mon,pulso_env,mitad_f;
+	char m,n,Fila_mon,pulso_env,mitad_f,NO_GRAF;
 	if(pulso>=60 && pulso<70)
 	{
 		Fila_mon=6;
 		mitad_f=0;
+		NO_GRAF=0;
 	}
 	if(pulso>=70 && pulso<80)
 	{
 		Fila_mon=6;
 		mitad_f=1;
+		NO_GRAF=0;
 	}
 	if(pulso>=80 && pulso<90)
 	{
 		Fila_mon=5;
 		mitad_f=0;
+		NO_GRAF=0;
 	}
 	if(pulso>=90 && pulso<100)
 	{
 		Fila_mon=5;
 		mitad_f=1;
+		NO_GRAF=0;
 	}
 	if(pulso>=100 && pulso<110)
 	{
 		Fila_mon=4;
 		mitad_f=0;
+		NO_GRAF=0;
 	}
 	if(pulso>=110 && pulso<120)
 	{
 		Fila_mon=4;
 		mitad_f=1;
+		NO_GRAF=0;
 	}
 	if(pulso>=120 && pulso<130)
 	{
 		Fila_mon=3;
 		mitad_f=0;
+		NO_GRAF=0;
 	}
 	if(pulso>=130 && pulso<140)
 	{
 		Fila_mon=3;
 		mitad_f=1;
+		NO_GRAF=0;
 	}
-	if(pulso>=140 && pulso<=150)
+	if(pulso>=140 && pulso<150)
 	{
 		Fila_mon=2;
 		mitad_f=0;
+		NO_GRAF=0;
 	}
-	if(pulso>=150 && pulso<=160)
+	if(pulso>=150 && pulso<160)
 	{
 		Fila_mon=2;
 		mitad_f=1;
+		NO_GRAF=0;
 	}
-	pulso_env=pulso;
-	func_punto (pulso_env,mitad_f);											// Posiciona el punto en pantalla
-
-	pos_x++;																// incrementa una posición
-	if(pos_x>=120)															// Si llega al tope del display, vuelve
-		pos_x=25;
-
+	if(pulso>160||pulso<60)
+		NO_GRAF=1;
+	if(!NO_GRAF)
+	{
+		pulso_env=pulso;
+		func_punto (pulso_env,mitad_f);											// Posiciona el punto en pantalla
+//		analizo_salto(Fila_mon,mitad_f);														// Función que completa en caso de salto entre puntos
+		pos_x++;																// incrementa una posición
+		if(pos_x>=120)															// Si llega al tope del display, vuelve
+			pos_x=25;
+	}
 //--------------------------------------------------------------------------
 	for(m=1;m<5;m++)														// Borra el display a medida que actualiza la pantalla
 	{
@@ -109,13 +123,18 @@ void Grafica_monitoreo(char pulso)
 		}
 	}
 //--------------------------------------------------------------------------
-	WG12864A_posXY(pos_x,Fila_mon);											// Escribe el punto en pantalla
-	GLCD_Output_High(RS);   												// Modo datos
-	if(pos_x<65)
-		GLCD_enviaBYTE(IZQ, (pnt));  										// enciende byte
-	else
-		GLCD_enviaBYTE(DER, (pnt));  										// enciende byte
-
+	if(!NO_GRAF)
+	{
+		WG12864A_posXY(pos_x,Fila_mon);											// Escribe el punto en pantalla
+		GLCD_Output_High(RS);   												// Modo datos
+		if(pos_x<65)
+			GLCD_enviaBYTE(IZQ, (pnt));  										// enciende byte
+		else
+			GLCD_enviaBYTE(DER, (pnt));  										// enciende byte
+	pnt_ant=pnt;
+	Fila_ant=Fila_mon;
+	mitad_ant=mitad_f;
+	}
 }
 // Posiciona el punto dentro de la fila segun parte alta o baja
 //--------------------------------------------------------------------------
@@ -149,6 +168,112 @@ void func_punto (char punto,char mitad)
 		pnt=pnt>>4;
 }
 
+//	Completa grafica entre puntos
+//--------------------------------------------------------------------------
+void analizo_salto(char fila_act,char mitad_act)
+{
+	char w,result,May_act,func,pnt_rell,No_rell;
+	No_rell=0;
+	if(fila_act==Fila_ant)
+	{
+		if(mitad_act==mitad_ant)
+		{
+			if(pnt>pnt_ant)
+			{
+				result=pnt-pnt_ant;
+				May_act=1;
+			}
+			else
+			{
+				result=pnt_ant-pnt;
+				May_act=0;
+			}
+			switch(result)
+			{
+			case 2:
+				if(May_act)
+					func=pnt_ant;
+				else
+					func=pnt;
+				switch(func)
+				{
+				case 1:
+				case 2:
+					pnt_rell=0xC0;
+					break;
+				case 3:
+				case 4:
+					pnt_rell=0x60;
+					break;
+				case 5:
+				case 6:
+					pnt_rell=0x30;
+					break;
+				default:
+					No_rell=1;
+					break;
+				}
+				break;
+			case 3:
+				break;
+			case 4:
+				break;
+			case 5:
+				break;
+			case 6:
+				break;
+			case 8:
+				break;
+			case 9:
+				break;
+			case 0:
+			case 1:
+			default:
+				break;
+			}
+		}
+		else
+		{
+			if(mitad_act<mitad_ant)
+			{
+
+			}
+			else
+			{
+
+			}
+		}
+	}
+	else
+	{
+		if(fila_act>Fila_ant)
+		{
+			w=0;
+			while(Fila_ant+w<fila_act)
+			{
+				w++;
+			}
+		}
+		else
+		{
+			w=0;
+			while(Fila_ant-w>fila_act)
+			{
+				w++;
+			}
+
+		}
+	}
+	if(!No_rell)
+	{
+		WG12864A_posXY(pos_x,Fila_ant);											// Escribe el punto en pantalla
+		GLCD_Output_High(RS);   												// Modo datos
+		if(pos_x<65)
+			GLCD_enviaBYTE(IZQ, (pnt_rell));  										// enciende byte
+		else
+			GLCD_enviaBYTE(DER, (pnt_rell));  										// enciende byte
+	}
+}
 //						  Muestra fecha y hora
 //--------------------------------------------------------------------------
 void muestra_fecha_y_hora (int 	fila )
