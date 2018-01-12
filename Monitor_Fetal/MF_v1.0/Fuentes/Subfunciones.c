@@ -33,9 +33,11 @@ extern char 	cantmp,cantver,cantprt,cint,menuactual,flagmm,sumaerr,
 extern char		reclq,reclq1,reclq2,reclq3,mtok;
 //--------------------------------------------------------------------------
 
+// Toma el PPM obtenido, cada fila tiene 20 valores, calcula fila a usar
+//--------------------------------------------------------------------------
 void Grafica_monitoreo(char pulso)
 {
-	char pnt_p,m,n,Fila_mon,pulso_env,mitad_f;
+	char m,n,Fila_mon,pulso_env,mitad_f;
 	if(pulso>=60 && pulso<70)
 	{
 		Fila_mon=6;
@@ -87,67 +89,64 @@ void Grafica_monitoreo(char pulso)
 		mitad_f=1;
 	}
 	pulso_env=pulso;
-	pnt_p=func_punto (pulso_env,mitad_f);														// Posiciona el punto en pantalla
+	func_punto (pulso_env,mitad_f);											// Posiciona el punto en pantalla
 
-	pos_x++;															// incrementa una posición
-	if(pos_x>=120)
-	{	pos_x=25;
-//		pos_y=4;
-	}
+	pos_x++;																// incrementa una posición
+	if(pos_x>=120)															// Si llega al tope del display, vuelve
+		pos_x=25;
 
-//---------------------------------------------------------
-	for(m=1;m<5;m++)													// Borra el display a medida que actualiza la pantalla
+//--------------------------------------------------------------------------
+	for(m=1;m<5;m++)														// Borra el display a medida que actualiza la pantalla
 	{
 		for(n=2;n<7;n++)
 		{
 			WG12864A_posXY(pos_x+m,n);
-			GLCD_Output_High(RS);   // Modo datos
+			GLCD_Output_High(RS);   										// Modo datos
 			if(pos_x+m<65)
-				GLCD_enviaBYTE(IZQ, 0x00);  // enciende byte
+				GLCD_enviaBYTE(IZQ, 0x00);  								// enciende byte
 			else
-				GLCD_enviaBYTE(DER, 0x00);  // enciende byte
+				GLCD_enviaBYTE(DER, 0x00);  								// enciende byte
 		}
 	}
-//---------------------------------------------------------
-	WG12864A_posXY(pos_x,Fila_mon);										// Escribe el punto en pantalla
-	GLCD_Output_High(RS);   // Modo datos
+//--------------------------------------------------------------------------
+	WG12864A_posXY(pos_x,Fila_mon);											// Escribe el punto en pantalla
+	GLCD_Output_High(RS);   												// Modo datos
 	if(pos_x<65)
-		GLCD_enviaBYTE(IZQ, (pnt));  // enciende byte
+		GLCD_enviaBYTE(IZQ, (pnt));  										// enciende byte
 	else
-		GLCD_enviaBYTE(DER, (pnt));  // enciende byte
+		GLCD_enviaBYTE(DER, (pnt));  										// enciende byte
 
 }
-char func_punto (char punto,char mitad)
+// Posiciona el punto dentro de la fila segun parte alta o baja
+//--------------------------------------------------------------------------
+void func_punto (char punto,char mitad)
 {
-
-//	Graf_punt=punto&0x1;
-	Graf_punt = ((punto)  % 10);// + '0' ;
-	switch(Graf_punt)
+	Graf_punt = ((punto)  % 10);											// Tomo la unidad
+	switch(Graf_punt)														// Elijo el punto a representar
 	{
 	case 0:
 	case 1:
 	case 2:
-		pnt=0x8;
+		pnt=0x80;
 		break;
 	case 3:
 	case 4:
-		pnt=0x4;
+		pnt=0x40;
 		break;
 	case 5:
 	case 6:
-		pnt=0x2;
+		pnt=0x20;
 		break;
 	case 7:
 	case 8:
 	case 9:
-		pnt=0x1;
+		pnt=0x10;
 		break;
 	default:
 		break;
 	}
-	if(!mitad)
-		pnt=pnt<<1;
-	return pnt;
+	if(mitad)																// Si es la mitad alta de la fila desplazo
+		pnt=pnt>>4;
 }
 
 //						  Muestra fecha y hora

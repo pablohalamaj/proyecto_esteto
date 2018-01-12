@@ -626,7 +626,7 @@ void grafica_PPM(void)
 	WG12864A_posXY(110, 7);
 	WG12864A_print_symbol(BACK16x16, BLANCO);
 	WG12864A_posXY(1, 2);
-	WG12864A_printf("150|", Arial8x6, NEGRO);
+	WG12864A_printf("160|", Arial8x6, NEGRO);
 	WG12864A_posXY(121, 2);
 	WG12864A_printf("|", Arial8x6, NEGRO);
 	WG12864A_posXY(1, 3);
@@ -642,7 +642,7 @@ void grafica_PPM(void)
 	WG12864A_posXY(121, 5);
 	WG12864A_printf("|", Arial8x6, NEGRO);
 	WG12864A_posXY(1, 6);
-	WG12864A_printf(" 70|", Arial8x6, NEGRO);
+	WG12864A_printf(" 60|", Arial8x6, NEGRO);
 	WG12864A_posXY(121, 6);
 	WG12864A_printf("|", Arial8x6, NEGRO);
 	WG12864A_posXY(1, 7);

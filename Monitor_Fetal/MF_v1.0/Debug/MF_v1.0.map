@@ -330,11 +330,11 @@ Discarded input sections
  .text          0x00000000        0x0 ./Fuentes/Subfunciones.o
  .data          0x00000000        0x0 ./Fuentes/Subfunciones.o
  .bss           0x00000000        0x0 ./Fuentes/Subfunciones.o
- .data.colu     0x00000000        0x1 ./Fuentes/Subfunciones.o
  .bss.aux       0x00000000        0x2 ./Fuentes/Subfunciones.o
  .bss.err_mod   0x00000000        0x2 ./Fuentes/Subfunciones.o
  .bss.aux3      0x00000000        0x2 ./Fuentes/Subfunciones.o
  .bss.err_mod2  0x00000000        0x2 ./Fuentes/Subfunciones.o
+ .data.colu     0x00000000        0x1 ./Fuentes/Subfunciones.o
  .debug_macro   0x00000000      0x83e ./Fuentes/Subfunciones.o
  .debug_macro   0x00000000       0x10 ./Fuentes/Subfunciones.o
  .debug_macro   0x00000000      0x12d ./Fuentes/Subfunciones.o
@@ -1404,13 +1404,13 @@ END GROUP
                 0x100000d4                indice
  .bss.menu      0x100000d8        0x4 ./Fuentes/Menu.o
                 0x100000d8                menu
- .bss.buffer.4685
+ .bss.buffer.4684
                 0x100000dc       0x2c ./Fuentes/Subfunciones.o
- .bss.buffer.4712
+ .bss.buffer.4711
                 0x10000108       0x2c ./Fuentes/Subfunciones.o
- .bss.buffer.4694
+ .bss.buffer.4693
                 0x10000134       0x2c ./Fuentes/Subfunciones.o
- .bss.buffer.4707
+ .bss.buffer.4706
                 0x10000160       0x2c ./Fuentes/Subfunciones.o
  .bss.a         0x1000018c        0x4 ./Fuentes/Touch.o
                 0x1000018c                a
@@ -1588,50 +1588,50 @@ END GROUP
                 [!provide]                PROVIDE (__valid_user_code_checksum, (0x0 - (((_vStackTop + (ResetISR + 0x1)) + (DEFINED (NMI_Handler)?NMI_Handler:M0_NMI_Handler + 0x1)) + (DEFINED (HardFault_Handler)?HardFault_Handler:M0_HardFault_Handler + 0x1))))
 OUTPUT(MF_v1.0.axf elf32-littlearm)
 
-.debug_info     0x00000000     0xc9cc
+.debug_info     0x00000000     0xc9ea
  .debug_info    0x00000000      0x797 ./Fuentes/Comunicaciones.o
  .debug_info    0x00000797     0x2eaa ./Fuentes/Funciones.o
  .debug_info    0x00003641      0x5b2 ./Fuentes/Main.o
  .debug_info    0x00003bf3     0x244d ./Fuentes/Menu.o
- .debug_info    0x00006040      0x7f5 ./Fuentes/Subfunciones.o
- .debug_info    0x00006835     0x1d4e ./Fuentes/Teclado.o
- .debug_info    0x00008583      0x994 ./Fuentes/Touch.o
- .debug_info    0x00008f17      0x9bb ./Fuentes/WG12864A.o
- .debug_info    0x000098d2      0x285 ./Fuentes/cr_startup_lpc11.o
- .debug_info    0x00009b57      0x7c8 ./Drivers/adc.o
- .debug_info    0x0000a31f      0xa4d ./Drivers/gpio.o
- .debug_info    0x0000ad6c      0xc67 ./Drivers/ssp.o
- .debug_info    0x0000b9d3      0xb94 ./Drivers/timer32.o
- .debug_info    0x0000c567      0x465 F:\Proyectos LPC1115\Monitor_Fetal\CMSISv1p30_LPC11xx\Debug\libCMSISv1p30_LPC11xx.a(system_LPC11xx.o)
+ .debug_info    0x00006040      0x813 ./Fuentes/Subfunciones.o
+ .debug_info    0x00006853     0x1d4e ./Fuentes/Teclado.o
+ .debug_info    0x000085a1      0x994 ./Fuentes/Touch.o
+ .debug_info    0x00008f35      0x9bb ./Fuentes/WG12864A.o
+ .debug_info    0x000098f0      0x285 ./Fuentes/cr_startup_lpc11.o
+ .debug_info    0x00009b75      0x7c8 ./Drivers/adc.o
+ .debug_info    0x0000a33d      0xa4d ./Drivers/gpio.o
+ .debug_info    0x0000ad8a      0xc67 ./Drivers/ssp.o
+ .debug_info    0x0000b9f1      0xb94 ./Drivers/timer32.o
+ .debug_info    0x0000c585      0x465 F:\Proyectos LPC1115\Monitor_Fetal\CMSISv1p30_LPC11xx\Debug\libCMSISv1p30_LPC11xx.a(system_LPC11xx.o)
 
-.debug_abbrev   0x00000000     0x1969
+.debug_abbrev   0x00000000     0x1998
  .debug_abbrev  0x00000000      0x20b ./Fuentes/Comunicaciones.o
  .debug_abbrev  0x0000020b      0x28b ./Fuentes/Funciones.o
  .debug_abbrev  0x00000496      0x173 ./Fuentes/Main.o
  .debug_abbrev  0x00000609      0x1b0 ./Fuentes/Menu.o
- .debug_abbrev  0x000007b9      0x253 ./Fuentes/Subfunciones.o
- .debug_abbrev  0x00000a0c      0x115 ./Fuentes/Teclado.o
- .debug_abbrev  0x00000b21      0x1cd ./Fuentes/Touch.o
- .debug_abbrev  0x00000cee      0x16a ./Fuentes/WG12864A.o
- .debug_abbrev  0x00000e58      0x11f ./Fuentes/cr_startup_lpc11.o
- .debug_abbrev  0x00000f77      0x18e ./Drivers/adc.o
- .debug_abbrev  0x00001105      0x2ae ./Drivers/gpio.o
- .debug_abbrev  0x000013b3      0x2ae ./Drivers/ssp.o
- .debug_abbrev  0x00001661      0x226 ./Drivers/timer32.o
- .debug_abbrev  0x00001887       0xe2 F:\Proyectos LPC1115\Monitor_Fetal\CMSISv1p30_LPC11xx\Debug\libCMSISv1p30_LPC11xx.a(system_LPC11xx.o)
+ .debug_abbrev  0x000007b9      0x282 ./Fuentes/Subfunciones.o
+ .debug_abbrev  0x00000a3b      0x115 ./Fuentes/Teclado.o
+ .debug_abbrev  0x00000b50      0x1cd ./Fuentes/Touch.o
+ .debug_abbrev  0x00000d1d      0x16a ./Fuentes/WG12864A.o
+ .debug_abbrev  0x00000e87      0x11f ./Fuentes/cr_startup_lpc11.o
+ .debug_abbrev  0x00000fa6      0x18e ./Drivers/adc.o
+ .debug_abbrev  0x00001134      0x2ae ./Drivers/gpio.o
+ .debug_abbrev  0x000013e2      0x2ae ./Drivers/ssp.o
+ .debug_abbrev  0x00001690      0x226 ./Drivers/timer32.o
+ .debug_abbrev  0x000018b6       0xe2 F:\Proyectos LPC1115\Monitor_Fetal\CMSISv1p30_LPC11xx\Debug\libCMSISv1p30_LPC11xx.a(system_LPC11xx.o)
 
-.debug_loc      0x00000000     0x1c76
+.debug_loc      0x00000000     0x1c89
  .debug_loc     0x00000000      0x3ee ./Fuentes/Comunicaciones.o
  .debug_loc     0x000003ee      0x2a7 ./Fuentes/Funciones.o
- .debug_loc     0x00000695      0x630 ./Fuentes/Subfunciones.o
- .debug_loc     0x00000cc5       0x2c ./Fuentes/Teclado.o
- .debug_loc     0x00000cf1      0x120 ./Fuentes/Touch.o
- .debug_loc     0x00000e11      0x36c ./Fuentes/WG12864A.o
- .debug_loc     0x0000117d      0x1d4 ./Fuentes/cr_startup_lpc11.o
- .debug_loc     0x00001351       0xc4 ./Drivers/adc.o
- .debug_loc     0x00001415      0x413 ./Drivers/gpio.o
- .debug_loc     0x00001828      0x209 ./Drivers/ssp.o
- .debug_loc     0x00001a31      0x245 ./Drivers/timer32.o
+ .debug_loc     0x00000695      0x643 ./Fuentes/Subfunciones.o
+ .debug_loc     0x00000cd8       0x2c ./Fuentes/Teclado.o
+ .debug_loc     0x00000d04      0x120 ./Fuentes/Touch.o
+ .debug_loc     0x00000e24      0x36c ./Fuentes/WG12864A.o
+ .debug_loc     0x00001190      0x1d4 ./Fuentes/cr_startup_lpc11.o
+ .debug_loc     0x00001364       0xc4 ./Drivers/adc.o
+ .debug_loc     0x00001428      0x413 ./Drivers/gpio.o
+ .debug_loc     0x0000183b      0x209 ./Drivers/ssp.o
+ .debug_loc     0x00001a44      0x245 ./Drivers/timer32.o
 
 .debug_aranges  0x00000000      0x3e0
  .debug_aranges
@@ -1716,23 +1716,23 @@ OUTPUT(MF_v1.0.axf elf32-littlearm)
  .debug_macro   0x000023b6      0x832 F:\Proyectos LPC1115\Monitor_Fetal\CMSISv1p30_LPC11xx\Debug\libCMSISv1p30_LPC11xx.a(system_LPC11xx.o)
  .debug_macro   0x00002be8      0x398 F:\Proyectos LPC1115\Monitor_Fetal\CMSISv1p30_LPC11xx\Debug\libCMSISv1p30_LPC11xx.a(system_LPC11xx.o)
 
-.debug_line     0x00000000     0x328c
+.debug_line     0x00000000     0x328b
  .debug_line    0x00000000      0x3a9 ./Fuentes/Comunicaciones.o
  .debug_line    0x000003a9      0x8af ./Fuentes/Funciones.o
  .debug_line    0x00000c58      0x2f7 ./Fuentes/Main.o
  .debug_line    0x00000f4f      0x677 ./Fuentes/Menu.o
- .debug_line    0x000015c6      0x372 ./Fuentes/Subfunciones.o
- .debug_line    0x00001938      0x4d9 ./Fuentes/Teclado.o
- .debug_line    0x00001e11      0x313 ./Fuentes/Touch.o
- .debug_line    0x00002124      0x377 ./Fuentes/WG12864A.o
- .debug_line    0x0000249b      0x199 ./Fuentes/cr_startup_lpc11.o
- .debug_line    0x00002634      0x22a ./Drivers/adc.o
- .debug_line    0x0000285e      0x275 ./Drivers/gpio.o
- .debug_line    0x00002ad3      0x2fe ./Drivers/ssp.o
- .debug_line    0x00002dd1      0x2af ./Drivers/timer32.o
- .debug_line    0x00003080      0x20c F:\Proyectos LPC1115\Monitor_Fetal\CMSISv1p30_LPC11xx\Debug\libCMSISv1p30_LPC11xx.a(system_LPC11xx.o)
+ .debug_line    0x000015c6      0x371 ./Fuentes/Subfunciones.o
+ .debug_line    0x00001937      0x4d9 ./Fuentes/Teclado.o
+ .debug_line    0x00001e10      0x313 ./Fuentes/Touch.o
+ .debug_line    0x00002123      0x377 ./Fuentes/WG12864A.o
+ .debug_line    0x0000249a      0x199 ./Fuentes/cr_startup_lpc11.o
+ .debug_line    0x00002633      0x22a ./Drivers/adc.o
+ .debug_line    0x0000285d      0x275 ./Drivers/gpio.o
+ .debug_line    0x00002ad2      0x2fe ./Drivers/ssp.o
+ .debug_line    0x00002dd0      0x2af ./Drivers/timer32.o
+ .debug_line    0x0000307f      0x20c F:\Proyectos LPC1115\Monitor_Fetal\CMSISv1p30_LPC11xx\Debug\libCMSISv1p30_LPC11xx.a(system_LPC11xx.o)
 
-.debug_str      0x00000000     0x85c4
+.debug_str      0x00000000     0x85be
  .debug_str     0x00000000     0x6654 ./Fuentes/Comunicaciones.o
                                0x66f2 (size before relaxing)
  .debug_str     0x00006654      0x7e1 ./Fuentes/Funciones.o
@@ -1741,25 +1741,25 @@ OUTPUT(MF_v1.0.axf elf32-littlearm)
                                0x6c1d (size before relaxing)
  .debug_str     0x000073f0       0x93 ./Fuentes/Menu.o
                                0x680b (size before relaxing)
- .debug_str     0x00007483      0x2cc ./Fuentes/Subfunciones.o
-                               0x635a (size before relaxing)
- .debug_str     0x0000774f       0x3b ./Fuentes/Teclado.o
+ .debug_str     0x00007483      0x2c6 ./Fuentes/Subfunciones.o
+                               0x6354 (size before relaxing)
+ .debug_str     0x00007749       0x3b ./Fuentes/Teclado.o
                                0x2832 (size before relaxing)
- .debug_str     0x0000778a      0x1d7 ./Fuentes/Touch.o
+ .debug_str     0x00007784      0x1d7 ./Fuentes/Touch.o
                                0x63a8 (size before relaxing)
- .debug_str     0x00007961       0x7e ./Fuentes/WG12864A.o
+ .debug_str     0x0000795b       0x7e ./Fuentes/WG12864A.o
                                0x65d2 (size before relaxing)
- .debug_str     0x000079df      0x240 ./Fuentes/cr_startup_lpc11.o
+ .debug_str     0x000079d9      0x240 ./Fuentes/cr_startup_lpc11.o
                                0x3c82 (size before relaxing)
- .debug_str     0x00007c1f      0x2ec ./Drivers/adc.o
+ .debug_str     0x00007c19      0x2ec ./Drivers/adc.o
                                0x6090 (size before relaxing)
- .debug_str     0x00007f0b       0x78 ./Drivers/gpio.o
+ .debug_str     0x00007f05       0x78 ./Drivers/gpio.o
                                0x60e2 (size before relaxing)
- .debug_str     0x00007f83       0xda ./Drivers/ssp.o
+ .debug_str     0x00007f7d       0xda ./Drivers/ssp.o
                                0x67ae (size before relaxing)
- .debug_str     0x0000805d      0x103 ./Drivers/timer32.o
+ .debug_str     0x00008057      0x103 ./Drivers/timer32.o
                                0x6346 (size before relaxing)
- .debug_str     0x00008160      0x464 F:\Proyectos LPC1115\Monitor_Fetal\CMSISv1p30_LPC11xx\Debug\libCMSISv1p30_LPC11xx.a(system_LPC11xx.o)
+ .debug_str     0x0000815a      0x464 F:\Proyectos LPC1115\Monitor_Fetal\CMSISv1p30_LPC11xx\Debug\libCMSISv1p30_LPC11xx.a(system_LPC11xx.o)
                                0x5d82 (size before relaxing)
 
 .comment        0x00000000       0xdc
