@@ -81,7 +81,7 @@ uint16_t leo_adc(char Channel);
 void detector_pulsos(void);
 void grafica_PPM(void);
 
-
+char i_p=0,buff_prueba[]={81,98,93,92,94,101,115,131,140,143,151,120,111,115,105,98,87,85,73,87,20,98};
 //--------------------------------------------------------------------------
 void TIMER32_1_IRQHandler(void)
 {
@@ -608,11 +608,15 @@ void detector_pulsos(void)
 	}
 */	cont_pico_POS=0;
 	cont_pico_NEG=0;
-	PPM++;
+/*	PPM++;
 	if(PPM>165)
 		PPM=60;
 	if(PPM<60)
 		PPM=60;
+*/	PPM=buff_prueba[i_p];
+	i_p++;
+	if(i_p>20)
+		i_p=0;
 	Grafica_monitoreo(PPM);
 }
 
