@@ -35,7 +35,7 @@ extern char 	cantmp,cantver,cantprt,cint,menuactual,flagmm,sumaerr,
 extern char		reclq,reclq1,reclq2,reclq3,mtok,i_p,flag_1seg,flag_25ms,
 				cont_10seg,cont_5seg_aux,cont_500ms,Hab_cont_500ms;
 extern unsigned int adc_val5,adc_valX, adc_valY;
-extern char 		PPM,buff_prueba[];
+extern char 		PPM,buff_prueba[],HAB_GUARDAR;
 extern unsigned int sleep,flagsleep,flagirq,sleepmenu;
 
 //--------------------------------------------------------------------------
@@ -360,7 +360,7 @@ void Graf_datos_est	(void)
 //-------------------------------------------------------------------------- Grafica recuadro
 	WG12864A_posXY(110, 7);
 	WG12864A_print_symbol(BACK16x16, BLANCO);
-	WG12864A_posXY(90, 7);
+	WG12864A_posXY(91, 7);
 	WG12864A_print_symbol(FD16x16, NEGRO);									// FD Negro
 	WG12864A_posXY(1, 2);
 	WG12864A_printf("160|", Arial8x6, NEGRO);
@@ -391,6 +391,11 @@ void Graf_datos_est	(void)
 void Det_corazon(void)
 {
 	char *		renglon = buffer_pulso ;
+
+	WG12864A_posXY(37, 7);											// Si no detecta Pulsos borra las PPM y el corazón
+	WG12864A_printf("         ", Arial8x6, NEGRO);
+	WG12864A_posXY(1, 8);
+	WG12864A_printf("               ", Arial8x6, NEGRO);
 	while(!((0xA0 < adc_valX) &&(adc_valX < 0xB9) &&							// Mientras este activo el FD
 			(0x2A < adc_valY) && (adc_valY < 0x5A)))
 	{
@@ -491,6 +496,7 @@ void Det_corazon(void)
 				WG12864A_posXY(40, 7);
 				WG12864A_printf(buffer_pulso, Arial8x6, NEGRO);
 				Grafica_monitoreo(PPM);											// Grafico PPM cada 5 seg
+				HAB_GUARDAR=1;
 			}
 		}
 		if(cont_10seg>=10)													// A los 10 seg
@@ -499,7 +505,7 @@ void Det_corazon(void)
 		sleep=1;
 		Func_Sleep (flagirq, sleepmenu);		// Funcion que maneja el Sleep de la pantalla y la IRQ del TOUCH.
 	}
-	WG12864A_posXY(90, 7);
+	WG12864A_posXY(91, 7);
 	WG12864A_print_symbol(FD16x16, NEGRO);									// FD Negro
 	delay32Ms(0, TIMMER_FONDO_BLANCO);									// Para demorar su utiliza vTaskDelay()
 	adc_valX = 0, adc_valY = 0;												// Reseteo el valor de X, Y del ADC.

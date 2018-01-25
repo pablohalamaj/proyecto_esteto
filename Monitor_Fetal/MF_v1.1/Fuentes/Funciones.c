@@ -38,7 +38,7 @@ extern int 			h,mi,seg,d,m,anio,ds,proxf[],proxh[],var_aux;
 
 int					norecarga=0,muefunc=0;
 char				menuactual,toca,toca1,modo_func,actualiza_fw=0,
-					t,pressok,prs,velc,dir_comu,sd_disp,
+					t,pressok,prs,velc,dir_comu,sd_disp,HAB_GUARDAR,
 					flagesp=0,salir=0,mod=0;
 unsigned int 		cont_tra=0,tcla[4],
 					adc_valX, adc_valY,										// Variables GLOBALES con los valores de posicion en X e Y.
@@ -478,20 +478,44 @@ flag_sleepsubmenu = 1;														// Restablesco el valor original de la bande
 //--------------------------------------------------------------------------
 void Func_Monitoreo (void)
 {
-	char m=0,n=0;
+	char m=0,n=0,SALIR_MF;
+	HAB_GUARDAR=0;
+	SALIR_MF=0;
 	Graf_datos_est();
 	// Mientras no se presione Back.
-	while(! ((0xD0 < adc_valX) && (adc_valX < 0xEA) &&
-			 (0x2A < adc_valY) && (adc_valY < 0x5A)))
+	while((! ((0xD0 < adc_valX) && (adc_valX < 0xEA) &&
+			 (0x2A < adc_valY) && (adc_valY < 0x5A)))&& SALIR_MF==0)
 	{
 		if((0xA0 < adc_valX) &&(adc_valX < 0xB9) &&
 				(0x2A < adc_valY) && (adc_valY < 0x5A))						// Se presionó FD?
 		{
-			WG12864A_posXY(90, 7);
+			WG12864A_posXY(91, 7);
 			WG12864A_print_symbol(FD16x16, BLANCO);							// FD Blanco
 			delay32Ms(0, TIMMER_FONDO_BLANCO);									// Para demorar su utiliza vTaskDelay()
 			adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
 			Det_corazon();													// Función que detecta las PPM
+		}
+		if(HAB_GUARDAR)
+		{
+			WG12864A_posXY(70, 7);
+			WG12864A_print_symbol(OK16x16, BLANCO);							// OK Blanco
+			WG12864A_posXY(1, 8);
+			WG12864A_printf("Almacenar?", Arial8x6, NEGRO);				// Titulo del menu.
+			if(((0x7A < adc_valX) && (adc_valX < 0x9A) &&
+				 (0x2A < adc_valY) && (adc_valY < 0x5A)))
+			{
+				WG12864A_posXY(70, 7);
+				WG12864A_print_symbol(OK16x16, NEGRO);							// OK NEGRO
+				delay32Ms(0, TIMMER_FONDO_BLANCO);									// Para demorar su utiliza vTaskDelay()
+				adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
+				WG12864A_posXY(37, 7);											// Si no detecta Pulsos borra las PPM y el corazón
+				WG12864A_printf("         ", Arial8x6, NEGRO);
+				WG12864A_posXY(1, 8);
+				WG12864A_printf("               ", Arial8x6, NEGRO);
+				HAB_GUARDAR=0;
+				SALIR_MF=1;
+			}
+
 		}
 		sleep=1;
 		Func_Sleep (flagirq, sleepmenu);		// Funcion que maneja el Sleep de la pantalla y la IRQ del TOUCH.
