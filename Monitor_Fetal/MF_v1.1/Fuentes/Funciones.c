@@ -482,6 +482,8 @@ void Func_Monitoreo (void)
 	HAB_GUARDAR=0;
 	SALIR_MF=0;
 	Graf_datos_est();
+	GPIOSetValue( 2, 8, 0 );												// Habilito el MUX
+	GPIOSetValue( 2, 9, 1 );												// Habilito Señal ANALOGICA
 	// Mientras no se presione Back.
 	while((! ((0xD0 < adc_valX) && (adc_valX < 0xEA) &&
 			 (0x2A < adc_valY) && (adc_valY < 0x5A)))&& SALIR_MF==0)
@@ -531,65 +533,7 @@ void Func_Monitoreo (void)
 	}
 
 	flag_sleepsubmenu = 1;													// Restablesco el valor original de la bandera.
-
-}
-
-//--------------------------------------------------------------------------
-//	Detecta Picos + y - del corazón
-//--------------------------------------------------------------------------
-void detector_pulsos(void)
-{
-	int i=0,j=0;
-	while(i<1000)															// Analiza el primer buffer
-	{
-		if(valpru[i]>Umbral_Sup && flag_INF)								// Debe superar el Umbral sup y haber pasado un pico -
-		{																	// Para no detectar falso pico +
-			flag_SUP=1;
-			flag_INF=0;
-			cont_pico_POS++;
-		}
-		if(valpru[i]<Umbral_Inf && flag_SUP)								// debe ser menor al Umbral neg y haber pasado un pico +
-		{																	// para no detectar un falso pico -
-			flag_SUP=0;
-			flag_INF=1;
-			cont_pico_NEG++;
-		}
-		i++;
-	}
-/*	while(1000<i &&i<1800)													// Analiza el 2do buffer mismo procedimiento
-	{
-		if(valpru2[j]>Umbral_Sup && flag_INF)
-		{
-			flag_SUP=1;
-			flag_INF=0;
-			cont_pico_POS++;
-		}
-		if(valpru2[j]<Umbral_Inf && flag_SUP)
-		{
-			flag_SUP=0;
-			flag_INF=1;
-			cont_pico_NEG++;
-		}
-		j++;
-	}
-
-	if(cont_pico_POS<cont_pico_NEG+2 && cont_pico_POS>cont_pico_NEG-2)		// Si conto la misma cantidad de picos + y -
-	{																		// +/-2 de error, entonces
-		PPM=cont_pico_POS*6;												// Calcula las pulsaciones (cant en 10seg*6=PPM)
-		PULSO_OK=1;
-	}
-*/	cont_pico_POS=0;
-	cont_pico_NEG=0;
-/*	PPM++;
-	if(PPM>165)
-		PPM=60;
-	if(PPM<60)
-		PPM=60;
-	PPM=buff_prueba[i_p];
-	i_p++;
-	if(i_p>80)
-		i_p=0;
-*/	Grafica_monitoreo(PPM);
+	GPIOSetValue( 2, 8, 1 );												// Deshabilito el MUX
 }
 
 //						  2.2 Configuraciones

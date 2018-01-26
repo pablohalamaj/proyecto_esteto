@@ -384,33 +384,29 @@ void Graf_datos_est	(void)
 	WG12864A_printf("|", Arial8x6, NEGRO);
 	WG12864A_posXY(1, 7);
 	WG12864A_printf("Pulso:", Arial8x6, NEGRO);
-
 }
 //						  Detecta los pulsos del corazón
 //--------------------------------------------------------------------------
 void Det_corazon(void)
 {
 	char *		renglon = buffer_pulso ;
-
-	WG12864A_posXY(37, 7);											// Si no detecta Pulsos borra las PPM y el corazón
+	GPIOSetValue( 2, 9, 0 );												// Habilito Señal DIGITAL
+	WG12864A_posXY(37, 7);													// Si no detecta Pulsos borra las PPM y el corazón
 	WG12864A_printf("         ", Arial8x6, NEGRO);
 	WG12864A_posXY(1, 8);
 	WG12864A_printf("               ", Arial8x6, NEGRO);
-	while(!((0xA0 < adc_valX) &&(adc_valX < 0xB9) &&							// Mientras este activo el FD
+	while(!((0xA0 < adc_valX) &&(adc_valX < 0xB9) &&						// Mientras este activo el FD
 			(0x2A < adc_valY) && (adc_valY < 0x5A)))
 	{
 		adc_val5=0;
-		while((adc_val5<PICO_POSIT) && cont_5seg_aux<5)							// Tomo valores del ADC hasta encontrar un pico
+		while((adc_val5<PICO_POSIT) && cont_5seg_aux<5)						// Tomo valores del ADC hasta encontrar un pico
 		{																	// o salgo a los 5 seg por protección
 			Leo_ADC5();
 			if(flag_25ms)													// Toma una muestra cada 5ms!
 			{
 				flag_25ms=0;
 				if(Hab_cont_500ms)
-				{
-					Hab_cont_500ms=0;
 					cont_500ms++;
-				}
 			}
 			if(flag_1seg)													// Contador 1 seg
 			{
@@ -421,14 +417,15 @@ void Det_corazon(void)
 			}
 			if(cont_10seg>=10)												// A los 10 seg
 				cont_10seg=0;
-			if(cont_500ms>20)													// Apago el parlante en 500ms
+			if(cont_500ms>20)												// Apago el parlante en 500ms
 			{
 				cont_500ms=0;
-				GPIOSetValue( 2, 10, 0 );										// Deshabilito salida de latido
+				Hab_cont_500ms=0;
+				GPIOSetValue( 2, 10, 0 );									// Deshabilito salida de latido
 			}
 
 		}
-		if(cont_5seg_aux<5)														// Si encontré un pico
+		if(cont_5seg_aux<5)													// Si encontré un pico
 		{
 			cont_pulso++;													// Cuento el pico
 			GPIOSetValue( 2, 10, 1 );										// Habilito salida de latido
@@ -445,10 +442,11 @@ void Det_corazon(void)
 				WG12864A_print_symbol(HEART16x16, NEGRO);
 				swt_corazon=1;
 			}
-			if(cont_500ms>20)													// Apago el parlante en 500ms
+			if(cont_500ms>20)												// Apago el parlante en 500ms
 			{
 				cont_500ms=0;
-				GPIOSetValue( 2, 10, 0 );										// Deshabilito salida de latido
+				Hab_cont_500ms=0;
+				GPIOSetValue( 2, 10, 0 );									// Deshabilito salida de latido
 			}
 
 		}
@@ -469,10 +467,7 @@ void Det_corazon(void)
 		{
 			flag_25ms=0;
 			if(Hab_cont_500ms)
-			{
-				Hab_cont_500ms=0;
 				cont_500ms++;
-			}
 		}
 		if(flag_1seg)														// Contador 1 seg
 		{
@@ -495,7 +490,7 @@ void Det_corazon(void)
 				*renglon++ = ( PPM      % 10) + '0' ;
 				WG12864A_posXY(40, 7);
 				WG12864A_printf(buffer_pulso, Arial8x6, NEGRO);
-				Grafica_monitoreo(PPM);											// Grafico PPM cada 5 seg
+				Grafica_monitoreo(PPM);										// Grafico PPM cada 5 seg
 				HAB_GUARDAR=1;
 			}
 		}
@@ -503,13 +498,14 @@ void Det_corazon(void)
 			cont_10seg=0;
 		cont_5seg_aux=0;
 		sleep=1;
-		Func_Sleep (flagirq, sleepmenu);		// Funcion que maneja el Sleep de la pantalla y la IRQ del TOUCH.
+		Func_Sleep (flagirq, sleepmenu);									// Funcion que maneja el Sleep de la pantalla y la IRQ del TOUCH.
 	}
 	WG12864A_posXY(91, 7);
 	WG12864A_print_symbol(FD16x16, NEGRO);									// FD Negro
-	delay32Ms(0, TIMMER_FONDO_BLANCO);									// Para demorar su utiliza vTaskDelay()
+	delay32Ms(0, TIMMER_FONDO_BLANCO);										// Para demorar su utiliza vTaskDelay()
 	adc_valX = 0, adc_valY = 0;												// Reseteo el valor de X, Y del ADC.
-	WG12864A_posXY(37, 7);											// Si no detecta Pulsos borra las PPM y el corazón
+	GPIOSetValue( 2, 9, 1 );												// Habilito Señal ANALOGICA
+	WG12864A_posXY(37, 7);													// Si no detecta Pulsos borra las PPM y el corazón
 	WG12864A_printf("         ", Arial8x6, NEGRO);
 	WG12864A_posXY(37, 8);
 	WG12864A_printf("         ", Arial8x6, NEGRO);

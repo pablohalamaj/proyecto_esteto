@@ -57,10 +57,16 @@ int main(void)
 //	enable_timer32(0);			// Disparo el Timmer que controla el Sleep del Display.
 	enable_timer32(1);														// Disparo el Timmer que controla el Sleep del Display.
 	GPIOInit();		 														//Inicializo GPIO
+	GPIOSetDir( 2, 8, 1 );													// Seteo pin como salida
+	GPIOSetDir( 2, 9, 1 );													// Seteo pin como salida
+	GPIOSetDir( 2, 10, 1 );													// Seteo pin como salida
 	GPIOIntClear(PORT1, 2);													// Limpio la Interrupcion y la habilito.
 	GPIOIntEnable(PORT1, 2);
 	actualiza_fw=0;
 	pos_x=25;
+	GPIOSetValue( 2, 10, 0 );												// Deshabilito salida de latido
+	GPIOSetValue( 2, 8, 1 );												// Dehabilito el MUX
+	GPIOSetValue( 2, 9, 1 );												// Habilito Señal ANALOGICA
 	while(1)
 	{
 		Menu_Inicial();														//Corro el Menu.
