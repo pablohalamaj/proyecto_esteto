@@ -53,7 +53,7 @@ int main(void)
 //	init_timer32(0,0x0001770F, 0x2DC8A01,0x0003A9A6);
 //	init_timer32 (1, (TIMMER_BASE_1S)/* * TIMMER_SLEEP)*/,0x2DC8A01,0x0003A9A6);						// Timmer 1, para Sleep Display.
 	init_timer32 (1, TIMMER_BASE_25MS,0x2DC8A01,0x0003A9A6);						// Timmer 1, para Sleep Display.
-	Menu_Logo();															// Presento el Logo
+//	Menu_Logo();															// Presento el Logo
 //	enable_timer32(0);			// Disparo el Timmer que controla el Sleep del Display.
 	enable_timer32(1);														// Disparo el Timmer que controla el Sleep del Display.
 	GPIOInit();		 														//Inicializo GPIO

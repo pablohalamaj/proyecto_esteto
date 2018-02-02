@@ -524,9 +524,12 @@ void Func_Monitoreo (void)
 	}
 	if(flag_sleepsubmenu)
 	{
-		WG12864A_posXY(110, 7);
-		WG12864A_print_symbol(BACK16x16, NEGRO);
-		delay32Ms(0, TIMMER_FONDO_BLANCO);									// Para demorar su utiliza vTaskDelay()
+		if(!SALIR_MF)
+		{
+			WG12864A_posXY(110, 7);
+			WG12864A_print_symbol(BACK16x16, NEGRO);
+			delay32Ms(0, TIMMER_FONDO_BLANCO);									// Para demorar su utiliza vTaskDelay()
+		}
 		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
 		WG12864A_Limpiar(NEGRO);
 		menu2 = 0;
