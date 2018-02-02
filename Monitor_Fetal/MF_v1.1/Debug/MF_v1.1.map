@@ -1610,37 +1610,37 @@ END GROUP
                 [!provide]                PROVIDE (__valid_user_code_checksum, (0x0 - (((_vStackTop + (ResetISR + 0x1)) + (DEFINED (NMI_Handler)?NMI_Handler:M0_NMI_Handler + 0x1)) + (DEFINED (HardFault_Handler)?HardFault_Handler:M0_HardFault_Handler + 0x1))))
 OUTPUT(MF_v1.1.axf elf32-littlearm)
 
-.debug_info     0x00000000     0xd22e
+.debug_info     0x00000000     0xd20d
  .debug_info    0x00000000      0x797 ./Fuentes/Comunicaciones.o
- .debug_info    0x00000797     0x2c60 ./Fuentes/Funciones.o
- .debug_info    0x000033f7      0x684 ./Fuentes/Main.o
- .debug_info    0x00003a7b     0x24aa ./Fuentes/Menu.o
- .debug_info    0x00005f25     0x1172 ./Fuentes/Subfunciones.o
- .debug_info    0x00007097     0x1d4e ./Fuentes/Teclado.o
- .debug_info    0x00008de5      0x994 ./Fuentes/Touch.o
- .debug_info    0x00009779      0x9bb ./Fuentes/WG12864A.o
- .debug_info    0x0000a134      0x285 ./Fuentes/cr_startup_lpc11.o
- .debug_info    0x0000a3b9      0x7c8 ./Drivers/adc.o
- .debug_info    0x0000ab81      0xa4d ./Drivers/gpio.o
- .debug_info    0x0000b5ce      0xc67 ./Drivers/ssp.o
- .debug_info    0x0000c235      0xb94 ./Drivers/timer32.o
- .debug_info    0x0000cdc9      0x465 F:\Proyectos LPC1115\Monitor_Fetal\CMSISv1p30_LPC11xx\Debug\libCMSISv1p30_LPC11xx.a(system_LPC11xx.o)
+ .debug_info    0x00000797     0x2c3f ./Fuentes/Funciones.o
+ .debug_info    0x000033d6      0x684 ./Fuentes/Main.o
+ .debug_info    0x00003a5a     0x24aa ./Fuentes/Menu.o
+ .debug_info    0x00005f04     0x1172 ./Fuentes/Subfunciones.o
+ .debug_info    0x00007076     0x1d4e ./Fuentes/Teclado.o
+ .debug_info    0x00008dc4      0x994 ./Fuentes/Touch.o
+ .debug_info    0x00009758      0x9bb ./Fuentes/WG12864A.o
+ .debug_info    0x0000a113      0x285 ./Fuentes/cr_startup_lpc11.o
+ .debug_info    0x0000a398      0x7c8 ./Drivers/adc.o
+ .debug_info    0x0000ab60      0xa4d ./Drivers/gpio.o
+ .debug_info    0x0000b5ad      0xc67 ./Drivers/ssp.o
+ .debug_info    0x0000c214      0xb94 ./Drivers/timer32.o
+ .debug_info    0x0000cda8      0x465 F:\Proyectos LPC1115\Monitor_Fetal\CMSISv1p30_LPC11xx\Debug\libCMSISv1p30_LPC11xx.a(system_LPC11xx.o)
 
-.debug_abbrev   0x00000000     0x19ce
+.debug_abbrev   0x00000000     0x199a
  .debug_abbrev  0x00000000      0x20b ./Fuentes/Comunicaciones.o
- .debug_abbrev  0x0000020b      0x26d ./Fuentes/Funciones.o
- .debug_abbrev  0x00000478      0x173 ./Fuentes/Main.o
- .debug_abbrev  0x000005eb      0x1b0 ./Fuentes/Menu.o
- .debug_abbrev  0x0000079b      0x2d6 ./Fuentes/Subfunciones.o
- .debug_abbrev  0x00000a71      0x115 ./Fuentes/Teclado.o
- .debug_abbrev  0x00000b86      0x1cd ./Fuentes/Touch.o
- .debug_abbrev  0x00000d53      0x16a ./Fuentes/WG12864A.o
- .debug_abbrev  0x00000ebd      0x11f ./Fuentes/cr_startup_lpc11.o
- .debug_abbrev  0x00000fdc      0x18e ./Drivers/adc.o
- .debug_abbrev  0x0000116a      0x2ae ./Drivers/gpio.o
- .debug_abbrev  0x00001418      0x2ae ./Drivers/ssp.o
- .debug_abbrev  0x000016c6      0x226 ./Drivers/timer32.o
- .debug_abbrev  0x000018ec       0xe2 F:\Proyectos LPC1115\Monitor_Fetal\CMSISv1p30_LPC11xx\Debug\libCMSISv1p30_LPC11xx.a(system_LPC11xx.o)
+ .debug_abbrev  0x0000020b      0x239 ./Fuentes/Funciones.o
+ .debug_abbrev  0x00000444      0x173 ./Fuentes/Main.o
+ .debug_abbrev  0x000005b7      0x1b0 ./Fuentes/Menu.o
+ .debug_abbrev  0x00000767      0x2d6 ./Fuentes/Subfunciones.o
+ .debug_abbrev  0x00000a3d      0x115 ./Fuentes/Teclado.o
+ .debug_abbrev  0x00000b52      0x1cd ./Fuentes/Touch.o
+ .debug_abbrev  0x00000d1f      0x16a ./Fuentes/WG12864A.o
+ .debug_abbrev  0x00000e89      0x11f ./Fuentes/cr_startup_lpc11.o
+ .debug_abbrev  0x00000fa8      0x18e ./Drivers/adc.o
+ .debug_abbrev  0x00001136      0x2ae ./Drivers/gpio.o
+ .debug_abbrev  0x000013e4      0x2ae ./Drivers/ssp.o
+ .debug_abbrev  0x00001692      0x226 ./Drivers/timer32.o
+ .debug_abbrev  0x000018b8       0xe2 F:\Proyectos LPC1115\Monitor_Fetal\CMSISv1p30_LPC11xx\Debug\libCMSISv1p30_LPC11xx.a(system_LPC11xx.o)
 
 .debug_loc      0x00000000     0x20a3
  .debug_loc     0x00000000      0x3ee ./Fuentes/Comunicaciones.o

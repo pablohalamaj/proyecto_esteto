@@ -47,6 +47,7 @@ void func_borrarpaciente(void);
 
 // Funcion iniciar monitoreo ------ 2.1
 void Func_Monitoreo(void);
+void Det_corazon(void);
 // Funcion configuraciones -------- 2.2
 void Func_Configuraciones (void);
 // Funcion Historial monitoreos --- 2.3

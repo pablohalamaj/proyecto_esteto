@@ -493,8 +493,8 @@ void Func_Monitoreo (void)
 		{
 			WG12864A_posXY(91, 7);
 			WG12864A_print_symbol(FD16x16, BLANCO);							// FD Blanco
-			delay32Ms(0, TIMMER_FONDO_BLANCO);									// Para demorar su utiliza vTaskDelay()
-			adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
+			delay32Ms(0, TIMMER_FONDO_BLANCO);								// Para demorar su utiliza vTaskDelay()
+			adc_valX = 0, adc_valY = 0;										// Reseteo el valor de X, Y del ADC.
 			Det_corazon();													// Función que detecta las PPM
 		}
 		if(HAB_GUARDAR)
@@ -502,15 +502,15 @@ void Func_Monitoreo (void)
 			WG12864A_posXY(70, 7);
 			WG12864A_print_symbol(OK16x16, BLANCO);							// OK Blanco
 			WG12864A_posXY(1, 8);
-			WG12864A_printf("Almacenar?", Arial8x6, NEGRO);				// Titulo del menu.
+			WG12864A_printf("Almacenar?", Arial8x6, NEGRO);					// Titulo del menu.
 			if(((0x7A < adc_valX) && (adc_valX < 0x9A) &&
 				 (0x2A < adc_valY) && (adc_valY < 0x5A)))
 			{
 				WG12864A_posXY(70, 7);
-				WG12864A_print_symbol(OK16x16, NEGRO);							// OK NEGRO
-				delay32Ms(0, TIMMER_FONDO_BLANCO);									// Para demorar su utiliza vTaskDelay()
-				adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
-				WG12864A_posXY(37, 7);											// Si no detecta Pulsos borra las PPM y el corazón
+				WG12864A_print_symbol(OK16x16, NEGRO);						// OK NEGRO
+				delay32Ms(0, TIMMER_FONDO_BLANCO);							// Para demorar su utiliza vTaskDelay()
+				adc_valX = 0, adc_valY = 0;									// Reseteo el valor de X, Y del ADC.
+				WG12864A_posXY(37, 7);										// Si no detecta Pulsos borra las PPM y el corazón
 				WG12864A_printf("         ", Arial8x6, NEGRO);
 				WG12864A_posXY(1, 8);
 				WG12864A_printf("               ", Arial8x6, NEGRO);
