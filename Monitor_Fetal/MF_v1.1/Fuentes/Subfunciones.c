@@ -28,12 +28,13 @@ int 			h,mi,seg,d,m,a,aa,aaa,aaaa,anio,ds,
 unsigned short 	aux=0, aux3=0,err_mod=0, err_mod2=0;
 char Graf_punt;
 static char  		buffer_pulso[44] ;
+char T_Periodo,T_Per;
 //--------------------------------------------------------------------------
 //***********************  Variables Externas  *****************************
 extern char 	cantmp,cantver,cantprt,cint,menuactual,flagmm,sumaerr,
 				Rx[],btens[],toffset[],movmp[],causaerr[],causaerror[];
 extern char		reclq,reclq1,reclq2,reclq3,mtok,i_p,flag_1seg,flag_25ms,
-				cont_10seg,cont_5seg_aux,cont_500ms,Hab_cont_500ms;
+				cont_10seg,cont_5seg_aux,cont_500ms,Hab_cont_500ms,cont_100ms;
 extern unsigned int adc_val5,adc_valX, adc_valY;
 extern char 		PPM,buff_prueba[],HAB_GUARDAR;
 extern unsigned int sleep,flagsleep,flagirq,sleepmenu;
@@ -262,7 +263,7 @@ void analizo_salto(char Fila_act,char mitad_act)
 
 		}
 	}
-	else																	// Si estan en distinta fila
+	else																	// Si estan en distinta fila (SOLO SIRVE PARA DIF DE 1 FILA)
 	{
 		if(Fila_act<Fila_ant)
 		{
@@ -297,6 +298,18 @@ void analizo_salto(char Fila_act,char mitad_act)
 					Fila_ant--;
 					pnt_aux=0x80;
 					pnt_rell=0x80;
+//****************
+					if(Fila_act<Fila_ant)
+					{
+						WG12864A_posXY(pos_x,Fila_ant);								// Escribe el punto en pantalla
+						GLCD_Output_High(RS);   									// Modo datos
+						if(pos_x<65)
+							GLCD_enviaBYTE(IZQ, (0xFF));  						// enciende byte
+						else
+							GLCD_enviaBYTE(DER, (0xFF));  						// enciende byte
+
+					}
+//****************
 				}
 				else
 				{
@@ -338,6 +351,19 @@ void analizo_salto(char Fila_act,char mitad_act)
 					Fila_ant++;
 					pnt_aux=0x01;
 					pnt_rell=0x01;
+//****************
+					if(Fila_act>Fila_ant)
+					{
+						WG12864A_posXY(pos_x,Fila_ant);								// Escribe el punto en pantalla
+						GLCD_Output_High(RS);   									// Modo datos
+						if(pos_x<65)
+							GLCD_enviaBYTE(IZQ, (0xFF));  						// enciende byte
+						else
+							GLCD_enviaBYTE(DER, (0xFF));  						// enciende byte
+
+					}
+//****************
+
 				}
 				else
 				{
@@ -401,10 +427,13 @@ void Det_corazon(void)
 		adc_val5=0;
 		while((adc_val5<PICO_POSIT) && cont_5seg_aux<5)						// Tomo valores del ADC hasta encontrar un pico
 		{																	// o salgo a los 5 seg por protección
-			Leo_ADC5();
+			if(cont_100ms>4)												// Protección falso pico
+				Leo_ADC5();													// Leo ADC sensado corazón
 			if(flag_25ms)													// Toma una muestra cada 5ms!
 			{
 				flag_25ms=0;
+				T_Periodo++;
+				cont_100ms++;
 				if(Hab_cont_500ms)
 					cont_500ms++;
 			}
@@ -430,6 +459,7 @@ void Det_corazon(void)
 			cont_pulso++;													// Cuento el pico
 			GPIOSetValue( 2, 10, 1 );										// Habilito salida de latido
 			Hab_cont_500ms=1;
+			cont_100ms=0;
 			if(swt_corazon)													// Muestro el corazón
 			{
 				WG12864A_posXY(70, 7);
@@ -452,20 +482,32 @@ void Det_corazon(void)
 		}
 		else
 		{
+			cont_pulso=0;													// Debo empezar a contar nuevamente
+			T_Periodo=0;
+			cont_100ms=0;
 			WG12864A_posXY(37, 7);											// Si no detecta Pulsos borra las PPM y el corazón
 			WG12864A_printf("         ", Arial8x6, NEGRO);
 			WG12864A_posXY(37, 8);
 			WG12864A_printf("         ", Arial8x6, NEGRO);
 		}
-		if(cont_pulso==5)													// Si llegue a detectar 5 picos
+		if(cont_pulso==4)													// Si llegue a detectar 4 picos
 		{																	// Obtengo el tiempo empleado y calculo las PPM
 			cont_pulso=0;
+			//T_Periodo=1750/10;//1.75;//1750/1000;
+			if(T_Periodo)
+			{
+				T_Per=T_Periodo*25;
+				PPM=24000/T_Per;///1.75;
+				T_Periodo=0;
+			}
 			//Debo tomar el tiempo exacto en detectar los 5 picos para saber cuantas PPM hay
 			//PPM=VALOR CALCULADO!!!!!!!!!!
 		}
 		if(flag_25ms)														// Toma una muestra cada 5ms!
 		{
 			flag_25ms=0;
+			T_Periodo++;
+			cont_100ms++;
 			if(Hab_cont_500ms)
 				cont_500ms++;
 		}
@@ -480,7 +522,7 @@ void Det_corazon(void)
 			cont_5seg=0;
 			if(cont_5seg_aux<5)
 			{
-				PPM=buff_prueba[i_p];	// SACAR
+				//PPM=buff_prueba[i_p];	// SACAR
 				i_p++;
 				if(i_p>80)
 					i_p=0;
@@ -512,6 +554,7 @@ void Det_corazon(void)
 
 
 }
+
 //						  Muestra fecha y hora
 //--------------------------------------------------------------------------
 void muestra_fecha_y_hora (int 	fila )

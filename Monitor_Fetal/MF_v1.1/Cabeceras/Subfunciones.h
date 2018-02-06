@@ -35,3 +35,16 @@ void prox_hora 				(int 	fila );
 void muestra_dsemana		(unsigned int FF,int columna,int fila);
 
 #endif /* SUBFUNCIONES_H_ */
+
+#ifdef EXPLICACION
+
+*	Solo habilita sonido analogico al entrar en menu 2.1
+*	Habilita Filtrado digital al apretar boton FD
+
+*	Pulsaciones:  	160PPM->4P en 1.5seg
+					60PPM ->4P en 4seg
+
+
+
+
+#endif
