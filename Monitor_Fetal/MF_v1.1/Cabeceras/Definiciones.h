@@ -53,7 +53,7 @@
 #define TIMMER_BASE_25MS			0x124F80	//25ms->x=0.025*4*12MHz=1200000=0x124F80
 //	CLAVE MENU ESPECIAL.
 #define CLAVE					{3,0,6,0}		//Clave para el acceso del menu especial.
-#define PICO_POSIT				0x70//3800			// Umbral Para detectar pico +
+#define PICO_POSIT				0x6a//0x70//3800			// Umbral Para detectar pico +
 // *-*-*-*-*-*-*-*-*-*-*-*-*- FUNCIONES -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 //							msf		m=menu	s=submenu	f=funcion
 #define fyh			1	//	111

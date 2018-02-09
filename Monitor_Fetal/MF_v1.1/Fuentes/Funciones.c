@@ -66,17 +66,18 @@ char 				PROMEDIAR=0,ACT_DISP=0,NO_ENTR=0,DISMINUYO=0,AUMENTO=0;
 int 				Umbral_Sup=3000,Umbral_Inf=2000,
 					cont_pico_POS=0,cont_pico_NEG=0,
 					inc_ind,inc_ind2,i_ind_buff,PARLANTE,
-					lat_adc,lat_ant,LAT_PROM;
-char 				PULSO_OK,flag_SUP=1,flag_INF=1,PPM=0,
+					lat_adc,lat_ant,LAT_PROM,PPM=0;
+char 				PULSO_OK,flag_SUP=1,flag_INF=1,
 					pos_x,pos_y,PUNTO,AUMENTO,DISMINUYO,
-					cont_10seg,cont_5seg_aux,FILTRO_DIG,hab_corazon,
+					cont_10seg,cont_5seg_aux,cont_5seg_au,cont_5s,FILTRO_DIG,hab_corazon,
 					PROMEDIAR,NO_ENTR,ACT_DISP,v,
 					ind_adc=0,SUBIR,BAJAR,desp_vert,SALTO;
 unsigned int 		valpru[100],valpru2[80],ind_Muestras,aux_prov;
 //unsigned int valpru[1000],valpru2[800],ind_Muestras,aux_prov;
+
 //extern int valpru[];
 extern char 		flag_1seg,flag_25ms,cont_1min,cont_1seg;
-
+extern int 		T_Periodo,t_par;
 uint16_t leo_adc(char Channel);
 void detector_pulsos(void);
 void grafica_PPM(void);
@@ -100,11 +101,15 @@ void TIMER32_1_IRQHandler(void)
 
 		LPC_TMR32B1->IR = 1;														// Reseteo el Flag de IRQ.
 		flag_25ms=1;																// Flag 25ms
+		T_Periodo++;																// Tiempo para PPM (Tiempo de 4 pulsaciones)
+		t_par++;																	// Tiempo parcial entre pulsos
 		cont_1seg++;																// Incremento cont 1seg
 		if(cont_1seg>=40)
 		{
 			cont_1seg=0;
 			flag_1seg=1;															// Flag 1seg
+			cont_5seg_au++;
+//			cont_5s++;
 			cont_1min++;															// Incremento cont 1min
 			if(cont_1min>=60)
 			{

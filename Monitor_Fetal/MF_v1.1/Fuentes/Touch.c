@@ -181,12 +181,13 @@ void Leo_ADC5(void)
 	// DISABLE PULL UP / ADC5.
 	LPC_IOCON->GPIO_ADC_5 = 0x51;											//Paso el Pin a Hi-z y Open Drain.
 	GPIOSetDir (PORT1,4,ENTRADA);											//Seteo el Pin como Entrada.
+	adc_val5=ADCRead (TOUCH_ADC5);
 
-	for( g = 0; g < 10; g++ )												//Tomo 10 Muestras del ADC.
+/*	for( g = 0; g < 10; g++ )												//Tomo 10 Muestras del ADC.
 	{
 		aux5 += ADCRead (TOUCH_ADC5);
 	}
 	aux5 = aux5/10;															//Obtengo el Promedio de los valores obtenidos.
 	adc_val5 = aux5;// + OFFSET_ADC;
-
+*/
 }

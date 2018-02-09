@@ -29,6 +29,7 @@ void muestra_fyh_err 		(int fila);
 void func_punto 			(char,char);
 void analizo_salto			(char,char);
 void Graf_datos_est			(void);
+void Leo_ADC5				(void);
 //---  Subfunciones 3  ---
 void prox_fecha 			(int 	fila );
 void prox_hora 				(int 	fila );

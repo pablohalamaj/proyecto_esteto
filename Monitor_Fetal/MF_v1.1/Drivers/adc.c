@@ -163,8 +163,10 @@ void ADCInit( uint32_t ADC_Clk )
 ** Returned value:		Value read, if interrupt driven, return channel #
 ** 
 *****************************************************************************/
+extern char flag_25ms;
 uint32_t ADCRead( uint8_t channelNum )
 {
+	  char g;
 #if CONFIG_ADC_ENABLE_ADC_IRQHANDLER!=1
   uint32_t regVal, ADC_Data;
 #endif
@@ -181,17 +183,20 @@ uint32_t ADCRead( uint8_t channelNum )
 
   /* switch channel,start A/D convert */
 #if CONFIG_ADC_ENABLE_ADC_IRQHANDLER!=1
-  while ( 1 )			/* wait until end of A/D convert */
+  while ( !flag_25ms )			/* wait until end of A/D convert */
   {
-	regVal = *(volatile unsigned long *)(LPC_ADC_BASE 
+		for(g=0;g<20;g++);//demora
+	  regVal = *(volatile unsigned long *)(LPC_ADC_BASE
 			+ ADC_OFFSET + ADC_INDEX * channelNum);
 	/* read result of A/D conversion */
+
 	if ( regVal & ADC_DONE )
 	{
 	  break;
 	}
-  }	
-        
+  }
+	regVal = *(volatile unsigned long *)(LPC_ADC_BASE
+				+ ADC_OFFSET + ADC_INDEX * channelNum);
   LPC_ADC->CR &= 0xF8FFFFFF;	/* stop ADC now */    
   if ( regVal & ADC_OVERRUN )	/* save data when it's not overrun, otherwise, return zero */
   {
