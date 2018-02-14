@@ -72,7 +72,7 @@ void Menu_Logo(void){
 	WG12864A_printf("              Fetal", Arial8x6, NEGRO);
 	delay32Ms(0, TIMMER_LOGO_AUTOTROL);
 	WG12864A_posXY(1, 8);
-	WG12864A_printf("v1.0", Arial8x6, NEGRO);
+	WG12864A_printf("v1.1", Arial8x6, NEGRO);
 	delay32Ms(0, TIMMER_LOGO_AUTOTROL);
 
 }

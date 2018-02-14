@@ -52,7 +52,7 @@ void Det_corazon(void);
 void Func_Configuraciones (void);
 // Funcion Historial monitoreos --- 2.3
 void Func_Historial (void);
-
+void Historial(char);
 //--------------------------------------------------------------------------
 /****************************  Submenues 3  ********************************/
 //--------------------------------------------------------------------------

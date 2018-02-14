@@ -5,6 +5,7 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../Fuentes/Comunicaciones.c \
+../Fuentes/Display.c \
 ../Fuentes/Funciones.c \
 ../Fuentes/Main.c \
 ../Fuentes/Menu.c \
@@ -16,6 +17,7 @@ C_SRCS += \
 
 OBJS += \
 ./Fuentes/Comunicaciones.o \
+./Fuentes/Display.o \
 ./Fuentes/Funciones.o \
 ./Fuentes/Main.o \
 ./Fuentes/Menu.o \
@@ -27,6 +29,7 @@ OBJS += \
 
 C_DEPS += \
 ./Fuentes/Comunicaciones.d \
+./Fuentes/Display.d \
 ./Fuentes/Funciones.d \
 ./Fuentes/Main.d \
 ./Fuentes/Menu.d \

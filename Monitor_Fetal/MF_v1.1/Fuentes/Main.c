@@ -38,9 +38,11 @@ char 	cont=0,flagmm=0,flagbll=0,flag_1seg,flag_25ms,cont_1min,cont_1seg,Hab_cont
 char 	Rx[30];Rx1[30],Rx2[30],btens[16],toffset[16],movmp[16],version[16],version_prt[16];
 char 	causaerr[11],causaerror[11],moduloerr[11],icomu[5],b_tog[16],sumaerr=0,lec=0;
 extern char actualiza_fw,pos_x;
+int buff_prueba3[100],val_bufff[100];
 
 int main(void)
 {
+	char m=0;
 	SSP_IOConfig(SPI_0);													// Configuracion de SPI_0.
 	SSP_Init(SPI_0);														// Inicializacion de SPI_0.
 	SSP_IOConfig(SPI_1);													// Configuracion de SPI_1.
@@ -59,7 +61,8 @@ int main(void)
 	GPIOInit();		 														//Inicializo GPIO
 	GPIOSetDir( 2, 8, 1 );													// Seteo pin como salida
 	GPIOSetDir( 2, 9, 1 );													// Seteo pin como salida
-	GPIOSetDir( 2, 10, 1 );													// Seteo pin como salida
+	GPIOSetDir( 2,10, 1 );													// Seteo pin como salida
+	GPIOSetDir( 3, 3, 1 );													// Seteo pin como salida
 	GPIOIntClear(PORT1, 2);													// Limpio la Interrupcion y la habilito.
 	GPIOIntEnable(PORT1, 2);
 	actualiza_fw=0;
@@ -67,6 +70,7 @@ int main(void)
 	GPIOSetValue( 2, 10, 0 );												// Deshabilito salida de latido
 	GPIOSetValue( 2, 8, 1 );												// Dehabilito el MUX
 	GPIOSetValue( 2, 9, 1 );												// Habilito Señal ANALOGICA
+	GPIOSetValue( 3, 3, 1 );												// Apago Led ALERTA
 	while(1)
 	{
 		Menu_Inicial();														//Corro el Menu.

@@ -76,8 +76,8 @@ unsigned int 		valpru[100],valpru2[80],ind_Muestras,aux_prov;
 //unsigned int valpru[1000],valpru2[800],ind_Muestras,aux_prov;
 
 //extern int valpru[];
-extern char 		flag_1seg,flag_25ms,cont_1min,cont_1seg;
-extern int 		T_Periodo,t_par;
+extern char 		flag_1seg,flag_25ms,cont_1min,cont_1seg,HAB_PARLANTE,APA_PARLANTE,cont_100ms;
+extern int 		T_Periodo,t_par,Cont_per_pulso,Per_par;
 uint16_t leo_adc(char Channel);
 void detector_pulsos(void);
 void grafica_PPM(void);
@@ -85,9 +85,19 @@ void grafica_PPM(void);
 char i_p=0,buff_prueba[]={135,137,134,133,140,142,151,150,155,153,144,142,138,137,135,136,137,
 		138,139,137,138,137,135,138,141,145,141,138,139,142,143,140,137,135,138,143,139,142,141,
 		145,148,153,155,155,155,151,151,147,145,147,141,138,137,133,135,138,139,135,138,135,133,
-		138,139,137,138,137,135,138,141,145,141,138,139,142,143,140,137,135,138,143,139,142,141,};
-
-/*char buff_PPM[]={60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,
+		138,139,137,138,137,135,138,141,145,141,138,139,142,143,140,137,135,138,143,139,142,141};
+char buff_prueba2[]={72,74,80,76,74,80,84,88,82,78,80,72,72,72,73,71,76,
+		74,74,78,82,88,89,91,93,94,92,92,90,90,88,84,82,78,78,78,76,76,74,
+		82,84,84,84,83,83,84,81,82,79,74,75,76,72,73,72,70,76,84,83,82,84,
+		86,87,78,76,72,74,73,77,79,74,73,71,76,79,84,86,84,87,83,79,76,74};
+/*char buff_prueba3[]={115,117,114,113,120,122,131,130,135,133,124,122,128,127,115,116,117,
+		118,119,117,118,117,115,118,111,115,111,118,119,122,123,120,127,115,118,123,119,122,121,
+		115,118,123,125,125,125,121,111,117,115,117,111,118,117,113,115,118,119,115,118,115,113,
+		108,109,107,108,107,105,108,101,115,111,118,119,112,113,110,117,105,108,103,109,102,101};
+*/
+extern int val_bufff[],buff_prueba3[];
+/*
+char buff_PPM[]={60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,
 				 90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,
 				 115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,
 				 138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160};
@@ -103,6 +113,17 @@ void TIMER32_1_IRQHandler(void)
 		flag_25ms=1;																// Flag 25ms
 		T_Periodo++;																// Tiempo para PPM (Tiempo de 4 pulsaciones)
 		t_par++;																	// Tiempo parcial entre pulsos
+		cont_100ms++;
+		Cont_per_pulso++;
+		if((Cont_per_pulso>Per_par) && HAB_PARLANTE && Per_par!=0)
+		{
+			GPIOSetValue( 2, 10, 1 );										// Habilito salida de latido
+			WG12864A_posXY(70, 7);
+			WG12864A_print_symbol(HEART16x16, BLANCO);
+			Cont_per_pulso=0;
+			APA_PARLANTE=1;
+		}
+
 		cont_1seg++;																// Incremento cont 1seg
 		if(cont_1seg>=40)
 		{
@@ -407,7 +428,7 @@ void func_editapaciente()
 		WG12864A_posXY(1, 1);
 		WG12864A_printf(" * Editar Paciente*  ", Arial8x6, BLANCO);
 		WG12864A_posXY(1,3);
-		WG12864A_printf(" N:Pepita     E:26", Arial8x6, NEGRO);
+		WG12864A_printf(" N:Maria      E:26", Arial8x6, NEGRO);
 		WG12864A_posXY(1,5);
 		WG12864A_printf(" Ed Nombre:", Arial8x6, NEGRO);
 		WG12864A_posXY(1,7);
@@ -434,13 +455,14 @@ void func_editapaciente()
 //--------------------------------------------------------------------------
 void func_borrarpaciente()
 {
+	char m;
 	while((!((0xD0 < adc_valX) &&(adc_valX < 0xEA) &&
 			(0x2A < adc_valY) && (adc_valY < 0x5A)))&& (pressok==0)) 		// Mientras no se presione back
 	{
 		WG12864A_posXY(1, 1);
 		WG12864A_printf("  *Borrar Paciente*  ", Arial8x6, BLANCO);
 		WG12864A_posXY(1, 3);
-		WG12864A_printf(" N:Pepita     E:26", Arial8x6, NEGRO);
+		WG12864A_printf(" N:Natalia      E:30 ", Arial8x6, NEGRO);
 		WG12864A_posXY(1, 5);
 		WG12864A_printf("Confirma borrar      Paciente?", Arial8x6, NEGRO);
 		WG12864A_posXY(80, 7);
@@ -454,6 +476,8 @@ void func_borrarpaciente()
 			adc_valY = 0;
 			menuactual=berr;												// Envio menu actual por Recibe datos para borrar err en flash
 			causaerr[0]=sinerr;	// provisorio, sacar!
+			for(m=0;m<100;m++)
+				buff_prueba3[m]=0;
 			WG12864A_Limpiar(NEGRO);
 			pressok=1;														// Activo la señal para salir por ok
 			menu1=0;
@@ -527,6 +551,8 @@ void Func_Monitoreo (void)
 				WG12864A_printf("               ", Arial8x6, NEGRO);
 				HAB_GUARDAR=0;
 				SALIR_MF=1;
+				for(m=0;m<100;m++)
+					buff_prueba3[m]=val_bufff[m];
 			}
 
 		}
@@ -616,8 +642,44 @@ void Func_Historial()
 		// Titulo del menu.
 		WG12864A_posXY(1, 1);
 		WG12864A_printf("*Historial Monitoreo*", Arial8x6, BLANCO);
+		WG12864A_posXY(1, 2);
+		WG12864A_printf("N: Maria   E:26      ", Arial8x6, NEGRO);
+		WG12864A_posXY(1, 4);
+		WG12864A_printf("N: Paula   E:33      ", Arial8x6, NEGRO);
+		WG12864A_posXY(1, 6);
+		WG12864A_printf("N: Natalia E:30      ", Arial8x6, NEGRO);
 		WG12864A_posXY(110, 7);
 		WG12864A_print_symbol(BACK16x16, BLANCO);
+		if( (0x1A < adc_valX) && (adc_valX < 0xEA) &&
+			(0xAA < adc_valY) && (adc_valY < 0xC0) )
+		{
+			WG12864A_posXY(1, 2);
+			WG12864A_printf("N: Maria  E:26       ", Arial8x6, BLANCO);
+			delay32Ms(0, TIMMER_FONDO_BLANCO);								// Para demorar su utiliza vTaskDelay()
+			adc_valX = 0, adc_valY = 0;										// Reseteo el valor de X, Y del ADC.
+			WG12864A_Limpiar(NEGRO);
+			Historial(1);													// Función que detecta las PPM
+		}
+		if( (0x1A < adc_valX) && (adc_valX < 0xEA) &&
+			(0x85 < adc_valY) && (adc_valY < 0xA0) )
+		{
+			WG12864A_posXY(1, 4);
+			WG12864A_printf("N: Paula   E:33      ", Arial8x6, BLANCO);
+			delay32Ms(0, TIMMER_FONDO_BLANCO);								// Para demorar su utiliza vTaskDelay()
+			adc_valX = 0, adc_valY = 0;										// Reseteo el valor de X, Y del ADC.
+			WG12864A_Limpiar(NEGRO);
+			Historial(2);													// Función que detecta las PPM
+		}
+		if( (0x1A < adc_valX) && (adc_valX < 0xC0) &&
+			(0x5A < adc_valY) && (adc_valY < 0x7A) )
+		{
+			WG12864A_posXY(1, 6);
+			WG12864A_printf("N: Natalia E:30     ", Arial8x6, BLANCO);
+			delay32Ms(0, TIMMER_FONDO_BLANCO);								// Para demorar su utiliza vTaskDelay()
+			adc_valX = 0, adc_valY = 0;										// Reseteo el valor de X, Y del ADC.
+			WG12864A_Limpiar(NEGRO);
+			Historial(3);													// Función que detecta las PPM
+		}
 		// Funcion que maneja el Sleep de la pantalla y la IRQ del TOUCH.
 		Func_Sleep (flagirq, sleepmenu);
 	}

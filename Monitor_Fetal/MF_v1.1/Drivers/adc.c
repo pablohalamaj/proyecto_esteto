@@ -183,6 +183,8 @@ uint32_t ADCRead( uint8_t channelNum )
 
   /* switch channel,start A/D convert */
 #if CONFIG_ADC_ENABLE_ADC_IRQHANDLER!=1
+  if(channelNum==5)
+  {
   while ( !flag_25ms )			/* wait until end of A/D convert */
   {
 		for(g=0;g<20;g++);//demora
@@ -194,6 +196,22 @@ uint32_t ADCRead( uint8_t channelNum )
 	{
 	  break;
 	}
+  }
+  }
+  else
+  {
+	  while ( 1 )			/* wait until end of A/D convert */
+	  {
+			for(g=0;g<20;g++);//demora
+		  regVal = *(volatile unsigned long *)(LPC_ADC_BASE
+				+ ADC_OFFSET + ADC_INDEX * channelNum);
+		/* read result of A/D conversion */
+
+		if ( regVal & ADC_DONE )
+		{
+		  break;
+		}
+	  }
   }
 	regVal = *(volatile unsigned long *)(LPC_ADC_BASE
 				+ ADC_OFFSET + ADC_INDEX * channelNum);
