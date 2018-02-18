@@ -60,7 +60,7 @@ unsigned int 		cont_tra=0,tcla[4],
 int 				inc_ind=0,aux1,aux2;
 unsigned int 		i= 0,i_buff=0,i_disp=0,i_disp_ant=0;
 //int 				/*valpru[100],*/mu_pro[100];
-char 				PROMEDIAR=0,ACT_DISP=0,NO_ENTR=0,DISMINUYO=0,AUMENTO=0;
+char 				PROMEDIAR=0,ACT_DISP=0,NO_ENTR=0,DISMINUYO=0,AUMENTO=0,sd_mostrar;
 
 
 int 				Umbral_Sup=3000,Umbral_Inf=2000,
@@ -119,11 +119,23 @@ void TIMER32_1_IRQHandler(void)
 		{
 			GPIOSetValue( 2, 10, 1 );										// Habilito salida de latido
 			WG12864A_posXY(70, 7);
-			WG12864A_print_symbol(HEART16x16, BLANCO);
+			WG12864A_posXY(70, 7);
+			WG12864A_printf("   ", Arial8x6, NEGRO);
+			WG12864A_posXY(70, 8);
+			WG12864A_posXY(70, 8);
+			WG12864A_printf("   ", Arial8x6, NEGRO);
+
+//			WG12864A_print_symbol(HEART16x16, BLANCO);
 			Cont_per_pulso=0;
 			APA_PARLANTE=1;
 		}
-
+		if(T_Periodo>1000)													// cada 1seg borro variables si no estoy en 2.1
+		{
+			T_Periodo=0;														// Tiempo para PPM (Tiempo de 4 pulsaciones)
+			t_par=0;															// Tiempo parcial entre pulsos
+			cont_100ms=0;
+			Cont_per_pulso=0;
+		}
 		cont_1seg++;																// Incremento cont 1seg
 		if(cont_1seg>=40)
 		{
@@ -513,7 +525,7 @@ flag_sleepsubmenu = 1;														// Restablesco el valor original de la bande
 //--------------------------------------------------------------------------
 void Func_Monitoreo (void)
 {
-	char m=0,n=0,SALIR_MF;
+	char m=0,n=0,SALIR_MF,SD_Detect,HAB_GUA_SD;
 	HAB_GUARDAR=0;
 	SALIR_MF=0;
 	Graf_datos_est();
@@ -532,7 +544,7 @@ void Func_Monitoreo (void)
 	delay32Ms(0, TIMMER_LOGO_AUTOTROL);
 	WG12864A_posXY(1, 8);
 	WG12864A_printf("               ", Arial8x6, NEGRO);
-
+	sd_mostrar=1;
 	// Mientras no se presione Back.
 	while((! ((0xD0 < adc_valX) && (adc_valX < 0xEA) &&
 			 (0x2A < adc_valY) && (adc_valY < 0x5A)))&& SALIR_MF==0)
@@ -544,31 +556,60 @@ void Func_Monitoreo (void)
 			WG12864A_print_symbol(FD16x16, BLANCO);							// FD Blanco
 			delay32Ms(0, TIMMER_FONDO_BLANCO);								// Para demorar su utiliza vTaskDelay()
 			adc_valX = 0, adc_valY = 0;										// Reseteo el valor de X, Y del ADC.
+			WG12864A_posXY(110, 7);
+			WG12864A_printf("   ", Arial8x6, NEGRO);
+			WG12864A_posXY(110, 8);
+			WG12864A_printf("   ", Arial8x6, NEGRO);
 			Det_corazon();													// Función que detecta las PPM
 		}
+		WG12864A_posXY(110, 7);
+		WG12864A_print_symbol(BACK16x16, BLANCO);
 		if(HAB_GUARDAR)
 		{
-			WG12864A_posXY(70, 7);
-			WG12864A_print_symbol(OK16x16, BLANCO);							// OK Blanco
-			WG12864A_posXY(1, 8);
-			WG12864A_printf("Almacenar?", Arial8x6, NEGRO);					// Titulo del menu.
-			if(((0x7A < adc_valX) && (adc_valX < 0x9A) &&
-				 (0x2A < adc_valY) && (adc_valY < 0x5A)))
+			if(sd_mostrar)
 			{
-				WG12864A_posXY(70, 7);
-				WG12864A_print_symbol(OK16x16, NEGRO);						// OK NEGRO
-				delay32Ms(0, TIMMER_FONDO_BLANCO);							// Para demorar su utiliza vTaskDelay()
-				adc_valX = 0, adc_valY = 0;									// Reseteo el valor de X, Y del ADC.
-				WG12864A_posXY(37, 7);										// Si no detecta Pulsos borra las PPM y el corazón
-				WG12864A_printf("         ", Arial8x6, NEGRO);
-				WG12864A_posXY(1, 8);
-				WG12864A_printf("               ", Arial8x6, NEGRO);
-				HAB_GUARDAR=0;
-				SALIR_MF=1;
-				for(m=0;m<100;m++)
-					buff_prueba3[m]=val_bufff[m];
+				SD_Detect=GPIOGetValue(3,4);
+				if(SD_Detect)
+				{
+					sd_mostrar=0;
+					WG12864A_posXY(1, 8);
+					WG12864A_printf("SD Extraida", Arial8x6, NEGRO);					// Titulo del menu.
+					delay32Ms(0, TIMMER_LOGO_AUTOTROL);
+					HAB_GUA_SD=0;
+				}
+				else
+				{
+					sd_mostrar=0;
+					WG12864A_posXY(70, 7);
+					WG12864A_print_symbol(OK16x16, BLANCO);							// OK Blanco
+					WG12864A_posXY(1, 8);
+					WG12864A_printf("SD OK      ", Arial8x6, NEGRO);					// Titulo del menu.
+					delay32Ms(0, TIMMER_LOGO_AUTOTROL);
+					HAB_GUA_SD=1;
+				}
 			}
-
+			if(HAB_GUA_SD)
+			{
+				WG12864A_posXY(1, 8);
+				WG12864A_printf("Almacenar?", Arial8x6, NEGRO);					// Titulo del menu.
+				if(((0x7A < adc_valX) && (adc_valX < 0x9A) &&
+						(0x2A < adc_valY) && (adc_valY < 0x5A)))
+				{
+					WG12864A_posXY(70, 7);
+					WG12864A_print_symbol(OK16x16, NEGRO);						// OK NEGRO
+					delay32Ms(0, TIMMER_FONDO_BLANCO);							// Para demorar su utiliza vTaskDelay()
+					adc_valX = 0, adc_valY = 0;									// Reseteo el valor de X, Y del ADC.
+					WG12864A_posXY(37, 7);										// Si no detecta Pulsos borra las PPM y el corazón
+					WG12864A_printf("         ", Arial8x6, NEGRO);
+					WG12864A_posXY(1, 8);
+					WG12864A_printf("               ", Arial8x6, NEGRO);
+					HAB_GUARDAR=0;
+					SALIR_MF=1;
+					for(m=0;m<100;m++)
+						buff_prueba3[m]=val_bufff[m];
+					almacena_sd();												// Almacena monitoreo en sd
+				}
+			}
 		}
 		sleep=1;
 		Func_Sleep (flagirq, sleepmenu);		// Funcion que maneja el Sleep de la pantalla y la IRQ del TOUCH.

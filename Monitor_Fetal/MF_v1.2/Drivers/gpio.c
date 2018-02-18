@@ -425,6 +425,22 @@ void GPIOSetDir( uint32_t portNum, uint32_t bitPosi, uint32_t dir )
 	LPC_GPIO[portNum]->DIR &= ~(1<<bitPosi);
 }
 #endif
+/*****************************************************************************
+ ** Funtion name:		GPIOGetValue
+ **
+ ** Descriptions:		Get the bitvalue from specific bit position
+ **						in GPIO portX(X is the port number.)
+ **
+ ** Parameters:			port num, bit position
+ ** Returned value: 	the bitvalue
+ ******************************************************************************/
+
+uint32_t GPIOGetValue(uint32_t portNum, uint32_t bitPosi)
+{
+ uint32_t val;
+ val=LPC_GPIO[portNum]->MASKED_ACCESS[(1<<bitPosi)];
+ return(val);
+}
 
 /******************************************************************************
 **                            End Of File

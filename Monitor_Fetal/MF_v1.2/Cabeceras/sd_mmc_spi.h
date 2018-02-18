@@ -119,6 +119,9 @@ uint8_t   sd_mmc_spi_send_and_read(uint8_t);            // send a byte on SPI an
 uint8_t   sd_mmc_spi_send_command(uint8_t,uint32_t);   // send a single command + argument (R1 response expected and returned), with memory select then unselect
 uint8_t   sd_mmc_spi_command(uint8_t, uint32_t);        // send a command + argument (R1 response expected and returned), without memory select/unselect
 char	sd_mmc_spi_search_sector_to_ram(uint32_t *psd);
+char sd_mmc_spi_write_open (uint32_t);        // to call before first access to a random page
+ void sd_mmc_spi_write_close (void);
+ char sd_mmc_spi_write_sector_from_ram(const void *ram);  // writes a data block from a buffer (512b)
 #ifdef NO_VA
 //! Protection functions (optionnal)
 extern bool is_sd_mmc_spi_write_pwd_locked(void);                    // check if the lock protection on the card is featured and enabled
@@ -127,8 +130,6 @@ extern bool sd_mmc_spi_lock_operation(/*uint8_t*/U8, /*uint8_t*/U8, /*uint8_t*/U
 //! Functions for preparing block read/write
 extern bool sd_mmc_spi_read_open (/*uint32_t*/U32);         // to call before first access to a random page
 extern bool sd_mmc_spi_read_close (void);
-extern bool sd_mmc_spi_write_open (/*uint32_t*/U32);        // to call before first access to a random page
-extern void sd_mmc_spi_write_close (void);
 
 //! Functions to link USB DEVICE flow with MMC
 extern bool sd_mmc_spi_write_sector (/*uint16_t*/U16);      // write a 512b sector from USB buffer

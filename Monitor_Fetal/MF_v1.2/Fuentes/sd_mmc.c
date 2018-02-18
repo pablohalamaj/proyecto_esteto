@@ -160,7 +160,7 @@ char sd_mmc_spi_internal_init(void)
       return false;
     } else if (if_cond == 1){
           card_type = SD_CARD_2_SDHC;
-          SD_HC=1;
+          SD_HC=0;//1;								SACARRRRRRRRRRRRRRRRRRRRRRRRrr
       }
   }
 
@@ -694,8 +694,8 @@ void buscaensd(char prosd)
 
 char sd_mmc_spi_search_sector_to_ram(uint32_t *psd)
 {
-	uint32_t /**ptr_memsd,*/*offset;												// Memory data pointer
-	uint8_t *_ram = psd;
+	uint32_t /**ptr_memsd,*/*offset,aux2_arg;												// Memory data pointer
+	uint8_t *_ram = psd,aux2_command;
 //  volatile unsigned char offset;
 	uint16_t  i,sector;
 	uint16_t  read_time_out;
@@ -707,10 +707,17 @@ char sd_mmc_spi_search_sector_to_ram(uint32_t *psd)
 	ptr_memsd=psd;
 //	spi_selectChip(SD_MMC_SPI, SD_MMC_SPI_NPCS);							// select SD_MMC_SPI
 	  // issue command
-	  if(card_type == SD_CARD_2_SDHC) {
-	    r1 = sd_mmc_spi_command(MMC_READ_SINGLE_BLOCK, ptr_memsd>>9);
-	  } else {
-	    r1 = sd_mmc_spi_command(MMC_READ_SINGLE_BLOCK, ptr_memsd);
+	  if(card_type == SD_CARD_2_SDHC)
+	  {
+		  aux2_command=MMC_READ_SINGLE_BLOCK;
+		  aux2_arg=ptr_memsd;//ptr_memsd>>9;
+	    r1 = sd_mmc_spi_command(aux2_command, aux2_arg );
+	  }
+	  else
+	  {
+		  aux2_command=MMC_READ_SINGLE_BLOCK;
+		  aux2_arg=ptr_memsd;
+		  r1 = sd_mmc_spi_command(aux2_command, aux2_arg );
 	  }
 
 	// check for valid response
@@ -722,7 +729,8 @@ char sd_mmc_spi_search_sector_to_ram(uint32_t *psd)
 
 	// wait for token (may be a datablock start token OR a data error token !)
 	read_time_out = 30000;
-	while((r1 = sd_mmc_spi_send_and_read(0xFF)) == 0xFF)
+	SAL_SD=0xFF;
+	while((r1 = sd_mmc_spi_send_and_read(&SAL_SD)) == 0xFF)
 	{
 		read_time_out--;
 		if (read_time_out == 0)												// TIME-OUT
@@ -733,14 +741,14 @@ char sd_mmc_spi_search_sector_to_ram(uint32_t *psd)
 	}
 
 	// check token
-	if (r1 != MMC_STARTBLOCK_READ)
+/*	if (r1 != MMC_STARTBLOCK_READ)
 	{
 		SAL_SD=0xFF;
 		 SSP_Send(SPI_0, &SAL_SD, 1);
 //		spi_unselectChip(SD_MMC_SPI, SD_MMC_SPI_NPCS);						// unselect SD_MMC_SPI
 		return KO;
 	}
-
+*/
 	// store datablock
 	for(i=0;i<MMC_SECTOR_SIZE;i++)
 	{
@@ -786,6 +794,98 @@ char sd_mmc_spi_search_sector_to_ram(uint32_t *psd)
 	 SSP_Send(SPI_0, &SAL_SD, 1);
 	 SSP_Send(SPI_0, &SAL_SD, 1);
 	return op;   // Read done.
+}
+//--------------------------------------------------------------------------
+char sd_mmc_spi_write_open (uint32_t pos)
+{
+  // Set the global memory ptr at a Byte address.
+  gl_ptr_mem = pos << 9; // gl_ptr_mem = pos * 512
+
+  // wait for MMC not busy
+  return sd_mmc_spi_wait_not_busy();
+}
+//--------------------------------------------------------------------------
+void sd_mmc_spi_write_close (void)
+{
+
+}
+//--------------------------------------------------------------------------
+char sd_mmc_spi_write_sector_from_ram(const void *ram)
+{
+  const uint8_t *_ram = ram;
+  uint16_t i;
+	uint32_t aux2_arg;												// Memory data pointer
+	uint8_t aux2_command;
+  // wait for MMC not busy
+  if (false == sd_mmc_spi_wait_not_busy())
+    return false;
+
+  // issue command
+  if(card_type == SD_CARD_2_SDHC)
+  {
+	  aux2_command=MMC_WRITE_BLOCK;
+	  aux2_arg=ptr_memsd;//ptr_memsd>>9;
+	  r1 = sd_mmc_spi_command(aux2_command, aux2_arg );
+  }
+  else
+  {
+	  aux2_command=MMC_WRITE_BLOCK;
+	  aux2_arg=ptr_memsd;//ptr_memsd>>9;
+	  r1 = sd_mmc_spi_command(aux2_command, aux2_arg );
+  }
+
+  // check for valid response
+  if(r1 != 0x00)
+  {
+    return false;
+  }
+  // send dummy
+	SAL_SD=0xFF;
+	SSP_Send(SPI_0, &SAL_SD, 1);
+
+	// send data start token
+	SAL_SD=MMC_STARTBLOCK_WRITE;
+	SSP_Send(SPI_0, &SAL_SD, 1);
+  // write data
+  for(i=0;i<MMC_SECTOR_SIZE;i++)
+  {
+	SAL_SD=*_ram++;
+	SSP_Send(SPI_0, &SAL_SD, 1);
+
+  }
+	SAL_SD=0xFF;
+	SSP_Send(SPI_0, &SAL_SD, 1);
+	SAL_SD=0xFF;
+	SSP_Send(SPI_0, &SAL_SD, 1);
+  // read data response token
+  r1 = sd_mmc_spi_send_and_read(0xFF);
+  if( (r1&MMC_DR_MASK) != MMC_DR_ACCEPT)
+  {
+	  SAL_SD=0xFF;
+	  SSP_Send(SPI_0, &SAL_SD, 1);
+	  SAL_SD=0xFF;
+	  SSP_Send(SPI_0, &SAL_SD, 1);
+    return false;         // return ERROR byte
+  }
+
+	SAL_SD=0xFF;
+	SSP_Send(SPI_0, &SAL_SD, 1);
+	SAL_SD=0xFF;
+	SSP_Send(SPI_0, &SAL_SD, 1);
+
+  // release chip select
+  gl_ptr_mem += 512;        // Update the memory pointer.
+
+  // wait card not busy after last programming operation
+  i=0;
+  while (false == sd_mmc_spi_wait_not_busy())
+  {
+    i++;
+    if (i == 10)
+      return false;
+  }
+
+  return true;                  // Write done
 }
 //--------------------------------------------------------------------------
 

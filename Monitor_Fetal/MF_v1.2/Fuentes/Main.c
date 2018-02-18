@@ -73,6 +73,7 @@ int main(void)
 	GPIOSetDir( 2, 9, 1 );													// Seteo pin como salida
 	GPIOSetDir( 2,10, 1 );													// Seteo pin como salida
 	GPIOSetDir( 3, 3, 1 );													// Seteo pin como salida
+	GPIOSetDir( 3, 4, 0 );													// Seteo pin como entrada
 	GPIOIntClear(PORT1, 2);													// Limpio la Interrupcion y la habilito.
 	GPIOIntEnable(PORT1, 2);
 	actualiza_fw=0;

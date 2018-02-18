@@ -207,7 +207,7 @@ void func_punto (char punto,char mitad)
 //--------------------------------------------------------------------------
 void analizo_salto(char Fila_act,char mitad_act)
 {
-	char pnt_rell,pnt_aux,pnt_cast,entro_rell,z,x;
+	char pnt_rell,pnt_aux,pnt_cast,entro_rell,z_salto,x_salto;
 	if(Fila_act==Fila_ant)													// Misma fila
 	{
 		if(mitad_act!=mitad_ant)											// Distinta mitad
@@ -215,11 +215,11 @@ void analizo_salto(char Fila_act,char mitad_act)
 			if(mitad_act>mitad_ant)											// Completa hacia arriba
 			{
 				pnt_rell=0x80;												// Posición mas baja
-				z=0;
-				while(pnt_ant!=pnt_rell && z<8)								// Busca el punto anterior para tener de inicio
+				z_salto=0;
+				while(pnt_ant!=pnt_rell && z_salto<8)								// Busca el punto anterior para tener de inicio
 				{
 					pnt_rell=pnt_rell>>1;
-					z++;
+					z_salto++;
 				}
 				entro_rell=0;
 				if(pnt_ant==pnt_rell)										// Si lo encontró...
@@ -228,9 +228,9 @@ void analizo_salto(char Fila_act,char mitad_act)
 					pos_x++;
 					entro_rell=1;											// Hab relleno
 				}
-				x=0;
+				x_salto=0;
 				pnt_aux=pnt_rell;											// Valor origen
-				while((pnt!=pnt_aux )&& x<8 && entro_rell)					// Mientras no llegue al punto actual...
+				while((pnt!=pnt_aux )&& x_salto<8 && entro_rell)					// Mientras no llegue al punto actual...
 				{
 					WG12864A_posXY(pos_x,Fila_ant);							// Escribe el punto en pantalla
 					GLCD_Output_High(RS);   								// Modo datos
@@ -240,17 +240,17 @@ void analizo_salto(char Fila_act,char mitad_act)
 						GLCD_enviaBYTE(DER, (pnt_rell));  					// enciende byte
 					pnt_aux=pnt_aux>>1;										// Desplaza para ver si llega
 					pnt_rell=pnt_rell|(pnt_rell>>1);						// Rellena un nuevo punto en la misma columna
-					x++;
+					x_salto++;
 				}
 			}
 			else															// Completa hacia abajo
 			{
 				pnt_rell=0x01;												// Posición mas alta
-				z=0;
-				while(pnt_ant!=pnt_rell && z<8)								// Busca el punto anterior para tener de inicio
+				z_salto=0;
+				while(pnt_ant!=pnt_rell && z_salto<8)								// Busca el punto anterior para tener de inicio
 				{
 					pnt_rell=pnt_rell<<1;
-					z++;
+					z_salto++;
 				}
 				entro_rell=0;
 				if(pnt_ant==pnt_rell)										// Si lo encontró
@@ -259,9 +259,9 @@ void analizo_salto(char Fila_act,char mitad_act)
 					pos_x++;
 					entro_rell=1;											// Hab relleno
 				}
-				x=0;
+				x_salto=0;
 				pnt_aux=pnt_rell;											// Valor origen
-				while((pnt!=pnt_aux ) && x<8 && entro_rell)					// Mientras no llegue al punto actual...
+				while((pnt!=pnt_aux ) && x_salto<8 && entro_rell)					// Mientras no llegue al punto actual...
 				{
 					WG12864A_posXY(pos_x,Fila_ant);							// Escribe el punto en pantalla
 					GLCD_Output_High(RS);   								// Modo datos
@@ -271,7 +271,7 @@ void analizo_salto(char Fila_act,char mitad_act)
 						GLCD_enviaBYTE(DER, (pnt_rell));  					// enciende byte
 					pnt_aux=pnt_aux<<1;										// Desplaza para ver si llega
 					pnt_rell=pnt_rell|(pnt_rell<<1);						// Rellena un mismo punto en la misma columna
-					x++;
+					x_salto++;
 				}
 			}
 		}
@@ -285,11 +285,11 @@ void analizo_salto(char Fila_act,char mitad_act)
 		if(Fila_act<Fila_ant)
 		{
 			pnt_rell=0x80;													// Posición mas baja
-			z=0;
-			while(pnt_ant!=pnt_rell && z<8)									// Busca el punto anterior para tener de inicio
+			z_salto=0;
+			while(pnt_ant!=pnt_rell && z_salto<8)									// Busca el punto anterior para tener de inicio
 			{
 				pnt_rell=pnt_rell>>1;
-				z++;
+				z_salto++;
 			}
 			entro_rell=0;
 			if(pnt_ant==pnt_rell)											// Si lo encontró...
@@ -298,9 +298,9 @@ void analizo_salto(char Fila_act,char mitad_act)
 				pos_x++;
 				entro_rell=1;												// Hab relleno
 			}
-			x=0;
+			x_salto=0;
 			pnt_aux=pnt_rell;												// Valor origen
-			while((pnt!=pnt_aux )&& x<8 && entro_rell)						// Mientras no llegue al punto actual...
+			while((pnt!=pnt_aux )&& x_salto<8 && entro_rell)						// Mientras no llegue al punto actual...
 			{
 
 				WG12864A_posXY(pos_x,Fila_ant);								// Escribe el punto en pantalla
@@ -332,18 +332,18 @@ void analizo_salto(char Fila_act,char mitad_act)
 				{
 					pnt_aux=pnt_aux>>1;										// Desplaza para ver si llega
 					pnt_rell=pnt_rell|(pnt_rell>>1);						// Rellena un nuevo punto en la misma columna
-					x++;
+					x_salto++;
 				}
 			}
 		}
 		if(Fila_act>Fila_ant)
 		{
 			pnt_rell=0x01;													// Posición mas alta
-			z=0;
-			while(pnt_ant!=pnt_rell && z<8)									// Busca el punto anterior para tener de inicio
+			z_salto=0;
+			while(pnt_ant!=pnt_rell && z_salto<8)									// Busca el punto anterior para tener de inicio
 			{
 				pnt_rell=pnt_rell<<1;
-				z++;
+				z_salto++;
 			}
 			entro_rell=0;
 			if(pnt_ant==pnt_rell)											// Si lo encontró
@@ -352,9 +352,9 @@ void analizo_salto(char Fila_act,char mitad_act)
 				pos_x++;
 				entro_rell=1;												// Hab relleno
 			}
-			x=0;
+			x_salto=0;
 			pnt_aux=pnt_rell;												// Valor origen
-			while((pnt!=pnt_aux ) && x<8 && entro_rell)						// Mientras no llegue al punto actual...
+			while((pnt!=pnt_aux ) && x_salto<8 && entro_rell)						// Mientras no llegue al punto actual...
 			{
 				WG12864A_posXY(pos_x,Fila_ant);								// Escribe el punto en pantalla
 				GLCD_Output_High(RS);   									// Modo datos
@@ -386,7 +386,7 @@ void analizo_salto(char Fila_act,char mitad_act)
 				{
 					pnt_aux=pnt_aux<<1;										// Desplaza para ver si llega
 					pnt_rell=pnt_rell|(pnt_rell<<1);						// Rellena un mismo punto en la misma columna
-					x++;
+					x_salto++;
 				}
 			}
 

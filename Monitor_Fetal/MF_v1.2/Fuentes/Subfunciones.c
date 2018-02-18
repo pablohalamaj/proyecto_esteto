@@ -17,7 +17,7 @@
 #include "WG12864A.h"
 #include "Definiciones.h"
 #include "Comunicaciones.h"
-
+#include "sd_mmc_spi.h"
 //--------------------------------------------------------------------------
 //***********************  Variables Propias  ******************************
 char			colu=7,ledcoo,pos_x,pnt,pnt_ant,Fila_ant,mitad_ant,pulso_ant,
@@ -29,9 +29,12 @@ unsigned short 	aux=0, aux3=0,err_mod=0, err_mod2=0;
 char Graf_punt,ale;
 static char  		buffer_pulso[44] ;
 char 				buf_par[5],repite_parc,Prom_par,i_t,act_t_par,cont_ant,i_ff,
-					HAB_PARLANTE,APA_PARLANTE,cont_bajas_PPM;
+					HAB_PARLANTE,APA_PARLANTE,cont_bajas_PPM,HAB_G;
 int 				Prom_tot,T_Periodo,T_Per,t_par,PPM_ant,PPM_ale,Cont_per_pulso,Per_par;
 //unsigned int 		valpru8[1000],i_prue;
+uint32_t			*OFFSET_SD_V;
+uint32_t			SECTOR_SD_V;
+
 extern int val_bufff[];
 //--------------------------------------------------------------------------
 //***********************  Variables Externas  *****************************
@@ -57,28 +60,6 @@ void Det_corazon(void)
 	WG12864A_posXY(1, 8);
 	WG12864A_printf("               ", Arial8x6, NEGRO);
 	i_ff=0;
-
-//	while(!((0xA0 < adc_valX) &&(adc_valX < 0xB9) &&						// Mientras este activo el FD
-//			(0x2A < adc_valY) && (adc_valY < 0x5A)))
-//	{
-/*
-while(1)
-{
-	if(flag_25ms)															// Toma una muestra cada 5ms!
-	{
-		flag_25ms=0;
-		Leo_ADC5();															// Leo ADC sensado corazón
-		valpru8[i_prue]=adc_val5;
-		i_prue++;
-		if(i_prue>1000)
-			i_prue=0;
-	}
-	T_Periodo++;
-	if(T_Periodo>10)
-		T_Periodo=0;
-	T_Per=T_Periodo;
-}
-*/
 //------------------------------------------------------------------------
 	while(!((0xA0 < adc_valX) &&(adc_valX < 0xB9) &&						// Mientras este activo el FD
 		 (0x2A < adc_valY) && (adc_valY < 0x5A)))
@@ -103,13 +84,7 @@ while(1)
 					act_espera=0;
 				}
 			}
-
-/*			if(flag_25ms)													// Toma una muestra cada 5ms!
-			{
-				flag_25ms=0;
-				cont_100ms++;
-			}
-*/			i++;
+			i++;
 			for(i=0;i<11;i++);
 			if(i>=10)
 				i=0;
@@ -119,10 +94,6 @@ while(1)
 			if(!act_espera)
 			{
 				cont_pulso++;													// Cuento el pico
-//				HAB_PARLANTE=1;
-//				GPIOSetValue( 2, 10, 1 );										// Habilito salida de latido
-//				WG12864A_posXY(70, 7);
-//				WG12864A_print_symbol(HEART16x16, BLANCO);
 			}
 			act_espera=1;
 			cont_100ms=0;
@@ -136,6 +107,8 @@ while(1)
 			t_par=0;
 			Cont_per_pulso=0;
 			Per_par=0;
+			Per_Temp=0;
+			Per_par=0;
 			HAB_PARLANTE=0;
 //			cont_100ms=0;
 			WG12864A_posXY(37, 7);											// Si no detecta Pulsos borra las PPM y el corazón
@@ -144,28 +117,30 @@ while(1)
 			WG12864A_printf("         ", Arial8x6, NEGRO);
 		}
 		cont_5seg_au=0;
-/*		if((Cont_per_pulso>Per_par) && HAB_PARLANTE)
-		{
-			GPIOSetValue( 2, 10, 1 );										// Habilito salida de latido
-			WG12864A_posXY(70, 7);
-			WG12864A_print_symbol(HEART16x16, BLANCO);
-			Cont_per_pulso=0;
-		}
-*/		if(T_Periodo!=0&& cont_pulso==4)
+		if(T_Periodo!=0&& cont_pulso==4)
 		{
 			//Prom_tot=((Prom_par*4)*25);
-			T_Per=T_Periodo*4;//*25											// T_Per------ 4 p
-			PPM=24000/T_Per;///Prom_tot;///1.75;									// 60seg------xx p
-			Per_Temp=T_Periodo/2;
-			T_Periodo=0;												// xx p=60*4/T_per
+			if(T_Periodo<20)
+			{
+				T_Per=T_Periodo*25;											// T_Per------ 4 p
+				PPM=24000/T_Per;///Prom_tot;///1.75;									// 60seg------xx p
+				Per_Temp=T_Periodo*3;
+			}
+/*			else
+			{
+			if(T_Periodo>60)
+			{
+				T_Per=T_Periodo*4;//*25											// T_Per------ 4 p
+				PPM=24000/T_Per;///Prom_tot;///1.75;									// 60seg------xx p
+				Per_Temp=T_Periodo/2;
+			}
+			}
+*/			T_Periodo=0;												// xx p=60*4/T_per
 			T_Per=0;
 			Prom_par=0;
 			cont_pulso=0;
 			if(PPM_ant==0&&PPM<100&&PPM>60)
 				PPM_ant=PPM;
-//			if(cont_5s>=5)
-//			{
-//				cont_5s=0;
 			if(PPM<=160&&PPM>=60)
 			{
 				HAB_PARLANTE=1;
@@ -178,28 +153,25 @@ while(1)
 					val_bufff[i_ff]=PPM;
 					if(i_ff<100)
 						i_ff++;
+					WG12864A_posXY(1, 7);
+					WG12864A_printf("Pulso:", Arial8x6, NEGRO);
 					renglon = buffer_pulso ;
 					*renglon++ = ((PPM/100) % 10) + '0' ;
 					*renglon++ = ((PPM/10)  % 10) + '0' ;
 					*renglon++ = ( PPM      % 10) + '0' ;
 					WG12864A_posXY(40, 7);
 					WG12864A_printf(buffer_pulso, Arial8x6, NEGRO);
-					Grafica_monitoreo(PPM);										// Grafico PPM cada 5 seg
-					cont_ant=0;
-					HAB_GUARDAR=1;
-/*					if(swt_corazon)													// Muestro el corazón
+					if(HAB_G>2)
 					{
-						WG12864A_posXY(70, 7);
-						WG12864A_print_symbol(HEART16x16, BLANCO);
-						swt_corazon=0;
+						HAB_G=0;
+						Grafica_monitoreo(PPM);										// Grafico PPM cada 5 seg
 					}
 					else
 					{
-						WG12864A_posXY(70, 7);
-						WG12864A_print_symbol(HEART16x16, NEGRO);
-						swt_corazon=1;
+						HAB_G++;
 					}
-*/
+					cont_ant=0;
+					HAB_GUARDAR=1;
 				}
 				else
 				{
@@ -240,27 +212,10 @@ while(1)
 						}
 					}
 				}
-/*				else
-				{
-					if(cont_5s>5&&cont_ant<3)
-					{
-						renglon = buffer_pulso ;
-						*renglon++ = (((PPM_ant+1)/100) % 10) + '0' ;
-						*renglon++ = (((PPM_ant+1)/10)  % 10) + '0' ;
-						*renglon++ = ( (PPM_ant+1)      % 10) + '0' ;
-						WG12864A_posXY(40, 7);
-						WG12864A_printf(buffer_pulso, Arial8x6, NEGRO);
-						Grafica_monitoreo((PPM_ant+1));										// Grafico PPM cada 5 seg
-			 			cont_ant++;
-						cont_5s=0;
-					}
-
-				}
-*///			}
 			}
 			else
 			{
-				if(PPM<60&&cont_bajas_PPM>2)
+				if(PPM<60&&cont_bajas_PPM>5)
 					GPIOSetValue( 3, 3, 0 );												// Enciendo Led ALERTA
 				else
 					cont_bajas_PPM++;
@@ -284,180 +239,45 @@ while(1)
 	WG12864A_printf("         ", Arial8x6, NEGRO);
 	WG12864A_posXY(37, 8);
 	WG12864A_printf("         ", Arial8x6, NEGRO);
-#ifdef VIEJO
-//-------------------------------------------------------------------------
-		adc_val5=0xFF;
-		while((adc_val5>PICO_POSIT) && cont_5seg_aux<5)						// Tomo valores del ADC hasta encontrar un pico
-		{																	// o salgo a los 5 seg por protección
-//			if(cont_100ms>4)												// Protección falso pico
-//			{
-				Leo_ADC5();													// Leo ADC sensado corazón
-/*				valpru8[i_prue]=adc_val5;
-				i_prue++;
-				if(i_prue>1000)
-					i_prue=0;
-*/
-//			}
-			if(flag_25ms)													// Toma una muestra cada 5ms!
-			{
-				flag_25ms=0;
-				//T_Periodo++;
-				cont_100ms++;
-				if(Hab_cont_500ms)
-					cont_500ms++;
-			}
-			if(flag_1seg)													// Contador 1 seg
-			{
-				flag_1seg=0;
-				cont_5seg++;
-				cont_10seg++;
-				cont_5seg_aux++;
-			}
-			if(cont_10seg>=10)												// A los 10 seg
-				cont_10seg=0;
-			if(cont_500ms>20)												// Apago el parlante en 500ms
-			{
-				cont_500ms=0;
-				Hab_cont_500ms=0;
-				GPIOSetValue( 2, 10, 0 );									// Deshabilito salida de latido
-			}
+}
+//						Almacena monitoreo en sd
+//--------------------------------------------------------------------------
+void almacena_sd(void)
+{
+	char 		SD_Protect,re;
+	int  		i,punt=0;
+	uint32_t	kons=512;
+	unsigned int SD_val;
 
-		}
-		if(cont_5seg_aux<5)													// Si encontré un pico
+	re=sd_mmc_spi_internal_init();        								// Restart Init of SD/MMC card after previous first init
+	if(re!=KO)
+	{
+		SD_Protect=GPIOGetValue(3,5);
+		if(!SD_Protect)
 		{
-			cont_pulso++;													// Cuento el pico
-			if(act_t_par)
+			WG12864A_posXY(1, 8);
+			WG12864A_printf("Alm en SD...", Arial8x6, NEGRO);					// Titulo del menu.
+			delay32Ms(0, TIMMER_LOGO_AUTOTROL);
+//---------		SECTOR_SD_V y OFFSET_SD_V		-------- Contienen el inicio del programa en la SD
+			for(punt=0;punt<96;punt++)									// Graba 96 sectores de 512 = 48k
 			{
-				buf_par[i_t]=t_par;
-				i_t++;
-				t_par=0;
+				if (sd_mmc_spi_write_open (SECTOR_SD_V) == OK)			// Abre en forma de escritura
+				{
+					SD_val=val_bufff[punt]+(punt*kons);
+					sd_mmc_spi_write_sector_from_ram(&SD_val);	// Graba en SD-MMC
+				}
+				sd_mmc_spi_write_close ();
+				SECTOR_SD_V++;
 			}
-			if(cont_pulso==1)
-			{
-				T_Periodo=0;
-				t_par=0;
-				act_t_par=1;
-				i_t=0;
-			}
-			GPIOSetValue( 2, 10, 1 );										// Habilito salida de latido
-			Hab_cont_500ms=1;
-			cont_100ms=0;
-			if(swt_corazon)													// Muestro el corazón
-			{
-				WG12864A_posXY(70, 7);
-				WG12864A_print_symbol(HEART16x16, BLANCO);
-				swt_corazon=0;
-			}
-			else
-			{
-				WG12864A_posXY(70, 7);
-				WG12864A_print_symbol(HEART16x16, NEGRO);
-				swt_corazon=1;
-			}
-			if(cont_500ms>20)												// Apago el parlante en 500ms
-			{
-				cont_500ms=0;
-				Hab_cont_500ms=0;
-				GPIOSetValue( 2, 10, 0 );									// Deshabilito salida de latido
-			}
-
 		}
 		else
 		{
-			cont_pulso=0;													// Debo empezar a contar nuevamente
-			T_Periodo=0;
-			cont_100ms=0;
-			WG12864A_posXY(37, 7);											// Si no detecta Pulsos borra las PPM y el corazón
-			WG12864A_printf("         ", Arial8x6, NEGRO);
-			WG12864A_posXY(37, 8);
-			WG12864A_printf("         ", Arial8x6, NEGRO);
+			WG12864A_posXY(1, 8);
+			WG12864A_printf("SD Protegida", Arial8x6, NEGRO);					// Titulo del menu.
+			delay32Ms(0, TIMMER_LOGO_AUTOTROL);
 		}
-		if(cont_pulso==4)													// Si llegue a detectar 4 picos
-		{																	// Obtengo el tiempo empleado y calculo las PPM
-			cont_pulso=0;
-			for(i=0;i<4;i++)
-			{
-				for(j=1;j<4;j++)
-				{
-					if((buf_par[i]<buf_par[j]+2)&&(buf_par[i]>buf_par[j]-2))
-					{
-						repite_parc++;
-						if(repite_parc>=2)
-						{
-							Prom_par=buf_par[i];
-							repite_parc=0;
-						}
-					}
-				}
-			}
-			//T_Periodo=1750/10;//1.75;//1750/1000;
-			if(T_Periodo)
-			{
-				Prom_tot=((Prom_par*4)*25);
-				//T_Per=T_Periodo*25;											// T_Per------ 4 p
-				PPM=24000/Prom_tot;//T_Per;///1.75;									// 60seg------xx p
-				T_Periodo=0;												// xx p=60*4/T_per
-				T_Per=0;
-				Prom_par=0;
-			}
-			//Debo tomar el tiempo exacto en detectar los 5 picos para saber cuantas PPM hay
-			//PPM=VALOR CALCULADO!!!!!!!!!!
-		}
-/*		if(flag_25ms)														// Toma una muestra cada 5ms!
-		{
-			flag_25ms=0;
-			T_Periodo++;
-			cont_100ms++;
-			if(Hab_cont_500ms)
-				cont_500ms++;
-		}
-		if(flag_1seg)														// Contador 1 seg
-		{
-			flag_1seg=0;
-			cont_5seg++;
-			cont_10seg++;
-		}
-*/		if(cont_5seg>=5)
-		{
-			cont_5seg=0;
-			if(cont_5seg_aux<5)
-			{
-/*				//PPM=buff_prueba[i_p];	// SACAR
-				i_p++;
-				if(i_p>80)
-					i_p=0;
-*/				if(PPM<=160&&PPM>=60)
-				{
-				renglon = buffer_pulso ;
-				*renglon++ = ((PPM/100) % 10) + '0' ;
-				*renglon++ = ((PPM/10)  % 10) + '0' ;
-				*renglon++ = ( PPM      % 10) + '0' ;
-				WG12864A_posXY(40, 7);
-				WG12864A_printf(buffer_pulso, Arial8x6, NEGRO);
-				Grafica_monitoreo(PPM);										// Grafico PPM cada 5 seg
-				HAB_GUARDAR=1;
-				}
-			}
-		}
-		if(cont_10seg>=10)													// A los 10 seg
-			cont_10seg=0;
-		cont_5seg_aux=0;
-		sleep=1;
-		Func_Sleep (flagirq, sleepmenu);									// Funcion que maneja el Sleep de la pantalla y la IRQ del TOUCH.
 	}
-	WG12864A_posXY(91, 7);
-	WG12864A_print_symbol(FD16x16, NEGRO);									// FD Negro
-	delay32Ms(0, TIMMER_FONDO_BLANCO);										// Para demorar su utiliza vTaskDelay()
-	adc_valX = 0, adc_valY = 0;												// Reseteo el valor de X, Y del ADC.
-	GPIOSetValue( 2, 9, 1 );												// Habilito Señal ANALOGICA
-	WG12864A_posXY(37, 7);													// Si no detecta Pulsos borra las PPM y el corazón
-	WG12864A_printf("         ", Arial8x6, NEGRO);
-	WG12864A_posXY(37, 8);
-	WG12864A_printf("         ", Arial8x6, NEGRO);
-
-#endif
 }
-
 //						  Muestra fecha y hora
 //--------------------------------------------------------------------------
 void Historial(char His)

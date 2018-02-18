@@ -7,7 +7,8 @@ Fuentes/Subfunciones.o Fuentes/Subfunciones.d: ../Fuentes/Subfunciones.c \
  /home/sebastian/LPCXpresso/workspace/Proyectos\ LPC1115/Monitor_Fetal/MF_v1.2/Cabeceras/Subfunciones.h \
  /home/sebastian/LPCXpresso/workspace/Proyectos\ LPC1115/Monitor_Fetal/MF_v1.2/Cabeceras/WG12864A.h \
  /home/sebastian/LPCXpresso/workspace/Proyectos\ LPC1115/Monitor_Fetal/MF_v1.2/Cabeceras/Definiciones.h \
- /home/sebastian/LPCXpresso/workspace/Proyectos\ LPC1115/Monitor_Fetal/MF_v1.2/Cabeceras/Comunicaciones.h
+ /home/sebastian/LPCXpresso/workspace/Proyectos\ LPC1115/Monitor_Fetal/MF_v1.2/Cabeceras/Comunicaciones.h \
+ /home/sebastian/LPCXpresso/workspace/Proyectos\ LPC1115/Monitor_Fetal/MF_v1.2/Cabeceras/sd_mmc_spi.h
 
 /home/sebastian/LPCXpresso/workspace/Proyectos\ LPC1115/Monitor_Fetal/MF_v1.2/Drivers/gpio.h:
 
@@ -26,3 +27,5 @@ Fuentes/Subfunciones.o Fuentes/Subfunciones.d: ../Fuentes/Subfunciones.c \
 /home/sebastian/LPCXpresso/workspace/Proyectos\ LPC1115/Monitor_Fetal/MF_v1.2/Cabeceras/Definiciones.h:
 
 /home/sebastian/LPCXpresso/workspace/Proyectos\ LPC1115/Monitor_Fetal/MF_v1.2/Cabeceras/Comunicaciones.h:
+
+/home/sebastian/LPCXpresso/workspace/Proyectos\ LPC1115/Monitor_Fetal/MF_v1.2/Cabeceras/sd_mmc_spi.h:
