@@ -39,7 +39,7 @@ uint8_t   card_type;                      // stores SD_CARD or MMC_CARD type car
 uint16_t						sec_cal;
 uint32_t	 						*offset_cal,*offset,*OFFSET_SD_V;
 static uint32_t					ptr_memsd;
-uint32_t							sd_sector=7500,SECTOR_SD_V;
+uint32_t							sd_sector=0x2008,SECTOR_SD_V;
 char POS_SDHC=4,wXP=1;
 unsigned int SAL_SD;
 uint8_t   data_mem[513]; // data buffer
@@ -95,7 +95,7 @@ char sd_mmc_spi_internal_init(void)
   if_cond = sd_mmc_spi_get_if();
   if(if_cond == -1) {
       return false; // card is bad
-  } else if (if_cond == 1) {
+  } else if (if_cond == 2) {//1
       card_type = SD_CARD_2;
   } else {
     // IDENTIFICATION OF THE CARD TYPE (SD or MMC)
@@ -160,7 +160,7 @@ char sd_mmc_spi_internal_init(void)
       return false;
     } else if (if_cond == 1){
           card_type = SD_CARD_2_SDHC;
-          SD_HC=0;//1;								SACARRRRRRRRRRRRRRRRRRRRRRRRrr
+          SD_HC=1;
       }
   }
 
@@ -485,8 +485,8 @@ void buscaensd(char prosd)
 	busct=0;
 //	sd_sector=0x1D4C;					//Hasta 2Gb (NO SD_HC)				// Sector base para busqueda del programa en SD-MMC
 //	offset=0x3A9800;														// Offset base para busqueda del programa en SD-MMC
-	sd_sector=0x59d8;					//4Gb	SD_HC
-	offset=0xb3b000;
+	sd_sector=0x1F40;//0x2008;//0x59d8;					//4Gb	SD_HC
+	offset=0x3E8000;//0x401000;//0xb3b000;
 //	sd_sector=0x84d0;					//8Gb	SD_HC
 //	offset=0xb3b000;
 //	sd_sector=0x11d28;					//16Gb	SD_HC w7 POS=73000
@@ -501,8 +501,8 @@ void buscaensd(char prosd)
 	}
 	else
 	{
-		sd_sector=0x1D4C;				//2Gb no HC							// Sector base para busqueda del programa en SD-MMC
-		offset=0x3A9800;													// Offset base para busqueda del programa en SD-MMC
+		sd_sector=0x1F40;//0x2008;//0x1D4C;				//2Gb no HC							// Sector base para busqueda del programa en SD-MMC
+		offset=0x3E8000;//0x401000;//0x3A9800;													// Offset base para busqueda del programa en SD-MMC
 //		DISP_SD=2;
 	}
 //	leds (SDMMC) ;
@@ -595,8 +595,8 @@ void buscaensd(char prosd)
 				}
 				else
 				{
-				sd_sector=0x1D4C;//7500;		//2Gb no HC					// Sector base para busqueda del programa en SD-MMC
-				offset=0x3A9800;											// Offset base para busqueda del programa en SD-MMC
+					sd_sector=0x1F40;//0x2008;//0x1D4C;				//2Gb no HC							// Sector base para busqueda del programa en SD-MMC
+					offset=0x3E8000;//0x401000;//0x3A9800;													// Offset base para busqueda del programa en SD-MMC
 				punt=0;
 				busct=0;
 				flags=0;
@@ -676,8 +676,8 @@ void buscaensd(char prosd)
 				}
 				else
 				{
-				sd_sector=0x1D4C;//7500;		//2Gb no HC					// Sector base para busqueda del programa en SD-MMC
-				offset=0x3A9800;											// Offset base para busqueda del programa en SD-MMC
+					sd_sector=0x1F40;//0x2008;//0x1D4C;				//2Gb no HC							// Sector base para busqueda del programa en SD-MMC
+					offset=0x3E8000;//0x401000;//0x3A9800;													// Offset base para busqueda del programa en SD-MMC
 				punt=0;
 				busct=0;
 				flags=0;
@@ -695,7 +695,8 @@ void buscaensd(char prosd)
 char sd_mmc_spi_search_sector_to_ram(uint32_t *psd)
 {
 	uint32_t /**ptr_memsd,*/*offset,aux2_arg;												// Memory data pointer
-	uint8_t *_ram = psd,aux2_command;
+	uint8_t *_ram = psd;
+	uint8_t aux2_command;
 //  volatile unsigned char offset;
 	uint16_t  i,sector;
 	uint16_t  read_time_out;
@@ -759,12 +760,18 @@ char sd_mmc_spi_search_sector_to_ram(uint32_t *psd)
 //  	*ptr_sd_mmc++=data_read;
 		switch (dato)														// Busca el inicio del programa
 		{
-		case 0xAA:
+		case 0x58://0xAA:
 			ini=1;
 			sector=i;
 			offset=_ram;
+			//---------
+			sec_cal=sector;												// Si cumple con AA 55 guarda los valores
+			offset_cal=offset;
+			i=600;														// Para salir del for
+			op=OK;
+			//---------
 			break;
-		case 0x55:
+		case 0x4D://0x55:
 			if(ini==1)
 			{
 				sec_cal=sector;												// Si cumple con AA 55 guarda los valores

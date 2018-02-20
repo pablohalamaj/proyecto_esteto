@@ -29,13 +29,13 @@ unsigned short 	aux=0, aux3=0,err_mod=0, err_mod2=0;
 char Graf_punt,ale;
 static char  		buffer_pulso[44] ;
 char 				buf_par[5],repite_parc,Prom_par,i_t,act_t_par,cont_ant,i_ff,
-					HAB_PARLANTE,APA_PARLANTE,cont_bajas_PPM,HAB_G;
+					HAB_PARLANTE,APA_PARLANTE,cont_bajas_PPM,HAB_G,cont_mem;
 int 				Prom_tot,T_Periodo,T_Per,t_par,PPM_ant,PPM_ale,Cont_per_pulso,Per_par;
 //unsigned int 		valpru8[1000],i_prue;
-uint32_t			*OFFSET_SD_V;
-uint32_t			SECTOR_SD_V;
+//uint32_t			*OFFSET_SD_V;
+//uint32_t			SECTOR_SD_V;
 
-extern int val_bufff[];
+extern char val_bufff[];
 //--------------------------------------------------------------------------
 //***********************  Variables Externas  *****************************
 extern char 	cantmp,cantver,cantprt,cint,menuactual,flagmm,sumaerr,
@@ -45,7 +45,10 @@ extern char		reclq,reclq1,reclq2,reclq3,mtok,i_p,flag_1seg,flag_25ms,cont_5s,
 extern unsigned int adc_val5,adc_valX, adc_valY;
 extern char 		buff_prueba[],buff_prueba2[],HAB_GUARDAR;
 extern unsigned int sleep,flagsleep,flagirq,sleepmenu;
-extern int buff_prueba3[],PPM;
+extern int PPM;
+extern uint32_t	 	*offset;
+extern uint32_t		sd_sector;
+extern char buff_prueba[],buff_prueba2[],buff_prueba3[];
 //--------------------------------------------------------------------------
 
 //						  Detecta los pulsos del corazón
@@ -59,7 +62,7 @@ void Det_corazon(void)
 	WG12864A_printf("         ", Arial8x6, NEGRO);
 	WG12864A_posXY(1, 8);
 	WG12864A_printf("               ", Arial8x6, NEGRO);
-	i_ff=0;
+	i_ff=2;
 //------------------------------------------------------------------------
 	while(!((0xA0 < adc_valX) &&(adc_valX < 0xB9) &&						// Mientras este activo el FD
 		 (0x2A < adc_valY) && (adc_valY < 0x5A)))
@@ -150,10 +153,11 @@ void Det_corazon(void)
 				{
 					PPM_ant=PPM;
 					Per_par=Per_Temp;
-					val_bufff[i_ff]=PPM;
-					if(i_ff<100)
-						i_ff++;
-					WG12864A_posXY(1, 7);
+/*					val_bufff[i_ff]=PPM;
+					i_ff++;
+					if(i_ff>90)
+						i_ff=2;
+*/					WG12864A_posXY(1, 7);
 					WG12864A_printf("Pulso:", Arial8x6, NEGRO);
 					renglon = buffer_pulso ;
 					*renglon++ = ((PPM/100) % 10) + '0' ;
@@ -164,6 +168,10 @@ void Det_corazon(void)
 					if(HAB_G>2)
 					{
 						HAB_G=0;
+						val_bufff[i_ff]=PPM;
+						i_ff++;
+						if(i_ff>90)
+							i_ff=2;
 						Grafica_monitoreo(PPM);										// Grafico PPM cada 5 seg
 					}
 					else
@@ -245,9 +253,10 @@ void Det_corazon(void)
 void almacena_sd(void)
 {
 	char 		SD_Protect,re;
-	int  		i,punt=0;
-	uint32_t	kons=512;
-	unsigned int SD_val;
+	char				res=0;
+	int  		i;
+	uint32_t	envsd,punt=0,kons=512;
+	char		SD_val,m;
 
 	re=sd_mmc_spi_internal_init();        								// Restart Init of SD/MMC card after previous first init
 	if(re!=KO)
@@ -259,15 +268,44 @@ void almacena_sd(void)
 			WG12864A_printf("Alm en SD...", Arial8x6, NEGRO);					// Titulo del menu.
 			delay32Ms(0, TIMMER_LOGO_AUTOTROL);
 //---------		SECTOR_SD_V y OFFSET_SD_V		-------- Contienen el inicio del programa en la SD
-			for(punt=0;punt<96;punt++)									// Graba 96 sectores de 512 = 48k
+			switch(cont_mem)
 			{
-				if (sd_mmc_spi_write_open (SECTOR_SD_V) == OK)			// Abre en forma de escritura
+			case 1:
+				sd_sector=0x2008;
+				offset=0x401000;
+				cont_mem=2;
+				for(m=0;m<100;m++)
+					buff_prueba[m]=val_bufff[m];
+				break;
+			case 2:
+				sd_sector=0x2009;
+				offset=0x401200;
+				cont_mem=1;
+				for(m=0;m<100;m++)
+					buff_prueba2[m]=val_bufff[m];
+				break;
+			default:
+				sd_sector=0x2008;
+				offset=0x401000;
+				cont_mem=2;
+				for(m=0;m<100;m++)
+					buff_prueba3[m]=val_bufff[m];
+				break;
+			}
+			envsd=(offset+((punt*kons)>>2));							// Incrementa de a 512b
+			res=sd_mmc_spi_search_sector_to_ram(envsd);					// lee el sector de programa de la SD-MMC OK=ppio del prog
+
+			for(punt=0;punt<85;punt++)									// Graba 96 sectores de 512 = 48k
+			{
+//				envsd=(offset+((punt*kons)>>2));							// Incrementa de a 512b
+				if (sd_mmc_spi_write_open (envsd) == OK)			// Abre en forma de escritura
 				{
-					SD_val=val_bufff[punt]+(punt*kons);
+					SD_val=(val_bufff[punt]);//+(punt*kons);
 					sd_mmc_spi_write_sector_from_ram(&SD_val);	// Graba en SD-MMC
 				}
 				sd_mmc_spi_write_close ();
-				SECTOR_SD_V++;
+				envsd++;
+				//offset++;//SECTOR_SD_V++;
 			}
 		}
 		else
