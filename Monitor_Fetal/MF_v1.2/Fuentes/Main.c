@@ -37,7 +37,7 @@ __CRP const unsigned int CRP_WORD = CRP_NO_CRP ;
 char 	cont=0,flagmm=0,flagbll=0,flag_1seg,flag_25ms,cont_1min,cont_1seg,Hab_cont_500ms,cont_500ms,cont_100ms;
 char 	Rx[30];Rx1[30],Rx2[30],btens[16],toffset[16],movmp[16],version[16],version_prt[16];
 char 	causaerr[11],causaerror[11],moduloerr[11],icomu[5],b_tog[16],sumaerr=0,lec=0,SIN_SD;
-extern char actualiza_fw,pos_x,cont_mem;
+extern char actualiza_fw,pos_x,pos_xg,pos_xh,cont_mem,mon_his,alm_pos_x;
 //char /*buff_prueba3[100],*/val_bufff[100];
 
 int main(void)
@@ -79,6 +79,10 @@ int main(void)
 	GPIOIntEnable(PORT1, 2);
 	actualiza_fw=0;
 	pos_x=25;
+	pos_xg=25;
+	pos_xh=25;
+	mon_his=0;
+	alm_pos_x=25;
 	GPIOSetValue( 2, 10, 0 );												// Deshabilito salida de latido
 	GPIOSetValue( 2, 8, 1 );												// Dehabilito el MUX
 	GPIOSetValue( 2, 9, 1 );												// Habilito Señal ANALOGICA

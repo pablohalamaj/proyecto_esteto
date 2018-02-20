@@ -20,8 +20,8 @@
 #include "sd_mmc_spi.h"
 //--------------------------------------------------------------------------
 //***********************  Variables Propias  ******************************
-char			colu=7,ledcoo,pos_x,pnt,pnt_ant,Fila_ant,mitad_ant,pulso_ant,
-				cont_5seg=0,swt_corazon,cont_pulso,act_espera;
+char			colu=7,ledcoo,pnt,pnt_ant,Fila_ant,mitad_ant,pulso_ant,pos_xh,
+				cont_5seg=0,swt_corazon,cont_pulso,act_espera,mon_his,protec_pos_x;
 int 			h,mi,seg,d,m,a,aa,aaa,aaaa,anio,ds,
 				ef,pl,e,ee,eee,eeee,dets,esta,estf,
 				proxf[8],proxh[4];
@@ -38,7 +38,7 @@ int 				Prom_tot,T_Periodo,T_Per,t_par,PPM_ant,PPM_ale,Cont_per_pulso,Per_par;
 extern char val_bufff[];
 //--------------------------------------------------------------------------
 //***********************  Variables Externas  *****************************
-extern char 	cantmp,cantver,cantprt,cint,menuactual,flagmm,sumaerr,
+extern char 	cantmp,cantver,cantprt,cint,menuactual,flagmm,sumaerr,pos_x,pos_xg,
 				Rx[],btens[],toffset[],movmp[],causaerr[],causaerror[];
 extern char		reclq,reclq1,reclq2,reclq3,mtok,i_p,flag_1seg,flag_25ms,cont_5s,
 				cont_10seg,cont_5seg_aux,cont_5seg_au,cont_500ms,Hab_cont_500ms,cont_100ms;
@@ -173,6 +173,7 @@ void Det_corazon(void)
 						if(i_ff>90)
 							i_ff=2;
 						Grafica_monitoreo(PPM);										// Grafico PPM cada 5 seg
+						protec_pos_x=1;
 					}
 					else
 					{
@@ -209,7 +210,7 @@ void Det_corazon(void)
 						WG12864A_posXY(40, 7);
 						WG12864A_printf(buffer_pulso, Arial8x6, NEGRO);
 						Grafica_monitoreo((PPM_ant+1));										// Grafico PPM cada 5 seg
-
+						protec_pos_x=1;
 					}
 					else
 					{
@@ -341,11 +342,12 @@ void Historial(char His)
 	}
 	Graf_datos_est();
 	i=0;
-	pos_x=25;
-	while(pos_x<119)
+	pos_xg=25;
+	mon_his=1;
+	while(pos_xg<119)
 	{
 		if(!buff_His[i])
-			pos_x++;
+			pos_xg++;
 		Grafica_monitoreo(buff_His[i]);										// Grafico PPM cada 5 seg
 		i++;
 	}
@@ -353,6 +355,8 @@ void Historial(char His)
 	while(! ((0xD0 < adc_valX) && (adc_valX < 0xEA) &&
 			 (0x2A < adc_valY) && (adc_valY < 0x5A)))
 	{
+		mon_his=0;
+		pos_xg=25;
 		sleep=1;
 		Func_Sleep (flagirq, sleepmenu);									// Funcion que maneja el Sleep de la pantalla y la IRQ del TOUCH.
 	}

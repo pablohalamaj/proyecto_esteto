@@ -16,7 +16,9 @@
 #include "WG12864A.h"
 #include "Definiciones.h"
 
-extern char pos_x,pnt,pnt_ant,Fila_ant,mitad_ant,Graf_punt;
+char		pos_xg,alm_pos_x;
+extern char pos_x,pnt,pnt_ant,Fila_ant,mitad_ant,Graf_punt,
+			pos_xh,mon_his,protec_pos_x;
 
 
 //						  Grafica Datos Estaticos del Monitoreo
@@ -61,6 +63,18 @@ void Graf_datos_est	(void)
 void Grafica_monitoreo(char pulso)
 {
 	char m,n,Fila_mon,pulso_env,mitad_f,NO_GRAF;
+/*	if(mon_his)
+	{
+		if(protec_pos_x)
+		{
+			alm_pos_x=pos_xg;
+			protec_pos_x=0;
+		}
+		pos_xg=pos_xh;
+	}
+	if(mon_his==0&&protec_pos_x==0)
+		pos_xg=alm_pos_x;
+*/
 	if(pulso>=60 && pulso<70)
 	{
 		Fila_mon=6;
@@ -128,18 +142,18 @@ void Grafica_monitoreo(char pulso)
 		pulso_env=pulso;
 		func_punto (pulso_env,mitad_f);											// Posiciona el punto en pantalla
 		analizo_salto(Fila_mon,mitad_f);										// Función que completa en caso de salto entre puntos
-		pos_x++;																// incrementa una posición
-		if(pos_x>=120)															// Si llega al tope del display, vuelve
-			pos_x=25;
+		pos_xg++;																// incrementa una posición
+		if(pos_xg>=120)															// Si llega al tope del display, vuelve
+			pos_xg=25;
 	}
 //--------------------------------------------------------------------------
 	for(m=1;m<5;m++)														// Borra el display a medida que actualiza la pantalla
 	{
 		for(n=2;n<7;n++)
 		{
-			WG12864A_posXY(pos_x+m,n);
+			WG12864A_posXY(pos_xg+m,n);
 			GLCD_Output_High(RS);   										// Modo datos
-			if(pos_x+m<65)
+			if(pos_xg+m<65)
 				GLCD_enviaBYTE(IZQ, 0x00);  								// enciende byte
 			else
 				GLCD_enviaBYTE(DER, 0x00);  								// enciende byte
@@ -148,9 +162,9 @@ void Grafica_monitoreo(char pulso)
 //--------------------------------------------------------------------------
 	if(!NO_GRAF)
 	{
-		WG12864A_posXY(pos_x,Fila_mon);											// Escribe el punto en pantalla
+		WG12864A_posXY(pos_xg,Fila_mon);											// Escribe el punto en pantalla
 		GLCD_Output_High(RS);   												// Modo datos
-		if(pos_x<65)
+		if(pos_xg<65)
 			GLCD_enviaBYTE(IZQ, (pnt));  										// enciende byte
 		else
 			GLCD_enviaBYTE(DER, (pnt));  										// enciende byte
@@ -225,16 +239,16 @@ void analizo_salto(char Fila_act,char mitad_act)
 				if(pnt_ant==pnt_rell)										// Si lo encontró...
 				{
 					pnt_rell=pnt_rell>>1;									// Se desplaza 1
-					pos_x++;
+					pos_xg++;
 					entro_rell=1;											// Hab relleno
 				}
 				x_salto=0;
 				pnt_aux=pnt_rell;											// Valor origen
 				while((pnt!=pnt_aux )&& x_salto<8 && entro_rell)					// Mientras no llegue al punto actual...
 				{
-					WG12864A_posXY(pos_x,Fila_ant);							// Escribe el punto en pantalla
+					WG12864A_posXY(pos_xg,Fila_ant);							// Escribe el punto en pantalla
 					GLCD_Output_High(RS);   								// Modo datos
-					if(pos_x<65)
+					if(pos_xg<65)
 						GLCD_enviaBYTE(IZQ, (pnt_rell));  					// enciende byte
 					else
 						GLCD_enviaBYTE(DER, (pnt_rell));  					// enciende byte
@@ -256,16 +270,16 @@ void analizo_salto(char Fila_act,char mitad_act)
 				if(pnt_ant==pnt_rell)										// Si lo encontró
 				{
 					pnt_rell=pnt_rell<<1;									// Se desplaza 1
-					pos_x++;
+					pos_xg++;
 					entro_rell=1;											// Hab relleno
 				}
 				x_salto=0;
 				pnt_aux=pnt_rell;											// Valor origen
 				while((pnt!=pnt_aux ) && x_salto<8 && entro_rell)					// Mientras no llegue al punto actual...
 				{
-					WG12864A_posXY(pos_x,Fila_ant);							// Escribe el punto en pantalla
+					WG12864A_posXY(pos_xg,Fila_ant);							// Escribe el punto en pantalla
 					GLCD_Output_High(RS);   								// Modo datos
-					if(pos_x<65)
+					if(pos_xg<65)
 						GLCD_enviaBYTE(IZQ, (pnt_rell));  					// enciende byte
 					else
 						GLCD_enviaBYTE(DER, (pnt_rell));  					// enciende byte
@@ -295,7 +309,7 @@ void analizo_salto(char Fila_act,char mitad_act)
 			if(pnt_ant==pnt_rell)											// Si lo encontró...
 			{
 				pnt_rell=pnt_rell>>1;										// Se desplaza 1
-				pos_x++;
+				pos_xg++;
 				entro_rell=1;												// Hab relleno
 			}
 			x_salto=0;
@@ -303,9 +317,9 @@ void analizo_salto(char Fila_act,char mitad_act)
 			while((pnt!=pnt_aux )&& x_salto<8 && entro_rell)						// Mientras no llegue al punto actual...
 			{
 
-				WG12864A_posXY(pos_x,Fila_ant);								// Escribe el punto en pantalla
+				WG12864A_posXY(pos_xg,Fila_ant);								// Escribe el punto en pantalla
 				GLCD_Output_High(RS);   									// Modo datos
-				if(pos_x<65)
+				if(pos_xg<65)
 					GLCD_enviaBYTE(IZQ, (pnt_rell));  						// enciende byte
 				else
 					GLCD_enviaBYTE(DER, (pnt_rell));  						// enciende byte
@@ -318,9 +332,9 @@ void analizo_salto(char Fila_act,char mitad_act)
 //****************
 					if(Fila_act<Fila_ant)
 					{
-						WG12864A_posXY(pos_x,Fila_ant);						// Escribe el punto en pantalla
+						WG12864A_posXY(pos_xg,Fila_ant);						// Escribe el punto en pantalla
 						GLCD_Output_High(RS);   							// Modo datos
-						if(pos_x<65)
+						if(pos_xg<65)
 							GLCD_enviaBYTE(IZQ, (0xFF));  					// enciende byte
 						else
 							GLCD_enviaBYTE(DER, (0xFF));  					// enciende byte
@@ -349,16 +363,16 @@ void analizo_salto(char Fila_act,char mitad_act)
 			if(pnt_ant==pnt_rell)											// Si lo encontró
 			{
 				pnt_rell=pnt_rell<<1;										// Se desplaza 1
-				pos_x++;
+				pos_xg++;
 				entro_rell=1;												// Hab relleno
 			}
 			x_salto=0;
 			pnt_aux=pnt_rell;												// Valor origen
 			while((pnt!=pnt_aux ) && x_salto<8 && entro_rell)						// Mientras no llegue al punto actual...
 			{
-				WG12864A_posXY(pos_x,Fila_ant);								// Escribe el punto en pantalla
+				WG12864A_posXY(pos_xg,Fila_ant);								// Escribe el punto en pantalla
 				GLCD_Output_High(RS);   									// Modo datos
-				if(pos_x<65)
+				if(pos_xg<65)
 					GLCD_enviaBYTE(IZQ, (pnt_rell));  						// enciende byte
 				else
 					GLCD_enviaBYTE(DER, (pnt_rell));  						// enciende byte
@@ -371,9 +385,9 @@ void analizo_salto(char Fila_act,char mitad_act)
 //****************
 					if(Fila_act>Fila_ant)
 					{
-						WG12864A_posXY(pos_x,Fila_ant);						// Escribe el punto en pantalla
+						WG12864A_posXY(pos_xg,Fila_ant);						// Escribe el punto en pantalla
 						GLCD_Output_High(RS);   							// Modo datos
-						if(pos_x<65)
+						if(pos_xg<65)
 							GLCD_enviaBYTE(IZQ, (0xFF));  					// enciende byte
 						else
 							GLCD_enviaBYTE(DER, (0xFF));  					// enciende byte
