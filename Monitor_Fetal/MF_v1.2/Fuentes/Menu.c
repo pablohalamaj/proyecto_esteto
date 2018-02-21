@@ -25,7 +25,7 @@
 extern unsigned int menu = 0, menu1 = -1, menu2 = -1, menu3 = -1,
 					menu32 = -1, menu4 = -1, menu41 = -1, menu41_1 = -1,
 					menu41_2 = -1, menu41_3 = -1, menu41_4 = -1;
-extern char			flagmm,pos_x;
+extern char			flagmm,pos_x,pos_xg;
 unsigned int 		adc_valX, adc_valY;
 unsigned int 		clave[] = CLAVE, cla[4];
 unsigned int 		cur=48,													// Posicion del cursor dentro de la pantalla.
@@ -355,7 +355,7 @@ void Menu_Inicial(void){
 		delay32Ms(0, TIMMER_FONDO_BLANCO);
 		adc_valX = 0, adc_valY = 0;											// Reseteo el valor de X, Y del ADC.
 		WG12864A_Limpiar(NEGRO); 											// Limpio la pantalla y entro al submenu 2.1
-		pos_x=25;															// Posción de inicio de pantalla Monitoreo
+		pos_xg=25;															// Posción de inicio de pantalla Monitoreo
 		Func_Monitoreo();													// Funcion del SubMenu seleccionado.
 
 		break;

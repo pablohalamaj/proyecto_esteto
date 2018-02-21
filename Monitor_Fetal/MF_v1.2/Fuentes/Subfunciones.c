@@ -29,7 +29,7 @@ unsigned short 	aux=0, aux3=0,err_mod=0, err_mod2=0;
 char Graf_punt,ale;
 static char  		buffer_pulso[44] ;
 char 				buf_par[5],repite_parc,Prom_par,i_t,act_t_par,cont_ant,i_ff,
-					HAB_PARLANTE,APA_PARLANTE,cont_bajas_PPM,HAB_G,cont_mem;
+					HAB_PARLANTE,APA_PARLANTE,cont_bajas_PPM,HAB_G,cont_mem,HAB_G_ALE;
 int 				Prom_tot,T_Periodo,T_Per,t_par,PPM_ant,PPM_ale,Cont_per_pulso,Per_par;
 //unsigned int 		valpru8[1000],i_prue;
 //uint32_t			*OFFSET_SD_V;
@@ -186,7 +186,7 @@ void Det_corazon(void)
 				{
 					if(cont_ant<4)
 					{
-						cont_ant++;
+
 						if(PPM_ant!=0)
 						{
 							if(ale)
@@ -200,17 +200,27 @@ void Det_corazon(void)
 								ale=1;
 							}
 						}
-						val_bufff[i_ff]=PPM_ale;
-						if(i_ff<100)
-							i_ff++;
 						renglon = buffer_pulso ;
 						*renglon++ = (((PPM_ale)/100) % 10) + '0' ;
 						*renglon++ = (((PPM_ale)/10)  % 10) + '0' ;
 						*renglon++ = ( (PPM_ale)      % 10) + '0' ;
 						WG12864A_posXY(40, 7);
 						WG12864A_printf(buffer_pulso, Arial8x6, NEGRO);
-						Grafica_monitoreo((PPM_ant+1));										// Grafico PPM cada 5 seg
-						protec_pos_x=1;
+						if(HAB_G_ALE>2)
+						{
+							HAB_G_ALE=0;
+							cont_ant++;
+							val_bufff[i_ff]=PPM_ale;
+							i_ff++;
+							if(i_ff>90)
+								i_ff=2;
+							Grafica_monitoreo((PPM_ant+1));										// Grafico PPM cada 5 seg
+							protec_pos_x=1;
+						}
+						else
+						{
+							HAB_G_ALE++;
+						}
 					}
 					else
 					{

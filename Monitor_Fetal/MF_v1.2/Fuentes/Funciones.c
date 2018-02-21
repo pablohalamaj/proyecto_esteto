@@ -576,7 +576,7 @@ void Func_Monitoreo (void)
 		{
 			if(sd_mostrar)
 			{
-				SD_Detect=GPIOGetValue(3,4);
+				SD_Detect=GPIOGetValue(3,4);								// Consulta si esta la SD o no...
 				if(SD_Detect)
 				{
 					sd_mostrar=0;
